@@ -9,9 +9,9 @@
                     <v-text-field type="email" label="이메일" />
                     <v-text-field type="text" label="직장명" />
                     <v-text-field type="tel" label="전화" />
-                    <v-menu :close-on-content-click="false" :return-value.sync="date" offset-y v-model="menu" ref="menu" min-width="auto">
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" v-on="on" readonly label="희망 납품일"/>
+                    <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
+                        <template #activator="{ on, attrs }">
+                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="희망 납품일" v-on="on" />
                         </template>
                         <v-date-picker v-model="date" no-title scrollable>
                             <v-spacer />

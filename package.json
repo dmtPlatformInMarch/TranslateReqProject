@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "lint": "eslint **/*"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,9 @@
     "pdfmake": "^0.2.4",
     "vue": "^2.6.14",
     "vuetify": "^2.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-plugin-vue": "^8.2.0"
   }
 }

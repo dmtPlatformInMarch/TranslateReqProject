@@ -6,7 +6,7 @@
                 <v-subheader>유저 님이 요청한 번역</v-subheader>
                 <v-card>
                     <v-virtual-scroll :items="items" :item-height="50" height="300">
-                        <template v-slot:default="{ item }">
+                        <template #default="{ item }">
                             <v-list-item>
                                 <v-list-item-content>
                                     <v-list-item-title>{{ Date() }}</v-list-item-title>
@@ -34,7 +34,7 @@
                 <v-subheader>유저 님의 번역 요청 이력</v-subheader>
                 <v-card>
                     <v-virtual-scroll :items="items" :item-height="50" height="300">
-                        <template v-slot:default="{ item }">
+                        <template #default="{ item }">
                             <v-list-item>
                                 <v-list-item-content>
                                     <v-list-item-title>{{ Date() }}</v-list-item-title>

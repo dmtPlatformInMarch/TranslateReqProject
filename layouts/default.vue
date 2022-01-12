@@ -1,16 +1,16 @@
 <template>
     <v-app>
-        <v-toolbar elevation=1 style="flex: initial">
+        <v-toolbar elevation="1" style="flex: initial">
             <v-toolbar-title>
                 <nuxt-link to="/">DMT labs</nuxt-link>
             </v-toolbar-title>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-toolbar-items>
                 <v-menu offset-x offset-y :close-on-content-click="false" :nudge-width="200">
-                    <template v-slot:activator="{ on, attrs }">
+                    <template #activator="{ on, attrs }">
                         <v-btn text style="{display: flex, alignItems: 'center'}" v-bind="attrs" v-on="on">로그인</v-btn>
                     </template>
-                    <login-form></login-form>
+                    <login-form />
                 </v-menu>
             </v-toolbar-items>
         </v-toolbar>
@@ -25,7 +25,7 @@
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
-                    <v-divider></v-divider>
+                    <v-divider />
                     <v-list nav dense>
                         <v-list-item link to="/request">
                             <v-list-item-icon>
@@ -33,7 +33,7 @@
                             </v-list-item-icon>
                             <v-list-item-title>번역 의뢰</v-list-item-title>
                         </v-list-item>
-                        <v-list-item link to="/state">
+                        <v-list-item link to="/reqstate">
                             <v-list-item-icon>
                                 <v-icon>mdi-clipboard-search</v-icon>
                             </v-list-item-icon>
