@@ -3,35 +3,30 @@
     "name": "history",
     "path": "/history",
     "component": "C:\\\\git\\\\Project_DMT\\\\pages\\\\history.vue",
-    "chunkName": "pages/history",
-    "_name": "_5ec80d88"
+    "chunkName": "pages/history"
   },
   {
     "name": "request",
     "path": "/request",
     "component": "C:\\\\git\\\\Project_DMT\\\\pages\\\\request.vue",
-    "chunkName": "pages/request",
-    "_name": "_e34cb3fa"
+    "chunkName": "pages/request"
   },
   {
     "name": "signup",
     "path": "/signup",
     "component": "C:\\\\git\\\\Project_DMT\\\\pages\\\\signup.vue",
-    "chunkName": "pages/signup",
-    "_name": "_36747bd4"
+    "chunkName": "pages/signup"
   },
   {
     "name": "state",
     "path": "/state",
     "component": "C:\\\\git\\\\Project_DMT\\\\pages\\\\state.vue",
-    "chunkName": "pages/state",
-    "_name": "_4e25e3f6"
+    "chunkName": "pages/state"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\git\\\\Project_DMT\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_251f69c6"
+    "chunkName": "pages/index"
   }
 ]

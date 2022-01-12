@@ -1,6 +1,9 @@
 module.exports = {
     head: {
         title: "DMT",
+        link: [{
+            rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'
+        }],
     },
     buildModules: [
         '@nuxtjs/vuetify',

@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-toolbar dense elevation=1 style="flex: initial">
+        <v-toolbar elevation=1 style="flex: initial">
             <v-toolbar-title>
                 <nuxt-link to="/">DMT labs</nuxt-link>
             </v-toolbar-title>
