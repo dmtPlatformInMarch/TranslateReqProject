@@ -11,7 +11,7 @@
                     </v-list-item-content>
                 </v-list-item-group>
                 <v-list-item>
-                    <v-btn style="width:100%" depressed :disabled="!valid">로그인</v-btn>
+                    <v-btn style="width:100%" depressed :disabled="!valid" type="submit">로그인</v-btn>
                 </v-list-item>
                 <v-list-item-subtitle class="text-center">
                     <v-btn style="width:90%" plain to="/signup">회원가입</v-btn>
@@ -46,7 +46,10 @@ export default {
     methods: {
         onSubmitForm() {
             if(this.$refs.form.validate()){
-                // true
+                this.$store.dispatch('users/login', {
+                    email: this.email,
+                    nickname: '유저'
+                });
             } else {
                 // false
             }

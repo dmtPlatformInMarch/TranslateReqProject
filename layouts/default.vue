@@ -18,10 +18,16 @@
             <v-col cols="12" md="2">
                 <v-navigation-drawer permanent>
                     <v-list>
-                        <v-list-item>
+                        <v-list-item v-if="!loginState">
                             <v-list-item-content>
-                                <v-list-item-title class="text-h6">유저 님</v-list-item-title>
+                                <v-list-item-title>로그인이 필요합니다.</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item v-else>
+                            <v-list-item-content>
+                                <v-list-item-title class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
                                 <v-list-item-subtitle>번역 의뢰 : N건</v-list-item-subtitle>
+                                <v-btn depressed @click="onLogout">로그아웃</v-btn>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
@@ -66,6 +72,16 @@ export default {
     },
     data: () => ({
 
-    })
+    }),
+    computed: {
+        loginState() {
+            return this.$store.state.users.loginState;
+        }
+    },
+    methods: {
+        onLogout() {
+            this.$store.dispatch('users/logout');
+        }
+    }
 };
 </script>

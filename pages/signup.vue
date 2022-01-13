@@ -56,7 +56,19 @@ export default {
     methods: {
         onSubmitForm() {
             if(this.$refs.form.validate()){
-                // true
+                // dispatch는 구조상 promise
+                this.$store.dispatch('users/signUp', {
+                    nickname: this.nickname,
+                    email: this.email
+                })
+                    .then(() => {
+                        this.$router.push({
+                            path: '/',
+                        });
+                    })
+                    .catch(() => {
+                        alert("회원가입 실패");
+                    })
             } else {
                 // false
             }
