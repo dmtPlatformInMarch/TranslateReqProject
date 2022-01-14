@@ -4,14 +4,14 @@
         <v-card>
             <v-container>
                 <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
-                    <v-text-field v-model="name" type="text" label="*성명" :rules="[ v => !!v || '이름을 입력하셔야 합니다.']"/>
-                    <v-text-field v-model="phone" type="tel" label="*휴대전화" :rules="[ v => !!v || '전화번호를 입력하셔야 합니다.']"/>
-                    <v-text-field v-model="email" type="email" label="*이메일" :rules="[ v => !!v || '이메일을 입력하셔야 합니다.']"/>
+                    <v-text-field v-model="name" type="text" label="*성명" :rules="[ v => !!v || '이름을 입력하셔야 합니다.']" />
+                    <v-text-field v-model="phone" type="tel" label="*휴대전화" :rules="[ v => !!v || '전화번호를 입력하셔야 합니다.']" />
+                    <v-text-field v-model="email" type="email" label="*이메일" :rules="[ v => !!v || '이메일을 입력하셔야 합니다.']" />
                     <v-text-field v-model="company" type="text" label="*회사명" :rules="[ v => !!v || '회사이름이나 소속명을 입력해주세요.']" />
                     <v-text-field v-model="second_phone" type="tel" label="전화" />
                     <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
                         <template #activator="{ on, attrs }">
-                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="*희망 납품일" v-on="on" :rules="[ v => !!v || '희망 납품일을 입력해주세요.' ]" />
+                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="*희망 납품일" :rules="[ v => !!v || '희망 납품일을 입력해주세요.' ]" v-on="on" />
                         </template>
                         <v-date-picker v-model="date" no-title scrollable>
                             <v-spacer />
@@ -49,7 +49,6 @@ import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
-    name: 'default',
     data: () => ({
         hideDetails: true,
         valid: false,

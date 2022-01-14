@@ -11,7 +11,7 @@
                             <v-list-item-title>번역 진행 중인 의뢰가 없습니다.</v-list-item-title>
                         </v-list-item>
                         <v-list-item-group v-else>
-                            <trans-dash-board v-for="p in mainRequest" :p="p" :id="p.id" :key="p.id" />
+                            <trans-dash-board v-for="p in mainRequest" :id="p.id" :key="p.id" :p="p" />
                         </v-list-item-group>
                     </v-list>
                 </v-card>
