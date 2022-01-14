@@ -47,8 +47,8 @@ export default {
         onSubmitForm() {
             if(this.$refs.form.validate()){
                 this.$store.dispatch('users/login', {
-                    email: this.email,
-                    nickname: '유저'
+                    nickname: '유저',
+                    email: this.email
                 });
             } else {
                 // false

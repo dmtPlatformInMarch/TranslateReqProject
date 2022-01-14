@@ -1,0 +1,35 @@
+// request data ( Request Translation )
+{
+    id: '',
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    second_phone: '',
+    date: '',
+    req_lang: '',
+    grant_lang: '',
+    file: '',
+    options: '',
+    trans_state: '',
+}
+
+// users data ( With Login )
+// Login = LoginState = { object } -> Login_Data -> Login
+// Logout = LoginState = null -> Login_Data flushing -> Logout
+# LoginState Object
+{
+    nickname: '',
+    email: ''
+}
+# In client ( Transform LoginState || Login Check )
+{
+    nickname: '',
+    email: ''
+}
+# To Server ( Login Data Check || User Data Sending || SignUp )
+{
+    nickname: '',
+    email: '',
+    password: ''
+}

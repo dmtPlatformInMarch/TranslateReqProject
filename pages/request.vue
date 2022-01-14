@@ -3,15 +3,15 @@
         <h1>번역 의뢰 페이지</h1>
         <v-card>
             <v-container>
-                <v-form>
-                    <v-text-field type="text" label="성명" />
-                    <v-text-field type="tel" label="휴대전화" />
-                    <v-text-field type="email" label="이메일" />
-                    <v-text-field type="text" label="직장명" />
-                    <v-text-field type="tel" label="전화" />
+                <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
+                    <v-text-field v-model="name" type="text" label="*성명" :rules="[ v => !!v || '이름을 입력하셔야 합니다.']"/>
+                    <v-text-field v-model="phone" type="tel" label="*휴대전화" :rules="[ v => !!v || '전화번호를 입력하셔야 합니다.']"/>
+                    <v-text-field v-model="email" type="email" label="*이메일" :rules="[ v => !!v || '이메일을 입력하셔야 합니다.']"/>
+                    <v-text-field v-model="company" type="text" label="*회사명" :rules="[ v => !!v || '회사이름이나 소속명을 입력해주세요.']" />
+                    <v-text-field v-model="second_phone" type="tel" label="전화" />
                     <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
                         <template #activator="{ on, attrs }">
-                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="희망 납품일" v-on="on" />
+                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="*희망 납품일" v-on="on" :rules="[ v => !!v || '희망 납품일을 입력해주세요.' ]" />
                         </template>
                         <v-date-picker v-model="date" no-title scrollable>
                             <v-spacer />
@@ -20,16 +20,16 @@
                         </v-date-picker>
                     </v-menu>
                     <div style="display:flex; justify-content: space-around;">
-                        <div><v-text-field readonly solo value="의뢰할 내용" dense /></div>
-                        <div><v-select class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense /></div>
+                        <div><v-text-field readonly solo value="*의뢰할 내용" dense /></div>
+                        <div><v-select v-model="req_lang" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
                         <div>-></div>
-                        <div><v-select class="selector" :items="countrys" label="번역할 언어" outlined dense /></div>
-                        <div><v-file-input class="selector" prepend-icon="mdi-content-save" label="파일 첨부" dense /></div>
+                        <div><v-select v-model="grant_lang" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                        <div><v-file-input v-model="file" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" /></div>
                     </div>
-                    <v-textarea outlined label="특이사항" />
+                    <v-textarea v-model="options" outlined auto-grow clearable label="특이사항" :hide-details="hideDetails" @input="onChangeTextarea" />
                     <div>
                         <v-btn depressed @click="pdfTest">견적서 발급</v-btn>
-                        <v-btn depressed>번역 의뢰</v-btn>
+                        <v-btn depressed type="submit">번역 의뢰</v-btn>
                     </div>
                 </v-form>
             </v-container>
@@ -49,10 +49,22 @@ import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
+    name: 'default',
     data: () => ({
-        date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        hideDetails: true,
+        valid: false,
         menu: false,
         countrys: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
+        name: '',
+        phone: '',
+        email: '',
+        company: '',
+        second_phone: '',
+        date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        req_lang: '',
+        grant_lang: '',
+        file: [],
+        options: '',
     }),
     methods: {
         pdfTest: function() {
@@ -149,6 +161,32 @@ export default {
             pdfMake.createPdf(documentDefinition).download(pdf_name);
             //pdfMake.createPdf(documentDefinition).open();
         },
+        async onSubmitForm() {
+            try {
+                if (this.$refs.form.validate()) {
+                    const submitResponse = await this.$store.dispatch('requests/onRequest', {
+                        id: this.$store.state.requests.requestCount + 1,
+                        name: this.nickname,
+                        phone: this.phone,
+                        email: this.email,
+                        company: this.company,
+                        second_phone: this.second_phone,
+                        date: this.date,
+                        req_lang: this.req_lang,
+                        grant_lang: this.grant_lang,
+                        file: this.file,
+                        options: this.options,
+                        trans_state: '번역 준비중'
+                    })
+                } 
+            } catch (error) {
+                // 오류처리
+                console.error(error);
+            }
+        },
+        onChangeTextarea() {
+            this.hideDetails = true;
+        }
     }
 }
 </script>
