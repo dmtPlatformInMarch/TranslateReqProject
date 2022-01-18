@@ -58,8 +58,9 @@ export default {
             if(this.$refs.form.validate()){
                 // dispatch는 구조상 promise
                 this.$store.dispatch('users/signUp', {
+                    email: this.email,
+                    password: this.password,
                     nickname: this.nickname,
-                    email: this.email
                 })
                     .then(() => {
                         this.$router.push({
