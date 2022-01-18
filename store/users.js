@@ -16,7 +16,7 @@ export const actions = {
     // 회원가입
     signUp({ commit, state }, payload) {
         // 일단은 회원가입을 하면 해당 계정으로 로그인
-        this.$axios.post('/user', {
+        this.$axios.post('http://localhost:3085/user', {
             email: payload.email,
             password: payload.password,
             nickname: payload.nickname,
