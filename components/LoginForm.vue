@@ -4,10 +4,10 @@
             <v-list>
                 <v-list-item-group>
                     <v-list-item-content style="{ margin: 20px; padding: 10px; }">
-                        <v-text-field v-model="email" :rules="emailRules" label="이메일" clearable dense />
+                        <v-text-field v-model="email" :rules="emailRules" label="이메일" type="email" clearable dense />
                     </v-list-item-content>
                     <v-list-item-content style="{ margin: 20px; padding: 10px; }">
-                        <v-text-field v-model="password" :rules="passwordRules" label="비밀번호" clearable dense />
+                        <v-text-field v-model="password" :rules="passwordRules" label="비밀번호" type="password" clearable dense />
                     </v-list-item-content>
                 </v-list-item-group>
                 <v-list-item>
@@ -32,8 +32,8 @@ export default {
             // valid는 하위 rules가 모두 true인 경우에만 true
             // 하나라도 false라면 false (rules가 없다면 true)
             valid: false,
-            email: '',
-            password: '',
+            email: '123@123.com',
+            password: '123',
             emailRules: [
                 v => !!v || '이메일을 입력해주세요.',
                 v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || '이메일이 유효하지 않습니다.'
@@ -47,8 +47,8 @@ export default {
         onSubmitForm() {
             if(this.$refs.form.validate()){
                 this.$store.dispatch('users/login', {
-                    nickname: '유저',
-                    email: this.email
+                    email: this.email,
+                    password: this.password,
                 });
             } else {
                 // false

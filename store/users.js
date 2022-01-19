@@ -20,13 +20,40 @@ export const actions = {
             email: payload.email,
             password: payload.password,
             nickname: payload.nickname,
+        }, {
+            // 쿠키를 서로 저장
+            withCredentials: true,
+        })
+            .then((res) => {
+                commit('setUser', res.data);
+            })
+            .catch((err) => {
+                console.log("받는 곳에서 오류\n",err);
+            });
+    },
+    login({ commit }, payload) {
+        this.$axios.post('http://localhost:3085/user/login', {
+            email: payload.email,
+            password: payload.password,
+        }, {
+            // 쿠키를 서로 저장
+            withCredentials: true,
+        }).then((res) => {
+            commit('setUser', res.data);
+        }).catch((err) => {
+            console.log(err);
         });
-        commit('setUser', payload);
     },
-    login({ commit , state }, payload) {
-        commit('setUser', payload);
-    },
-    logout({ commit, state }, payload) {
-        commit('setUser', null);
+    logout({ commit, state }) {
+        this.$axios.post('http://localhost:3085/user/logout', {}, {
+            withCredentials: true,
+        })
+            .then((data) => {
+                console.log(this.loginState);
+                commit('setUser', null);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     },
 };

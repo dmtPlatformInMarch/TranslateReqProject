@@ -1,4 +1,5 @@
 // request data ( Request Translation )
+#Client & Server
 {
     id: '',
     name: '',
@@ -29,7 +30,7 @@
 }
 # To Server ( Login Data Check || User Data Sending || SignUp )
 {
-    nickname: '',
     email: '',
     password: ''
+    nickname: '',
 }
