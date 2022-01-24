@@ -1,6 +1,7 @@
 export const state = () => ({
     mainRequest: [],
     requestCount: 0,
+    filePaths: [],
 });
 
 export const mutations = {
@@ -14,6 +15,12 @@ export const mutations = {
         const index = state.mainRequest.findIndex(v => v.id === payload.id);
         state.mainRequest.splice(index, 1);
     },
+    concatFilePaths(state, payload) {
+        state.imagePaths = state.imagePaths.concat(payload);
+    },
+    removeImagePaths(state, payload) {
+        state.imagePaths.splice(payload, 1);
+    }
 };
 
 export const actions = {
@@ -24,5 +31,16 @@ export const actions = {
     },
     cancelRequest({ commit }, payload) {
         commit('removeMainRequest', payload);
+    },
+    uploadFile({ commit }, payload) {
+        this.$axios.post('http://localhost:3085/request/file', payload, {
+            withCredentials: true,
+        })
+            .then((res) => {
+                commit('concatFilePaths', res.data);
+            })
+            .catch(() => {
+
+            })
     }
 };

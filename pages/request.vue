@@ -24,7 +24,7 @@
                         <div><v-select v-model="req_lang" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
                         <div>-></div>
                         <div><v-select v-model="grant_lang" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                        <div><v-file-input v-model="file" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" /></div>
+                        <div><v-file-input v-model="file" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile" /></div>
                     </div>
                     <v-textarea v-model="options" outlined auto-grow clearable label="특이사항" :hide-details="hideDetails" @input="onChangeTextarea" />
                     <div>
@@ -44,6 +44,7 @@
 </style>
 
 <script lang="js">
+import { mapState } from 'vuex';
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -65,6 +66,9 @@ export default {
         file: [],
         options: '',
     }),
+    computed: {
+        ...mapState('requests', ['imagePaths']),
+    },
     methods: {
         pdfTest: function() {
             var documentDefinition = {
@@ -185,6 +189,17 @@ export default {
         },
         onChangeTextarea() {
             this.hideDetails = true;
+        },
+        onChangeFile(e) {
+            const fileFormData = new FormData();
+            if (e != null) {
+                console.log(e);
+                fileFormData.append('fileKey', e);
+                this.$store.dispatch('requests/uploadFile', fileFormData);
+            }
+        },
+        removeFile() {
+            this.$store.commit('requests/removeImagePaths', 1);
         }
     }
 }
