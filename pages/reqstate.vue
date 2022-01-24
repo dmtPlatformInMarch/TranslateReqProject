@@ -85,7 +85,6 @@ export default {
                 date: '2021-01-14',
                 req_lang: '한국어',
                 grant_lang: '중국어',
-                file: '',
                 options: '',
                 trans_state: '번역 준비중'
             });

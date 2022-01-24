@@ -10,10 +10,10 @@
     date: '',
     req_lang: '',
     grant_lang: '',
-    file: '',
     options: '',
     trans_state: '',
 }
+#File is not in Data => Control Another Data Storage
 
 // users data ( With Login )
 // Login = LoginState = { object } -> Login_Data -> Login

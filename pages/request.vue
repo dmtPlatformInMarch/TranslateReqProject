@@ -55,16 +55,16 @@ export default {
         valid: false,
         menu: false,
         countrys: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
-        name: '',
-        phone: '',
-        email: '',
-        company: '',
-        second_phone: '',
+        name: 'RQTest',
+        phone: '01012341234',
+        email: '123@123.com',
+        company: '123Company',
+        second_phone: '021231234',
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        req_lang: '',
-        grant_lang: '',
+        req_lang: '한국어',
+        grant_lang: '중국어',
         file: [],
-        options: '',
+        options: 'Options Test',
     }),
     computed: {
         ...mapState('requests', ['imagePaths']),
@@ -169,7 +169,7 @@ export default {
                 if (this.$refs.form.validate()) {
                     const submitResponse = await this.$store.dispatch('requests/onRequest', {
                         id: this.$store.state.requests.requestCount + 1,
-                        name: this.nickname,
+                        name: this.name,
                         phone: this.phone,
                         email: this.email,
                         company: this.company,
@@ -177,10 +177,22 @@ export default {
                         date: this.date,
                         req_lang: this.req_lang,
                         grant_lang: this.grant_lang,
-                        file: this.file,
                         options: this.options,
                         trans_state: '번역 준비중'
-                    })
+                    });
+                    console.log(
+                        `id: ${this.$store.state.requests.requestCount + 1}\n`,
+                        `name: ${this.name}\n`,
+                        `phone: ${this.phone}\n`,
+                        `email: ${this.email}\n`,
+                        `company: ${this.company}\n`,
+                        `second_phone: ${this.second_phone}\n`,
+                        `date: ${this.date}\n`,
+                        `req_lang: ${this.req_lang}\n`,
+                        `grant_lang: ${this.grant_lang}\n`,
+                        `options: ${this.options}\n`,
+                        `trans_state: ${'번역 준비중'}\n`
+                    );
                 } 
             } catch (error) {
                 // 오류처리
