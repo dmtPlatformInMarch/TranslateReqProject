@@ -19,12 +19,38 @@
                             <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
                         </v-date-picker>
                     </v-menu>
-                    <div style="display:flex; justify-content: space-around;">
-                        <div><v-text-field readonly solo value="*의뢰할 내용" dense /></div>
-                        <div><v-select v-model="req_lang" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                        <div>-></div>
-                        <div><v-select v-model="grant_lang" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                        <div><v-file-input v-model="file" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile" /></div>
+                    <v-banner shaped>의뢰할 내용</v-banner>
+                    <div>
+                        <div style="display:flex; justify-content: space-around;">
+                            <div><v-select v-model="req_lang[0]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
+                            <div>-></div>
+                            <div><v-select v-model="grant_lang[0]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                            <div><v-file-input v-model="file[0]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(0, $event)" @click:clear="onClearFile(0)" /></div>
+                        </div>
+                        <div style="display:flex; justify-content: space-around;">
+                            <div><v-select v-model="req_lang[1]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
+                            <div>-></div>
+                            <div><v-select v-model="grant_lang[1]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                            <div><v-file-input v-model="file[1]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(1, $event)" @click:clear="onClearFile(1)" /></div>
+                        </div>
+                        <div style="display:flex; justify-content: space-around;">
+                            <div><v-select v-model="req_lang[2]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
+                            <div>-></div>
+                            <div><v-select v-model="grant_lang[2]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                            <div><v-file-input v-model="file[2]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(2, $event)" @click:clear="onClearFile(2)" /></div>
+                        </div>
+                        <div style="display:flex; justify-content: space-around;">
+                            <div><v-select v-model="req_lang[3]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
+                            <div>-></div>
+                            <div><v-select v-model="grant_lang[3]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                            <div><v-file-input v-model="file[3]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(3, $event)" @click:clear="onClearFile(3)" /></div>
+                        </div>
+                        <div style="display:flex; justify-content: space-around;">
+                            <div><v-select v-model="req_lang[4]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
+                            <div>-></div>
+                            <div><v-select v-model="grant_lang[4]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
+                            <div><v-file-input v-model="file[4]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(4, $event)" @click:clear="onClearFile(4)" /></div>
+                        </div>
                     </div>
                     <v-textarea v-model="options" outlined auto-grow clearable label="특이사항" :hide-details="hideDetails" @input="onChangeTextarea" />
                     <div>
@@ -61,8 +87,9 @@ export default {
         company: '123Company',
         second_phone: '021231234',
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        req_lang: '한국어',
-        grant_lang: '중국어',
+        req_lang: ['한국어', '', '', '', ''],
+        grant_lang: ['중국어', '', '', '', ''],
+        price: [ 20000, 15000, 20000, 5000, 10000],
         file: [],
         options: 'Options Test',
     }),
@@ -72,6 +99,7 @@ export default {
     methods: {
         pdfTest: function() {
             var documentDefinition = {
+                // 워터마크
                 watermark: {
                     text: 'DMTLABS',
                     color: 'blue',
@@ -99,6 +127,19 @@ export default {
                             ]
                         }
                     },
+                    // 의뢰자 테이블
+                    {
+                        style: 'style_table',
+                        table: {
+                            widths: ['auto', 100, '*', '*'],
+                            body: [
+                                [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
+                                [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                                [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                                [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
+                            ]
+                        }
+                    },
                     // 의뢰 내역 테이블
                     {
                         style: 'style_table',
@@ -109,14 +150,11 @@ export default {
                             body: [
                                 [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
                                 [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
-                                [ {text: '한국어 -> 영어', colSpan: 2}, '', {text: '15000원', colSpan: 2}, '', '' ],
-                                [ {text: '한국어 -> 일본어', colSpan: 2}, '', {text: '5000원', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
-                                [ {text: '', colSpan: 2}, '', {text: '', colSpan: 2}, '', '' ],
+                                [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
+                                [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
+                                [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
+                                [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
+                                [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
                             ]
                         }
                     }
@@ -168,7 +206,7 @@ export default {
             try {
                 if (this.$refs.form.validate()) {
                     const submitResponse = await this.$store.dispatch('requests/onRequest', {
-                        id: this.$store.state.requests.requestCount + 1,
+                        id: this.$store.state.requests.mainRequest.length + 1,
                         name: this.name,
                         phone: this.phone,
                         email: this.email,
@@ -181,7 +219,7 @@ export default {
                         trans_state: '번역 준비중'
                     });
                     console.log(
-                        `id: ${this.$store.state.requests.requestCount + 1}\n`,
+                        `id: ${this.$store.state.requests.mainRequest.length + 1}\n`,
                         `name: ${this.name}\n`,
                         `phone: ${this.phone}\n`,
                         `email: ${this.email}\n`,
@@ -191,7 +229,7 @@ export default {
                         `req_lang: ${this.req_lang}\n`,
                         `grant_lang: ${this.grant_lang}\n`,
                         `options: ${this.options}\n`,
-                        `trans_state: ${'번역 준비중'}\n`
+                        `trans_state: ${'번역 준비중'}\n`,
                     );
                 } 
             } catch (error) {
@@ -202,16 +240,20 @@ export default {
         onChangeTextarea() {
             this.hideDetails = true;
         },
-        onChangeFile(e) {
+        onChangeFile(index, e) {
             const fileFormData = new FormData();
             if (e != null) {
-                console.log(e);
-                fileFormData.append('fileKey', e);
-                this.$store.dispatch('requests/uploadFile', fileFormData);
+                //console.log(e);
+                [].forEach.call(e, (f) => {
+                    fileFormData.append('fileKey', f);
+                })
+                this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+            } else {
+                console.log("e is null!!!");
             }
         },
-        removeFile() {
-            this.$store.commit('requests/removeImagePaths', 1);
+        onClearFile(index) {
+            this.$store.dispatch('requests/removeFile', index);
         }
     }
 }

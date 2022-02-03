@@ -13,10 +13,23 @@ export const mutations = {
 // (context, payload)로 구성
 // 비동기 작업 or 복잡한 작업 수행
 export const actions = {
+    async loadUser({ commit, state }) {
+        console.log('Load User');
+        try {
+            const res = await this.$axios.get('/user', {
+                withCredentials: true,
+            });
+            console.log(res.data);
+            commit('setUser', res.data);
+            console.log(state);
+        } catch (err) {
+            console.log(err);
+        }
+    },
     // 회원가입
     signUp({ commit, state }, payload) {
         // 일단은 회원가입을 하면 해당 계정으로 로그인
-        this.$axios.post('http://localhost:3085/user', {
+        this.$axios.post('/user', {
             email: payload.email,
             password: payload.password,
             nickname: payload.nickname,
@@ -32,7 +45,7 @@ export const actions = {
             });
     },
     login({ commit }, payload) {
-        this.$axios.post('http://localhost:3085/user/login', {
+        this.$axios.post('/user/login', {
             email: payload.email,
             password: payload.password,
         }, {
@@ -45,7 +58,7 @@ export const actions = {
         });
     },
     logout({ commit, state }) {
-        this.$axios.post('http://localhost:3085/user/logout', {}, {
+        this.$axios.post('/user/logout', {}, {
             withCredentials: true,
         })
             .then((data) => {

@@ -1,5 +1,5 @@
 // request data ( Request Translation )
-#Client & Server
+#Client
 {
     id: '',
     name: '',
@@ -12,6 +12,22 @@
     grant_lang: '',
     options: '',
     trans_state: '',
+}
+#Server
+Requests {
+    id: '',
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    second_phone: '',
+    date: '',
+    options: '',
+    trans_state: '',
+}
+Subrequest {
+    req_lang: '',
+    grant_lang: '',
 }
 #File is not in Data => Control Another Data Storage
 
