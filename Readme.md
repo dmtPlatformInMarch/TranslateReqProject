@@ -2,16 +2,16 @@
 
 Build
 
-    npm run build
+>    npm run build
 
 Run (Developer Mode)
 
-    npm run dev
+>    npm run dev
 
 ESlint Option
 
-    npm run lint
+>    npm run lint
 
 Frontend Port
 
-    3080
+>    3080
