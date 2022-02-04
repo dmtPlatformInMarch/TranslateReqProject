@@ -2,7 +2,11 @@
     <v-app>
         <v-toolbar elevation="1" style="flex: initial">
             <v-toolbar-title>
-                <nuxt-link to="/">DMT labs</nuxt-link>
+                <nuxt-link to="/">
+                    <v-avatar height="100px" width="200px">
+                        <img src="../static/logo3.png"/>
+                    </v-avatar>
+                </nuxt-link>
             </v-toolbar-title>
             <v-spacer />
             <v-toolbar-items>
