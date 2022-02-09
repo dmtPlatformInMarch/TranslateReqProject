@@ -41,7 +41,7 @@ export const actions = {
                 commit('setUser', res.data);
             })
             .catch((err) => {
-                console.log("받는 곳에서 오류\n",err);
+                console.log("받는 곳에서 오류\n", err);
             });
     },
     login({ commit }, payload) {
@@ -57,11 +57,11 @@ export const actions = {
             console.log(err);
         });
     },
-    logout({ commit, state }) {
+    logout({ commit }) {
         this.$axios.post('/user/logout', {}, {
             withCredentials: true,
         })
-            .then((data) => {
+            .then(() => {
                 console.log(this.loginState);
                 commit('setUser', null);
             })

@@ -27,7 +27,7 @@ const totalRequest = 51;
 const limit = 10;
 
 export const mutations = {
-    addMainRequest(state , payload) {
+    addMainRequest(state, payload) {
         state.mainRequest.unshift(payload);
     },
     removeMainRequest(state, payload) {
@@ -41,21 +41,8 @@ export const mutations = {
         state.filePaths[payload] = '';
     },
     loadRequest(state, payload) {
-        state.mainRequest = [payload];
+        state.mainRequest = payload;
     },
-    loadRequests(state, payload) {
-        if (payload.reset) {
-            state.mainRequest = payload.data;
-        } else {
-            state.mainRequest = state.mainRequest.concat(payload.data);
-        }
-        state.hasMoreRequest = payload.data.length === 10;
-    },
-    loadSubRequest(state, payload) {
-        const index = state.mainRequest.findIndex(v => v.id == payload.RequestId);
-        state.mainRequest[index].req_lang = payload.req_lang;
-        state.mainRequest[index].grant_lang = payload.grant_lang;
-    }
 };
 
 export const actions = {
@@ -76,7 +63,7 @@ export const actions = {
             `trans_state: ${'번역 준비중'}\n`
         );*/
         this.$axios.post('/request', {
-            id: payload.id,    
+            id: payload.id,
             name: payload.name,
             phone: payload.phone,
             email: payload.email,
@@ -94,8 +81,8 @@ export const actions = {
             .then((res) => {
                 commit('addMainRequest', res.data);
             })
-            .catch(() => {
-
+            .catch((err) => {
+                console.error(err);
             });
     },
     cancelRequest({ commit }, payload) {
@@ -106,35 +93,27 @@ export const actions = {
             withCredentials: true,
         })
             .then((res) => {
-                commit('concatFilePaths', {index: payload.index, file: res.data});
+                commit('concatFilePaths', { index: payload.index, file: res.data });
                 console.log(`filePaths = ${this.$store.state.requests.filePaths}\n`);
             })
-            .catch(() => {
-
-            })
+            .catch((err) => {
+                console.error(err);
+            });
     },
     removeFile({ commit }, payload) {
         commit('removeFilePaths', payload);
     },
-    loadRequest({ commit, state }, payload) {
-        if(state.hasMoreRequest) {
-            this.$axios.get(`/requests?offset=${state.mainRequest.length}&limit=10`)
+    loadRequest({ commit, state }) {
+        if (state.hasMoreRequest) {
+            this.$axios.get(`/requests`)
                 .then((res) => {
                     commit('loadRequest', res.data);
                 })
-                .catch(() => {
-                    // 사용자 관점의 에러 처리
+                .catch((err) => {
+                    // 사용자 관점의 에러처리
+                    console.error(err);
                 });
         }
-    },
-    loadSubRequest({ commit, state }, payload) {
-        this.$axios.get(`/request/${payload.RequestId}/sub`)
-        .then((res) => {
-            commit('loadSubRequest', res.data);
-        })
-        .catch(() => {
-
-        });
     },
     CacelRequest({ commit }, payload) {
         this.$axios.delete(`/request/${payload.RequestId}`, {
@@ -143,8 +122,8 @@ export const actions = {
             .then(() => {
                 commit('removeMainRequest', payload);
             })
-            .catch(() => {
-
+            .catch((err) => {
+                console.error(err);
             });
     }
 };

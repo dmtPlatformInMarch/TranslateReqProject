@@ -1,72 +1,389 @@
 <template>
-    <v-container>
-        <h1>번역 의뢰 페이지</h1>
-        <v-card>
-            <v-container>
-                <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
-                    <v-text-field v-model="name" type="text" label="*성명" :rules="[ v => !!v || '이름을 입력하셔야 합니다.']" />
-                    <v-text-field v-model="phone" type="tel" label="*휴대전화" :rules="[ v => !!v || '전화번호를 입력하셔야 합니다.']" />
-                    <v-text-field v-model="email" type="email" label="*이메일" :rules="[ v => !!v || '이메일을 입력하셔야 합니다.']" />
-                    <v-text-field v-model="company" type="text" label="*회사명" :rules="[ v => !!v || '회사이름이나 소속명을 입력해주세요.']" />
-                    <v-text-field v-model="second_phone" type="tel" label="전화" />
-                    <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
-                        <template #activator="{ on, attrs }">
-                            <v-text-field v-model="date" prepend-icon="mdi-calendar" v-bind="attrs" readonly label="*희망 납품일" :rules="[ v => !!v || '희망 납품일을 입력해주세요.' ]" v-on="on" />
-                        </template>
-                        <v-date-picker v-model="date" no-title scrollable>
-                            <v-spacer />
-                            <v-btn text @click="menu = false">Cancel</v-btn>
-                            <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
-                        </v-date-picker>
-                    </v-menu>
-                    <v-banner shaped>의뢰할 내용</v-banner>
-                    <div>
-                        <div style="display:flex; justify-content: space-around;">
-                            <div><v-select v-model="req_lang[0]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                            <div>-></div>
-                            <div><v-select v-model="grant_lang[0]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                            <div><v-file-input v-model="file[0]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(0, $event)" @click:clear="onClearFile(0)" /></div>
-                        </div>
-                        <div style="display:flex; justify-content: space-around;">
-                            <div><v-select v-model="req_lang[1]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                            <div>-></div>
-                            <div><v-select v-model="grant_lang[1]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                            <div><v-file-input v-model="file[1]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(1, $event)" @click:clear="onClearFile(1)" /></div>
-                        </div>
-                        <div style="display:flex; justify-content: space-around;">
-                            <div><v-select v-model="req_lang[2]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                            <div>-></div>
-                            <div><v-select v-model="grant_lang[2]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                            <div><v-file-input v-model="file[2]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(2, $event)" @click:clear="onClearFile(2)" /></div>
-                        </div>
-                        <div style="display:flex; justify-content: space-around;">
-                            <div><v-select v-model="req_lang[3]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                            <div>-></div>
-                            <div><v-select v-model="grant_lang[3]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                            <div><v-file-input v-model="file[3]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(3, $event)" @click:clear="onClearFile(3)" /></div>
-                        </div>
-                        <div style="display:flex; justify-content: space-around;">
-                            <div><v-select v-model="req_lang[4]" class="selector" :items="countrys" label="번역이 필요한 언어" outlined dense :rules="[ v => !!v || '번역될 언어를 선택하세요.']" /></div>
-                            <div>-></div>
-                            <div><v-select v-model="grant_lang[4]" class="selector" :items="countrys" label="번역할 언어" outlined dense :rules="[ v => !!v || '번역할 언어를 선택하세요.']" /></div>
-                            <div><v-file-input v-model="file[4]" class="selector" prepend-icon="mdi-content-save" label="파일 첨부" small-chips multiple dense :rules="[ v => !!v || '번역 파일을 첨부해주세요.']" @change="onChangeFile(4, $event)" @click:clear="onClearFile(4)" /></div>
-                        </div>
-                    </div>
-                    <v-textarea v-model="options" outlined auto-grow clearable label="특이사항" :hide-details="hideDetails" @input="onChangeTextarea" />
-                    <div>
-                        <v-btn depressed @click="pdfTest">견적서 발급</v-btn>
-                        <v-btn depressed type="submit">번역 의뢰</v-btn>
-                    </div>
-                </v-form>
-            </v-container>
-        </v-card>
-    </v-container>
+  <v-container>
+    <h1>번역 의뢰 페이지</h1>
+    <v-card>
+      <v-container>
+        <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
+          <v-text-field
+            v-model="name"
+            type="text"
+            label="*성명"
+            prepend-inner-icon="mdi-account"
+            :rules="[(v) => !!v || '이름을 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="phone"
+            type="tel"
+            label="*휴대전화"
+            prepend-inner-icon="mdi-cellphone"
+            :rules="[(v) => !!v || '전화번호를 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="email"
+            type="email"
+            label="*이메일"
+            prepend-inner-icon="mdi-email"
+            :rules="[(v) => !!v || '이메일을 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="company"
+            type="text"
+            label="*회사명"
+            prepend-inner-icon="mdi-office-building"
+            :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
+          />
+          <v-text-field
+            v-model="second_phone"
+            type="tel"
+            label="전화"
+            prepend-inner-icon="mdi-deskphone"
+          />
+          <v-menu
+            ref="menu"
+            v-model="menu"
+            :close-on-content-click="false"
+            :return-value.sync="date"
+            offset-y
+            min-width="auto"
+          >
+            <template #activator="{ on, attrs }">
+              <v-text-field
+                v-model="date"
+                prepend-inner-icon="mdi-calendar"
+                v-bind="attrs"
+                readonly
+                label="*희망 납품일"
+                :rules="[(v) => !!v || '희망 납품일을 입력해주세요.']"
+                v-on="on"
+              />
+            </template>
+            <v-date-picker v-model="date" no-title scrollable>
+              <v-spacer />
+              <v-btn text @click="menu = false">Cancel</v-btn>
+              <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
+            </v-date-picker>
+          </v-menu>
+          <v-banner shaped>의뢰할 내용</v-banner>
+          <div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[0]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || '번역될 언어를 선택하세요.']"
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[0]"
+                  class="selector"
+                  :items="languages"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || '번역할 언어를 선택하세요.']"
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[0]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[0]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :rules="[(v) => !!v || '번역 파일을 첨부해주세요.']"
+                  @change="onChangeFile(0, $event)"
+                  @click:clear="onClearFile(0)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[1]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[1]"
+                  class="selector"
+                  :items="languages"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[1]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[1]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(1, $event)"
+                  @click:clear="onClearFile(1)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[2]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[2]"
+                  class="selector"
+                  :items="languages"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[2]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[2]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(2, $event)"
+                  @click:clear="onClearFile(2)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[3]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[3]"
+                  class="selector"
+                  :items="languages"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[3]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[3]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(3, $event)"
+                  @click:clear="onClearFile(3)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[4]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[4]"
+                  class="selector"
+                  :items="languages"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[4]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[4]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(4, $event)"
+                  @click:clear="onClearFile(4)"
+                />
+              </div>
+            </div>
+          </div>
+          <v-textarea
+            v-model="options"
+            outlined
+            auto-grow
+            clearable
+            label="특이사항"
+            prepend-inner-icon="mdi-star-cog"
+            :hide-details="hideDetails"
+            @input="onChangeTextarea"
+          />
+          <div
+            style="
+              display: flex;
+              align-content: center;
+              justify-content: flex-start;
+              margin: auto;
+              padding: 10px 0;
+            "
+          >
+            <v-spacer />
+            <v-btn
+              depressed
+              @click="pdfTest"
+              color="#0d6efd"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+            >
+              견적서 발급
+              <v-icon right>mdi-file-download</v-icon>
+            </v-btn>
+            <v-btn
+              depressed
+              type="submit"
+              color="success"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+            >
+              번역 의뢰
+              <v-icon right>mdi-file-edit</v-icon>
+            </v-btn>
+          </div>
+        </v-form>
+      </v-container>
+    </v-card>
+  </v-container>
 </template>
 
 <style scoped>
-    .selector {
-        width: 200px;
-    }
+.selector {
+  min-width: 200px;
+  max-width: 200px;
+}
+.file_selector {
+  min-width: 200px;
+  max-width: 200px;
+}
 </style>
 
 <script lang="js">
@@ -80,13 +397,15 @@ export default {
         hideDetails: true,
         valid: false,
         menu: false,
-        countrys: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
+        languages: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
         name: 'RQTest',
         phone: '01012341234',
         email: '123@123.com',
         company: '123Company',
         second_phone: '021231234',
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        field: ['단순 번역', '논문', '경제', '컴퓨터/정보통신'],
+        req_field: ['단순 번역', '', '', '', ''],
         req_lang: ['한국어', '', '', '', ''],
         grant_lang: ['중국어', '', '', '', ''],
         price: [ 20000, 15000, 20000, 5000, 10000],
@@ -95,6 +414,9 @@ export default {
     }),
     computed: {
         ...mapState('requests', ['imagePaths']),
+        loginState() {
+            return this.$store.state.users.loginState;
+        }
     },
     methods: {
         pdfTest: function() {
@@ -206,7 +528,6 @@ export default {
             try {
                 if (this.$refs.form.validate()) {
                     const submitResponse = await this.$store.dispatch('requests/onRequest', {
-                        id: this.$store.state.requests.mainRequest.length + 1,
                         name: this.name,
                         phone: this.phone,
                         email: this.email,
@@ -219,7 +540,6 @@ export default {
                         trans_state: '번역 준비중'
                     });
                     console.log(
-                        `id: ${this.$store.state.requests.mainRequest.length + 1}\n`,
                         `name: ${this.name}\n`,
                         `phone: ${this.phone}\n`,
                         `email: ${this.email}\n`,

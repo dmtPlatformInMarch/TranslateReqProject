@@ -1,70 +1,90 @@
 <template>
-    <v-app>
-        <v-toolbar elevation="1" style="flex: initial">
-            <v-toolbar-title>
-                <nuxt-link to="/">
-                    <v-avatar height="100px" width="200px">
-                        <img src="../static/logo3.png"/>
-                    </v-avatar>
-                </nuxt-link>
-            </v-toolbar-title>
-            <v-spacer />
-            <v-toolbar-items>
-                <v-menu offset-x offset-y :close-on-content-click="false" :nudge-width="200">
-                    <template #activator="{ on, attrs }">
-                        <v-btn text style="{display: flex, alignItems: 'center'}" v-bind="attrs" v-on="on">로그인</v-btn>
-                    </template>
-                    <login-form />
-                </v-menu>
-            </v-toolbar-items>
-        </v-toolbar>
-        <v-row no-gutters>
-            <v-col cols="12" md="2">
-                <v-navigation-drawer permanent>
-                    <v-list>
-                        <v-list-item v-if="!loginState">
-                            <v-list-item-content>
-                                <v-list-item-title>로그인이 필요합니다.</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                        <v-list-item v-else>
-                            <v-list-item-content>
-                                <v-list-item-title class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
-                                <v-list-item-subtitle>번역 의뢰 : N건</v-list-item-subtitle>
-                                <v-btn depressed @click="onLogout">로그아웃</v-btn>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list>
-                    <v-divider />
-                    <v-list nav dense>
-                        <v-list-item link to="/request">
-                            <v-list-item-icon>
-                                <v-icon>mdi-clipboard-edit</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-title>번역 의뢰</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item link to="/reqstate">
-                            <v-list-item-icon>
-                                <v-icon>mdi-clipboard-search</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-title>번역 현황</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item link to="/history">
-                            <v-list-item-icon>
-                                <v-icon>mdi-clipboard-clock</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-title>번역 실적</v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-navigation-drawer>
-            </v-col>
-            <v-col cols="12" md="10"><nuxt /></v-col>
-        </v-row>
-    </v-app>
+  <v-app>
+    <v-toolbar elevation="0" style="flex: initial; width: 100%">
+      <v-toolbar-title>
+        <nuxt-link to="/">
+          <v-avatar height="80px" width="200px" tile>
+            <img src="../static/logo3.png" />
+          </v-avatar>
+        </nuxt-link>
+      </v-toolbar-title>
+      <v-spacer />
+      <v-toolbar-items>
+        <v-menu
+          v-model="loginMenu"
+          offset-x
+          offset-y
+          :close-on-content-click="false"
+          :nudge-width="200"
+          v-if="!loginState"
+        >
+          <template #activator="{ on, attrs }">
+            <v-btn
+              text
+              style="{display: flex, alignItems: 'center'}"
+              v-bind="attrs"
+              v-on="on"
+              >로그인</v-btn
+            >
+          </template>
+          <login-form @update="update" />
+        </v-menu>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <div style="display: flex; flex-direction: row; height: 100%">
+      <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
+        <v-list rounded dense>
+          <v-list-item v-if="!loginState" style="padding: 0px 8px">
+            <v-list-item-icon>
+              <v-icon>mdi-account-alert</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>로그인이 <br />필요합니다.</v-list-item-title>
+          </v-list-item>
+          <v-list-item v-else style="padding: 0px 8px">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="text-h6"
+                >{{ loginState.nickname }} 님</v-list-item-title
+              >
+              <v-list-item-subtitle>번역 의뢰 : N건</v-list-item-subtitle>
+              <v-btn depressed color="#06d183" @click="onLogout"
+                >로그아웃</v-btn
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-divider />
+        <v-list nav dense style="padding: 0px 8px">
+          <v-list-item link to="/request">
+            <v-list-item-icon>
+              <v-icon>mdi-clipboard-edit</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>번역 의뢰</v-list-item-title>
+          </v-list-item>
+          <v-list-item link to="/reqstate">
+            <v-list-item-icon>
+              <v-icon>mdi-clipboard-search</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>번역 현황</v-list-item-title>
+          </v-list-item>
+          <v-list-item link to="/history">
+            <v-list-item-icon>
+              <v-icon>mdi-clipboard-clock</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>번역 실적</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <nuxt />
+    </div>
+  </v-app>
 </template>
 
 <style scoped>
-
 </style>
 
 <script lang="js">
@@ -76,7 +96,7 @@ export default {
         LoginForm,
     },
     data: () => ({
-
+      loginMenu: false,
     }),
     computed: {
         loginState() {
@@ -85,7 +105,10 @@ export default {
     },
     methods: {
         onLogout() {
-            this.$store.dispatch('users/logout');
+            this.loginMenu = false;
+        },
+        update(data) {
+          this.loginMenu = data;
         }
     }
 };
