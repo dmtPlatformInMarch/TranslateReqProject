@@ -27,46 +27,42 @@ export const actions = {
         }
     },
     // 회원가입
-    signUp({ commit, state }, payload) {
-        // 일단은 회원가입을 하면 해당 계정으로 로그인
-        this.$axios.post('/user', {
-            email: payload.email,
-            password: payload.password,
-            nickname: payload.nickname,
-        }, {
-            // 쿠키를 서로 저장
-            withCredentials: true,
-        })
-            .then((res) => {
-                commit('setUser', res.data);
-            })
-            .catch((err) => {
-                console.log("받는 곳에서 오류\n", err);
+    async signUp({ commit }, payload) {
+        try {
+            const res = this.$axios.post('/user', {
+                email: payload.email,
+                password: payload.password,
+                nickname: payload.nickname,
+            }, {
+                // 쿠키를 서로 저장
+                withCredentials: true,
             });
+            // 회원가입을 성공했을 경우
+        } catch (err) {
+            console.log("회원가입 에러\n", err);
+        }
     },
-    login({ commit }, payload) {
-        this.$axios.post('/user/login', {
-            email: payload.email,
-            password: payload.password,
-        }, {
-            // 쿠키를 서로 저장
-            withCredentials: true,
-        }).then((res) => {
+    async login({ commit }, payload) {
+        try {
+            const res = this.$axios.post('/user/login', {
+                email: payload.email,
+                password: payload.password,
+            }, {
+                withCredentials: true,
+            });
             commit('setUser', res.data);
-        }).catch((err) => {
+        } catch (err) {
             console.log(err);
-        });
+        }
     },
-    logout({ commit }) {
-        this.$axios.post('/user/logout', {}, {
-            withCredentials: true,
-        })
-            .then(() => {
-                console.log(this.loginState);
-                commit('setUser', null);
-            })
-            .catch((err) => {
-                console.log(err);
+    async logout({ commit }) {
+        try {
+            const res = this.$axios.post('/user/logout', {}, {
+                withCredentials: true,
             });
+            commit('setUser', null);
+        } catch (err) {
+            console.log(err);
+        }
     },
 };
