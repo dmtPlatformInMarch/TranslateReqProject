@@ -106,6 +106,7 @@ export default {
     methods: {
         onLogout() {
             this.loginMenu = false;
+            this.$store.dispatch('users/logout');
         },
         update(data) {
           this.loginMenu = data;

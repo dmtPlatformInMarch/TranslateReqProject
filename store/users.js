@@ -19,17 +19,15 @@ export const actions = {
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
-            console.log(res.data);
             commit('setUser', res.data);
-            console.log(state);
         } catch (err) {
             console.log(err);
         }
     },
     // 회원가입
-    async signUp({ commit }, payload) {
+    async signUp({ commit, state }, payload) {
         try {
-            const res = this.$axios.post('/user', {
+            const res = await this.$axios.post('/user/signup', {
                 email: payload.email,
                 password: payload.password,
                 nickname: payload.nickname,
@@ -44,20 +42,20 @@ export const actions = {
     },
     async login({ commit }, payload) {
         try {
-            const res = this.$axios.post('/user/login', {
+            const loginState = await this.$axios.post('/user/login', {
                 email: payload.email,
                 password: payload.password,
             }, {
                 withCredentials: true,
             });
-            commit('setUser', res.data);
+            commit('setUser', loginState.data);
         } catch (err) {
             console.log(err);
         }
     },
     async logout({ commit }) {
         try {
-            const res = this.$axios.post('/user/logout', {}, {
+            const res = await this.$axios.post('/user/logout', {}, {
                 withCredentials: true,
             });
             commit('setUser', null);
