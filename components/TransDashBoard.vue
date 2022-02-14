@@ -18,23 +18,27 @@
 
     <v-expansion-panel-content>
       <v-divider />
-      <v-list v-for="(file, i) in p.Files" :key="file.id">
-        <v-list-item>
+      <v-list v-for="(file, i) in mfFile" :key="file.id">
+        <v-list-item dense>
           <div style="display: flex; width: 10vw">
-            <v-chip>
-              {{ p.Files[i].req_lang }}
+            <v-spacer />
+            <v-chip class="chipStyle">
+              {{ file.req_lang }}
             </v-chip>
             <v-spacer />
             <v-icon>mdi-arrow-right-bold</v-icon>
             <v-spacer />
-            <v-chip>
-              {{ p.Files[i].grant_lang }}
+            <v-chip class="chipStyle">
+              {{ file.grant_lang }}
             </v-chip>
           </div>
           <v-spacer />
           <div>
             <v-icon left> mdi-file-document-multiple </v-icon>
-            {{ p.Files[i].src }}
+            {{ file.src }}
+            <span v-if="countingFile[i] - 1 != 0"
+              >외 {{ countingFile[i] - 1 }}개의 파일</span
+            >
           </div>
           <v-spacer />
           <v-list-item-icon>
@@ -48,6 +52,13 @@
   </v-expansion-panel>
 </template>
 
+<style scoped>
+.chipStyle {
+  justify-content: center;
+  min-width: 75px;
+}
+</style>
+
 <script>
 export default {
   props: {
@@ -56,14 +67,39 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      FileSet: this.p.Files,
+    };
+  },
+  computed: {
+    sortingFile: function () {
+      return Array.from(this.FileSet).sort(function (a, b) {
+        return a.chainNumber - b.chainNumber;
+      });
+    },
+    mfFile: function () {
+      return Array.from(this.FileSet).filter((item, i) => {
+        return (
+          Array.from(this.FileSet).findIndex((item2, j) => {
+            return item.chainNumber === item2.chainNumber;
+          }) === i
+        );
+      });
+    },
+    countingFile: function () {
+      const result = [];
+      Array.from(this.FileSet).forEach((f) => {
+        result[f["chainNumber"]] = (result[f["chainNumber"]] || 0) + 1;
+      });
+      return result;
+    },
+  },
   methods: {
     cle() {
       this.$store.dispatch("requests/cancelRequest", {
         id: this.p.id,
       });
-    },
-    logging() {
-      console.log(`this ID = ${this.p.id}\n`);
     },
   },
 };

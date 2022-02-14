@@ -78,7 +78,6 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-
       <nuxt />
     </div>
   </v-app>

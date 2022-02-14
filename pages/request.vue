@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>번역 의뢰 페이지</h1>
-    <v-card>
+    <v-card outlined elevation="10">
       <v-container>
         <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
           <v-text-field

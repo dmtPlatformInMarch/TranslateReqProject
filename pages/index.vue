@@ -67,6 +67,7 @@
           clearable
           counter
           outlined
+          background-color="grey lighten-2"
         />
       </div>
       <div style="text-align: center; margin: auto">
@@ -83,6 +84,7 @@
           counter
           outlined
           readonly
+          background-color="grey lighten-2"
         />
       </div>
     </v-layout>

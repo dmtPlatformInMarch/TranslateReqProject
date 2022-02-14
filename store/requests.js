@@ -23,9 +23,6 @@ export const state = () => ({
     filePaths: ['', '', '', '', ''],
 });
 
-const totalRequest = 51;
-const limit = 10;
-
 export const mutations = {
     addMainRequest(state, payload) {
         state.mainRequest.unshift(payload);
@@ -46,7 +43,7 @@ export const mutations = {
 };
 
 export const actions = {
-    onRequest({ commit, state }, payload) {
+    async onRequest({ commit, state }, payload) {
         // 서버 요청
         /*console.log(
             `여기가 스토어 액션 시작\n`,
@@ -62,68 +59,63 @@ export const actions = {
             `options: ${payload.options}\n`,
             `trans_state: ${'번역 준비중'}\n`
         );*/
-        this.$axios.post('/request', {
-            id: payload.id,
-            name: payload.name,
-            phone: payload.phone,
-            email: payload.email,
-            company: payload.company,
-            second_phone: payload.second_phone,
-            date: payload.date,
-            req_lang: payload.req_lang,
-            grant_lang: payload.grant_lang,
-            options: payload.options,
-            trans_state: '번역 준비중',
-            file: state.filePaths
-        }, {
-            withCredentials: true,
-        })
-            .then((res) => {
-                commit('addMainRequest', res.data);
+        try {
+            const requestResponse = await this.$axios.post('/request', {
+                id: payload.id,
+                name: payload.name,
+                phone: payload.phone,
+                email: payload.email,
+                company: payload.company,
+                second_phone: payload.second_phone,
+                date: payload.date,
+                req_lang: payload.req_lang,
+                grant_lang: payload.grant_lang,
+                options: payload.options,
+                trans_state: '번역 준비중',
+                file: state.filePaths
+            }, {
+                withCredentials: true,
             })
-            .catch((err) => {
-                console.error(err);
-            });
+            commit('addMainRequest', requestResponse.data);
+        } catch (err) {
+            console.error(err);
+        }
     },
     cancelRequest({ commit }, payload) {
         commit('removeMainRequest', payload);
     },
-    uploadFile({ commit }, payload) {
-        this.$axios.post('/request/file', payload.file, {
-            withCredentials: true,
-        })
-            .then((res) => {
-                commit('concatFilePaths', { index: payload.index, file: res.data });
-                console.log(`filePaths = ${this.$store.state.requests.filePaths}\n`);
-            })
-            .catch((err) => {
-                console.error(err);
+    async uploadFile({ commit }, payload) {
+        try {
+            const uploadResponse = await this.$axios.post('/request/file', payload.file, {
+                withCredentials: true,
             });
+            commit('concatFilePaths', { index: payload.index, file: uploadResponse.data });
+        } catch (err) {
+            console.error(err);
+        }
     },
     removeFile({ commit }, payload) {
         commit('removeFilePaths', payload);
     },
-    loadRequest({ commit, state }) {
-        if (state.hasMoreRequest) {
-            this.$axios.get(`/requests`)
-                .then((res) => {
-                    commit('loadRequest', res.data);
-                })
-                .catch((err) => {
-                    // 사용자 관점의 에러처리
-                    console.error(err);
-                });
+    async loadRequest({ commit, state }) {
+        try {
+            if (state.hasMoreRequest) {
+                const loadResponse = await this.$axios.get(`/requests`);
+                commit('loadRequest', loadResponse.data);
+            }
+        } catch (err) {
+            // 사용자 관점의 에러처리
+            console.error(err);
         }
     },
-    CacelRequest({ commit }, payload) {
-        this.$axios.delete(`/request/${payload.RequestId}`, {
-            withCredentials: true,
-        })
-            .then(() => {
-                commit('removeMainRequest', payload);
-            })
-            .catch((err) => {
-                console.error(err);
+    async CacelRequest({ commit }, payload) {
+        try {
+            const CancelResponse = await this.$axios.delete(`/request/${payload.RequestId}`, {
+                withCredentials: true,
             });
+            commit('removeMainRequest', payload);
+        } catch (err) {
+            console.error(err);
+        }
     }
 };
