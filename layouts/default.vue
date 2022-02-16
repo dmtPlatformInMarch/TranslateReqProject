@@ -10,6 +10,7 @@
       </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items>
+        <v-btn text @click="onSnack"> 스낵바 생성 </v-btn>
         <v-menu
           v-model="loginMenu"
           offset-x
@@ -74,11 +75,12 @@
             <v-list-item-icon>
               <v-icon>mdi-clipboard-clock</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>번역 실적</v-list-item-title>
+            <v-list-item-title>영상 및 자막 번역</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <nuxt />
+      <snack-bar />
     </div>
   </v-app>
 </template>
@@ -88,27 +90,34 @@
 
 <script lang="js">
 import LoginForm from '~/components/LoginForm'
+import SnackBar from '~/components/SnackBar'
 
 export default {
     name: "Default",
     components: {
         LoginForm,
+        SnackBar,
     },
     data: () => ({
       loginMenu: false,
     }),
     computed: {
-        loginState() {
-            return this.$store.state.users.loginState;
-        }
+      loginState() {
+          return this.$store.state.users.loginState;
+      },
     },
     methods: {
         onLogout() {
             this.loginMenu = false;
             this.$store.dispatch('users/logout');
+            this.$manage.showMessage({ message: '로그아웃', color: 'red' });
         },
         update(data) {
           this.loginMenu = data;
+        },
+        onSnack() {
+          this.$manage.showMessage({ message: '스낵바 생성 테스트', color: 'info' });
+          console.log('스낵바 생성 시도');
         }
     }
 };

@@ -13,15 +13,15 @@ export const mutations = {
 // (context, payload)로 구성
 // 비동기 작업 or 복잡한 작업 수행
 export const actions = {
-    async loadUser({ commit, state }) {
-        console.log('Load User');
+    async loadUser({ commit }) {
         try {
+            console.log('Load User');
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
             commit('setUser', res.data);
         } catch (err) {
-            console.log(err);
+            console.log('로그인이 필요합니다.');
         }
     },
     // 회원가입

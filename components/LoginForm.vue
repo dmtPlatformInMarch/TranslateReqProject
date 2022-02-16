@@ -86,6 +86,7 @@ export default {
           email: this.email,
           password: this.password,
         });
+        this.$manage.showMessage({ message: "로그인", color: "green" });
       } else {
         // false
       }

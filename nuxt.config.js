@@ -14,7 +14,9 @@ module.exports = {
     moduleContext: {
         './node_modules/pdfmake/build/vfs_fonts.js': 'window',
     },
-    plugins: [],
+    plugins: [
+        { src: '~/plugins/manage.js', ssr: false },
+    ],
     vuetify: {},
     axios: {
         browserBaseURL: 'http://localhost:3085',

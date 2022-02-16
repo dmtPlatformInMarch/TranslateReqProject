@@ -3,7 +3,7 @@
     <h1>번역 의뢰 페이지</h1>
     <v-card outlined elevation="10">
       <v-container>
-        <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
+        <v-form ref="form" v-model="valid" @submit.prevent="">
           <v-text-field
             v-model="name"
             type="text"
@@ -346,28 +346,45 @@
             <v-spacer />
             <v-btn
               depressed
-              @click="pdfTest"
               color="#0d6efd"
               :disabled="!loginState"
               dark
               large
               style="margin: 10px"
+              @click="pdfTest"
             >
               견적서 발급
               <v-icon right>mdi-file-download</v-icon>
             </v-btn>
             <v-btn
               depressed
-              type="submit"
               color="success"
               :disabled="!loginState"
               dark
               large
               style="margin: 10px"
+              @click="dialog = true"
             >
               번역 의뢰
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
+            <v-dialog v-model="dialog" persistent max-width="300">
+              <v-card>
+                <v-card-title class="text-h5">의뢰 내용 확인</v-card-title>
+                <v-card-text>해당 의뢰 내용으로 제출하시겠습니까?</v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text @click="dialog = false">취소</v-btn>
+                  <v-btn
+                    color="success"
+                    text
+                    @click="onSubmitForm"
+                    type="submit"
+                    >확인</v-btn
+                  >
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </div>
         </v-form>
       </v-container>
@@ -411,6 +428,7 @@ export default {
         price: [ 20000, 15000, 20000, 5000, 10000],
         file: [],
         options: 'Options Test',
+        dialog: false,
     }),
     computed: {
         ...mapState('requests', ['imagePaths']),
@@ -539,7 +557,7 @@ export default {
                         options: this.options,
                         trans_state: '번역 준비중'
                     });
-                    console.log(
+                    /*console.log(
                         `name: ${this.name}\n`,
                         `phone: ${this.phone}\n`,
                         `email: ${this.email}\n`,
@@ -550,10 +568,15 @@ export default {
                         `grant_lang: ${this.grant_lang}\n`,
                         `options: ${this.options}\n`,
                         `trans_state: ${'번역 준비중'}\n`,
-                    );
-                } 
+                    );*/
+                    console.log('의뢰');
+                    this.dialog = false;
+                    this.$manage.showMessage({ message: '의뢰 성공', color: 'indigo lighten-2' });
+                    this.$router.push({ path: '/'});
+                }
             } catch (error) {
                 // 오류처리
+                this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
                 console.error(error);
             }
         },
