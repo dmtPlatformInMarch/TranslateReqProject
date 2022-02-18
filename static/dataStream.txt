@@ -10,11 +10,12 @@
     date: '',
     req_lang: '',
     grant_lang: '',
+    field: '',
     options: '',
     trans_state: '',
 }
 #Server
-Requests {
+requests {
     id: '',
     name: '',
     phone: '',
@@ -25,9 +26,13 @@ Requests {
     options: '',
     trans_state: '',
 }
-Subrequest {
+files {
+    id: '',
+    chainNumber: '',
+    src: '',
     req_lang: '',
     grant_lang: '',
+    field: '',
 }
 #File is not in Data => Control Another Data Storage
 

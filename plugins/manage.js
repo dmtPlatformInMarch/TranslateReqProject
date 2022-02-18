@@ -4,5 +4,8 @@ export default ({ app, store }, inject) => {
         showMessage({ message = '', color = '' }) {
             store.commit('manager/showMessage', { message, color });
         },
+        setLanguage({ language = '' }) {
+            store.commit('manager/setLanguage', language);
+        },
     })
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panel>
+  <v-expansion-panel v-if="language === '한국어'">
     <v-expansion-panel-header disable-icon-rotate>
       <div>의뢰ID : {{ p.id }}</div>
       <v-spacer />
@@ -20,6 +20,10 @@
       <v-divider />
       <v-list v-for="(file, i) in mfFile" :key="file.id">
         <v-list-item dense>
+          <v-chip class="chipStyle" style="min-width: 10vw" label>
+            {{ file.field }}
+          </v-chip>
+          <v-spacer />
           <div style="display: flex; width: 10vw">
             <v-spacer />
             <v-chip class="chipStyle">
@@ -33,11 +37,67 @@
             </v-chip>
           </div>
           <v-spacer />
-          <div>
+          <div style="display: flex; width: 30vw">
             <v-icon left> mdi-file-document-multiple </v-icon>
             {{ file.src }}
             <span v-if="countingFile[i] - 1 != 0"
               >외 {{ countingFile[i] - 1 }}개의 파일</span
+            >
+          </div>
+          <v-spacer />
+          <v-list-item-icon>
+            <v-icon color="success"> mdi-check-circle </v-icon>
+          </v-list-item-icon>
+        </v-list-item>
+      </v-list>
+    </v-expansion-panel-content>
+
+    <!--v-btn @click="cle">지우기</v-btn-->
+  </v-expansion-panel>
+
+  <v-expansion-panel v-else-if="language === '영어'">
+    <v-expansion-panel-header disable-icon-rotate>
+      <div>Request ID : {{ p.id }}</div>
+      <v-spacer />
+      <div>
+        <v-icon>mdi-calendar-clock</v-icon>
+        {{ p.date }}
+      </div>
+      <v-spacer />
+      <template v-slot:actions>
+        <v-chip color="orange darken-2">
+          {{ p.trans_state }}
+          <v-icon right>mdi-briefcase-clock</v-icon>
+        </v-chip>
+      </template>
+    </v-expansion-panel-header>
+
+    <v-expansion-panel-content>
+      <v-divider />
+      <v-list v-for="(file, i) in mfFile" :key="file.id">
+        <v-list-item dense>
+          <v-chip class="chipStyle" style="min-width: 10vw" label>
+            {{ file.field }}
+          </v-chip>
+          <v-spacer />
+          <div style="display: flex; width: 10vw">
+            <v-spacer />
+            <v-chip class="chipStyle">
+              {{ file.req_lang }}
+            </v-chip>
+            <v-spacer />
+            <v-icon>mdi-arrow-right-bold</v-icon>
+            <v-spacer />
+            <v-chip class="chipStyle">
+              {{ file.grant_lang }}
+            </v-chip>
+          </div>
+          <v-spacer />
+          <div style="display: flex; width: 30vw">
+            <v-icon left> mdi-file-document-multiple </v-icon>
+            {{ file.src }}
+            <span v-if="countingFile[i] - 1 != 0"
+              >other {{ countingFile[i] - 1 }} files</span
             >
           </div>
           <v-spacer />
@@ -73,12 +133,12 @@ export default {
     };
   },
   computed: {
-    sortingFile: function () {
+    sortingFile() {
       return Array.from(this.FileSet).sort(function (a, b) {
         return a.chainNumber - b.chainNumber;
       });
     },
-    mfFile: function () {
+    mfFile() {
       return Array.from(this.FileSet).filter((item, i) => {
         return (
           Array.from(this.FileSet).findIndex((item2, j) => {
@@ -87,12 +147,16 @@ export default {
         );
       });
     },
-    countingFile: function () {
-      const result = [];
+    countingFile() {
+      const array = [];
       Array.from(this.FileSet).forEach((f) => {
-        result[f["chainNumber"]] = (result[f["chainNumber"]] || 0) + 1;
+        array[f["chainNumber"]] = (array[f["chainNumber"]] || 0) + 1;
       });
+      const result = array.reverse();
       return result;
+    },
+    language() {
+      return this.$store.state.manager.language;
     },
   },
   methods: {

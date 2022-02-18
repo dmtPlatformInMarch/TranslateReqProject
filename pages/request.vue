@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <h1>번역 의뢰 페이지</h1>
     <v-card outlined elevation="10">
-      <v-container>
+      <!--한국어 필드-->
+      <v-container v-if="language === '한국어'">
         <v-form ref="form" v-model="valid" @submit.prevent="">
           <v-text-field
             v-model="name"
@@ -388,6 +388,396 @@
           </div>
         </v-form>
       </v-container>
+
+      <!--영어 필드-->
+      <v-container v-else-if="language === '영어'">
+        <v-form ref="form" v-model="valid" @submit.prevent="">
+          <v-text-field
+            v-model="name"
+            type="text"
+            label="*Name"
+            prepend-inner-icon="mdi-account"
+            :rules="[(v) => !!v || 'You have to enter your name.']"
+          />
+          <v-text-field
+            v-model="phone"
+            type="tel"
+            label="*Phone Number"
+            prepend-inner-icon="mdi-cellphone"
+            :rules="[(v) => !!v || 'You have to enter your phone number.']"
+          />
+          <v-text-field
+            v-model="email"
+            type="email"
+            label="*Email"
+            prepend-inner-icon="mdi-email"
+            :rules="[(v) => !!v || 'You have to enter an email.']"
+          />
+          <v-text-field
+            v-model="company"
+            type="text"
+            label="*Company"
+            prepend-inner-icon="mdi-office-building"
+            :rules="[(v) => !!v || 'Please enter name of your company.']"
+          />
+          <v-text-field
+            v-model="second_phone"
+            type="tel"
+            label="Tel"
+            prepend-inner-icon="mdi-deskphone"
+          />
+          <v-menu
+            ref="menu"
+            v-model="menu"
+            :close-on-content-click="false"
+            :return-value.sync="date"
+            offset-y
+            min-width="auto"
+          >
+            <template #activator="{ on, attrs }">
+              <v-text-field
+                v-model="date"
+                prepend-inner-icon="mdi-calendar"
+                v-bind="attrs"
+                readonly
+                label="*Desired date"
+                :rules="[(v) => !!v || 'Please enter the desired date.']"
+                v-on="on"
+              />
+            </template>
+            <v-date-picker v-model="date" no-title scrollable>
+              <v-spacer />
+              <v-btn text @click="menu = false">Cancel</v-btn>
+              <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
+            </v-date-picker>
+          </v-menu>
+          <v-banner shaped>The Request</v-banner>
+          <div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[0]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                  :rules="[
+                    (v) => !!v || 'Choose the language to be translated.',
+                  ]"
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[0]"
+                  class="selector"
+                  :items="e_languages"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || 'Choose a language to translate.']"
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[0]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[0]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  multiple
+                  dense
+                  :rules="[(v) => !!v || 'Please attach the File.']"
+                  @change="onChangeFile(0, $event)"
+                  @click:clear="onClearFile(0)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[1]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[1]"
+                  class="selector"
+                  :items="e_languages"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[1]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[1]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(1, $event)"
+                  @click:clear="onClearFile(1)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[2]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[2]"
+                  class="selector"
+                  :items="e_languages"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[2]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[2]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(2, $event)"
+                  @click:clear="onClearFile(2)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[3]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[3]"
+                  class="selector"
+                  :items="e_languages"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[3]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[3]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(3, $event)"
+                  @click:clear="onClearFile(3)"
+                />
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[4]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[4]"
+                  class="selector"
+                  :items="e_languages"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select
+                  v-model="req_field[4]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[4]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  multiple
+                  dense
+                  @change="onChangeFile(4, $event)"
+                  @click:clear="onClearFile(4)"
+                />
+              </div>
+            </div>
+          </div>
+          <v-textarea
+            v-model="options"
+            outlined
+            auto-grow
+            clearable
+            label="Special Order"
+            prepend-inner-icon="mdi-star-cog"
+            :hide-details="hideDetails"
+            @input="onChangeTextarea"
+          />
+          <div
+            style="
+              display: flex;
+              align-content: center;
+              justify-content: flex-start;
+              margin: auto;
+              padding: 10px 0;
+            "
+          >
+            <v-spacer />
+            <v-btn
+              depressed
+              color="#0d6efd"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+              @click="pdfTest"
+            >
+              Issuing Quotation
+              <v-icon right>mdi-file-download</v-icon>
+            </v-btn>
+            <v-btn
+              depressed
+              color="success"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+              @click="dialog = true"
+            >
+              Translation request
+              <v-icon right>mdi-file-edit</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" persistent max-width="300">
+              <v-card>
+                <v-card-title class="text-h5">Check the request</v-card-title>
+                <v-card-text>Would you like to submit the request?</v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text @click="dialog = false">Cancel</v-btn>
+                  <v-btn
+                    color="success"
+                    text
+                    @click="onSubmitForm"
+                    type="submit"
+                    >OK</v-btn
+                  >
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-form>
+      </v-container>
     </v-card>
   </v-container>
 </template>
@@ -415,6 +805,7 @@ export default {
         valid: false,
         menu: false,
         languages: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
+        e_languages: ['Koran', 'Chinese', 'Japanese', 'German', 'Russian', 'Arabic'],
         name: 'RQTest',
         phone: '01012341234',
         email: '123@123.com',
@@ -422,6 +813,7 @@ export default {
         second_phone: '021231234',
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
         field: ['단순 번역', '논문', '경제', '컴퓨터/정보통신'],
+        e_field: ['Simple translation', 'Thesis', 'Economy', 'Computer/Information Communication'],
         req_field: ['단순 번역', '', '', '', ''],
         req_lang: ['한국어', '', '', '', ''],
         grant_lang: ['중국어', '', '', '', ''],
@@ -434,6 +826,9 @@ export default {
         ...mapState('requests', ['imagePaths']),
         loginState() {
             return this.$store.state.users.loginState;
+        },
+        language() {
+          return this.$store.state.manager.language;
         }
     },
     methods: {
@@ -552,27 +947,35 @@ export default {
                         company: this.company,
                         second_phone: this.second_phone,
                         date: this.date,
+                        field: this.req_field,
                         req_lang: this.req_lang,
                         grant_lang: this.grant_lang,
                         options: this.options,
                         trans_state: '번역 준비중'
                     });
-                    /*console.log(
+                    console.log(
                         `name: ${this.name}\n`,
                         `phone: ${this.phone}\n`,
                         `email: ${this.email}\n`,
                         `company: ${this.company}\n`,
                         `second_phone: ${this.second_phone}\n`,
                         `date: ${this.date}\n`,
+                        `field: ${this.req_field}\n`,
                         `req_lang: ${this.req_lang}\n`,
                         `grant_lang: ${this.grant_lang}\n`,
                         `options: ${this.options}\n`,
                         `trans_state: ${'번역 준비중'}\n`,
-                    );*/
-                    console.log('의뢰');
+                    );
+                    if (submitResponse != null) {
+                      this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
+                      console.log('의뢰');
+                      this.$router.push({ path: '/'});
+                    }
+                    else {
+                      this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
+                      console.log('의뢰 실패');
+                    }
                     this.dialog = false;
-                    this.$manage.showMessage({ message: '의뢰 성공', color: 'indigo lighten-2' });
-                    this.$router.push({ path: '/'});
                 }
             } catch (error) {
                 // 오류처리

@@ -26,6 +26,7 @@ export const state = () => ({
 export const mutations = {
     addMainRequest(state, payload) {
         state.mainRequest.unshift(payload);
+        state.hasMoreRequest = true;
     },
     removeMainRequest(state, payload) {
         const index = state.mainRequest.findIndex(v => v.id === payload.RequestId);
@@ -39,6 +40,7 @@ export const mutations = {
     },
     loadRequest(state, payload) {
         state.mainRequest = payload;
+        state.hasMoreRequest = false;
     },
 };
 
@@ -68,6 +70,7 @@ export const actions = {
                 company: payload.company,
                 second_phone: payload.second_phone,
                 date: payload.date,
+                field: payload.field,
                 req_lang: payload.req_lang,
                 grant_lang: payload.grant_lang,
                 options: payload.options,
@@ -102,6 +105,8 @@ export const actions = {
             if (state.hasMoreRequest) {
                 const loadResponse = await this.$axios.get(`/requests`);
                 commit('loadRequest', loadResponse.data);
+            } else {
+                this.$manage.showMessage({ message: '이미 최신 상태입니다.', color: 'amber darken-1' });
             }
         } catch (err) {
             // 사용자 관점의 에러처리

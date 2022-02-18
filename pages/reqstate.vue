@@ -1,9 +1,6 @@
 <template>
-  <v-container>
+  <v-container v-if="language === '한국어'">
     <v-toolbar elevation="0">
-      <v-toolbar-title>
-        <h1>번역 현황 페이지</h1>
-      </v-toolbar-title>
       <v-spacer />
       <v-btn rounded color="success" @click="update">조회하기</v-btn>
     </v-toolbar>
@@ -24,13 +21,13 @@
         <v-card-title class="titleStyle">
           {{ loginState.nickname }} 님의 번역 현황
         </v-card-title>
-        <v-card style="height: 45vh" elevation="10">
-          <v-expansion-panels flat>
+        <v-card class="overflow-y-auto" style="height: 45vh" elevation="10">
+          <v-expansion-panels flat accordion focusable>
             <trans-dash-board
-              v-for="p in mainRequest"
-              :id="p.id"
-              :key="p.id"
-              :p="p"
+              v-for="item in mainRequest"
+              :id="item.id"
+              :key="item.id"
+              :p="item"
             />
           </v-expansion-panels>
         </v-card>
@@ -39,9 +36,12 @@
 
     <v-card>
       <v-container v-if="!loginState">
-        <v-card-title class="titleStyle"> 번역 요청 이력 </v-card-title>
-
-        <v-card style="height: 45vh; text-align: center" elevation="10">
+        <v-card-title class="titleStyle">번역 요청 이력</v-card-title>
+        <v-card
+          class="overflow-y-auto"
+          style="height: 45vh; text-align: center"
+          elevation="10"
+        >
           <v-list>
             <v-list-item>
               <v-list-item-title>로그인이 필요합니다.</v-list-item-title>
@@ -58,6 +58,86 @@
           <v-list style="height: 45vh; overflow-y: scroll">
             <v-list-item v-if="mainRequest.length === 0">
               <v-list-item-title>번역한 의뢰가 없습니다.</v-list-item-title>
+            </v-list-item>
+            <v-list-item-group v-else>
+              <trans-history-board
+                v-for="p in mainRequest"
+                :id="p.id"
+                :key="p.id"
+                :p="p"
+              />
+            </v-list-item-group>
+          </v-list>
+        </v-card>
+      </v-container>
+    </v-card>
+  </v-container>
+
+  <v-container v-else-if="language === '영어'">
+    <v-toolbar elevation="0">
+      <v-spacer />
+      <v-btn rounded color="success" @click="update">Renewal</v-btn>
+    </v-toolbar>
+
+    <v-card>
+      <v-container v-if="!loginState">
+        <v-card-title class="titleStyle">
+          Translation Request Status
+        </v-card-title>
+        <v-card
+          outlined
+          style="height: 45vh; text-align: center"
+          elevation="10"
+        >
+          <div>You need to Login.</div>
+        </v-card>
+      </v-container>
+
+      <v-container v-else>
+        <v-card-title class="titleStyle">
+          {{ loginState.nickname }}'s Translation Status
+        </v-card-title>
+        <v-card class="overflow-y-auto" style="height: 45vh" elevation="10">
+          <v-expansion-panels flat accordion focusable>
+            <trans-dash-board
+              v-for="item in mainRequest"
+              :id="item.id"
+              :key="item.id"
+              :p="item"
+            />
+          </v-expansion-panels>
+        </v-card>
+      </v-container>
+    </v-card>
+
+    <v-card>
+      <v-container v-if="!loginState">
+        <v-card-title class="titleStyle"
+          >Translation Request History</v-card-title
+        >
+        <v-card
+          class="overflow-y-auto"
+          style="height: 45vh; text-align: center"
+          elevation="10"
+        >
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>You need to Login.</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-container>
+
+      <v-container v-else>
+        <v-card-title class="titleStyle">
+          {{ loginState.nickname }}'s Translation History
+        </v-card-title>
+        <v-card style="height: 45vh; text-align: center" elevation="10">
+          <v-list style="height: 45vh; overflow-y: scroll">
+            <v-list-item v-if="mainRequest.length === 0">
+              <v-list-item-title
+                >There is no translation request.</v-list-item-title
+              >
             </v-list-item>
             <v-list-item-group v-else>
               <trans-history-board
@@ -109,12 +189,18 @@ export default {
         },
         loginState() {
             return this.$store.state.users.loginState;
+        },
+        language() {
+          return this.$store.state.manager.language;
         }
     },
     methods: {
         update() {
-            console.log("새로 조회하기\n");
+          if(!this.loginState) this.$manage.showMessage({ message: '로그인이 필요합니다.' , color: 'red lighten-1' });
+          else {
+            console.log('조회');
             this.$store.dispatch('requests/loadRequest');
+          }
         }
     },
 };
