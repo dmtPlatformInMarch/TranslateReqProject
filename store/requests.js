@@ -29,7 +29,7 @@ export const mutations = {
         state.hasMoreRequest = true;
     },
     removeMainRequest(state, payload) {
-        const index = state.mainRequest.findIndex(v => v.id === payload.RequestId);
+        const index = state.mainRequest.findIndex(v => v.id === payload);
         state.mainRequest.splice(index, 1);
     },
     concatFilePaths(state, payload) {
@@ -80,12 +80,10 @@ export const actions = {
                 withCredentials: true,
             })
             commit('addMainRequest', requestResponse.data);
+            return requestResponse;
         } catch (err) {
             console.error(err);
         }
-    },
-    cancelRequest({ commit }, payload) {
-        commit('removeMainRequest', payload);
     },
     async uploadFile({ commit }, payload) {
         try {
@@ -113,12 +111,13 @@ export const actions = {
             console.error(err);
         }
     },
-    async CacelRequest({ commit }, payload) {
+    async cancelRequest({ commit }, payload) {
         try {
-            const CancelResponse = await this.$axios.delete(`/request/${payload.RequestId}`, {
+            const cancelResponse = await this.$axios.delete(`/request/${payload.id}`, {
                 withCredentials: true,
             });
-            commit('removeMainRequest', payload);
+            commit('removeMainRequest', payload.id);
+            return cancelResponse;
         } catch (err) {
             console.error(err);
         }

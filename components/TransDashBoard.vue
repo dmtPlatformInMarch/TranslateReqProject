@@ -1,7 +1,22 @@
 <template>
   <v-expansion-panel v-if="language === '한국어'">
     <v-expansion-panel-header disable-icon-rotate>
-      <div>의뢰ID : {{ p.id }}</div>
+      <div style="display: flex; align-items: center">
+        <v-btn depressed icon @click="dialog = true"
+          ><v-icon>mdi-close</v-icon></v-btn
+        >
+        <v-dialog v-model="dialog" width="30vw">
+          <v-card>
+            <v-card-title>의뢰 취소</v-card-title>
+            <v-card-text>해당 의뢰를 취소하시겠습니까?</v-card-text>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn text @click="dialog = false">취소</v-btn>
+              <v-btn color="success" text @click="cancelRequest">확인</v-btn>
+            </v-card-actions>
+          </v-card> </v-dialog
+        >의뢰ID : {{ p.id }}
+      </div>
       <v-spacer />
       <div>
         <v-icon>mdi-calendar-clock</v-icon>
@@ -50,6 +65,7 @@
           </v-list-item-icon>
         </v-list-item>
       </v-list>
+      <v-list-item> </v-list-item>
     </v-expansion-panel-content>
 
     <!--v-btn @click="cle">지우기</v-btn-->
@@ -57,7 +73,24 @@
 
   <v-expansion-panel v-else-if="language === '영어'">
     <v-expansion-panel-header disable-icon-rotate>
-      <div>Request ID : {{ p.id }}</div>
+      <div style="display: flex; align-items: center">
+        <v-btn depressed icon @click="dialog = true"
+          ><v-icon>mdi-close</v-icon></v-btn
+        >
+        <v-dialog v-model="dialog" width="30vw">
+          <v-card>
+            <v-card-title>Request Cancel</v-card-title>
+            <v-card-text
+              >Are you sure you want to cancel the quest?</v-card-text
+            >
+            <v-card-actions>
+              <v-spacer />
+              <v-btn text @click="dialog = false">No</v-btn>
+              <v-btn color="success" text @click="cancelRequest">Yes</v-btn>
+            </v-card-actions>
+          </v-card> </v-dialog
+        >의뢰ID : {{ p.id }}
+      </div>
       <v-spacer />
       <div>
         <v-icon>mdi-calendar-clock</v-icon>
@@ -130,6 +163,7 @@ export default {
   data() {
     return {
       FileSet: this.p.Files,
+      dialog: false,
     };
   },
   computed: {
@@ -160,10 +194,41 @@ export default {
     },
   },
   methods: {
-    cle() {
-      this.$store.dispatch("requests/cancelRequest", {
-        id: this.p.id,
-      });
+    async cancelRequest() {
+      try {
+        const deleteResponse = await this.$store.dispatch(
+          "requests/cancelRequest",
+          {
+            id: this.p.id,
+          }
+        );
+        if (deleteResponse.data === "삭제") {
+          if (this.language === "한국어") {
+            this.$manage.showMessage({
+              message: "의뢰를 성공적으로 취소했습니다.",
+              color: "success",
+            });
+          } else if (this.language === "영어") {
+            this.$manage.showMessage({
+              message: "Successfully canceled the quest.",
+              color: "success",
+            });
+          }
+        } else {
+          if (this.language === "한국어") {
+            this.$manage.showMessage({
+              message: "의뢰를 취소하는데 문제가 발생했습니다.",
+              color: "error",
+            });
+          } else if (this.language === "영어") {
+            this.$manage.showMessage({
+              message: "Oops..Problem during cancel the quest.",
+              color: "error",
+            });
+          }
+        }
+        this.dialog = false;
+      } catch (err) {}
     },
   },
 };

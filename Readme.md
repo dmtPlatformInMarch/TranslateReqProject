@@ -15,3 +15,13 @@ ESlint Option
 Frontend Port
 
 >    3080
+
+
+First Clone Project (Download Library & Module)
+
+>    npm i
+
+Run Develop Environment
+
+>    npm run dev (Input back & front both terminal)
+

@@ -21,7 +21,16 @@
         <v-card-title class="titleStyle">
           {{ loginState.nickname }} 님의 번역 현황
         </v-card-title>
-        <v-card class="overflow-y-auto" style="height: 45vh" elevation="10">
+        <v-card
+          class="overflow-y-auto"
+          style="height: 45vh; text-align: center"
+          elevation="10"
+        >
+          <v-list-item v-if="mainRequest.length == 0">
+            <v-list-item-title
+              >번역을 요청하신 의뢰가 없습니다.</v-list-item-title
+            >
+          </v-list-item>
           <v-expansion-panels flat accordion focusable>
             <trans-dash-board
               v-for="item in mainRequest"
@@ -97,7 +106,16 @@
         <v-card-title class="titleStyle">
           {{ loginState.nickname }}'s Translation Status
         </v-card-title>
-        <v-card class="overflow-y-auto" style="height: 45vh" elevation="10">
+        <v-card
+          class="overflow-y-auto"
+          style="height: 45vh; text-align: center"
+          elevation="10"
+        >
+          <v-list-item v-if="mainRequest.length == 0">
+            <v-list-item-title
+              >There is no request for translation.</v-list-item-title
+            >
+          </v-list-item>
           <v-expansion-panels flat accordion focusable>
             <trans-dash-board
               v-for="item in mainRequest"
@@ -185,10 +203,10 @@ export default {
     },
     computed: {
         mainRequest() {
-            return this.$store.state.requests.mainRequest;
+          return this.$store.state.requests.mainRequest;
         },
         loginState() {
-            return this.$store.state.users.loginState;
+          return this.$store.state.users.loginState;
         },
         language() {
           return this.$store.state.manager.language;

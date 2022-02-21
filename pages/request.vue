@@ -953,7 +953,7 @@ export default {
                         options: this.options,
                         trans_state: '번역 준비중'
                     });
-                    console.log(
+                    /*console.log(
                         `name: ${this.name}\n`,
                         `phone: ${this.phone}\n`,
                         `email: ${this.email}\n`,
@@ -965,14 +965,15 @@ export default {
                         `grant_lang: ${this.grant_lang}\n`,
                         `options: ${this.options}\n`,
                         `trans_state: ${'번역 준비중'}\n`,
-                    );
-                    if (submitResponse != null) {
+                    );*/
+                    if (submitResponse.statusText === 'OK') {
                       this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
                       console.log('의뢰');
                       this.$router.push({ path: '/'});
                     }
                     else {
                       this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
+                      this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
                       console.log('의뢰 실패');
                     }
                     this.dialog = false;
