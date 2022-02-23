@@ -65,7 +65,6 @@
           </v-list-item-icon>
         </v-list-item>
       </v-list>
-      <v-list-item> </v-list-item>
     </v-expansion-panel-content>
 
     <!--v-btn @click="cle">지우기</v-btn-->
@@ -227,6 +226,7 @@ export default {
             });
           }
         }
+        await this.$store.dispatch("requests/loadRequests");
         this.dialog = false;
       } catch (err) {}
     },

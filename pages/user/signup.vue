@@ -35,6 +35,16 @@
               :rules="[(v) => !!v || '약관 동의는 필수입니다.']"
             />
             <v-btn type="submit">가입하기</v-btn>
+            <v-dialog v-model="dialog" persistent max-width="300">
+              <v-card>
+                <v-card-title class="text-h5">회원가입 오류</v-card-title>
+                <v-card-text>{{ errorMessage }}</v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text @click="dialog = false">닫기</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-form>
         </v-container>
       </v-card>
@@ -50,6 +60,8 @@ export default {
   layout: "signup_layout",
   data() {
     return {
+      dialog: false,
+      errorMessage: false,
       valid: false,
       nickname: "",
       email: "",
@@ -76,27 +88,25 @@ export default {
     };
   },
   methods: {
-    onSubmitForm() {
-      if (this.$refs.form.validate()) {
-        // dispatch는 구조상 promise
-        this.$store
-          .dispatch("users/signUp", {
+    async onSubmitForm() {
+      try {
+        if (this.$refs.form.validate()) {
+          // dispatch는 구조상 promise
+          const onResponse = await this.$store.dispatch("users/signUp", {
             email: this.email,
             password: this.password,
             nickname: this.nickname,
-          })
-          .then(() => {
-            this.$router.push({
-              path: "/",
-            });
-          })
-          .catch(() => {
-            alert("회원가입 실패");
           });
-      } else {
-        // false
+          if (onResponse.status === 201) {
+            this.$router.push({ path: "/user/textmain" });
+          } else if (onResponse.status === 202) {
+            this.dialog = true;
+            this.errorMessage = onResponse.data.message;
+          }
+        }
+      } catch (err) {
+        console.log("에러" + err);
       }
-      //console.log(this.valid);
     },
   },
 };

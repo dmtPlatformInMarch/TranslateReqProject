@@ -185,41 +185,41 @@ import transDashBoard from '~/components/TransDashBoard';
 import transHistoryBoard from '~/components/transHistoryBoard';
 
 export default {
-    components: {
-        transDashBoard,
-        transHistoryBoard,
-    },
-    data() {
-        return {
-            
+  layout: 'text_layout',
+  components: {
+      transDashBoard,
+      transHistoryBoard,
+  },
+  data() {
+      return {
+          
+      }
+  },
+  async fetch({ store }) {
+      return await store.dispatch('requests/loadRequests');
+  },
+  asyncData() {
+      // 비동기 데이터, 위의 data와 합쳐짐.
+      return {};
+  },
+  computed: {
+      mainRequest() {
+        return this.$store.state.requests.mainRequest;
+      },
+      loginState() {
+        return this.$store.state.users.loginState;
+      },
+      language() {
+        return this.$store.state.manager.language;
+      }
+  },
+  methods: {
+      async update() {
+        if(!this.loginState) this.$manage.showMessage({ message: '로그인이 필요합니다.' , color: 'red lighten-1' });
+        else {
+          await this.$store.dispatch('requests/loadRequests');
         }
-    },
-    fetch({ store }) {
-        return store.dispatch('requests/loadRequest');
-    },
-    asyncData() {
-        // 비동기 데이터, 위의 data와 합쳐짐.
-        return {};
-    },
-    computed: {
-        mainRequest() {
-          return this.$store.state.requests.mainRequest;
-        },
-        loginState() {
-          return this.$store.state.users.loginState;
-        },
-        language() {
-          return this.$store.state.manager.language;
-        }
-    },
-    methods: {
-        update() {
-          if(!this.loginState) this.$manage.showMessage({ message: '로그인이 필요합니다.' , color: 'red lighten-1' });
-          else {
-            console.log('조회');
-            this.$store.dispatch('requests/loadRequest');
-          }
-        }
-    },
+      }
+  },
 };
 </script>

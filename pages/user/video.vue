@@ -13,6 +13,7 @@
 
 <script lang="js">
 export default {
+  layout: 'text_layout',
   data() {
     return {
 

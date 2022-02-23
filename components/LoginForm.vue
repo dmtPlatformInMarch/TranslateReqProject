@@ -82,7 +82,7 @@
           <v-btn
             v-if="language === '한국어'"
             plain
-            to="/signup"
+            to="/user/signup"
             @click="onEmit"
             style="width: 90%"
             >회원가입</v-btn
@@ -90,7 +90,7 @@
           <v-btn
             v-if="language === '영어'"
             plain
-            to="/signup"
+            to="/user/signup"
             @click="onEmit"
             style="width: 90%"
             >Sign Up</v-btn
@@ -112,7 +112,7 @@ export default {
       // 하나라도 false라면 false (rules가 없다면 true)
       valid: false,
       email: "dmt@dmtlabs.com",
-      password: "dmt123",
+      password: "dmtlabs",
       emailRules: [
         (v) => !!v || "이메일을 입력해주세요.",
         (v) =>

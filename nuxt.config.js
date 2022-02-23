@@ -7,7 +7,19 @@ module.exports = {
     },
     buildModules: [
         '@nuxtjs/vuetify',
+        '@nuxtjs/moment',
     ],
+    moment: {
+        locales: ['ko'],
+    },
+    build: {
+        analyze: false,
+        extend(config, { isClient, isServer, isDev }) {
+            if (isServer && !isDev === 'production') {
+                config.devtool = 'hidden-source-map';
+            }
+        },
+    },
     modules: [
         '@nuxtjs/axios',
     ],

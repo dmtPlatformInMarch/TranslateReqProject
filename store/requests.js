@@ -98,7 +98,7 @@ export const actions = {
     removeFile({ commit }, payload) {
         commit('removeFilePaths', payload);
     },
-    async loadRequest({ commit, state }) {
+    async loadRequests({ commit, state }) {
         try {
             if (state.hasMoreRequest) {
                 const loadResponse = await this.$axios.get(`/requests`);

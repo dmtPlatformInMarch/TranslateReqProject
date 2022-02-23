@@ -347,7 +347,6 @@
             <v-btn
               depressed
               color="#0d6efd"
-              :disabled="!loginState"
               dark
               large
               style="margin: 10px"
@@ -737,7 +736,6 @@
             <v-btn
               depressed
               color="#0d6efd"
-              :disabled="!loginState"
               dark
               large
               style="margin: 10px"
@@ -800,208 +798,209 @@ import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
-    data: () => ({
-        hideDetails: true,
-        valid: false,
-        menu: false,
-        languages: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
-        e_languages: ['Koran', 'Chinese', 'Japanese', 'German', 'Russian', 'Arabic'],
-        name: 'RQTest',
-        phone: '01012341234',
-        email: '123@123.com',
-        company: '123Company',
-        second_phone: '021231234',
-        date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        field: ['단순 번역', '논문', '경제', '컴퓨터/정보통신'],
-        e_field: ['Simple translation', 'Thesis', 'Economy', 'Computer/Information Communication'],
-        req_field: ['단순 번역', '', '', '', ''],
-        req_lang: ['한국어', '', '', '', ''],
-        grant_lang: ['중국어', '', '', '', ''],
-        price: [ 20000, 15000, 20000, 5000, 10000],
-        file: [],
-        options: 'Options Test',
-        dialog: false,
-    }),
-    computed: {
-        ...mapState('requests', ['imagePaths']),
-        loginState() {
-            return this.$store.state.users.loginState;
-        },
-        language() {
-          return this.$store.state.manager.language;
-        }
-    },
-    methods: {
-        pdfTest: function() {
-            var documentDefinition = {
-                // 워터마크
-                watermark: {
-                    text: 'DMTLABS',
-                    color: 'blue',
-                    opacity: 0.2,
-                    bold: true,
-                    fontSize: 40,
-                    angle: 30
-                },
-                content: [
-                    // 제목
-                    {
-                        text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
-                        style: 'style_header'
-                    },
-                    // 공급자 테이블
-                    {
-                        style: 'style_table',
-                        table: {
-                            widths: ['auto', 100, '*', '*'],
-                            body: [
-                                [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
-                                [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
-                                [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
-                                [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
-                            ]
-                        }
-                    },
-                    // 의뢰자 테이블
-                    {
-                        style: 'style_table',
-                        table: {
-                            widths: ['auto', 100, '*', '*'],
-                            body: [
-                                [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
-                                [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
-                                [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                                [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
-                            ]
-                        }
-                    },
-                    // 의뢰 내역 테이블
-                    {
-                        style: 'style_table',
-                        table: {
-                            heights: 20,
-                            widths: ['auto', '*', '*', '*', 'auto'],
-                            headerRows: 2,
-                            body: [
-                                [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
-                                [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
-                                [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
-                                [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
-                                [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
-                                [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
-                                [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
-                            ]
-                        }
-                    }
-                ],
-                // 페이지 번호 삽입
-                footer: function (currentPage, pageCount) {
-                    return {
-                        margin: 10,
-                        columns: [{
-                            fontSize: 9,
-                            text: {
-                                text: '' + currentPage.toString()
-                            }
-                        },
-                        ],
-                        alignment: 'center'
-                    }
-                },
-                // 커스텀 스타일 세트 그룹 정의
-                styles: {
-                    style_header: {
-                        fontSize: 24,
-                        bold: true,
-                        margin: [0, 0, 0, 0],
-                        alignment: 'center',
-                    },
-                    style_test: {
-                        fontSize: 18,
-                        bold: true,
-                        margin: [0, 0, 0, 0],
-                        alignment: 'center'
-                    },
-                    style_table: {
-                        margin: [0, 5, 0, 15],
-                        alignment: 'center',
-                        fontSize: 12,
-                    }
-                },
-                // 페이지 용지 사이즈
-                pageSize: 'A4',
-                // 페이지 방향 (세로=portrait / 가로=landscape)
-                pageOrientation: 'portrait',
-            };
-            var pdf_name = '번역 의뢰 견적서.pdf';
-            pdfMake.createPdf(documentDefinition).download(pdf_name);
-            //pdfMake.createPdf(documentDefinition).open();
-        },
-        async onSubmitForm() {
-            try {
-                if (this.$refs.form.validate()) {
-                    const submitResponse = await this.$store.dispatch('requests/onRequest', {
-                        name: this.name,
-                        phone: this.phone,
-                        email: this.email,
-                        company: this.company,
-                        second_phone: this.second_phone,
-                        date: this.date,
-                        field: this.req_field,
-                        req_lang: this.req_lang,
-                        grant_lang: this.grant_lang,
-                        options: this.options,
-                        trans_state: '번역 준비중'
-                    });
-                    /*console.log(
-                        `name: ${this.name}\n`,
-                        `phone: ${this.phone}\n`,
-                        `email: ${this.email}\n`,
-                        `company: ${this.company}\n`,
-                        `second_phone: ${this.second_phone}\n`,
-                        `date: ${this.date}\n`,
-                        `field: ${this.req_field}\n`,
-                        `req_lang: ${this.req_lang}\n`,
-                        `grant_lang: ${this.grant_lang}\n`,
-                        `options: ${this.options}\n`,
-                        `trans_state: ${'번역 준비중'}\n`,
-                    );*/
-                    if (submitResponse.statusText === 'OK') {
-                      this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
-                      console.log('의뢰');
-                      this.$router.push({ path: '/'});
-                    }
-                    else {
-                      this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
-                      this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
-                      console.log('의뢰 실패');
-                    }
-                    this.dialog = false;
-                }
-            } catch (error) {
-                // 오류처리
-                this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
-                console.error(error);
-            }
-        },
-        onChangeTextarea() {
-            this.hideDetails = true;
-        },
-        onChangeFile(index, e) {
-            const fileFormData = new FormData();
-            if (e != null) {
-                //console.log(e);
-                [].forEach.call(e, (f) => {
-                    fileFormData.append('fileKey', f);
-                })
-                this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
-            } else {
-                console.log("e is null!!!");
-            }
-        },
-        onClearFile(index) {
-            this.$store.dispatch('requests/removeFile', index);
-        }
-    }
+  layout: 'text_layout',
+  data: () => ({
+      hideDetails: true,
+      valid: false,
+      menu: false,
+      languages: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
+      e_languages: ['Koran', 'Chinese', 'Japanese', 'German', 'Russian', 'Arabic'],
+      name: 'RQTest',
+      phone: '01012341234',
+      email: '123@123.com',
+      company: '123Company',
+      second_phone: '021231234',
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      field: ['단순 번역', '논문', '경제', '컴퓨터/정보통신'],
+      e_field: ['Simple translation', 'Thesis', 'Economy', 'Computer/Information Communication'],
+      req_field: ['단순 번역', '', '', '', ''],
+      req_lang: ['한국어', '', '', '', ''],
+      grant_lang: ['중국어', '', '', '', ''],
+      price: [ 20000, 15000, 20000, 5000, 10000],
+      file: [],
+      options: 'Options Test',
+      dialog: false,
+  }),
+  computed: {
+      ...mapState('requests', ['imagePaths']),
+      loginState() {
+          return this.$store.state.users.loginState;
+      },
+      language() {
+        return this.$store.state.manager.language;
+      }
+  },
+  methods: {
+      pdfTest: function() {
+          var documentDefinition = {
+              // 워터마크
+              watermark: {
+                  text: 'DMTLABS',
+                  color: 'blue',
+                  opacity: 0.2,
+                  bold: true,
+                  fontSize: 40,
+                  angle: 30
+              },
+              content: [
+                  // 제목
+                  {
+                      text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
+                      style: 'style_header'
+                  },
+                  // 공급자 테이블
+                  {
+                      style: 'style_table',
+                      table: {
+                          widths: ['auto', 100, '*', '*'],
+                          body: [
+                              [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
+                              [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
+                              [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
+                              [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
+                          ]
+                      }
+                  },
+                  // 의뢰자 테이블
+                  {
+                      style: 'style_table',
+                      table: {
+                          widths: ['auto', 100, '*', '*'],
+                          body: [
+                              [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
+                              [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                              [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                              [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
+                          ]
+                      }
+                  },
+                  // 의뢰 내역 테이블
+                  {
+                      style: 'style_table',
+                      table: {
+                          heights: 20,
+                          widths: ['auto', '*', '*', '*', 'auto'],
+                          headerRows: 2,
+                          body: [
+                              [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                              [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
+                              [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
+                              [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
+                              [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
+                              [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
+                              [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
+                          ]
+                      }
+                  }
+              ],
+              // 페이지 번호 삽입
+              footer: function (currentPage, pageCount) {
+                  return {
+                      margin: 10,
+                      columns: [{
+                          fontSize: 9,
+                          text: {
+                              text: '' + currentPage.toString()
+                          }
+                      },
+                      ],
+                      alignment: 'center'
+                  }
+              },
+              // 커스텀 스타일 세트 그룹 정의
+              styles: {
+                  style_header: {
+                      fontSize: 24,
+                      bold: true,
+                      margin: [0, 0, 0, 0],
+                      alignment: 'center',
+                  },
+                  style_test: {
+                      fontSize: 18,
+                      bold: true,
+                      margin: [0, 0, 0, 0],
+                      alignment: 'center'
+                  },
+                  style_table: {
+                      margin: [0, 5, 0, 15],
+                      alignment: 'center',
+                      fontSize: 12,
+                  }
+              },
+              // 페이지 용지 사이즈
+              pageSize: 'A4',
+              // 페이지 방향 (세로=portrait / 가로=landscape)
+              pageOrientation: 'portrait',
+          };
+          var pdf_name = '번역 의뢰 견적서.pdf';
+          pdfMake.createPdf(documentDefinition).download(pdf_name);
+          //pdfMake.createPdf(documentDefinition).open();
+      },
+      async onSubmitForm() {
+          try {
+              if (this.$refs.form.validate()) {
+                  const submitResponse = await this.$store.dispatch('requests/onRequest', {
+                      name: this.name,
+                      phone: this.phone,
+                      email: this.email,
+                      company: this.company,
+                      second_phone: this.second_phone,
+                      date: this.date,
+                      field: this.req_field,
+                      req_lang: this.req_lang,
+                      grant_lang: this.grant_lang,
+                      options: this.options,
+                      trans_state: '번역 준비중'
+                  });
+                  /*console.log(
+                      `name: ${this.name}\n`,
+                      `phone: ${this.phone}\n`,
+                      `email: ${this.email}\n`,
+                      `company: ${this.company}\n`,
+                      `second_phone: ${this.second_phone}\n`,
+                      `date: ${this.date}\n`,
+                      `field: ${this.req_field}\n`,
+                      `req_lang: ${this.req_lang}\n`,
+                      `grant_lang: ${this.grant_lang}\n`,
+                      `options: ${this.options}\n`,
+                      `trans_state: ${'번역 준비중'}\n`,
+                  );*/
+                  if (submitResponse.statusText === 'OK') {
+                    this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
+                    console.log('의뢰');
+                    this.$router.push({ path: '/user/textmain'});
+                  }
+                  else {
+                    this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
+                    this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
+                    console.log('의뢰 실패');
+                  }
+                  this.dialog = false;
+              }
+          } catch (error) {
+              // 오류처리
+              this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
+              console.error(error);
+          }
+      },
+      onChangeTextarea() {
+          this.hideDetails = true;
+      },
+      onChangeFile(index, e) {
+          const fileFormData = new FormData();
+          if (e != null) {
+              //console.log(e);
+              [].forEach.call(e, (f) => {
+                  fileFormData.append('fileKey', f);
+              })
+              this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+          } else {
+              console.log("e is null!!!");
+          }
+      },
+      onClearFile(index) {
+          this.$store.dispatch('requests/removeFile', index);
+      }
+  }
 }
 </script>

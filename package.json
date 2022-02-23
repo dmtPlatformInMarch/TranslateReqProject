@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
     "lint": "eslint **/*"
   },
   "author": "",
@@ -16,6 +18,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.12.3",
     "axios": "^0.24.0",
     "nuxt": "^2.15.8",

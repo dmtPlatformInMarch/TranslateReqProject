@@ -25,9 +25,9 @@ export const actions = {
         }
     },
     // 회원가입
-    async signUp({ commit, state }, payload) {
+    async signUp({ commit }, payload) {
         try {
-            const res = await this.$axios.post('/user/signup', {
+            const signupResponse = await this.$axios.post('/user/signup', {
                 email: payload.email,
                 password: payload.password,
                 nickname: payload.nickname,
@@ -35,10 +35,11 @@ export const actions = {
                 // 쿠키를 서로 저장
                 withCredentials: true,
             });
-            // 회원가입을 성공했을 경우
+            return signupResponse;
         } catch (err) {
-            console.log("회원가입 에러\n", err);
+            console.log(err);
         }
+        // 회원가입을 성공했을 경우
     },
     async login({ commit }, payload) {
         try {
