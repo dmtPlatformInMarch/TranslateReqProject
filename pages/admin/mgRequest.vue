@@ -36,7 +36,7 @@
 
 <script lang="js">
 import transDashBoard from '~/components/TransDashBoard';
-import transHistoryBoard from '~/components/transHistoryBoard';
+import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
     layout: 'admin_layout',
