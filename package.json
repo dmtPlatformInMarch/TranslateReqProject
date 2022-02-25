@@ -1,7 +1,7 @@
 {
   "name": "dmt",
   "version": "1.0.0",
-  "description": "DMTlabs Translate Request Web",
+  "description": "DMTlabs Translate Web",
   "main": "index.js",
   "scripts": {
     "dev": "nuxt",
