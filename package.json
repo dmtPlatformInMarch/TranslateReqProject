@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "PORT=80 node server",
     "lint": "eslint **/*"
   },
   "author": "",
@@ -21,6 +21,8 @@
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.12.3",
     "axios": "^0.24.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.3",
     "nuxt": "^2.15.8",
     "pdfmake": "^0.2.4",
     "vue": "^2.6.14",
