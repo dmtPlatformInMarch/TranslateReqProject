@@ -78,12 +78,12 @@
     </v-container>
 
     <!--기타 설명-->
-    <div
+    <!--div
       class="text-center"
       style="background: purple; width: 100%; height: 50vh"
     >
       기타 컨테이너
-    </div>
+    </div-->
   </div>
 </template>
 

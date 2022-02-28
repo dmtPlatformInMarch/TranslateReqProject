@@ -111,8 +111,8 @@ export default {
       // valid는 하위 rules가 모두 true인 경우에만 true
       // 하나라도 false라면 false (rules가 없다면 true)
       valid: false,
-      email: "dmt@dmtlabs.com",
-      password: "dmtlabs",
+      email: "",
+      password: "",
       emailRules: [
         (v) => !!v || "이메일을 입력해주세요.",
         (v) =>
