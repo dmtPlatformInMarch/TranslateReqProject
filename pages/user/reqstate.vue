@@ -219,7 +219,7 @@ export default {
         else {
           await this.$store.dispatch('requests/loadRequests');
         }
-      }
+      },
   },
 };
 </script>

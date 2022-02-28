@@ -142,6 +142,10 @@
 
     <!--v-btn @click="cle">지우기</v-btn-->
   </v-expansion-panel>
+
+  <v-expansion-panel v-else>
+    <div class="text-h1">페이지 로드 에러</div>
+  </v-expansion-panel>
 </template>
 
 <style scoped>
