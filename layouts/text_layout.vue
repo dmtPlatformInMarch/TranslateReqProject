@@ -22,12 +22,12 @@
           <v-list>
             <v-list-item-group v-model="language" mandatory>
               <v-list-item value="한국어">
-                <v-list-item-title class="text-center">
+                <v-list-item-title class="text-center" value="한국어">
                   한국어
                 </v-list-item-title>
               </v-list-item>
               <v-list-item value="영어">
-                <v-list-item-title class="text-center">
+                <v-list-item-title class="text-center" value="영어">
                   English
                 </v-list-item-title>
               </v-list-item>
@@ -119,23 +119,23 @@
             <v-list-item-icon>
               <v-icon>mdi-clipboard-edit</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'"
-              >번역 의뢰</v-list-item-title
-            >
-            <v-list-item-title v-else-if="language === '영어'"
-              >Translation request</v-list-item-title
-            >
+            <v-list-item-title v-if="language === '한국어'">
+              번역 의뢰
+            </v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'">
+              Translation request
+            </v-list-item-title>
           </v-list-item>
           <v-list-item link to="/user/reqstate">
             <v-list-item-icon>
               <v-icon>mdi-clipboard-search</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'"
-              >번역 현황</v-list-item-title
-            >
-            <v-list-item-title v-else-if="language === '영어'"
-              >Translation status</v-list-item-title
-            >
+            <v-list-item-title v-if="language === '한국어'">
+              번역 현황
+            </v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'">
+              Translation status
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -161,17 +161,19 @@ export default {
   data: () => ({
     loginMenu: false,
     fab: false,
-    language: '한국어',
   }),
   computed: {
     loginState() {
         return this.$store.state.users.loginState;
     },
-  },
-  watch: {
-    language() {
-      this.$manage.setLanguage({language: this.language});
-    },
+    language: {
+      get() {
+        return this.$store.state.manager.language;
+      },
+      set(value) {
+        return this.$store.commit('manager/setLanguage', value);
+      }
+    }
   },
   methods: {
       onLogout() {
