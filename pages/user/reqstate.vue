@@ -27,17 +27,20 @@
           elevation="10"
         >
           <v-list-item v-if="mainRequest.length == 0">
-            <v-list-item-title
-              >번역을 요청하신 의뢰가 없습니다.</v-list-item-title
-            >
+            <v-list-item-title>
+              번역을 요청하신 의뢰가 없습니다.
+            </v-list-item-title>
           </v-list-item>
-          <v-expansion-panels flat accordion focusable>
-            <trans-dash-board
-              v-for="item in mainRequest"
-              :id="item.id"
-              :key="item.id"
-              :p="item"
-            />
+
+          <v-expansion-panels flat accordion focusable v-else>
+            <client-only>
+              <trans-dash-board
+                v-for="item in mainRequest"
+                :id="item.id"
+                :key="item.id"
+                :p="item"
+              />
+            </client-only>
           </v-expansion-panels>
         </v-card>
       </v-container>
@@ -69,12 +72,14 @@
               <v-list-item-title>번역한 의뢰가 없습니다.</v-list-item-title>
             </v-list-item>
             <v-list-item-group v-else>
-              <trans-history-board
-                v-for="p in mainRequest"
-                :id="p.id"
-                :key="p.id"
-                :p="p"
-              />
+              <client-only>
+                <trans-history-board
+                  v-for="p in mainRequest"
+                  :id="p.id"
+                  :key="p.id"
+                  :p="p"
+                />
+              </client-only>
             </v-list-item-group>
           </v-list>
         </v-card>
@@ -112,17 +117,19 @@
           elevation="10"
         >
           <v-list-item v-if="mainRequest.length == 0">
-            <v-list-item-title
-              >There is no request for translation.</v-list-item-title
-            >
+            <v-list-item-title>
+              There is no request for translation.
+            </v-list-item-title>
           </v-list-item>
-          <v-expansion-panels flat accordion focusable>
-            <trans-dash-board
-              v-for="item in mainRequest"
-              :id="item.id"
-              :key="item.id"
-              :p="item"
-            />
+          <v-expansion-panels flat accordion focusable v-else>
+            <client-only>
+              <trans-dash-board
+                v-for="item in mainRequest"
+                :id="item.id"
+                :key="item.id"
+                :p="item"
+              />
+            </client-only>
           </v-expansion-panels>
         </v-card>
       </v-container>
@@ -130,9 +137,9 @@
 
     <v-card>
       <v-container v-if="!loginState">
-        <v-card-title class="titleStyle"
-          >Translation Request History</v-card-title
-        >
+        <v-card-title class="titleStyle">
+          Translation Request History
+        </v-card-title>
         <v-card
           class="overflow-y-auto"
           style="height: 45vh; text-align: center"
@@ -153,17 +160,19 @@
         <v-card style="height: 45vh; text-align: center" elevation="10">
           <v-list style="height: 45vh; overflow-y: scroll">
             <v-list-item v-if="mainRequest.length === 0">
-              <v-list-item-title
-                >There is no translation request.</v-list-item-title
-              >
+              <v-list-item-title>
+                There is no translation request.
+              </v-list-item-title>
             </v-list-item>
             <v-list-item-group v-else>
-              <trans-history-board
-                v-for="p in mainRequest"
-                :id="p.id"
-                :key="p.id"
-                :p="p"
-              />
+              <client-only>
+                <trans-history-board
+                  v-for="p in mainRequest"
+                  :id="p.id"
+                  :key="p.id"
+                  :p="p"
+                />
+              </client-only>
             </v-list-item-group>
           </v-list>
         </v-card>
@@ -196,7 +205,8 @@ export default {
       }
   },
   async fetch({ store }) {
-      return await store.dispatch('requests/loadRequests');
+    if(store.state.users.loginState)
+      return await store.dispatch('requests/loadRequests', store.state.users.loginState);
   },
   asyncData() {
       // 비동기 데이터, 위의 data와 합쳐짐.
@@ -217,7 +227,7 @@ export default {
       async update() {
         if(!this.loginState) this.$manage.showMessage({ message: '로그인이 필요합니다.' , color: 'red lighten-1' });
         else {
-          await this.$store.dispatch('requests/loadRequests');
+          await this.$store.dispatch('requests/loadRequests', this.loginState);
         }
       },
   },

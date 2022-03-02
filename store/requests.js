@@ -98,10 +98,10 @@ export const actions = {
     removeFile({ commit }, payload) {
         commit('removeFilePaths', payload);
     },
-    async loadRequests({ commit, state }) {
+    async loadRequests({ commit, state }, payload) {
         try {
             if (state.hasMoreRequest) {
-                const loadResponse = await this.$axios.get(`/requests`);
+                const loadResponse = await this.$axios.get(`/requests/${payload.id}`);
                 commit('loadRequest', loadResponse.data);
             } else {
                 this.$manage.showMessage({ message: '이미 최신 상태입니다.', color: 'amber darken-1' });

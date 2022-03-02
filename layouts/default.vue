@@ -3,7 +3,7 @@
     <v-toolbar elevation="0" style="flex: initial; width: 100%">
       <!--로고-->
       <v-toolbar-title>
-        <nuxt-link to="/user/textmain">
+        <nuxt-link to="/">
           <v-avatar height="80px" width="200px" tile>
             <img src="../static/logo3.png" />
           </v-avatar>

@@ -137,18 +137,6 @@
               >Translation status</v-list-item-title
             >
           </v-list-item>
-          <v-list-item link to="/user/video">
-            <v-list-item-icon>
-              <v-icon>mdi-clipboard-clock</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'"
-              >영상 및 자막 번역</v-list-item-title
-            >
-            <v-list-item-title v-else-if="language === '영어'"
-              >Video and caption<br />
-              translation</v-list-item-title
-            >
-          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <nuxt />

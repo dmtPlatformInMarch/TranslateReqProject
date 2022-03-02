@@ -49,6 +49,7 @@ export const actions = {
             }, {
                 withCredentials: true,
             });
+
             commit('setUser', loginState.data);
         } catch (err) {
             console.log(err);
