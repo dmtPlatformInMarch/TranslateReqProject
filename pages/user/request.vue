@@ -77,7 +77,51 @@
         </v-row>
       </v-container>
       <!--영어 필드-->
-      <v-container v-else-if="language === '영어'"> </v-container>
+      <v-container v-else-if="language === '영어'">
+        <v-row>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Original Language</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectLanguage1" mandatory>
+                <v-list-item v-for="(lang, i) in e_languages" :key="i">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <div class="d-flex align-center justify-center">
+            <v-icon>mdi-arrow-right-bold</v-icon>
+          </div>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Translate Language</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectLanguage2" mandatory>
+                <v-list-item v-for="(lang, i) in e_languages" :key="i">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Request Field</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectField" mandatory>
+                <v-list-item v-for="(f, i) in e_field" :key="i">
+                  <v-list-item-title>{{ f }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+        </v-row>
+      </v-container>
 
       <v-divider />
       <v-card>
@@ -92,8 +136,21 @@
         </v-card-title>
         <v-divider />
         <v-card-text class="text-h6 text-right">
-          {{ languages[selectLanguage1] }} + {{ languages[selectLanguage1] }} +
-          {{ field[selectField] }}
+          {{
+            language === "한국어"
+              ? languages[selectLanguage1]
+              : e_languages[selectLanguage1]
+          }}
+          <br />
+          {{
+            language === "한국어"
+              ? languages[selectLanguage2]
+              : e_languages[selectLanguage2]
+          }}
+          <br />
+          {{
+            language === "한국어" ? field[selectField] : e_field[selectField]
+          }}
         </v-card-text>
       </v-card>
     </v-card>
@@ -911,8 +968,6 @@ export default {
     company: '',
     second_phone: '',
     date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-    field: ['일반', '비즈니스', '경제/경영', '법률/행정', '정치/외교', 'IT/정보통신', '기술/산업', '의료/바이오', '인문/사회', '엔터테인먼트(미디어,컨텐츠)', '스포츠/예술', '홈페이지/웹사이트'],
-    e_field: ['Common', 'Business', 'Economy/Management ', 'Legal/Administrative', 'Politics/Diplomacy ', 'IT/IC ', 'Technology/Industry ', 'Medical/Bio ', 'Entertainment', 'Sports/Arts', 'Homepage/Web'],
     req_field: ['', '', '', '', ''],
     req_lang: ['', '', '', '', ''],
     grant_lang: ['', '', '', '', ''],
@@ -940,6 +995,12 @@ export default {
     },
     e_languages() {
       return this.$LANGUAGES_EN;
+    },
+    field() {
+      return this.$FIELDS_KO;
+    },
+    e_field() {
+      return this.$FIELDS_EN;
     }
   },
   methods: {
