@@ -59,6 +59,7 @@ module.exports = {
     },
     plugins: [
         { src: '~/plugins/manage.js', ssr: false },
+        { src: '~/plugins/constants.js', ssr: false },
     ],
     vuetify: {},
     axios: {

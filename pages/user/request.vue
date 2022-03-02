@@ -1,9 +1,108 @@
 <template>
   <v-container>
-    <v-card outlined elevation="10">
+    <!--선택 토글-->
+    <v-col>
+      <v-btn-toggle
+        class="d-flex align-center justify-center"
+        mandatory
+        group
+        style="width: 100%"
+        v-model="sels"
+      >
+        <v-btn
+          active-class="btn_active"
+          text
+          width="50%"
+          style="margin: 0; padding: 0"
+        >
+          {{ language === "한국어" ? "견적" : "Estimate" }}
+        </v-btn>
+        <v-btn
+          active-class="btn_active"
+          text
+          width="50%"
+          style="margin: 0; padding: 0"
+        >
+          {{ language === "한국어" ? "의뢰" : "Request" }}
+        </v-btn>
+      </v-btn-toggle>
+    </v-col>
+
+    <!--견적 페이지-->
+    <v-card outlined elevation="10" v-if="sels === 0">
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
-        <v-form ref="form" v-model="valid" @submit.prevent="">
+        <v-row>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>원본 언어</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectLanguage1" mandatory>
+                <v-list-item v-for="(lang, i) in languages" :key="i">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <div class="d-flex align-center justify-center">
+            <v-icon>mdi-arrow-right-bold</v-icon>
+          </div>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>번역 언어</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectLanguage2" mandatory>
+                <v-list-item v-for="(lang, i) in languages" :key="i">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>요청 분야</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto">
+              <v-list-item-group v-model="selectField" mandatory>
+                <v-list-item v-for="(f, i) in field" :key="i">
+                  <v-list-item-title>{{ f }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+        </v-row>
+      </v-container>
+      <!--영어 필드-->
+      <v-container v-else-if="language === '영어'"> </v-container>
+
+      <v-divider />
+      <v-card>
+        <v-card-title class="text-h4">
+          <v-btn icon v-model="dollar" @click="dollar = !dollar">
+            <v-icon v-if="dollar">mdi-currency-usd</v-icon>
+            <v-icon v-else>mdi-currency-krw</v-icon>
+          </v-btn>
+          <v-spacer />
+          {{ commas(totalPrice) }}
+          {{ dollar ? "원" : "$" }}
+        </v-card-title>
+        <v-divider />
+        <v-card-text class="text-h6 text-right">
+          {{ languages[selectLanguage1] }} + {{ languages[selectLanguage1] }} +
+          {{ field[selectField] }}
+        </v-card-text>
+      </v-card>
+    </v-card>
+
+    <!--의뢰 페이지-->
+    <v-card outlined elevation="10" v-else-if="sels === 1">
+      <!--한국어 필드-->
+      <v-container v-if="language === '한국어'">
+        <v-form ref="form" v-model="valid" @submit.prevent>
           <v-text-field
             v-model="name"
             type="text"
@@ -789,6 +888,9 @@
   min-width: 200px;
   max-width: 200px;
 }
+.btn_active {
+  border-bottom: solid green !important;
+}
 </style>
 
 <script lang="js">
@@ -800,207 +902,220 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export default {
   layout: 'text_layout',
   data: () => ({
-      hideDetails: true,
-      valid: false,
-      menu: false,
-      languages: ['한국어', '중국어', '일본어', '독일어', '러시아어', '아랍어'],
-      e_languages: ['Koran', 'Chinese', 'Japanese', 'German', 'Russian', 'Arabic'],
-      name: 'RQTest',
-      phone: '01012341234',
-      email: '123@123.com',
-      company: '123Company',
-      second_phone: '021231234',
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-      field: ['단순 번역', '논문', '경제', '컴퓨터/정보통신'],
-      e_field: ['Simple translation', 'Thesis', 'Economy', 'Computer/Information Communication'],
-      req_field: ['단순 번역', '', '', '', ''],
-      req_lang: ['한국어', '', '', '', ''],
-      grant_lang: ['중국어', '', '', '', ''],
-      price: [ 20000, 15000, 20000, 5000, 10000],
-      file: [],
-      options: 'Options Test',
-      dialog: false,
+    hideDetails: true,
+    valid: false,
+    menu: false,
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    second_phone: '',
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    field: ['일반', '비즈니스', '경제/경영', '법률/행정', '정치/외교', 'IT/정보통신', '기술/산업', '의료/바이오', '인문/사회', '엔터테인먼트(미디어,컨텐츠)', '스포츠/예술', '홈페이지/웹사이트'],
+    e_field: ['Common', 'Business', 'Economy/Management ', 'Legal/Administrative', 'Politics/Diplomacy ', 'IT/IC ', 'Technology/Industry ', 'Medical/Bio ', 'Entertainment', 'Sports/Arts', 'Homepage/Web'],
+    req_field: ['', '', '', '', ''],
+    req_lang: ['', '', '', '', ''],
+    grant_lang: ['', '', '', '', ''],
+    price: [ , , , , ],
+    file: [],
+    options: '',
+    dialog: false,
+    sels: 0,
+    selectLanguage1: '',
+    selectLanguage2: '',
+    selectField: '',
+    dollar: false,
+    totalPrice: 20000,
   }),
   computed: {
-      ...mapState('requests', ['imagePaths']),
-      loginState() {
-          return this.$store.state.users.loginState;
-      },
-      language() {
-        return this.$store.state.manager.language;
-      }
+    ...mapState('requests', ['imagePaths']),
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
+    language() {
+      return this.$store.state.manager.language;
+    },
+    languages() {
+      return this.$LANGUAGES_KO;
+    },
+    e_languages() {
+      return this.$LANGUAGES_EN;
+    }
   },
   methods: {
-      pdfTest: function() {
-          var documentDefinition = {
-              // 워터마크
-              watermark: {
-                  text: 'DMTLABS',
-                  color: 'blue',
-                  opacity: 0.2,
-                  bold: true,
-                  fontSize: 40,
-                  angle: 30
-              },
-              content: [
-                  // 제목
-                  {
-                      text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
-                      style: 'style_header'
-                  },
-                  // 공급자 테이블
-                  {
-                      style: 'style_table',
-                      table: {
-                          widths: ['auto', 100, '*', '*'],
-                          body: [
-                              [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
-                              [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
-                              [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
-                              [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
-                          ]
-                      }
-                  },
-                  // 의뢰자 테이블
-                  {
-                      style: 'style_table',
-                      table: {
-                          widths: ['auto', 100, '*', '*'],
-                          body: [
-                              [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
-                              [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
-                              [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                              [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
-                          ]
-                      }
-                  },
-                  // 의뢰 내역 테이블
-                  {
-                      style: 'style_table',
-                      table: {
-                          heights: 20,
-                          widths: ['auto', '*', '*', '*', 'auto'],
-                          headerRows: 2,
-                          body: [
-                              [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
-                              [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
-                              [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
-                              [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
-                              [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
-                              [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
-                              [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
-                          ]
-                      }
-                  }
-              ],
-              // 페이지 번호 삽입
-              footer: function (currentPage, pageCount) {
-                  return {
-                      margin: 10,
-                      columns: [{
-                          fontSize: 9,
-                          text: {
-                              text: '' + currentPage.toString()
-                          }
-                      },
-                      ],
-                      alignment: 'center'
-                  }
-              },
-              // 커스텀 스타일 세트 그룹 정의
-              styles: {
-                  style_header: {
-                      fontSize: 24,
-                      bold: true,
-                      margin: [0, 0, 0, 0],
-                      alignment: 'center',
-                  },
-                  style_test: {
-                      fontSize: 18,
-                      bold: true,
-                      margin: [0, 0, 0, 0],
-                      alignment: 'center'
-                  },
-                  style_table: {
-                      margin: [0, 5, 0, 15],
-                      alignment: 'center',
-                      fontSize: 12,
-                  }
-              },
-              // 페이지 용지 사이즈
-              pageSize: 'A4',
-              // 페이지 방향 (세로=portrait / 가로=landscape)
-              pageOrientation: 'portrait',
-          };
-          var pdf_name = '번역 의뢰 견적서.pdf';
-          pdfMake.createPdf(documentDefinition).download(pdf_name);
-          //pdfMake.createPdf(documentDefinition).open();
-      },
-      async onSubmitForm() {
-          try {
-              if (this.$refs.form.validate()) {
-                  const submitResponse = await this.$store.dispatch('requests/onRequest', {
-                      name: this.name,
-                      phone: this.phone,
-                      email: this.email,
-                      company: this.company,
-                      second_phone: this.second_phone,
-                      date: this.date,
-                      field: this.req_field,
-                      req_lang: this.req_lang,
-                      grant_lang: this.grant_lang,
-                      options: this.options,
-                      trans_state: '번역 준비중'
-                  });
-                  /*console.log(
-                      `name: ${this.name}\n`,
-                      `phone: ${this.phone}\n`,
-                      `email: ${this.email}\n`,
-                      `company: ${this.company}\n`,
-                      `second_phone: ${this.second_phone}\n`,
-                      `date: ${this.date}\n`,
-                      `field: ${this.req_field}\n`,
-                      `req_lang: ${this.req_lang}\n`,
-                      `grant_lang: ${this.grant_lang}\n`,
-                      `options: ${this.options}\n`,
-                      `trans_state: ${'번역 준비중'}\n`,
-                  );*/
-                  if (submitResponse.statusText === 'OK') {
-                    this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
-                    console.log('의뢰');
-                    this.$router.push({ path: '/user/textmain'});
-                  }
-                  else {
-                    this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
-                    this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
-                    console.log('의뢰 실패');
-                  }
-                  this.dialog = false;
-              }
-          } catch (error) {
-              // 오류처리
-              this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
-              console.error(error);
-          }
-      },
-      onChangeTextarea() {
-          this.hideDetails = true;
-      },
-      onChangeFile(index, e) {
-          const fileFormData = new FormData();
-          if (e != null) {
-              //console.log(e);
-              [].forEach.call(e, (f) => {
-                  fileFormData.append('fileKey', f);
-              })
-              this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
-          } else {
-              console.log("e is null!!!");
-          }
-      },
-      onClearFile(index) {
-          this.$store.dispatch('requests/removeFile', index);
-      }
+    pdfTest: function() {
+        var documentDefinition = {
+            // 워터마크
+            watermark: {
+                text: 'DMTLABS',
+                color: 'blue',
+                opacity: 0.2,
+                bold: true,
+                fontSize: 40,
+                angle: 30
+            },
+            content: [
+                // 제목
+                {
+                    text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
+                    style: 'style_header'
+                },
+                // 공급자 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        widths: ['auto', 100, '*', '*'],
+                        body: [
+                            [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
+                            [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
+                            [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
+                            [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
+                        ]
+                    }
+                },
+                // 의뢰자 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        widths: ['auto', 100, '*', '*'],
+                        body: [
+                            [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
+                            [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                            [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                            [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
+                        ]
+                    }
+                },
+                // 의뢰 내역 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        heights: 20,
+                        widths: ['auto', '*', '*', '*', 'auto'],
+                        headerRows: 2,
+                        body: [
+                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
+                            [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
+                        ]
+                    }
+                }
+            ],
+            // 페이지 번호 삽입
+            footer: function (currentPage, pageCount) {
+                return {
+                    margin: 10,
+                    columns: [{
+                        fontSize: 9,
+                        text: {
+                            text: '' + currentPage.toString()
+                        }
+                    },
+                    ],
+                    alignment: 'center'
+                }
+            },
+            // 커스텀 스타일 세트 그룹 정의
+            styles: {
+                style_header: {
+                    fontSize: 24,
+                    bold: true,
+                    margin: [0, 0, 0, 0],
+                    alignment: 'center',
+                },
+                style_test: {
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 0, 0, 0],
+                    alignment: 'center'
+                },
+                style_table: {
+                    margin: [0, 5, 0, 15],
+                    alignment: 'center',
+                    fontSize: 12,
+                }
+            },
+            // 페이지 용지 사이즈
+            pageSize: 'A4',
+            // 페이지 방향 (세로=portrait / 가로=landscape)
+            pageOrientation: 'portrait',
+        };
+        var pdf_name = '번역 의뢰 견적서.pdf';
+        pdfMake.createPdf(documentDefinition).download(pdf_name);
+        //pdfMake.createPdf(documentDefinition).open();
+    },
+    async onSubmitForm() {
+        try {
+            if (this.$refs.form.validate()) {
+                const submitResponse = await this.$store.dispatch('requests/onRequest', {
+                    name: this.name,
+                    phone: this.phone,
+                    email: this.email,
+                    company: this.company,
+                    second_phone: this.second_phone,
+                    date: this.date,
+                    field: this.req_field,
+                    req_lang: this.req_lang,
+                    grant_lang: this.grant_lang,
+                    options: this.options,
+                    trans_state: '번역 준비중'
+                });
+                /*console.log(
+                    `name: ${this.name}\n`,
+                    `phone: ${this.phone}\n`,
+                    `email: ${this.email}\n`,
+                    `company: ${this.company}\n`,
+                    `second_phone: ${this.second_phone}\n`,
+                    `date: ${this.date}\n`,
+                    `field: ${this.req_field}\n`,
+                    `req_lang: ${this.req_lang}\n`,
+                    `grant_lang: ${this.grant_lang}\n`,
+                    `options: ${this.options}\n`,
+                    `trans_state: ${'번역 준비중'}\n`,
+                );*/
+                if (submitResponse.statusText === 'OK') {
+                  this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
+                  console.log('의뢰');
+                  this.$router.push({ path: '/user/textmain'});
+                }
+                else {
+                  this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
+                  this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
+                  console.log('의뢰 실패');
+                }
+                this.dialog = false;
+            }
+        } catch (error) {
+            // 오류처리
+            this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
+            console.error(error);
+        }
+    },
+    onChangeTextarea() {
+        this.hideDetails = true;
+    },
+    onChangeFile(index, e) {
+        const fileFormData = new FormData();
+        if (e != null) {
+            //console.log(e);
+            [].forEach.call(e, (f) => {
+                fileFormData.append('fileKey', f);
+            })
+            this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+        } else {
+            console.log("e is null!!!");
+        }
+    },
+    onClearFile(index) {
+        this.$store.dispatch('requests/removeFile', index);
+    },
+    commas(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
   }
 }
 </script>
