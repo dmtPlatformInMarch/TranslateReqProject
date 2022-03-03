@@ -148,10 +148,11 @@ export default {
             this.$router.go();
           }
         } catch (err) {
-          console.log(err);
+          // 사용자 관점 처리 => store - login 에서 처리
+          // console.log("로그인 폼 컴포넌트 에러", err);
         }
       } else {
-        // false
+        // validate가 false인 경우
       }
       //console.log(this.valid);
     },

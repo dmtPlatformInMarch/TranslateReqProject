@@ -13,6 +13,7 @@ export const mutations = {
 // (context, payload)로 구성
 // 비동기 작업 or 복잡한 작업 수행
 export const actions = {
+    // 유저 정보 불러오기
     async loadUser({ commit }) {
         try {
             console.log('Load User');
@@ -39,8 +40,8 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
-        // 회원가입을 성공했을 경우
     },
+    // 로그인
     async login({ commit }, payload) {
         try {
             const loginState = await this.$axios.post('/user/login', {
@@ -52,9 +53,15 @@ export const actions = {
 
             commit('setUser', loginState.data);
         } catch (err) {
-            console.log(err);
+            if (err.response.data === '존재하지 않는 사용자입니다.') {
+                this.$manage.showMessage({ message: `${err.response.data}`, color: 'red' });
+            }
+            else {
+                console.log('로그인 스토어 에러\n', err.response);
+            }
         }
     },
+    // 로그아웃
     async logout({ commit }) {
         try {
             const res = await this.$axios.post('/user/logout', {}, {

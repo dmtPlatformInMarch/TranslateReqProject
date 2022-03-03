@@ -58,25 +58,25 @@
               v-model="nickname"
               label="Name"
               type="text"
-              :rules="nicknameRules"
+              :rules="e_nicknameRules"
             />
             <v-text-field
               v-model="email"
               label="E-mail"
               type="email"
-              :rules="emailRules"
+              :rules="e_emailRules"
             />
             <v-text-field
               v-model="password"
               label="Password"
               type="password"
-              :rules="passwordRules"
+              :rules="e_passwordRules"
             />
             <v-text-field
               v-model="passwordCheck"
               label="Password Check"
               type="password"
-              :rules="passwordCheckRules"
+              :rules="e_passwordCheckRules"
             />
             <v-checkbox
               v-model="terms"
@@ -128,37 +128,28 @@ export default {
       passwordCheck: "",
       terms: false,
       emailRules: [
-        (v) =>
-          !!v || this.language === "한국어"
-            ? "이메일을 입력해주세요."
-            : "You have to enter an email.",
+        (v) => !!v || "이메일을 입력해주세요.",
         (v) =>
           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          this.language === "한국어"
-            ? "이메일이 유효하지 않습니다."
-            : "Email is not invalid.",
+          "이메일이 유효하지 않습니다.",
       ],
-      nicknameRules: [
-        (v) =>
-          !!v || this.language === "한국어"
-            ? "이름을 입력해주세요."
-            : "You have to enter your name",
-      ],
-      passwordRules: [
-        (v) =>
-          !!v || this.language === "한국어"
-            ? "비밀번호를 입력해주세요."
-            : "Please enter your password.",
-      ],
+      nicknameRules: [(v) => !!v || "이름을 입력해주세요."],
+      passwordRules: [(v) => !!v || "비밀번호를 입력해주세요."],
       passwordCheckRules: [
+        (v) => !!v || "비밀번호가 일치하지 않습니다.",
+        (v) => v === this.password || "비밀번호가 일치하지 않습니다.",
+      ],
+      e_emailRules: [
+        (v) => !!v || "Please input your e-mail.",
         (v) =>
-          !!v || this.language === "한국어"
-            ? "비밀번호가 일치하지 않습니다."
-            : "The password does not match.",
-        (v) =>
-          v === this.password || this.language === "한국어"
-            ? "비밀번호가 일치하지 않습니다."
-            : "The password does not match.",
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          "E-mail is invalid.",
+      ],
+      e_nicknameRules: [(v) => !!v || "Please input your name."],
+      e_passwordRules: [(v) => !!v || "Please input your password."],
+      e_passwordCheckRules: [
+        (v) => !!v || "Password is not matched.",
+        (v) => v === this.password || "Password is not matched.",
       ],
     };
   },

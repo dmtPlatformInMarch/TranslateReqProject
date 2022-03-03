@@ -8,21 +8,13 @@
         group
         style="width: 100%"
         v-model="sels"
+        ref="toggle"
+        @change="loginCheck"
       >
-        <v-btn
-          active-class="btn_active"
-          text
-          width="50%"
-          style="margin: 0; padding: 0"
-        >
+        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
-        <v-btn
-          active-class="btn_active"
-          text
-          width="50%"
-          style="margin: 0; padding: 0"
-        >
+        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "의뢰" : "Request" }}
         </v-btn>
       </v-btn-toggle>
@@ -34,12 +26,18 @@
       <v-container v-if="language === '한국어'">
         <v-row>
           <v-col>
-            <v-toolbar color="primary">
-              <v-toolbar-title>원본 언어</v-toolbar-title>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold">
+                원본 언어
+              </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage1" mandatory>
-                <v-list-item v-for="(lang, i) in languages" :key="i">
+                <v-list-item
+                  v-for="(lang, i) in languages"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -50,12 +48,18 @@
             <v-icon>mdi-arrow-right-bold</v-icon>
           </div>
           <v-col>
-            <v-toolbar color="primary">
-              <v-toolbar-title>번역 언어</v-toolbar-title>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold">
+                번역 언어
+              </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item v-for="(lang, i) in languages" :key="i">
+                <v-list-item
+                  v-for="(lang, i) in languages"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -63,12 +67,18 @@
           </v-col>
 
           <v-col>
-            <v-toolbar color="primary">
-              <v-toolbar-title>요청 분야</v-toolbar-title>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold">
+                요청 분야
+              </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectField" mandatory>
-                <v-list-item v-for="(f, i) in field" :key="i">
+                <v-list-item
+                  v-for="(f, i) in field"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ f }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -85,7 +95,11 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage1" mandatory>
-                <v-list-item v-for="(lang, i) in e_languages" :key="i">
+                <v-list-item
+                  v-for="(lang, i) in e_languages"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -101,7 +115,11 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item v-for="(lang, i) in e_languages" :key="i">
+                <v-list-item
+                  v-for="(lang, i) in e_languages"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -114,7 +132,11 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectField" mandatory>
-                <v-list-item v-for="(f, i) in e_field" :key="i">
+                <v-list-item
+                  v-for="(f, i) in e_field"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ f }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -135,23 +157,6 @@
           {{ dollar ? "원" : "$" }}
         </v-card-title>
         <v-divider />
-        <v-card-text class="text-h6 text-right">
-          {{
-            language === "한국어"
-              ? languages[selectLanguage1]
-              : e_languages[selectLanguage1]
-          }}
-          <br />
-          {{
-            language === "한국어"
-              ? languages[selectLanguage2]
-              : e_languages[selectLanguage2]
-          }}
-          <br />
-          {{
-            language === "한국어" ? field[selectField] : e_field[selectField]
-          }}
-        </v-card-text>
       </v-card>
     </v-card>
 
@@ -945,8 +950,12 @@
   min-width: 200px;
   max-width: 200px;
 }
-.btn_active {
-  border-bottom: solid green !important;
+.toolbar_class {
+  border-bottom: 3px solid green;
+}
+.list_select {
+  border: solid #013183 !important;
+  color: #013183 !important;
 }
 </style>
 
@@ -976,9 +985,12 @@ export default {
     options: '',
     dialog: false,
     sels: 0,
-    selectLanguage1: '',
-    selectLanguage2: '',
-    selectField: '',
+    selectLanguage1: 0,
+    selectLanguage2: 0,
+    selectField: 0,
+    e_selectLanguage1: 0,
+    e_selectLanguage2: 0,
+    e_selectField: 0,
     dollar: false,
     totalPrice: 20000,
   }),
@@ -1001,7 +1013,7 @@ export default {
     },
     e_field() {
       return this.$FIELDS_EN;
-    }
+    },
   },
   methods: {
     pdfTest: function() {
@@ -1162,10 +1174,14 @@ export default {
     onChangeFile(index, e) {
         const fileFormData = new FormData();
         if (e != null) {
-            //console.log(e);
+            console.log(e);
+            /*if (e) {
+              return this.$manage.showMessage({ message: 'pdf, doc, docx, xls, pptx 확장자만 이용 가능합니다.', color: 'red' });
+            }*/
             [].forEach.call(e, (f) => {
                 fileFormData.append('fileKey', f);
-            })
+                console.log(f);
+            });
             this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
         } else {
             console.log("e is null!!!");
@@ -1176,6 +1192,13 @@ export default {
     },
     commas(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    },
+    loginCheck() {
+      if (!this.loginState) {
+        this.$refs.toggle._data.internalLazyValue = 0;
+        this.sels = 0;
+        this.$manage.showMessage({ message: '로그인이 필요한 작업입니다.', color: 'red'});
+      }
     }
   }
 }

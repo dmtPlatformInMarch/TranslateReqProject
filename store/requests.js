@@ -21,6 +21,7 @@ export const state = () => ({
     mainRequest: [],
     hasMoreRequest: true,
     filePaths: ['', '', '', '', ''],
+    costs: ['', '', '', '', ''],
 });
 
 export const mutations = {
