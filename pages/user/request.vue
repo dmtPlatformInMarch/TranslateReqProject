@@ -56,7 +56,9 @@
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage2" mandatory>
                 <v-list-item
-                  v-for="(lang, i) in languages"
+                  v-for="(lang, i) in selectLanguage1 == 0
+                    ? languages
+                    : ['한국어']"
                   :key="i"
                   active-class="list_select"
                 >
@@ -146,6 +148,7 @@
       </v-container>
 
       <v-divider />
+      <!--전체 가격 필드-->
       <v-card>
         <v-card-title class="text-h4">
           <v-btn icon v-model="dollar" @click="dollar = !dollar">
@@ -992,7 +995,6 @@ export default {
     e_selectLanguage2: 0,
     e_selectField: 0,
     dollar: false,
-    totalPrice: 20000,
   }),
   computed: {
     ...mapState('requests', ['imagePaths']),
@@ -1014,6 +1016,23 @@ export default {
     e_field() {
       return this.$FIELDS_EN;
     },
+    totalPrice() {
+      return this.$store.state.requests.ex_cost;
+    }
+  },
+  watch: {
+    selectLanguage1() {
+      this.calcCost();
+    },
+    selectLanguage2() {
+      this.calcCost();
+    },
+    selectField() {
+      this.calcCost();
+    }
+  },
+  asyncData({ store }) {
+    store.commit('requests/setExcost', 0);
   },
   methods: {
     pdfTest: function() {
@@ -1191,7 +1210,12 @@ export default {
         this.$store.dispatch('requests/removeFile', index);
     },
     commas(value) {
-      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      if (typeof(value) === 'number')
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      else {
+        console.log(typeof(value));
+        return value;
+      }
     },
     loginCheck() {
       if (!this.loginState) {
@@ -1199,6 +1223,9 @@ export default {
         this.sels = 0;
         this.$manage.showMessage({ message: '로그인이 필요한 작업입니다.', color: 'red'});
       }
+    },
+    calcCost() {
+      this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField])
     }
   }
 }

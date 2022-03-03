@@ -22,6 +22,7 @@ export const state = () => ({
     hasMoreRequest: true,
     filePaths: ['', '', '', '', ''],
     costs: ['', '', '', '', ''],
+    ex_cost: 0,
 });
 
 export const mutations = {
@@ -43,6 +44,9 @@ export const mutations = {
         state.mainRequest = payload;
         state.hasMoreRequest = false;
     },
+    setExcost(state, payload) {
+        state.ex_cost = payload;
+    }
 };
 
 export const actions = {
@@ -122,5 +126,8 @@ export const actions = {
         } catch (err) {
             console.error(err);
         }
+    },
+    calcExcost({ commit },) {
+
     }
 };
