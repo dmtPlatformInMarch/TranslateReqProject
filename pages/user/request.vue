@@ -2,15 +2,7 @@
   <v-container>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle
-        class="d-flex align-center justify-center"
-        mandatory
-        group
-        style="width: 100%"
-        v-model="sels"
-        ref="toggle"
-        @change="loginCheck"
-      >
+      <v-btn-toggle class="d-flex align-center justify-center" mandatory group style="width: 100%" v-model="sels" ref="toggle" @change="loginCheck">
         <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
@@ -27,17 +19,11 @@
         <v-row>
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold">
-                원본 언어
-              </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold"> 원본 언어 </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage1" mandatory>
-                <v-list-item
-                  v-for="(lang, i) in languages"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(lang, i) in languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -49,19 +35,11 @@
           </div>
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold">
-                번역 언어
-              </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold"> 번역 언어 </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item
-                  v-for="(lang, i) in selectLanguage1 == 0
-                    ? languages
-                    : ['한국어']"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -70,17 +48,11 @@
 
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold">
-                요청 분야
-              </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold"> 요청 분야 </v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectField" mandatory>
-                <v-list-item
-                  v-for="(f, i) in field"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(f, i) in field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -97,11 +69,7 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage1" mandatory>
-                <v-list-item
-                  v-for="(lang, i) in e_languages"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(lang, i) in e_languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -117,11 +85,7 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item
-                  v-for="(lang, i) in e_languages"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -134,11 +98,7 @@
             </v-toolbar>
             <v-list class="overflow-y-auto">
               <v-list-item-group v-model="selectField" mandatory>
-                <v-list-item
-                  v-for="(f, i) in e_field"
-                  :key="i"
-                  active-class="list_select"
-                >
+                <v-list-item v-for="(f, i) in e_field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -148,6 +108,37 @@
       </v-container>
 
       <v-divider />
+
+      <!--글자수 입력 필드-->
+      <!--한글-->
+      <v-card v-if="language === '한국어'">
+        <v-card-title class="text-h4">
+          글자수
+          <v-spacer />
+          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="글자" reverse dense />
+        </v-card-title>
+        <v-card-subtitle class="text-caption">
+          중국어/일본어 = 1글자 당 <br />
+          그 외 = 1단어 당
+        </v-card-subtitle>
+        <v-spacer />
+      </v-card>
+      <!--영어-->
+      <v-card v-else-if="language === '영어'">
+        <v-card-title class="text-h4">
+          Words(Characters)
+          <v-spacer />
+          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="words" reverse dense />
+        </v-card-title>
+        <v-card-subtitle class="text-caption">
+          Chinese/Japanese = per letter <br />
+          Other = per word
+        </v-card-subtitle>
+        <v-spacer />
+      </v-card>
+
+      <v-divider />
+
       <!--전체 가격 필드-->
       <v-card>
         <v-card-title class="text-h4">
@@ -156,11 +147,29 @@
             <v-icon v-else>mdi-currency-krw</v-icon>
           </v-btn>
           <v-spacer />
-          {{ commas(totalPrice) }}
+          {{ commas(dollar ? totalPrice : (totalPrice / exRate).toFixed(3)) * wordCount }}
+          {{ dollar ? "원" : "$" }}
+        </v-card-title>
+        <v-card-title class="text-caption">
+          <div>
+            단위 가격(Unit Cost) * 글자 수(Words) <br />
+            단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)
+          </div>
+          <v-spacer />
+          단위 가격(Unit Cost) :
+          {{ commas(dollar ? totalPrice : (totalPrice / exRate).toFixed(3)) }}
           {{ dollar ? "원" : "$" }}
         </v-card-title>
         <v-divider />
       </v-card>
+      <v-card-title v-if="language === '한국어'">
+        <v-spacer />
+        <v-subheader v-text="'※본 견적은 정확하지 않을 수 있으며, 파일 내의 이미지 유무와 관련하여 추가 요금이 부과될 수 있습니다.'" />
+      </v-card-title>
+      <v-card-title v-else-if="language === '영어'">
+        <v-spacer />
+        <v-subheader v-text="'※This estimate may not be accurate and there may be an additional charge for the presence or absence of images in the file.'" />
+      </v-card-title>
     </v-card>
 
     <!--의뢰 페이지-->
@@ -168,58 +177,14 @@
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
         <v-form ref="form" v-model="valid" @submit.prevent>
-          <v-text-field
-            v-model="name"
-            type="text"
-            label="*성명"
-            prepend-inner-icon="mdi-account"
-            :rules="[(v) => !!v || '이름을 입력하셔야 합니다.']"
-          />
-          <v-text-field
-            v-model="phone"
-            type="tel"
-            label="*휴대전화"
-            prepend-inner-icon="mdi-cellphone"
-            :rules="[(v) => !!v || '전화번호를 입력하셔야 합니다.']"
-          />
-          <v-text-field
-            v-model="email"
-            type="email"
-            label="*이메일"
-            prepend-inner-icon="mdi-email"
-            :rules="[(v) => !!v || '이메일을 입력하셔야 합니다.']"
-          />
-          <v-text-field
-            v-model="company"
-            type="text"
-            label="*회사명"
-            prepend-inner-icon="mdi-office-building"
-            :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
-          />
-          <v-text-field
-            v-model="second_phone"
-            type="tel"
-            label="전화"
-            prepend-inner-icon="mdi-deskphone"
-          />
-          <v-menu
-            ref="menu"
-            v-model="menu"
-            :close-on-content-click="false"
-            :return-value.sync="date"
-            offset-y
-            min-width="auto"
-          >
+          <v-text-field v-model="name" type="text" label="*성명" prepend-inner-icon="mdi-account" :rules="[(v) => !!v || '이름을 입력하셔야 합니다.']" />
+          <v-text-field v-model="phone" type="tel" label="*휴대전화" prepend-inner-icon="mdi-cellphone" :rules="[(v) => !!v || '전화번호를 입력하셔야 합니다.']" />
+          <v-text-field v-model="email" type="email" label="*이메일" prepend-inner-icon="mdi-email" :rules="[(v) => !!v || '이메일을 입력하셔야 합니다.']" />
+          <v-text-field v-model="company" type="text" label="*회사명" prepend-inner-icon="mdi-office-building" :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']" />
+          <v-text-field v-model="second_phone" type="tel" label="전화" prepend-inner-icon="mdi-deskphone" />
+          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
-              <v-text-field
-                v-model="date"
-                prepend-inner-icon="mdi-calendar"
-                v-bind="attrs"
-                readonly
-                label="*희망 납품일"
-                :rules="[(v) => !!v || '희망 납품일을 입력해주세요.']"
-                v-on="on"
-              />
+              <v-text-field v-model="date" prepend-inner-icon="mdi-calendar" v-bind="attrs" readonly label="*희망 납품일" :rules="[(v) => !!v || '희망 납품일을 입력해주세요.']" v-on="on" />
             </template>
             <v-date-picker v-model="date" no-title scrollable>
               <v-spacer />
@@ -258,15 +223,7 @@
                 />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[0]"
-                  class="selector"
-                  :items="field"
-                  label="요청분야"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[0]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -286,40 +243,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[1]"
-                  class="selector"
-                  :items="languages"
-                  label="번역이 필요한 언어"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[1]" class="selector" :items="languages" label="번역이 필요한 언어" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[1]"
-                  class="selector"
-                  :items="languages"
-                  label="번역할 언어"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[1]" class="selector" :items="languages" label="번역할 언어" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[1]"
-                  class="selector"
-                  :items="field"
-                  label="요청분야"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[1]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -338,40 +271,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[2]"
-                  class="selector"
-                  :items="languages"
-                  label="번역이 필요한 언어"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[2]" class="selector" :items="languages" label="번역이 필요한 언어" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[2]"
-                  class="selector"
-                  :items="languages"
-                  label="번역할 언어"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[2]" class="selector" :items="languages" label="번역할 언어" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[2]"
-                  class="selector"
-                  :items="field"
-                  label="요청분야"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[2]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -390,40 +299,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[3]"
-                  class="selector"
-                  :items="languages"
-                  label="번역이 필요한 언어"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[3]" class="selector" :items="languages" label="번역이 필요한 언어" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[3]"
-                  class="selector"
-                  :items="languages"
-                  label="번역할 언어"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[3]" class="selector" :items="languages" label="번역할 언어" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[3]"
-                  class="selector"
-                  :items="field"
-                  label="요청분야"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[3]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -442,40 +327,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[4]"
-                  class="selector"
-                  :items="languages"
-                  label="번역이 필요한 언어"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[4]" class="selector" :items="languages" label="번역이 필요한 언어" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[4]"
-                  class="selector"
-                  :items="languages"
-                  label="번역할 언어"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[4]" class="selector" :items="languages" label="번역할 언어" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[4]"
-                  class="selector"
-                  :items="field"
-                  label="요청분야"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[4]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -493,46 +354,14 @@
               </div>
             </div>
           </div>
-          <v-textarea
-            v-model="options"
-            outlined
-            auto-grow
-            clearable
-            label="특이사항"
-            prepend-inner-icon="mdi-star-cog"
-            :hide-details="hideDetails"
-            @input="onChangeTextarea"
-          />
-          <div
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: flex-start;
-              margin: auto;
-              padding: 10px 0;
-            "
-          >
+          <v-textarea v-model="options" outlined auto-grow clearable label="특이사항" prepend-inner-icon="mdi-star-cog" :hide-details="hideDetails" @input="onChangeTextarea" />
+          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
             <v-spacer />
-            <v-btn
-              depressed
-              color="#0d6efd"
-              dark
-              large
-              style="margin: 10px"
-              @click="pdfTest"
-            >
+            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               견적서 발급
               <v-icon right>mdi-file-download</v-icon>
             </v-btn>
-            <v-btn
-              depressed
-              color="success"
-              :disabled="!loginState"
-              dark
-              large
-              style="margin: 10px"
-              @click="dialog = true"
-            >
+            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
               번역 의뢰
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
@@ -543,13 +372,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">취소</v-btn>
-                  <v-btn
-                    color="success"
-                    text
-                    @click="onSubmitForm"
-                    type="submit"
-                    >확인</v-btn
-                  >
+                  <v-btn color="success" text @click="onSubmitForm" type="submit">확인</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -560,58 +383,14 @@
       <!--영어 필드-->
       <v-container v-else-if="language === '영어'">
         <v-form ref="form" v-model="valid" @submit.prevent="">
-          <v-text-field
-            v-model="name"
-            type="text"
-            label="*Name"
-            prepend-inner-icon="mdi-account"
-            :rules="[(v) => !!v || 'You have to enter your name.']"
-          />
-          <v-text-field
-            v-model="phone"
-            type="tel"
-            label="*Phone Number"
-            prepend-inner-icon="mdi-cellphone"
-            :rules="[(v) => !!v || 'You have to enter your phone number.']"
-          />
-          <v-text-field
-            v-model="email"
-            type="email"
-            label="*Email"
-            prepend-inner-icon="mdi-email"
-            :rules="[(v) => !!v || 'You have to enter an email.']"
-          />
-          <v-text-field
-            v-model="company"
-            type="text"
-            label="*Company"
-            prepend-inner-icon="mdi-office-building"
-            :rules="[(v) => !!v || 'Please enter name of your company.']"
-          />
-          <v-text-field
-            v-model="second_phone"
-            type="tel"
-            label="Tel"
-            prepend-inner-icon="mdi-deskphone"
-          />
-          <v-menu
-            ref="menu"
-            v-model="menu"
-            :close-on-content-click="false"
-            :return-value.sync="date"
-            offset-y
-            min-width="auto"
-          >
+          <v-text-field v-model="name" type="text" label="*Name" prepend-inner-icon="mdi-account" :rules="[(v) => !!v || 'You have to enter your name.']" />
+          <v-text-field v-model="phone" type="tel" label="*Phone Number" prepend-inner-icon="mdi-cellphone" :rules="[(v) => !!v || 'You have to enter your phone number.']" />
+          <v-text-field v-model="email" type="email" label="*Email" prepend-inner-icon="mdi-email" :rules="[(v) => !!v || 'You have to enter an email.']" />
+          <v-text-field v-model="company" type="text" label="*Company" prepend-inner-icon="mdi-office-building" :rules="[(v) => !!v || 'Please enter name of your company.']" />
+          <v-text-field v-model="second_phone" type="tel" label="Tel" prepend-inner-icon="mdi-deskphone" />
+          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
-              <v-text-field
-                v-model="date"
-                prepend-inner-icon="mdi-calendar"
-                v-bind="attrs"
-                readonly
-                label="*Desired date"
-                :rules="[(v) => !!v || 'Please enter the desired date.']"
-                v-on="on"
-              />
+              <v-text-field v-model="date" prepend-inner-icon="mdi-calendar" v-bind="attrs" readonly label="*Desired date" :rules="[(v) => !!v || 'Please enter the desired date.']" v-on="on" />
             </template>
             <v-date-picker v-model="date" no-title scrollable>
               <v-spacer />
@@ -631,9 +410,7 @@
                   prepend-icon="mdi-book-sync"
                   outlined
                   dense
-                  :rules="[
-                    (v) => !!v || 'Choose the language to be translated.',
-                  ]"
+                  :rules="[(v) => !!v || 'Choose the language to be translated.']"
                 />
               </div>
               <div style="text-align: center">
@@ -652,15 +429,7 @@
                 />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[0]"
-                  class="selector"
-                  :items="e_field"
-                  label="Request field"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[0]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -679,40 +448,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[1]"
-                  class="selector"
-                  :items="e_languages"
-                  label="Need translation"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[1]" class="selector" :items="e_languages" label="Need translation" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[1]"
-                  class="selector"
-                  :items="e_languages"
-                  label="To translate"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[1]" class="selector" :items="e_languages" label="To translate" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[1]"
-                  class="selector"
-                  :items="e_field"
-                  label="Request field"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[1]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -730,40 +475,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[2]"
-                  class="selector"
-                  :items="e_languages"
-                  label="Need translation"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[2]" class="selector" :items="e_languages" label="Need translation" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[2]"
-                  class="selector"
-                  :items="e_languages"
-                  label="To translate"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[2]" class="selector" :items="e_languages" label="To translate" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[2]"
-                  class="selector"
-                  :items="e_field"
-                  label="Request field"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[2]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -781,40 +502,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[3]"
-                  class="selector"
-                  :items="e_languages"
-                  label="Need translation"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[3]" class="selector" :items="e_languages" label="Need translation" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[3]"
-                  class="selector"
-                  :items="e_languages"
-                  label="To translate"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[3]" class="selector" :items="e_languages" label="To translate" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[3]"
-                  class="selector"
-                  :items="e_field"
-                  label="Request field"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[3]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -832,40 +529,16 @@
             </div>
             <div style="display: flex; justify-content: space-between">
               <div>
-                <v-select
-                  v-model="req_lang[4]"
-                  class="selector"
-                  :items="e_languages"
-                  label="Need translation"
-                  prepend-icon="mdi-book-sync"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_lang[4]" class="selector" :items="e_languages" label="Need translation" prepend-icon="mdi-book-sync" outlined dense />
               </div>
               <div style="text-align: center">
                 <v-icon>mdi-arrow-right-bold</v-icon>
               </div>
               <div>
-                <v-select
-                  v-model="grant_lang[4]"
-                  class="selector"
-                  :items="e_languages"
-                  label="To translate"
-                  prepend-icon="mdi-book-check"
-                  outlined
-                  dense
-                />
+                <v-select v-model="grant_lang[4]" class="selector" :items="e_languages" label="To translate" prepend-icon="mdi-book-check" outlined dense />
               </div>
               <div>
-                <v-select
-                  v-model="req_field[4]"
-                  class="selector"
-                  :items="e_field"
-                  label="Request field"
-                  prepend-icon="mdi-shape"
-                  outlined
-                  dense
-                />
+                <v-select v-model="req_field[4]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
               </div>
               <div>
                 <v-file-input
@@ -882,46 +555,14 @@
               </div>
             </div>
           </div>
-          <v-textarea
-            v-model="options"
-            outlined
-            auto-grow
-            clearable
-            label="Special Order"
-            prepend-inner-icon="mdi-star-cog"
-            :hide-details="hideDetails"
-            @input="onChangeTextarea"
-          />
-          <div
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: flex-start;
-              margin: auto;
-              padding: 10px 0;
-            "
-          >
+          <v-textarea v-model="options" outlined auto-grow clearable label="Special Order" prepend-inner-icon="mdi-star-cog" :hide-details="hideDetails" @input="onChangeTextarea" />
+          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
             <v-spacer />
-            <v-btn
-              depressed
-              color="#0d6efd"
-              dark
-              large
-              style="margin: 10px"
-              @click="pdfTest"
-            >
+            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               Issuing Quotation
               <v-icon right>mdi-file-download</v-icon>
             </v-btn>
-            <v-btn
-              depressed
-              color="success"
-              :disabled="!loginState"
-              dark
-              large
-              style="margin: 10px"
-              @click="dialog = true"
-            >
+            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
               Translation request
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
@@ -932,13 +573,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">Cancel</v-btn>
-                  <v-btn
-                    color="success"
-                    text
-                    @click="onSubmitForm"
-                    type="submit"
-                    >OK</v-btn
-                  >
+                  <v-btn color="success" text @click="onSubmitForm" type="submit">OK</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -1000,6 +635,7 @@ export default {
     e_selectLanguage2: 0,
     e_selectField: 0,
     dollar: false,
+    wordCount: '',
   }),
   computed: {
     ...mapState('requests', ['imagePaths']),
@@ -1023,6 +659,9 @@ export default {
     },
     totalPrice() {
       return this.$store.state.requests.ex_cost;
+    },
+    exRate() {
+      return this.$DOLLAR;
     }
   },
   watch: {
