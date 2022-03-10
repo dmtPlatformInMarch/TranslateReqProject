@@ -4,18 +4,8 @@
       <v-card>
         <v-container>
           <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
-            <v-text-field
-              v-model="nickname"
-              label="이름"
-              type="text"
-              :rules="nicknameRules"
-            />
-            <v-text-field
-              v-model="email"
-              label="이메일"
-              type="email"
-              :rules="emailRules"
-            />
+            <v-text-field v-model="nickname" label="이름" type="text" :rules="nicknameRules" />
+            <v-text-field v-model="email" label="이메일" type="email" :rules="emailRules" />
             <v-text-field
               v-model="password"
               label="사용할 비밀번호"
@@ -34,7 +24,7 @@
               label="가입 약관"
               :rules="[(v) => !!v || '약관 동의는 필수입니다.']"
             />
-            <v-btn type="submit">가입하기</v-btn>
+            <v-btn type="submit" color="success">가입하기</v-btn>
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">회원가입 오류</v-card-title>
@@ -54,18 +44,8 @@
       <v-card>
         <v-container>
           <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
-            <v-text-field
-              v-model="nickname"
-              label="Name"
-              type="text"
-              :rules="e_nicknameRules"
-            />
-            <v-text-field
-              v-model="email"
-              label="E-mail"
-              type="email"
-              :rules="e_emailRules"
-            />
+            <v-text-field v-model="nickname" label="Name" type="text" :rules="e_nicknameRules" />
+            <v-text-field v-model="email" label="E-mail" type="email" :rules="e_emailRules" />
             <v-text-field
               v-model="password"
               label="Password"
@@ -82,13 +62,9 @@
               v-model="terms"
               required
               label="Subscription Terms "
-              :rules="[
-                (v) =>
-                  !!v ||
-                  'It is essential to agree to the terms and conditions.',
-              ]"
+              :rules="[(v) => !!v || 'It is essential to agree to the terms and conditions.']"
             />
-            <v-btn type="submit">SignUp</v-btn>
+            <v-btn type="submit" color="success">SignUp</v-btn>
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">SignUp Error</v-card-title>
@@ -130,8 +106,7 @@ export default {
       emailRules: [
         (v) => !!v || "이메일을 입력해주세요.",
         (v) =>
-          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          "이메일이 유효하지 않습니다.",
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || "이메일이 유효하지 않습니다.",
       ],
       nicknameRules: [(v) => !!v || "이름을 입력해주세요."],
       passwordRules: [(v) => !!v || "비밀번호를 입력해주세요."],
@@ -141,9 +116,7 @@ export default {
       ],
       e_emailRules: [
         (v) => !!v || "Please input your e-mail.",
-        (v) =>
-          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          "E-mail is invalid.",
+        (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || "E-mail is invalid.",
       ],
       e_nicknameRules: [(v) => !!v || "Please input your name."],
       e_passwordRules: [(v) => !!v || "Please input your password."],

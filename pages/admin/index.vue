@@ -2,13 +2,13 @@
   <v-container style="dispaly: flex; flex-direction: column; margin: auto">
     <v-container style="width: 80vw; height: 100vh" fluid>
       <v-toolbar elevation="0">
-        <v-toolbar-title
-          class="text-center"
-          style="border: 1px solid red; padding: 10px"
+        <v-toolbar-title class="text-center" style="border: 1px solid red; padding: 10px"
           >filter</v-toolbar-title
         >
         <v-divider vertical inset />
         <v-spacer />
+
+        <!--필터-->
         <v-toolbar-items class="text-center">
           <v-container fluid>
             <v-row align="center">

@@ -118,21 +118,7 @@
       <nuxt />
       <snack-bar />
     </div>
-    <v-toolbar
-      class="d-flex align-center justify-center"
-      bottom
-      extended
-      extension-height="150"
-      color="#013183"
-      dark
-    >
-      <div class="text-center text-caption">
-        © (주)디엠티랩스 <br />
-        고객센터 : help@dmtlabs.co.kr | 02-794-5333 <br />
-        주소 : (04386) 서울특별시 용산구 한강대로40길 18, 404호 (한강로2가 144-2 다이빌딩) <br />
-        Copyright © 2021 DMT Labs All Rights Reserved. <br />
-      </div>
-    </v-toolbar>
+    <bottom-component />
   </v-app>
 </template>
 
@@ -142,12 +128,14 @@
 <script lang="js">
 import LoginForm from '~/components/LoginForm'
 import SnackBar from '~/components/SnackBar'
+import BottomComponent from '~/components/BottomComponent'
 
 export default {
   layout: 'text-layout',
   components: {
       LoginForm,
       SnackBar,
+      BottomComponent,
   },
   data: () => ({
     loginMenu: false,
