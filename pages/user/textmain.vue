@@ -55,18 +55,14 @@
             style="display: flex; flex-direction: column"
           >
             <h4 style="margin-right: auto">파일 번역</h4>
-            <div style="margin-right: auto; font-size: 50%">
-              .pdf .docx .pptx
-            </div>
+            <div style="margin-right: auto; font-size: 50%">.pdf만 가능</div>
           </div>
           <div
             v-else-if="language === '영어'"
             style="display: flex; flex-direction: column"
           >
             <h4 style="margin-right: auto">File translation</h4>
-            <div style="margin-right: auto; font-size: 50%">
-              .pdf .docx .pptx
-            </div>
+            <div style="margin-right: auto; font-size: 50%">Only .pdf</div>
           </div>
         </v-btn>
       </v-btn-toggle>
@@ -139,6 +135,7 @@
         />
       </div>
     </v-layout>
+
     <!--파일 번역 레이아웃-->
     <v-layout v-else style="height: 45vh" align-center justify-center column>
       <v-icon class="text-h1">mdi-folder-upload</v-icon>
@@ -150,6 +147,7 @@
         Upload
       </v-btn>
     </v-layout>
+
     <!--번역자 레이아웃-->
     <v-layout>
       <v-carousel

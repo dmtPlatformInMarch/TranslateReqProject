@@ -100,8 +100,24 @@ export const actions = {
             console.error(err);
         }
     },
-    removeFile({ commit }, payload) {
-        commit('removeFilePaths', payload);
+    async removeFile({ commit, state }, payload) {
+        try {
+            console.log(state.filePaths[payload].length);
+            const removeResponse = await this.$axios.delete(`/request/file/delete`, {
+                data: {
+                    files: state.filePaths[payload],
+                },
+                withCredentials: true,
+            });
+            console.log(removeResponse);
+            if (removeResponse.status === 201) {
+                commit('removeFilePaths', payload);
+            } else {
+                console.log('파일 삭제 오류\n', removeResponse);
+            }
+        } catch (err) {
+            console.log(err);
+        }
     },
     async loadRequests({ commit, state }, payload) {
         try {

@@ -24,14 +24,10 @@
           <v-list>
             <v-list-item-group v-model="language" mandatory>
               <v-list-item value="한국어">
-                <v-list-item-title class="text-center" value="한국어">
-                  한국어
-                </v-list-item-title>
+                <v-list-item-title class="text-center" value="한국어"> 한국어 </v-list-item-title>
               </v-list-item>
               <v-list-item value="영어">
-                <v-list-item-title class="text-center" value="영어">
-                  English
-                </v-list-item-title>
+                <v-list-item-title class="text-center" value="영어"> English </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
           </v-list>
@@ -45,20 +41,10 @@
           v-if="!loginState"
         >
           <template #activator="{ on, attrs }">
-            <v-btn
-              v-if="language === '한국어'"
-              text
-              class="text-center"
-              v-bind="attrs"
-              v-on="on"
+            <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on"
               >로그인</v-btn
             >
-            <v-btn
-              v-else-if="language === '영어'"
-              text
-              class="text-center"
-              v-bind="attrs"
-              v-on="on"
+            <v-btn v-else-if="language === '영어'" text class="text-center" v-bind="attrs" v-on="on"
               >Login</v-btn
             >
           </template>
@@ -98,18 +84,10 @@
               <v-list-item-subtitle v-else-if="language === '영어'"
                 >Your Request : N cases</v-list-item-subtitle
               >
-              <v-btn
-                depressed
-                color="#06d183"
-                @click="onLogout"
-                v-if="language === '한국어'"
+              <v-btn depressed color="#06d183" @click="onLogout" v-if="language === '한국어'"
                 >로그아웃</v-btn
               >
-              <v-btn
-                depressed
-                color="#06d183"
-                @click="onLogout"
-                v-else-if="language === '영어'"
+              <v-btn depressed color="#06d183" @click="onLogout" v-else-if="language === '영어'"
                 >Logout</v-btn
               >
             </v-list-item-content>
@@ -121,9 +99,7 @@
             <v-list-item-icon>
               <v-icon>mdi-clipboard-edit</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'">
-              번역 의뢰
-            </v-list-item-title>
+            <v-list-item-title v-if="language === '한국어'"> 번역 의뢰 </v-list-item-title>
             <v-list-item-title v-else-if="language === '영어'">
               Translation request
             </v-list-item-title>
@@ -132,9 +108,7 @@
             <v-list-item-icon>
               <v-icon>mdi-clipboard-search</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'">
-              번역 현황
-            </v-list-item-title>
+            <v-list-item-title v-if="language === '한국어'"> 번역 현황 </v-list-item-title>
             <v-list-item-title v-else-if="language === '영어'">
               Translation status
             </v-list-item-title>
@@ -144,6 +118,21 @@
       <nuxt />
       <snack-bar />
     </div>
+    <v-toolbar
+      class="d-flex align-center justify-center"
+      bottom
+      extended
+      extension-height="150"
+      color="#013183"
+      dark
+    >
+      <div class="text-center text-caption">
+        © (주)디엠티랩스 <br />
+        고객센터 : help@dmtlabs.co.kr | 02-794-5333 <br />
+        주소 : (04386) 서울특별시 용산구 한강대로40길 18, 404호 (한강로2가 144-2 다이빌딩) <br />
+        Copyright © 2021 DMT Labs All Rights Reserved. <br />
+      </div>
+    </v-toolbar>
   </v-app>
 </template>
 

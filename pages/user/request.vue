@@ -270,7 +270,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[0]"
+                  v-model.lazy="file[0]"
+                  ref="file0"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -322,7 +323,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[1]"
+                  v-model.lazy="file[1]"
+                  ref="file1"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -373,7 +375,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[2]"
+                  v-model.lazy="file[2]"
+                  ref="file2"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -424,7 +427,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[3]"
+                  v-model.lazy="file[3]"
+                  ref="file3"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -475,7 +479,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[4]"
+                  v-model.lazy="file[4]"
+                  ref="file4"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -1193,15 +1198,29 @@ export default {
     onChangeFile(index, e) {
         const fileFormData = new FormData();
         if (e != null) {
-            console.log(e);
-            /*if (e) {
-              return this.$manage.showMessage({ message: 'pdf, doc, docx, xls, pptx 확장자만 이용 가능합니다.', color: 'red' });
-            }*/
-            [].forEach.call(e, (f) => {
+          [].forEach.call(e, (f) => {
+            if (f.type === 'application/pdf' || // .pdf
+                f.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || // .xlsx
+                f.type === 'text/plain' ||  // .txt
+                f.type === 'application/haansofthwp' || // .hwp
+                f.name.substring(f.name.lastIndexOf(".") + 1) === 'pptx' // .pptx
+              ) {
                 fileFormData.append('fileKey', f);
-                console.log(f);
-            });
-            this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+            }
+            else {
+              this.$manage.showMessage({ 
+                message: `지원하지 않는 형식의 파일이 존재합니다. 해당 파일 형식 : [.${f.type === '' ? f.name.substring(f.name.lastIndexOf(".") + 1) : f.type}]`,
+                color : 'orange darken-1' 
+              });
+              this.file[index] = null;
+              console.log(this.$refs.file0);
+              this.$refs.file0.hasInput = false;
+              this.$refs.file0.initialValue = null;
+              this.$refs.file0.lazyValue = null;
+              e = null;
+            }
+          });
+          this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
         } else {
             console.log("e is null!!!");
         }

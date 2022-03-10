@@ -13,7 +13,7 @@
       <v-toolbar-items v-if="language === '한국어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> 텍스트 번역 </v-btn>
+            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 텍스트 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -31,7 +31,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> 영상 번역 </v-btn>
+            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 영상 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -49,7 +49,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> 음성 번역 </v-btn>
+            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 음성 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -88,9 +88,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on">
-              Video Translation
-            </v-btn>
+            <v-btn depressed v-bind="attrs" v-on="on"> Video Translation </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -108,9 +106,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on">
-              Speech Translation
-            </v-btn>
+            <v-btn depressed v-bind="attrs" v-on="on"> Speech Translation </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -141,14 +137,10 @@
           <v-list>
             <v-list-item-group v-model="language" mandatory>
               <v-list-item value="한국어">
-                <v-list-item-title class="text-center" value="한국어">
-                  한국어
-                </v-list-item-title>
+                <v-list-item-title class="text-center" value="한국어"> 한국어 </v-list-item-title>
               </v-list-item>
               <v-list-item value="영어">
-                <v-list-item-title class="text-center" value="영어">
-                  English
-                </v-list-item-title>
+                <v-list-item-title class="text-center" value="영어"> English </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
           </v-list>
@@ -156,6 +148,22 @@
       </v-toolbar-items>
     </v-toolbar>
     <nuxt />
+
+    <v-toolbar
+      class="d-flex align-center justify-center"
+      bottom
+      extended
+      extension-height="150"
+      color="#013183"
+      dark
+    >
+      <div class="text-center text-caption">
+        © (주)디엠티랩스 <br />
+        고객센터 : help@dmtlabs.co.kr | 02-794-5333 <br />
+        주소 : (04386) 서울특별시 용산구 한강대로40길 18, 404호 (한강로2가 144-2 다이빌딩) <br />
+        Copyright © 2021 DMT Labs All Rights Reserved. <br />
+      </div>
+    </v-toolbar>
     <snack-bar />
   </v-app>
 </template>
