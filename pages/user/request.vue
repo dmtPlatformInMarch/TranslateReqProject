@@ -836,15 +836,17 @@ export default {
     },
     onChangeFile(index, e) {
         const fileFormData = new FormData();
+
         if (e != null) {
           [].forEach.call(e, (f) => {
-            if (f.type === 'application/pdf' || // .pdf
-                f.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || // .xlsx
-                f.type === 'text/plain' ||  // .txt
-                f.type === 'application/haansofthwp' || // .hwp
-                f.name.substring(f.name.lastIndexOf(".") + 1) === 'pptx' // .pptx
-              ) {
-                fileFormData.append('fileKey', f);
+            if (
+              f.type === 'application/pdf'  ||  // .pdf
+              f.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || // .xlsx
+              f.type === 'text/plain' ||  // .txt
+              f.type === 'application/haansofthwp' || // .hwp
+              f.name.substring(f.name.lastIndexOf(".") + 1) === 'pptx' // .pptx
+            ) {
+              fileFormData.append('fileKey', f);
             }
             else {
               this.$manage.showMessage({ 
