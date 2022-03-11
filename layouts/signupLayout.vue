@@ -46,7 +46,6 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
-    layout: 'signup_layout',
     components: {
         SnackBar,
         BottomComponent,

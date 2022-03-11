@@ -102,14 +102,12 @@ export const actions = {
     },
     async removeFile({ commit, state }, payload) {
         try {
-            console.log(state.filePaths[payload].length);
             const removeResponse = await this.$axios.delete(`/request/file/delete`, {
                 data: {
                     files: state.filePaths[payload],
                 },
                 withCredentials: true,
             });
-            console.log(removeResponse);
             if (removeResponse.status === 201) {
                 commit('removeFilePaths', payload);
             } else {

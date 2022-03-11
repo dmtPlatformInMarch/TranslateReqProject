@@ -2,9 +2,9 @@
   <v-expansion-panel v-if="language === '한국어'">
     <v-expansion-panel-header disable-icon-rotate>
       <div style="display: flex; align-items: center">
-        <v-btn depressed icon @click="dialog = true"
-          ><v-icon>mdi-close</v-icon></v-btn
-        >
+        <v-btn depressed icon @click="dialog = true">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
         <v-dialog v-model="dialog" width="30vw">
           <v-card>
             <v-card-title>의뢰 취소</v-card-title>
@@ -14,8 +14,9 @@
               <v-btn text @click="dialog = false">취소</v-btn>
               <v-btn color="success" text @click="cancelRequest">확인</v-btn>
             </v-card-actions>
-          </v-card> </v-dialog
-        >의뢰ID : {{ p.id }}
+          </v-card>
+        </v-dialog>
+        의뢰ID : {{ p.id }}
       </div>
       <v-spacer />
       <div>
@@ -55,9 +56,7 @@
           <div style="display: flex; width: 30vw">
             <v-icon left> mdi-file-document-multiple </v-icon>
             {{ file.src }}
-            <span v-if="countingFile[i] - 1 != 0"
-              >외 {{ countingFile[i] - 1 }}개의 파일</span
-            >
+            <span v-if="countingFile[i] - 1 != 0">외 {{ countingFile[i] - 1 }}개의 파일</span>
           </div>
           <v-spacer />
           <v-list-item-icon>
@@ -73,15 +72,11 @@
   <v-expansion-panel v-else-if="language === '영어'">
     <v-expansion-panel-header disable-icon-rotate>
       <div style="display: flex; align-items: center">
-        <v-btn depressed icon @click="dialog = true"
-          ><v-icon>mdi-close</v-icon></v-btn
-        >
+        <v-btn depressed icon @click="dialog = true"><v-icon>mdi-close</v-icon></v-btn>
         <v-dialog v-model="dialog" width="30vw">
           <v-card>
             <v-card-title>Request Cancel</v-card-title>
-            <v-card-text
-              >Are you sure you want to cancel the quest?</v-card-text
-            >
+            <v-card-text>Are you sure you want to cancel the quest?</v-card-text>
             <v-card-actions>
               <v-spacer />
               <v-btn text @click="dialog = false">No</v-btn>
@@ -128,9 +123,7 @@
           <div style="display: flex; width: 30vw">
             <v-icon left> mdi-file-document-multiple </v-icon>
             {{ file.src }}
-            <span v-if="countingFile[i] - 1 != 0"
-              >other {{ countingFile[i] - 1 }} files</span
-            >
+            <span v-if="countingFile[i] - 1 != 0">other {{ countingFile[i] - 1 }} files</span>
           </div>
           <v-spacer />
           <v-list-item-icon>
@@ -199,12 +192,9 @@ export default {
   methods: {
     async cancelRequest() {
       try {
-        const deleteResponse = await this.$store.dispatch(
-          "requests/cancelRequest",
-          {
-            id: this.p.id,
-          }
-        );
+        const deleteResponse = await this.$store.dispatch("requests/cancelRequest", {
+          id: this.p.id,
+        });
         if (deleteResponse.data === "삭제") {
           if (this.language === "한국어") {
             this.$manage.showMessage({

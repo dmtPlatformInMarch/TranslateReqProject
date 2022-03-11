@@ -43,9 +43,16 @@ export const actions = {
     async deleteUser({ commit }, payload) {
         try {
             const deleteUserResponse = await this.$axios.delete(`admin/user/delete/${payload}`);
-            console.log('유저 강제 탈퇴');
+            const userResponse = await this.$axios.get('/admin/users');
+            commit('setallUser', userResponse);
         } catch (err) {
             console.log(err);
         }
     },
+    async deleteRequest({ commit }, payload) {
+        await this.$axios.delete(`/admin/request/${payload}`);
+        const requestResponse = await this.$axios.get(`/admin/requests`);
+        commit('loadallRequest', requestResponse.data);
+        this.$manage.showMessage({ message: '의뢰 취소 완료', color: 'primary' });
+    }
 }

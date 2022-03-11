@@ -44,7 +44,7 @@
 
 <script lang="js">
 export default {
-    layout: 'admin_layout',
+    layout: 'adminLayout',
     data() {
       return {
         dialog: false,
@@ -66,7 +66,6 @@ export default {
       async deleteUser(email) {
         const deleteResponse = await this.$store.dispatch('admin/deleteUser', email);
         this.dialog = false;
-        this.update();
       },
       choice(email) {
         this.delemail = email;

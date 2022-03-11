@@ -9,9 +9,7 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn depressed class="text-center" to="/">
-          {{ language === "한국어" ? "메인 페이지" : "Main page" }}</v-btn
-        >
+        <v-btn depressed class="text-center" to="/"> {{ language === "한국어" ? "메인 페이지" : "Main page" }}</v-btn>
       </v-toolbar-items>
       <v-spacer />
       <v-toolbar-items>
@@ -32,21 +30,10 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-        <v-menu
-          v-model="loginMenu"
-          offset-x
-          offset-y
-          :close-on-content-click="false"
-          :nudge-width="200"
-          v-if="!loginState"
-        >
+        <v-menu v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200" v-if="!loginState">
           <template #activator="{ on, attrs }">
-            <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on"
-              >로그인</v-btn
-            >
-            <v-btn v-else-if="language === '영어'" text class="text-center" v-bind="attrs" v-on="on"
-              >Login</v-btn
-            >
+            <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on">로그인</v-btn>
+            <v-btn v-else-if="language === '영어'" text class="text-center" v-bind="attrs" v-on="on">Login</v-btn>
           </template>
           <login-form @update="update" />
         </v-menu>
@@ -60,36 +47,20 @@
             <v-list-item-icon>
               <v-icon>mdi-account-alert</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'"
-              >로그인이 <br />필요합니다.</v-list-item-title
-            >
-            <v-list-item-title v-else-if="language === '영어'"
-              >You need to <br />login.</v-list-item-title
-            >
+            <v-list-item-title v-if="language === '한국어'">로그인이 <br />필요합니다.</v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'">You need to <br />login.</v-list-item-title>
           </v-list-item>
           <v-list-item v-else style="padding: 0px 8px">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-if="language === '한국어'" class="text-h6"
-                >{{ loginState.nickname }} 님</v-list-item-title
-              >
-              <v-list-item-title v-else-if="language === '영어'" class="text-h6"
-                >Hello, <br />{{ loginState.nickname }}</v-list-item-title
-              >
-              <v-list-item-subtitle v-if="language === '한국어'"
-                >번역 의뢰 : N건</v-list-item-subtitle
-              >
-              <v-list-item-subtitle v-else-if="language === '영어'"
-                >Your Request : N cases</v-list-item-subtitle
-              >
-              <v-btn depressed color="#06d183" @click="onLogout" v-if="language === '한국어'"
-                >로그아웃</v-btn
-              >
-              <v-btn depressed color="#06d183" @click="onLogout" v-else-if="language === '영어'"
-                >Logout</v-btn
-              >
+              <v-list-item-title v-if="language === '한국어'" class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
+              <v-list-item-title v-else-if="language === '영어'" class="text-h6">Hello, <br />{{ loginState.nickname }}</v-list-item-title>
+              <v-list-item-subtitle v-if="language === '한국어'">번역 의뢰 : N건</v-list-item-subtitle>
+              <v-list-item-subtitle v-else-if="language === '영어'">Your Request : N cases</v-list-item-subtitle>
+              <v-btn depressed color="#06d183" @click="onLogout" v-if="language === '한국어'">로그아웃</v-btn>
+              <v-btn depressed color="#06d183" @click="onLogout" v-else-if="language === '영어'">Logout</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -100,18 +71,14 @@
               <v-icon>mdi-clipboard-edit</v-icon>
             </v-list-item-icon>
             <v-list-item-title v-if="language === '한국어'"> 번역 의뢰 </v-list-item-title>
-            <v-list-item-title v-else-if="language === '영어'">
-              Translation request
-            </v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'"> Translation request </v-list-item-title>
           </v-list-item>
           <v-list-item link to="/user/reqstate">
             <v-list-item-icon>
               <v-icon>mdi-clipboard-search</v-icon>
             </v-list-item-icon>
             <v-list-item-title v-if="language === '한국어'"> 번역 현황 </v-list-item-title>
-            <v-list-item-title v-else-if="language === '영어'">
-              Translation status
-            </v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'"> Translation status </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -131,7 +98,6 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
-  layout: 'text-layout',
   components: {
       LoginForm,
       SnackBar,

@@ -13,12 +13,7 @@
         <v-card-title class="titleStyle"> 번역 현황 </v-card-title>
         <v-card class="overflow-y-auto" style="height: 90vh" elevation="10">
           <v-expansion-panels flat accordion focusable>
-            <trans-dash-board
-              v-for="item in allRequest"
-              :id="item.id"
-              :key="item.id"
-              :p="item"
-            />
+            <trans-dash-board v-for="item in allRequest" :id="item.id" :key="item.id" :p="item" />
           </v-expansion-panels>
         </v-card>
       </v-container>
@@ -39,7 +34,7 @@ import transDashBoard from '~/components/TransDashBoard';
 import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
-    layout: 'admin_layout',
+    layout: 'adminLayout',
     components: {
       transDashBoard,
       transHistoryBoard,

@@ -8,38 +8,21 @@
     <v-card>
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle"> 번역 요청 현황 </v-card-title>
-        <v-card
-          outlined
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card outlined style="height: 45vh; text-align: center" elevation="10">
           <div>로그인이 필요합니다.</div>
         </v-card>
       </v-container>
 
       <v-container v-else>
-        <v-card-title class="titleStyle">
-          {{ loginState.nickname }} 님의 번역 현황
-        </v-card-title>
-        <v-card
-          class="overflow-y-auto"
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card-title class="titleStyle"> {{ loginState.nickname }} 님의 번역 현황 </v-card-title>
+        <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">
           <v-list-item v-if="mainRequest.length == 0">
-            <v-list-item-title>
-              번역을 요청하신 의뢰가 없습니다.
-            </v-list-item-title>
+            <v-list-item-title> 번역을 요청하신 의뢰가 없습니다. </v-list-item-title>
           </v-list-item>
 
           <v-expansion-panels flat accordion focusable v-else>
             <client-only>
-              <trans-dash-board
-                v-for="item in mainRequest"
-                :id="item.id"
-                :key="item.id"
-                :p="item"
-              />
+              <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
           </v-expansion-panels>
         </v-card>
@@ -49,11 +32,7 @@
     <v-card>
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle">번역 요청 이력</v-card-title>
-        <v-card
-          class="overflow-y-auto"
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">
           <v-list>
             <v-list-item>
               <v-list-item-title>로그인이 필요합니다.</v-list-item-title>
@@ -63,9 +42,7 @@
       </v-container>
 
       <v-container v-else>
-        <v-card-title class="titleStyle">
-          {{ loginState.nickname }} 님의 번역 요청 이력
-        </v-card-title>
+        <v-card-title class="titleStyle"> {{ loginState.nickname }} 님의 번역 요청 이력 </v-card-title>
         <v-card style="height: 45vh; text-align: center" elevation="10">
           <v-list style="height: 45vh; overflow-y: scroll">
             <v-list-item v-if="mainRequest.length === 0">
@@ -73,12 +50,7 @@
             </v-list-item>
             <v-list-item-group v-else>
               <client-only>
-                <trans-history-board
-                  v-for="p in mainRequest"
-                  :id="p.id"
-                  :key="p.id"
-                  :p="p"
-                />
+                <trans-history-board v-for="p in mainRequest" :id="p.id" :key="p.id" :p="p" />
               </client-only>
             </v-list-item-group>
           </v-list>
@@ -95,40 +67,21 @@
 
     <v-card>
       <v-container v-if="!loginState">
-        <v-card-title class="titleStyle">
-          Translation Request Status
-        </v-card-title>
-        <v-card
-          outlined
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card-title class="titleStyle"> Translation Request Status </v-card-title>
+        <v-card outlined style="height: 45vh; text-align: center" elevation="10">
           <div>You need to Login.</div>
         </v-card>
       </v-container>
 
       <v-container v-else>
-        <v-card-title class="titleStyle">
-          {{ loginState.nickname }}'s Translation Status
-        </v-card-title>
-        <v-card
-          class="overflow-y-auto"
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card-title class="titleStyle"> {{ loginState.nickname }}'s Translation Status </v-card-title>
+        <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">
           <v-list-item v-if="mainRequest.length == 0">
-            <v-list-item-title>
-              There is no request for translation.
-            </v-list-item-title>
+            <v-list-item-title> There is no request for translation. </v-list-item-title>
           </v-list-item>
           <v-expansion-panels flat accordion focusable v-else>
             <client-only>
-              <trans-dash-board
-                v-for="item in mainRequest"
-                :id="item.id"
-                :key="item.id"
-                :p="item"
-              />
+              <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
           </v-expansion-panels>
         </v-card>
@@ -137,14 +90,8 @@
 
     <v-card>
       <v-container v-if="!loginState">
-        <v-card-title class="titleStyle">
-          Translation Request History
-        </v-card-title>
-        <v-card
-          class="overflow-y-auto"
-          style="height: 45vh; text-align: center"
-          elevation="10"
-        >
+        <v-card-title class="titleStyle"> Translation Request History </v-card-title>
+        <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">
           <v-list>
             <v-list-item>
               <v-list-item-title>You need to Login.</v-list-item-title>
@@ -154,24 +101,15 @@
       </v-container>
 
       <v-container v-else>
-        <v-card-title class="titleStyle">
-          {{ loginState.nickname }}'s Translation History
-        </v-card-title>
+        <v-card-title class="titleStyle"> {{ loginState.nickname }}'s Translation History </v-card-title>
         <v-card style="height: 45vh; text-align: center" elevation="10">
           <v-list style="height: 45vh; overflow-y: scroll">
             <v-list-item v-if="mainRequest.length === 0">
-              <v-list-item-title>
-                There is no translation request.
-              </v-list-item-title>
+              <v-list-item-title> There is no translation request. </v-list-item-title>
             </v-list-item>
             <v-list-item-group v-else>
               <client-only>
-                <trans-history-board
-                  v-for="p in mainRequest"
-                  :id="p.id"
-                  :key="p.id"
-                  :p="p"
-                />
+                <trans-history-board v-for="p in mainRequest" :id="p.id" :key="p.id" :p="p" />
               </client-only>
             </v-list-item-group>
           </v-list>
@@ -194,7 +132,7 @@ import transDashBoard from '~/components/TransDashBoard';
 import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
-  layout: 'text_layout',
+  layout: 'textLayout',
   components: {
       transDashBoard,
       transHistoryBoard,

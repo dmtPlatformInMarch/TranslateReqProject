@@ -22,13 +22,9 @@
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-if="loginState != null" class="text-h6"
-                >{{ loginState.nickname }} 님</v-list-item-title
-              >
+              <v-list-item-title v-if="loginState != null" class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
               <v-list-item-subtitle>[관리자 계정] 접속중</v-list-item-subtitle>
-              <v-btn depressed color="#06d183" @click="onLogout"
-                >로그아웃</v-btn
-              >
+              <v-btn depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -61,7 +57,6 @@ import LoginForm from '~/components/LoginForm'
 import SnackBar from '~/components/SnackBar'
 
 export default {
-    name: "Default",
     components: {
         LoginForm,
         SnackBar,

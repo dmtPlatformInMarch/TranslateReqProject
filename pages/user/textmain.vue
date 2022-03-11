@@ -3,64 +3,28 @@
     <!--버튼 레이아웃-->
     <v-layout style="display: flex; height: 6vh">
       <v-btn-toggle v-model="toggle" tile mandatory>
-        <v-btn
-          style="
-            display: flex;
-            align-content: center;
-            justify-content: space-around;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: center;
-            "
-          >
+        <v-btn style="display: flex; align-content: center; justify-content: space-around">
+          <div style="display: flex; align-content: center; justify-content: center">
             <v-icon>mdi-earth</v-icon>
           </div>
-          <div
-            v-if="language === '한국어'"
-            style="display: flex; flex-direction: column"
-          >
+          <div v-if="language === '한국어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">언어 번역</h4>
             <div style="margin-right: auto; font-size: 50%">5개의 언어</div>
           </div>
-          <div
-            v-else-if="language === '영어'"
-            style="display: flex; flex-direction: column"
-          >
+          <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">Language translation</h4>
             <div style="margin-right: auto; font-size: 50%">5 languages</div>
           </div>
         </v-btn>
-        <v-btn
-          style="
-            display: flex;
-            align-content: center;
-            justify-content: space-around;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: center;
-            "
-          >
+        <v-btn style="display: flex; align-content: center; justify-content: space-around">
+          <div style="display: flex; align-content: center; justify-content: center">
             <v-icon>mdi-file</v-icon>
           </div>
-          <div
-            v-if="language === '한국어'"
-            style="display: flex; flex-direction: column"
-          >
+          <div v-if="language === '한국어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">파일 번역</h4>
             <div style="margin-right: auto; font-size: 50%">.pdf만 가능</div>
           </div>
-          <div
-            v-else-if="language === '영어'"
-            style="display: flex; flex-direction: column"
-          >
+          <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">File translation</h4>
             <div style="margin-right: auto; font-size: 50%">Only .pdf</div>
           </div>
@@ -68,11 +32,7 @@
       </v-btn-toggle>
     </v-layout>
     <!--언어 번역 레이아웃-->
-    <v-layout
-      v-if="toggle === 0"
-      style="display: flex; height: 45vh"
-      align-center
-    >
+    <v-layout v-if="toggle === 0" style="display: flex; height: 45vh" align-center>
       <div style="width: 40vw">
         <v-textarea
           v-if="language === '한국어'"
@@ -140,24 +100,13 @@
     <v-layout v-else style="height: 45vh" align-center justify-center column>
       <v-icon class="text-h1">mdi-folder-upload</v-icon>
       <div>.pdf .docx .pptx</div>
-      <v-btn v-if="language === '한국어'" style="width: 8vw" outlined>
-        업로드
-      </v-btn>
-      <v-btn v-else-if="language === '영어'" style="width: 8vw" outlined>
-        Upload
-      </v-btn>
+      <v-btn v-if="language === '한국어'" style="width: 8vw" outlined> 업로드 </v-btn>
+      <v-btn v-else-if="language === '영어'" style="width: 8vw" outlined> Upload </v-btn>
     </v-layout>
 
     <!--번역자 레이아웃-->
     <v-layout>
-      <v-carousel
-        cycle
-        interval="3000"
-        height="40vh"
-        hide-delimiter-background
-        hide-delimiters
-        :show-arrows="false"
-      >
+      <v-carousel cycle interval="3000" height="40vh" hide-delimiter-background hide-delimiters :show-arrows="false">
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
           <v-sheet :color="colors[i]" height="100%">
             <v-layout class="fill-height" align-center justify-center>
@@ -185,7 +134,7 @@
 
 <script lang="js">
 export default {
-  layout: 'text_layout',
+  layout: 'textLayout',
   data() {
       return {
           colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
