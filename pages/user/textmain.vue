@@ -33,16 +33,19 @@
     </v-layout>
 
     <!--언어 번역 레이아웃-->
-    <v-layout v-if="toggle === 0" style="display: flex; height: 45vh" align-center>
-      <div style="width: 50vw">
-        <v-toolbar dense elevation="0">
+    <v-layout v-if="toggle === 0" style="display: flex; height: 45vh" align-center justify-space-around>
+      <div style="width: 40vw">
+        <v-toolbar dense elevation="0" color="transparent">
+          <v-spacer />
           <v-toolbar-items>
             <v-select
+              class="selector"
               dense
               :items="language === '한국어' ? languages : e_languages"
               :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
-              solo
+              outlined
               single-line
+              full-width
             />
           </v-toolbar-items>
         </v-toolbar>
@@ -72,15 +75,18 @@
           style="z-index: 0"
         />
       </div>
-      <div style="width: 50vw">
-        <v-toolbar dense elevation="0">
+      <div style="width: 40vw">
+        <v-toolbar dense elevation="0" color="transparent">
+          <v-spacer />
           <v-toolbar-items>
             <v-select
+              class="selector"
               dense
               :items="language === '한국어' ? languages : e_languages"
               :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
-              solo
+              outlined
               single-line
+              full-width
             />
           </v-toolbar-items>
         </v-toolbar>
@@ -148,6 +154,9 @@
 </template>
 
 <style scoped>
+.selector {
+  width: 20vw;
+}
 </style>
 
 <script lang="js">
