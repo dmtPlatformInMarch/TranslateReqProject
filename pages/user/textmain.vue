@@ -31,13 +31,24 @@
         </v-btn>
       </v-btn-toggle>
     </v-layout>
+
     <!--언어 번역 레이아웃-->
     <v-layout v-if="toggle === 0" style="display: flex; height: 45vh" align-center>
-      <div style="width: 40vw">
+      <div style="width: 50vw">
+        <v-toolbar dense elevation="0">
+          <v-toolbar-items>
+            <v-select
+              dense
+              :items="language === '한국어' ? languages : e_languages"
+              :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+              solo
+              single-line
+            />
+          </v-toolbar-items>
+        </v-toolbar>
         <v-textarea
           v-if="language === '한국어'"
           prepend-inner-icon="mdi-book-sync"
-          label="번역할 언어"
           hint="번역할 언어를 적어주세요."
           rows="15"
           auto-grow
@@ -61,14 +72,21 @@
           style="z-index: 0"
         />
       </div>
-      <div style="text-align: center; margin: auto">
-        <v-icon>mdi-arrow-right-bold</v-icon>
-      </div>
-      <div style="width: 40vw">
+      <div style="width: 50vw">
+        <v-toolbar dense elevation="0">
+          <v-toolbar-items>
+            <v-select
+              dense
+              :items="language === '한국어' ? languages : e_languages"
+              :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+              solo
+              single-line
+            />
+          </v-toolbar-items>
+        </v-toolbar>
         <v-textarea
           v-if="language === '한국어'"
           prepend-inner-icon="mdi-book-check"
-          label="번역된 언어"
           hint="번역한 결과입니다."
           rows="15"
           auto-grow
@@ -146,6 +164,12 @@ export default {
   computed: {
     language() {
       return this.$store.state.manager.language;
+    },
+    languages() {
+      return this.$LANGUAGES_KO;
+    },
+    e_languages() {
+      return this.$LANGUAGES_EN;
     }
   }
 }
