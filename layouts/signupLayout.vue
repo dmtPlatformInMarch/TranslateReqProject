@@ -46,19 +46,20 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
-    components: {
-        SnackBar,
-        BottomComponent,
-    },
-    computed: {
-      language: {
-        get() {
-          return this.$store.state.manager.language;
-        },
-        set(value) {
-          return this.$store.commit('manager/setLanguage', value);
-        }
+  name: 'signupLayout',
+  components: {
+      SnackBar,
+      BottomComponent,
+  },
+  computed: {
+    language: {
+      get() {
+        return this.$store.state.manager.language;
+      },
+      set(value) {
+        return this.$store.commit('manager/setLanguage', value);
       }
     }
+  }
 }
 </script>

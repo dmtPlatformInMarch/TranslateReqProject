@@ -98,6 +98,7 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
+  name: 'textLayout',
   components: {
       LoginForm,
       SnackBar,

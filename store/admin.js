@@ -31,15 +31,6 @@ export const actions = {
             console.log(err);
         }
     },
-    // 파일을 다운로드 하는 기능 구현 필요
-    async download({ commit }, payload) {
-        try {
-            console.log(payload);
-            // const fileResponse = await this.$axios.get(`/admin/file/${payload}`);
-        } catch (err) {
-            console.log(err);
-        }
-    },
     async deleteUser({ commit }, payload) {
         try {
             const deleteUserResponse = await this.$axios.delete(`admin/user/delete/${payload}`);

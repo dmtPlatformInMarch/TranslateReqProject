@@ -57,40 +57,41 @@ import LoginForm from '~/components/LoginForm'
 import SnackBar from '~/components/SnackBar'
 
 export default {
-    components: {
-        LoginForm,
-        SnackBar,
-    },
-    data: () => ({
-      loginMenu: false,
-    }),
-    beforeCreate() {
-      const check = this.$store.state.users.loginState;
-      if(check === null) {
+  name: 'adminLayout',
+  components: {
+      LoginForm,
+      SnackBar,
+  },
+  data: () => ({
+    loginMenu: false,
+  }),
+  beforeCreate() {
+    const check = this.$store.state.users.loginState;
+    if(check === null) {
+      this.$router.push('/');
+    } else {
+      if(check.permission != 'admin') {
         this.$router.push('/');
-      } else {
-        if(check.permission != 'admin') {
-          this.$router.push('/');
-        }
       }
-    },
-    computed: {
-      loginState() {
-          return this.$store.state.users.loginState;
-      },
-    },
-    methods: {
-        onLogout() {
-            this.loginMenu = false;
-            this.$store.dispatch('users/logout');
-            this.$router.replace('/user/textmain');
-        },
-        update(data) {
-          this.loginMenu = data;
-        },
-        goSite() {
-          this.$router.push('/user/textmain');
-        }
     }
+  },
+  computed: {
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
+  },
+  methods: {
+      onLogout() {
+          this.loginMenu = false;
+          this.$store.dispatch('users/logout');
+          this.$router.replace('/user/textmain');
+      },
+      update(data) {
+        this.loginMenu = data;
+      },
+      goSite() {
+        this.$router.push('/user/textmain');
+      }
+  }
 };
 </script>

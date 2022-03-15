@@ -53,9 +53,9 @@
             </v-chip>
           </div>
           <v-spacer />
-          <div style="display: flex; width: 30vw">
+          <div class="text-caption" style="display: flex; width: 30vw">
             <v-icon left> mdi-file-document-multiple </v-icon>
-            {{ file.src }}
+            {{ file.src.substring(file.src.lastIndexOf("/") + 1) }}
             <span v-if="countingFile[i] - 1 != 0">외 {{ countingFile[i] - 1 }}개의 파일</span>
           </div>
           <v-spacer />
@@ -122,7 +122,7 @@
           <v-spacer />
           <div style="display: flex; width: 30vw">
             <v-icon left> mdi-file-document-multiple </v-icon>
-            {{ file.src }}
+            {{ file.src.substring(file.src.lastIndexOf("/") + 1) }}
             <span v-if="countingFile[i] - 1 != 0">other {{ countingFile[i] - 1 }} files</span>
           </div>
           <v-spacer />

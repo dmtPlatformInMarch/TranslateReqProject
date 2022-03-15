@@ -69,7 +69,17 @@
                     <v-icon>mdi-arrow-right-bold</v-icon>
                     <v-chip>{{ i.grant_lang }}</v-chip>
                     <v-spacer />
-                    <v-btn icon @click="download(i.src)" :value="i.src"><v-icon>mdi-file</v-icon></v-btn>
+                    <v-btn
+                      icon
+                      :href="
+                        (isDev ? 'http://localhost:3085' : 'http://api.dmtlabs.kr') +
+                        '/admin/file/download/' +
+                        i.src.substring(i.src.lastIndexOf('/') + 1)
+                      "
+                      download
+                    >
+                      <v-icon>mdi-file</v-icon>
+                    </v-btn>
                   </template>
                 </div>
               </v-card>
@@ -120,6 +130,7 @@ export default {
       return {
         dialog: 0,
         file_id: 0,
+        isDev: process.env.NODE_ENV.includes('dev'),
       }
     },
     fetch({ store }) {
@@ -134,10 +145,6 @@ export default {
       reload() {
         this.$store.dispatch('admin/loadReq');
         console.log('Reload');
-      },
-      download(file) {
-        this.$store.dispatch('admin/download', file);
-        console.log(`File Download : ${file}`);
       },
       cancelRequest(id) {
         this.$store.dispatch('admin/deleteRequest', id);
