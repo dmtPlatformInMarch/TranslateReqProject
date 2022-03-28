@@ -83,7 +83,7 @@ export const actions = {
                 file: state.filePaths
             }, {
                 withCredentials: true,
-            })
+            });
             commit('addMainRequest', requestResponse.data);
             return requestResponse;
         } catch (err) {
