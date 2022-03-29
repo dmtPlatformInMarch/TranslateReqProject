@@ -7,16 +7,12 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "prestart": "npm run build",
-    "start": "cross-env PORT=80 NODE_ENV=production pm2 start server.js",
+    "start": "cross-env PORT=3080 NODE_ENV=production pm2 start server.js",
     "lint": "eslint **/*"
   },
   "author": "",
   "license": "ISC",
-  "config": {
-    "nuxt": {
-      "port": "3080"
-    }
-  },
+  "config": {},
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/moment": "^1.6.1",
