@@ -68,7 +68,6 @@ export const actions = {
                 withCredentials: true,
             });
             commit('setUser', null);
-            location.reload();
         } catch (err) {
             console.log(err);
         }
