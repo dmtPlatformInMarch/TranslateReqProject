@@ -127,13 +127,7 @@ export default {
   methods: {
       onLogout() {
           this.loginMenu = false;
-          this.$store.dispatch('users/logout')
-            .then(() => { 
-              this.$router.go();
-            })
-            .catch((err) => {
-              console.log('로그아웃 에러', err);
-            });
+          this.$store.dispatch('users/logout');
       },
       update(data) {
         this.loginMenu = data;
