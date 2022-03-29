@@ -68,6 +68,7 @@ export const actions = {
                 withCredentials: true,
             });
             commit('setUser', null);
+            localStorage.removeItem('vuex');
             location.reload();
         } catch (err) {
             console.log(err);
