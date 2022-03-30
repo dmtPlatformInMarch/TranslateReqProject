@@ -20,6 +20,7 @@ export const actions = {
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
+            console.log('Complete Load');
             commit('setUser', res.data);
         } catch (err) {
             console.log('로그인이 필요합니다.');
