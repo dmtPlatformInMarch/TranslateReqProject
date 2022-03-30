@@ -22,6 +22,7 @@ export const actions = {
             });
             console.log('End Load User');
             commit('setUser', res.data);
+            console.log(`Set ${res.data}`);
         } catch (err) {
             console.log('로그인이 필요합니다.');
         }
