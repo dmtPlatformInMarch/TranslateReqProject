@@ -14,7 +14,7 @@ export const mutations = {
 // 비동기 작업 or 복잡한 작업 수행
 export const actions = {
     // 유저 정보 불러오기
-    async loadUser({ commit }) {
+    async loadUser({ commit, state }) {
         try {
             console.log('Start Load User');
             const res = await this.$axios.get('/user', {
@@ -22,7 +22,7 @@ export const actions = {
             });
             console.log('End Load User');
             commit('setUser', res.data);
-            console.log(`Set ${res.data}`);
+            console.log(`Set ${state.loginState}`);
         } catch (err) {
             console.log('로그인이 필요합니다.');
         }
