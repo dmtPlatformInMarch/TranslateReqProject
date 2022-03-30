@@ -30,7 +30,7 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-        <client-only>
+        
         <v-menu v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200" v-if="!loginState">
           <template #activator="{ on, attrs }">
             <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on">로그인</v-btn>
@@ -38,10 +38,10 @@
           </template>
           <login-form @update="update" />
         </v-menu>
-        </client-only>
+        
       </v-toolbar-items>
     </v-toolbar>
-    <client-only>
+    
     <div style="display: flex; flex-direction: row; height: 100%">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
         <v-list rounded dense>
@@ -87,7 +87,6 @@
       <nuxt />
       <snack-bar />
     </div>
-    </client-only>
     <bottom-component />
   </v-app>
 </template>
