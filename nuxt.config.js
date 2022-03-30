@@ -67,6 +67,8 @@ module.exports = {
         browserBaseURL: process.env.NODE_ENV === 'production' ? '//api.dmtlabs.kr' : 'http://localhost:3085',
         baseURL: process.env.NODE_ENV === 'production' ? '//api.dmtlabs.kr' : 'http://localhost:3085',
         https: false,
+        proxyHeaders: false,
+        credential: false
     },
     server: {
         port: process.env.PORT || 3080,

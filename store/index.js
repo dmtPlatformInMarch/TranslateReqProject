@@ -9,7 +9,6 @@ export const actions = {
     async nuxtServerInit({ commit, dispatch, state }, { req }) {
         try {
             dispatch('users/loadUser');
-            console.log(req);
         } catch (err) {
             console.log(err);
         }
