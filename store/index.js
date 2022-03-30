@@ -7,6 +7,10 @@ export const actions = {
     // 모든 페이지에서 그려지기 전에 실행되는 명령
     // 서버로부터 사용자 데이터를 가져옴.
     async nuxtServerInit({ commit, dispatch, state }, { req }) {
-        return await dispatch('users/loadUser');
+        try {
+            await dispatch('users/loadUser');
+        } catch (err) {
+            console.log(err);
+        }
     },
 };

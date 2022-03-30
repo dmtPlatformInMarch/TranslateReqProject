@@ -16,11 +16,11 @@ export const actions = {
     // 유저 정보 불러오기
     async loadUser({ commit }) {
         try {
-            console.log('Load User');
+            console.log('Start Load User');
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
-            console.log('Complete Load');
+            console.log('End Load User');
             commit('setUser', res.data);
         } catch (err) {
             console.log('로그인이 필요합니다.');
