@@ -8,7 +8,7 @@ export const actions = {
     // 서버로부터 사용자 데이터를 가져옴.
     async nuxtServerInit({ commit, dispatch, state }, { req }) {
         try {
-            dispatch('users/loadUser');
+            await dispatch('users/loadUser');
         } catch (err) {
             console.log(err);
         }
