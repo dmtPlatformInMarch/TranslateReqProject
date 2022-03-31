@@ -147,7 +147,9 @@
         </v-menu>
       </v-toolbar-items>
     </v-toolbar>
+    <client-only>
     <nuxt />
+    </client-only>
     <bottom-component />
     <snack-bar />
   </v-app>
