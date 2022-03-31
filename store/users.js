@@ -20,8 +20,9 @@ export const actions = {
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
+            commit('setUser', res.data);
             console.log(`Set ${state.loginState}`);
-            return commit('setUser', res.data);;
+            return res;
         } catch (err) {
             console.log('로그인 필요');
         }
