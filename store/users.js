@@ -21,7 +21,6 @@ export const actions = {
                 withCredentials: true,
             });
             commit('setUser', res.data);
-            console.log(`Set ${state.loginState}`);
         } catch (err) {
             console.log('로그인 필요');
         }
