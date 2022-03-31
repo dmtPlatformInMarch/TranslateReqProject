@@ -22,7 +22,6 @@ export const actions = {
             });
             commit('setUser', res.data);
             console.log(`Set ${state.loginState}`);
-            return res;
         } catch (err) {
             console.log('로그인 필요');
         }
