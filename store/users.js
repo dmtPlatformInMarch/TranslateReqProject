@@ -22,9 +22,9 @@ export const actions = {
             });
             console.log('End Load User');
             commit('setUser', res.data);
-            console.log(`Set ${state.loginState}`);
+            // console.log(`Set ${state.loginState}`);
         } catch (err) {
-            console.log('로그인이 필요합니다.');
+            console.log('로그인 필요');
         }
     },
     // 회원가입
