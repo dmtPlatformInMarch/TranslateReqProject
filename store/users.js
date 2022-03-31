@@ -17,7 +17,7 @@ export const actions = {
     async loadUser({ commit, state }) {
         try {
             console.log('Start Load User');
-            const res = await this.$axios.get('https://api.dmtlabs.kr/user', {
+            const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
             commit('setUser', res.data);

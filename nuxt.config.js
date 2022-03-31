@@ -64,8 +64,8 @@ module.exports = {
     ],
     vuetify: {},
     axios: {
-        browserBaseURL: process.env.NODE_ENV === 'production' ? '//api.dmtlabs.kr' : 'http://localhost:3085',
-        baseURL: process.env.NODE_ENV === 'production' ? '//api.dmtlabs.kr' : 'http://localhost:3085',
+        browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.dmtlabs.kr' : 'http://localhost:3085',
+        baseURL: process.env.NODE_ENV === 'production' ? 'https://api.dmtlabs.kr' : 'http://localhost:3085',
         https: false,
         proxy: true,
     },
