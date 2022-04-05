@@ -1,3 +1,5 @@
+import { throttle } from "lodash";
+
 export const state = () => ({
     allRequest: [],
     allUser: [],
@@ -13,15 +15,15 @@ export const mutations = {
 }
 
 export const actions = {
-    async loadReq({ commit }) {
+    loadReq: throttle( async function({ commit }) {
         try {
             const requestResponse = await this.$axios.get(`/admin/requests`);
             commit('loadallRequest', requestResponse.data);
         } catch (err) {
             console.log(err);
         }
-    },
-    async loadUser({ commit, state }) {
+    }, 3000),
+    loadUser: throttle ( async function({ commit, state }) {
         try {
             const userResponse = await this.$axios.get('/admin/users');
             commit('setallUser', userResponse);
@@ -30,7 +32,7 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
-    },
+    }, 3000),
     async deleteUser({ commit }, payload) {
         try {
             const deleteUserResponse = await this.$axios.delete(`admin/user/delete/${payload}`);

@@ -33,13 +33,14 @@
     </v-layout>
 
     <!--언어 번역 레이아웃-->
-    <v-layout v-if="toggle === 0" style="display: flex; height: 45vh" align-center justify-space-around>
+    <v-layout v-if="toggle === 0" style="display: flex; height: 50vh" align-center justify-space-around>
       <div style="width: 40vw">
         <v-toolbar dense elevation="0" color="transparent">
           <v-spacer />
           <v-toolbar-items>
             <v-select
               class="selector"
+              v-model="from_lang"
               dense
               :items="language === '한국어' ? languages : e_languages"
               :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -51,8 +52,9 @@
         </v-toolbar>
         <v-textarea
           v-if="language === '한국어'"
+          v-model="from_text"
           prepend-inner-icon="mdi-book-sync"
-          hint="번역할 언어를 적어주세요."
+          placeholder="번역할 언어를 적어주세요."
           rows="15"
           auto-grow
           clearable
@@ -63,9 +65,9 @@
         />
         <v-textarea
           v-else-if="language === '영어'"
+          v-model="from_text"
           prepend-inner-icon="mdi-book-sync"
-          label="Language to translate"
-          hint="Enter what you want to translate."
+          placeholder="Enter what you want to translate."
           rows="15"
           auto-grow
           clearable
@@ -81,6 +83,7 @@
           <v-toolbar-items>
             <v-select
               class="selector"
+              v-model="to_lang"
               dense
               :items="language === '한국어' ? languages : e_languages"
               :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -92,11 +95,11 @@
         </v-toolbar>
         <v-textarea
           v-if="language === '한국어'"
+          v-model="to_text"
           prepend-inner-icon="mdi-book-check"
-          hint="번역한 결과입니다."
+          placeholder="번역한 결과입니다."
           rows="15"
           auto-grow
-          clearable
           counter
           outlined
           readonly
@@ -105,12 +108,11 @@
         />
         <v-textarea
           v-else-if="language === '영어'"
+          v-model="to_text"
           prepend-inner-icon="mdi-book-check"
-          label="Translated language"
-          hint="Result of the translation."
+          placeholder="Result of the translation."
           rows="15"
           auto-grow
-          clearable
           counter
           outlined
           readonly
@@ -121,7 +123,7 @@
     </v-layout>
 
     <!--파일 번역 레이아웃-->
-    <v-layout v-else style="height: 45vh" align-center justify-center column>
+    <v-layout v-else style="height: 50vh" align-center justify-center column>
       <v-icon class="text-h1">mdi-folder-upload</v-icon>
       <div>.pdf .docx .pptx</div>
       <v-btn v-if="language === '한국어'" style="width: 8vw" outlined> 업로드 </v-btn>
@@ -160,6 +162,8 @@
 </style>
 
 <script lang="js">
+import _ from 'lodash';
+
 export default {
   layout: 'textLayout',
   data() {
@@ -167,8 +171,24 @@ export default {
           colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
           slides: ['김민수', '이민지', '김철수', '홍길동', '제임스'],
           fields: ['경제', '정보통신', '언어', '과학', '자동차'],
-          toggle: 0
+          toggle: 0,
+          from_lang: '',
+          from_code: '',
+          to_lang: '',
+          to_code: '',
+          from_text: '',
       }
+  },
+  watch: {
+    from_lang: function(from) {
+      this.from_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(from)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(from)];
+    },
+    to_lang: function(to) {
+      this.to_code =  this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(to)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(to)];
+    },
+    from_text: _.debounce(function(text) {
+      this.translate();
+    }, 500)
   },
   computed: {
     language() {
@@ -179,6 +199,26 @@ export default {
     },
     e_languages() {
       return this.$LANGUAGES_EN;
+    },
+    to_text() {
+      return this.$store.state.manager.translateText;
+    }
+  },
+  methods: {
+    translate() {
+      if (this.from_lang.length == 0 || this.to_lang.length == 0) {
+        this.$manage.showMessage({ message: '언어를 선택해주세요.', color: 'red' });
+      } else {
+        if (this.from_text == "" || this.from_text == null) {
+          this.$store.commit('manager/setTranslate', '');
+        } else {
+          const res = this.$store.dispatch('manager/Test', {
+            from: this.from_code,
+            to: this.to_code,
+            text: this.from_text
+          });
+        }
+      }
     }
   }
 }

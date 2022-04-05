@@ -1,3 +1,4 @@
+import { throttle } from "lodash";
 // 의뢰 스토어
 
 /*
@@ -80,7 +81,7 @@ export const actions = {
                 grant_lang: payload.grant_lang,
                 options: payload.options,
                 trans_state: '번역 준비중',
-                file: state.filePaths
+                file: state.filePaths,
             }, {
                 withCredentials: true,
             });
@@ -94,6 +95,9 @@ export const actions = {
         try {
             const uploadResponse = await this.$axios.post('/request/file', payload.file, {
                 withCredentials: true,
+                headers: {
+                    "Content-Type" : "multipart/form-data" 
+                },
             });
             commit('concatFilePaths', { index: payload.index, file: uploadResponse.data });
         } catch (err) {

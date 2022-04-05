@@ -3,7 +3,13 @@ export const state = () => ({
     snackBar: {
         message: '',
         color: '',
-    }
+    },
+    translateTest : {
+        from: '',
+        to: '',
+        text: ''
+    },
+    translateText: '',
 });
 
 export const mutations = {
@@ -13,9 +19,35 @@ export const mutations = {
     },
     setLanguage(state, payload) {
         state.language = payload || '한국어';
+    },
+    setTest(state, payload) {
+        state.translateTest.from = payload.from;
+        state.translateTest.to = payload.to;
+        state.translateTest.text = payload.text;
+    },
+    setTranslate(state, payload) {
+        state.translateText = payload;
     }
 }
 
 export const actions = {
-
+    async Test({ commit }, payload) {
+        try {
+            const res = await this.$axios.post('https://dmtcloud.kr:3535/translate-text', {
+                from: payload.from,
+                to: payload.to,
+                text: payload.text,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            commit('setTest', payload);
+            commit('setTranslate', res.data[0].translations);
+            console.log(res.data[0].translations);
+        } catch(err) {
+            console.log(err);
+        }
+        
+    }
 }
