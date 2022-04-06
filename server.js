@@ -5,6 +5,8 @@ const isDev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3080
 
 async function start() {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
     // We get Nuxt instance
     const nuxt = await loadNuxt(isDev ? 'dev' : 'start')
 

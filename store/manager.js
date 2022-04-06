@@ -1,3 +1,5 @@
+import https from "https";
+
 export const state = () => ({
     language: '한국어',
     snackBar: {
@@ -33,14 +35,16 @@ export const mutations = {
 export const actions = {
     async Test({ commit }, payload) {
         try {
+            // agent로 무시해보려고 했지만 되지 않음.
+            const agent = new https.Agent({
+                rejectUnauthorized: false
+            });
             const res = await this.$axios.post('https://dmtcloud.kr:3535/translate-text', {
                 from: payload.from,
                 to: payload.to,
                 text: payload.text,
             }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+                httpsAgent: agent,
             });
             commit('setTest', payload);
             commit('setTranslate', res.data[0].translations);
