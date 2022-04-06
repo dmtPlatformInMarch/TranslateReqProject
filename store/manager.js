@@ -46,9 +46,12 @@ export const actions = {
             }, {
                 httpsAgent: agent,
             });
-            commit('setTest', payload);
-            commit('setTranslate', res.data[0].translations);
-            console.log(res.data[0].translations);
+            if (payload.returnValue) return res.data[0].translations
+            else {
+                commit('setTest', payload);
+                commit('setTranslate', res.data[0].translations);
+                console.log(res.data[0].translations);
+            }
         } catch(err) {
             console.log(err);
         }

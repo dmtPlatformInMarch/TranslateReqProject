@@ -13,7 +13,7 @@
       <v-toolbar-items v-if="language === '한국어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 텍스트 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 텍스트 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -31,7 +31,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 영상 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 영상 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -49,7 +49,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 음성 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 음성 번역 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -70,7 +70,7 @@
       <v-toolbar-items v-else-if="language === '영어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Text Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white"  depressed v-bind="attrs" v-on="on"> Text Translation </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -88,7 +88,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Video Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Video Translation </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -106,7 +106,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Speech Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Speech Translation </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>

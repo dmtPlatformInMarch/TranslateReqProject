@@ -1,5 +1,5 @@
 <template>
-  <v-container style="dispaly: flex; flex-direction: column; margin: auto">
+  <v-container>
     <!--버튼 레이아웃-->
     <v-layout style="display: flex; height: 6vh">
       <v-btn-toggle v-model="toggle" tile mandatory>
@@ -7,20 +7,20 @@
           <div style="display: flex; align-content: center; justify-content: center">
             <v-icon>mdi-earth</v-icon>
           </div>
-          <div v-if="language === '한국어'" style="display: flex; flex-direction: column">
+          <div v-if="language === '한국어'" style="display: flex; flex-direction: column; width: 10vw">
             <h4 style="margin-right: auto">언어 번역</h4>
-            <div style="margin-right: auto; font-size: 50%">5개의 언어</div>
+            <div style="margin-right: auto; font-size: 50%">8개의 언어</div>
           </div>
           <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">Language translation</h4>
-            <div style="margin-right: auto; font-size: 50%">5 languages</div>
+            <div style="margin-right: auto; font-size: 50%">8 languages</div>
           </div>
         </v-btn>
         <v-btn style="display: flex; align-content: center; justify-content: space-around">
           <div style="display: flex; align-content: center; justify-content: center">
             <v-icon>mdi-file</v-icon>
           </div>
-          <div v-if="language === '한국어'" style="display: flex; flex-direction: column">
+          <div v-if="language === '한국어'" style="display: flex; flex-direction: column; width: 8vw">
             <h4 style="margin-right: auto">파일 번역</h4>
             <div style="margin-right: auto; font-size: 50%">.pdf만 가능</div>
           </div>
@@ -30,26 +30,24 @@
           </div>
         </v-btn>
       </v-btn-toggle>
+
+      <v-spacer />
     </v-layout>
 
     <!--언어 번역 레이아웃-->
     <v-layout v-if="toggle === 0" style="display: flex; height: 50vh" align-center justify-space-around>
       <div style="width: 40vw">
-        <v-toolbar dense elevation="0" color="transparent">
-          <v-spacer />
-          <v-toolbar-items>
-            <v-select
-              class="selector"
-              v-model="from_lang"
-              dense
-              :items="language === '한국어' ? languages : e_languages"
-              :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
-              outlined
-              single-line
-              full-width
-            />
-          </v-toolbar-items>
-        </v-toolbar>
+        <client-only>
+          <v-select
+            class="selector"
+            v-model="from_lang"
+            dense
+            :items="language === '한국어' ? languages : e_languages"
+            :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+            single-line
+            hide-details=""
+          />
+        </client-only>
         <v-textarea
           v-if="language === '한국어'"
           v-model="from_text"
@@ -78,21 +76,18 @@
         />
       </div>
       <div style="width: 40vw">
-        <v-toolbar dense elevation="0" color="transparent">
-          <v-spacer />
-          <v-toolbar-items>
-            <v-select
-              class="selector"
-              v-model="to_lang"
-              dense
-              :items="language === '한국어' ? languages : e_languages"
-              :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
-              outlined
-              single-line
-              full-width
-            />
-          </v-toolbar-items>
-        </v-toolbar>
+        <client-only>
+          <v-select
+            class="selector"
+            v-model="to_lang"
+            dense
+            :items="language === '한국어' ? languages : e_languages"
+            :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+            single-line
+            hide-details=""
+            
+          />
+        </client-only>
         <v-textarea
           v-if="language === '한국어'"
           v-model="to_text"
@@ -123,11 +118,33 @@
     </v-layout>
 
     <!--파일 번역 레이아웃-->
-    <v-layout v-else style="height: 50vh" align-center justify-center column>
-      <v-icon class="text-h1">mdi-folder-upload</v-icon>
-      <div>.pdf .docx .pptx</div>
-      <v-btn v-if="language === '한국어'" style="width: 8vw" outlined> 업로드 </v-btn>
-      <v-btn v-else-if="language === '영어'" style="width: 8vw" outlined> Upload </v-btn>
+    <v-layout v-else style="height: 50vh" align-center justify-space-around>
+      <div class="text-center" align-center justify-center style="margin: 10vw">
+        <v-icon class="text-h1">mdi-folder-upload</v-icon>
+        <div>한글 파일만 가능 <br /> (Only Korean language)</div>
+          <v-file-input v-if="language === '한국어'" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+          <v-file-input v-else-if="language === '영어'" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+        </div>
+      <div style="width: 60vw">
+        <v-select
+            class="selector"
+            v-model="file_lang"
+            dense
+            :items="language === '한국어' ? languages : e_languages"
+            :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+            single-line
+            hide-details=""
+          />
+        <v-textarea
+          v-model="file_text"
+          rows="15"
+          auto-grow
+          counter
+          outlined
+          background-color="grey lighten-2"
+          style="z-index: 0"
+        />
+      </div>
     </v-layout>
 
     <!--번역자 레이아웃-->
@@ -173,19 +190,37 @@ export default {
           fields: ['경제', '정보통신', '언어', '과학', '자동차'],
           toggle: 0,
           from_lang: '',
-          from_code: '',
+          from_code: 'ko',
           to_lang: '',
-          to_code: '',
+          to_code: 'zh-chs',
           from_text: '',
+          acceptFiles: '.txt,.pdf,.docx',
+          test_file: '',
+          file_lang: '',
+          file_code: '',
+          file_text: '',
       }
   },
+  created() {
+    this.from_lang = this.language === '한국어' ? '한국어' : 'Korean';
+    this.to_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+    this.file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+  },
   watch: {
+    language: function(lang) {
+      this.from_lang = lang === '한국어' ? '한국어' : 'Korean';
+      this.to_lang = lang === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+    },
     from_lang: function(from) {
       this.from_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(from)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(from)];
     },
     to_lang: function(to) {
-      this.to_code =  this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(to)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(to)];
+      this.to_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(to)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(to)];
     },
+    file_lang: _debounce(function(lang) {
+      this.file_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(lang)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(lang)];
+      this.uploadFile(this.test_file);
+    }, 200),
     from_text: _.debounce(function(text) {
       this.translate();
     }, 500)
@@ -215,9 +250,40 @@ export default {
           const res = this.$store.dispatch('manager/Test', {
             from: this.from_code,
             to: this.to_code,
-            text: this.from_text
+            text: this.from_text,
+            returnValue: false,
           });
         }
+      }
+    },
+    async uploadFile(file) {
+      if (file != null) {
+        this.test_file = file;
+        const ext = this.test_file.name.substring(this.test_file.name.lastIndexOf('.') + 1, this.test_file.name.length).toLowerCase();
+        console.log("확장자 : " + ext);
+        console.log(this.test_file);
+        switch (ext) {
+          case 'txt':
+            let txt_text = await this.test_file.text();
+            const res = await this.$store.dispatch('manager/Test', {
+              from: 'ko',
+              to: this.file_code,
+              text: txt_text,
+              returnValue: true,
+            });
+            this.file_text = res;
+            break;
+          case 'docx':
+            
+            break;
+          case 'pdf':
+            
+            break;
+          default:
+            break;
+        }
+      } else {
+        this.file_text = '';
       }
     }
   }

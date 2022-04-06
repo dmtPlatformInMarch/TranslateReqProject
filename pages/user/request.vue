@@ -270,6 +270,7 @@
                   multiple
                   dense
                   :rules="[(v) => !!v || '번역 파일을 첨부해주세요.']"
+                  :accept="acceptFiles"
                   @change="onChangeFile(0, $event)"
                   @click:clear="onClearFile(0)"
                 />
@@ -314,6 +315,7 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
                 />
@@ -358,6 +360,7 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
                 />
@@ -402,6 +405,7 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
                 />
@@ -446,6 +450,7 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
                 />
@@ -848,6 +853,7 @@ export default {
     e_selectField: 0,
     dollar: false,
     wordCount: '',
+    acceptFiles: '.txt,.pdf,.docx',
   }),
   computed: {
     ...mapState('requests', ['imagePaths']),

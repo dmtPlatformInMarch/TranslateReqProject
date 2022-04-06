@@ -9,7 +9,7 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn depressed class="text-center" to="/"> {{ language === "한국어" ? "메인 페이지" : "Main page" }}</v-btn>
+        <v-btn color="white" depressed class="text-center" to="/"> {{ language === "한국어" ? "메인 페이지" : "Main page" }}</v-btn>
       </v-toolbar-items>
       <v-spacer />
       <v-toolbar-items>
