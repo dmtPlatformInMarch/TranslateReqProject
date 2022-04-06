@@ -39,7 +39,7 @@ export const actions = {
             const agent = new https.Agent({
                 rejectUnauthorized: false
             });
-            const res = await this.$axios.post('https://dmtcloud.kr:3535/translate-text', {
+            const res = await this.$axios.post('http://dmtcloud.kr:3535/translate-text', {
                 from: payload.from,
                 to: payload.to,
                 text: payload.text,
