@@ -2,11 +2,11 @@
   <v-container>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle class="d-flex align-center justify-center" mandatory group style="width: 100%" v-model="sels" ref="toggle" @change="loginCheck">
-        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
+      <v-btn-toggle class="toggle_group" v-model="sels" mandatory ref="toggle" color="primary" style="width: 100%" @change="loginCheck" >
+        <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
-        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
+        <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "의뢰" : "Request" }}
         </v-btn>
       </v-btn-toggle>
@@ -21,7 +21,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 원본 언어 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage1" mandatory>
                 <v-list-item v-for="(lang, i) in languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -37,7 +37,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 번역 언어 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
                 <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -50,7 +50,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 요청 분야 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectField" mandatory>
                 <v-list-item v-for="(f, i) in field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
@@ -67,7 +67,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Original Language</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage1" mandatory>
                 <v-list-item v-for="(lang, i) in e_languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -83,7 +83,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Translate Language</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
                 <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -96,7 +96,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Request Field</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectField" mandatory>
                 <v-list-item v-for="(f, i) in e_field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
@@ -816,6 +816,9 @@
 .list_select {
   border: solid #013183 !important;
   color: #013183 !important;
+}
+.toggle_group {
+  border: 1px solid #013183 !important;
 }
 </style>
 
