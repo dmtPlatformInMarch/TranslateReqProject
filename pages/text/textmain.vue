@@ -246,19 +246,25 @@ export default {
     }
   },
   methods: {
-    translate() {
+    async translate() {
       if (this.from_lang.length == 0 || this.to_lang.length == 0) {
         this.$manage.showMessage({ message: '언어를 선택해주세요.', color: 'red' });
       } else {
         if (this.from_text == "" || this.from_text == null) {
           this.$store.commit('manager/setTranslate', '');
         } else {
-          const res = this.$store.dispatch('manager/Test', {
-            from: this.from_code,
-            to: this.to_code,
-            text: this.from_text,
-            returnValue: false,
-          });
+          try {
+            this.$nuxt.$loading.start();
+            const res = await this.$store.dispatch('manager/Test', {
+              from: this.from_code,
+              to: this.to_code,
+              text: this.from_text,
+              returnValue: false,
+            });
+            this.$nuxt.$loading.finish();
+          } catch(err) {
+
+          }
         }
       }
     },

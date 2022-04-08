@@ -45,6 +45,7 @@ export const actions = {
                 text: payload.text,
             }, {
                 httpsAgent: agent,
+                progress: false,
             });
             if (payload.returnValue) return res.data[0].translations
             else {
