@@ -56,5 +56,37 @@ export const actions = {
             console.log(err);
         }
         
+    },
+    async textExtract({ commit, state }, payload) {
+        const ext = payload.file.name.substring(payload.file.name.lastIndexOf('.') + 1, payload.file.name.length).toLowerCase();
+        let fileExtract = '';
+        console.log("확장자 : " + ext);
+        try {
+            if (ext === 'docx') {
+                const formdata = new FormData();
+                formdata.append('extFile', payload.file);
+                const docxres = await this.$axios.post('/extract/docx', formdata, {
+                    headers: {
+                        "Content-Type" : "multipart/form-data"
+                    },
+                });
+                return docxres.data;
+            } else if (ext === 'pdf') {
+                const formdata = new FormData();
+                formdata.append('extFile', payload.file);
+                const pdfres = await this.$axios.post('/extract/pdf', formdata);
+                if (pdfres.status === 400) {
+                    return 'error';
+                }
+                fileExtract = await this.$axios.post('http://dmtcloud.kr:3535/translate-text', {
+                    from: 'ko',
+                    to: payload.to,
+                    text: pdfres.data,
+                });
+                return fileExtract.data[0].translations;
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
 }

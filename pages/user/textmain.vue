@@ -22,11 +22,11 @@
           </div>
           <div v-if="language === '한국어'" style="display: flex; flex-direction: column; width: 8vw">
             <h4 style="margin-right: auto">파일 번역</h4>
-            <div style="margin-right: auto; font-size: 50%">.pdf만 가능</div>
+            <div style="margin-right: auto; font-size: 50%">.txt .pdf만 가능</div>
           </div>
           <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
             <h4 style="margin-right: auto">File translation</h4>
-            <div style="margin-right: auto; font-size: 50%">Only .pdf</div>
+            <div style="margin-right: auto; font-size: 50%">Only .txt / .pdf</div>
           </div>
         </v-btn>
       </v-btn-toggle>
@@ -122,8 +122,8 @@
       <div class="text-center" align-center justify-center style="margin: 10vw">
         <v-icon class="text-h1">mdi-folder-upload</v-icon>
         <div>한글 파일만 가능 <br /> (Only Korean language)</div>
-          <v-file-input v-if="language === '한국어'" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
-          <v-file-input v-else-if="language === '영어'" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+          <v-file-input v-if="language === '한국어'" class="file_upload" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+          <v-file-input v-else-if="language === '영어'" class="file_upload" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
         </div>
       <div style="width: 60vw">
         <v-select
@@ -176,6 +176,9 @@
 .selector {
   width: 20vw;
 }
+.file_upload >>> input {
+  text-align: center;
+}
 </style>
 
 <script lang="js">
@@ -194,7 +197,7 @@ export default {
           to_lang: '',
           to_code: 'zh-chs',
           from_text: '',
-          acceptFiles: '.txt,.pdf,.docx',
+          acceptFiles: '.txt,.pdf',
           test_file: '',
           file_lang: '',
           file_code: '',
@@ -211,13 +214,15 @@ export default {
       this.from_lang = lang === '한국어' ? '한국어' : 'Korean';
       this.to_lang = lang === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
     },
-    from_lang: function(from) {
+    from_lang: _.debounce(function(from) {
       this.from_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(from)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(from)];
-    },
-    to_lang: function(to) {
+      this.translate();
+    }, 500),
+    to_lang: _.debounce(function(to) {
       this.to_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(to)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(to)];
-    },
-    file_lang: _debounce(function(lang) {
+      this.translate();
+    }, 500),
+    file_lang: _.debounce(function(lang) {
       this.file_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(lang)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(lang)];
       this.uploadFile(this.test_file);
     }, 200),
@@ -259,25 +264,36 @@ export default {
     async uploadFile(file) {
       if (file != null) {
         this.test_file = file;
-        const ext = this.test_file.name.substring(this.test_file.name.lastIndexOf('.') + 1, this.test_file.name.length).toLowerCase();
-        console.log("확장자 : " + ext);
-        console.log(this.test_file);
+        const filename = '' + this.test_file.name;
+        const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
         switch (ext) {
           case 'txt':
+            // 텍스트 파일
             let txt_text = await this.test_file.text();
-            const res = await this.$store.dispatch('manager/Test', {
+            const txtResponse = await this.$store.dispatch('manager/Test', {
               from: 'ko',
               to: this.file_code,
               text: txt_text,
               returnValue: true,
             });
-            this.file_text = res;
+            this.file_text = txtResponse;
             break;
           case 'docx':
-            
+            // 워드 파일
+            /*const docxResponse = await this.$store.dispatch('manager/textExtract', { 
+              file: this.test_file, 
+              to: this.file_code 
+            });
+            console.log(docxResponse);*/
             break;
           case 'pdf':
-            
+            // pdf 파일
+            const pdfResponse = await this.$store.dispatch('manager/textExtract', {
+              file: this.test_file,
+              to: this.file_code
+            });
+            //console.log(pdfResponse);
+            this.file_text = pdfResponse;
             break;
           default:
             break;
