@@ -30,7 +30,7 @@
       <nuxt />
     </div>
     <div class="text-center">
-      <v-btn to="/" color="primary">{{ language === "한국어" ? "돌아가기" : "Back" }}</v-btn>
+      <v-btn to="/text/textmain" color="primary">{{ language === "한국어" ? "돌아가기" : "Back" }}</v-btn>
     </div>
     <v-spacer />
     <snack-bar />

@@ -20,10 +20,10 @@
               <v-list-item>
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/user/textmain')">
+              <v-list-item @click="go('/text/textmain')">
                 <v-list-item-title> 텍스트 번역 </v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/user/request')">
+              <v-list-item @click="go('/text/request')">
                 <v-list-item-title> 번역 단가 </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
@@ -77,10 +77,10 @@
               <v-list-item>
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/user/textmain')">
+              <v-list-item @click="go('/text/textmain')">
                 <v-list-item-title> Text Translation </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <v-list-item @click="go('/text/request')">
                 <v-list-item-title> Unit Price </v-list-item-title>
               </v-list-item>
             </v-list-item-group>

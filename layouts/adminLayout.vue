@@ -84,13 +84,13 @@ export default {
       onLogout() {
           this.loginMenu = false;
           this.$store.dispatch('users/logout');
-          this.$router.replace('/user/textmain');
+          this.$router.replace('/text/textmain');
       },
       update(data) {
         this.loginMenu = data;
       },
       goSite() {
-        this.$router.push('/user/textmain');
+        this.$router.push('/text/textmain');
       }
   }
 };

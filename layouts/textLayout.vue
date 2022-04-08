@@ -2,7 +2,7 @@
   <v-app>
     <v-toolbar elevation="0" style="flex: initial; width: 100%">
       <v-toolbar-title>
-        <nuxt-link to="/user/textmain">
+        <nuxt-link to="/text/textmain">
           <v-avatar height="80px" width="200px" tile>
             <img src="https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png" />
           </v-avatar>
@@ -68,14 +68,14 @@
         </v-list>
         <v-divider />
         <v-list nav dense style="padding: 0px 8px">
-          <v-list-item link to="/user/request">
+          <v-list-item link to="/text/request">
             <v-list-item-icon>
               <v-icon>mdi-clipboard-edit</v-icon>
             </v-list-item-icon>
             <v-list-item-title v-if="language === '한국어'"> 번역 의뢰 </v-list-item-title>
             <v-list-item-title v-else-if="language === '영어'"> Translation request </v-list-item-title>
           </v-list-item>
-          <v-list-item link to="/user/reqstate">
+          <v-list-item link to="/text/reqstate">
             <v-list-item-icon>
               <v-icon>mdi-clipboard-search</v-icon>
             </v-list-item-icon>
