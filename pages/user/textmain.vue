@@ -270,6 +270,7 @@ export default {
         switch (ext) {
           case 'txt':
             // 텍스트 파일
+            this.$nuxt.$loading.start();
             let txt_text = await this.test_file.text();
             const txtResponse = await this.$store.dispatch('manager/Test', {
               from: 'ko',
@@ -277,6 +278,7 @@ export default {
               text: txt_text,
               returnValue: true,
             });
+            this.$nuxt.$loading.finish();
             this.file_text = txtResponse;
             break;
           case 'docx':
