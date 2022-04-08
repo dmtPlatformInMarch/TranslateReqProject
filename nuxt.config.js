@@ -71,4 +71,5 @@ module.exports = {
     server: {
         port: process.env.PORT || 3080,
     },
+    loading: '~/components/loading.vue'
 }

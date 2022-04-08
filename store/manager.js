@@ -74,7 +74,7 @@ export const actions = {
             } else if (ext === 'pdf') {
                 const formdata = new FormData();
                 formdata.append('extFile', payload.file);
-                const pdfres = await this.$axios.post('/extract/pdf', formdata);
+                const pdfres = await this.$axios.post('/extract/pdf', formdata, { progress: false });
                 if (pdfres.status === 400) {
                     return 'error';
                 }
@@ -82,7 +82,7 @@ export const actions = {
                     from: 'ko',
                     to: payload.to,
                     text: pdfres.data,
-                });
+                }, { progress: false });
                 return fileExtract.data[0].translations;
             }
         } catch(err) {

@@ -141,6 +141,7 @@
           auto-grow
           counter
           outlined
+          readonly
           background-color="grey lighten-2"
           style="z-index: 0"
         />
@@ -288,10 +289,12 @@ export default {
             break;
           case 'pdf':
             // pdf 파일
+            this.$nuxt.$loading.start();
             const pdfResponse = await this.$store.dispatch('manager/textExtract', {
               file: this.test_file,
               to: this.file_code
             });
+            this.$nuxt.$loading.finish();
             //console.log(pdfResponse);
             this.file_text = pdfResponse;
             break;

@@ -9,9 +9,9 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
-      <v-toolbar-items>
+      <!--v-toolbar-items>
         <v-btn text @click="goSite">의뢰사이트로 이동</v-btn>
-      </v-toolbar-items>
+      </v-toolbar-items-->
     </v-toolbar>
 
     <div style="display: flex; flex-direction: row; height: 100%">
