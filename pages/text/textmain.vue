@@ -311,6 +311,7 @@ export default {
         }
       } else {
         this.file_text = '';
+        this.test_file = '';
       }
     }
   }
