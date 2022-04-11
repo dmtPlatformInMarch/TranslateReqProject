@@ -115,15 +115,24 @@
     <!--파일 번역 레이아웃-->
     <v-layout v-else style="height: 50vh" align-center justify-space-around>
       <div class="text-center" align-center justify-center style="margin: 10vw">
+        <v-select
+            class="selector"
+            v-model="from_file_lang"
+            dense
+            :items="language === '한국어' ? languages : e_languages"
+            :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
+            single-line
+            hide-details=""
+          />
         <v-icon class="text-h1">mdi-folder-upload</v-icon>
-        <div>한글 파일만 가능 <br /> (Only Korean language)</div>
+        <div>5MB 아래 파일만 가능 <br /> (Only Low than 5MB)</div>
           <v-file-input v-if="language === '한국어'" class="file_upload" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
           <v-file-input v-else-if="language === '영어'" class="file_upload" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
         </div>
       <div style="width: 60vw">
         <v-select
             class="selector"
-            v-model="file_lang"
+            v-model="to_file_lang"
             dense
             :items="language === '한국어' ? languages : e_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -194,15 +203,18 @@ export default {
           from_text: '',
           acceptFiles: '.txt,.pdf',
           test_file: '',
-          file_lang: '',
-          file_code: '',
+          from_file_lang: '',
+          to_file_lang: '',
+          from_file_code: '',
+          to_file_code: '',
           file_text: '',
       }
   },
   created() {
     this.from_lang = this.language === '한국어' ? '한국어' : 'Korean';
     this.to_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
-    this.file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+    this.from_file_lang = this.language === '한국어' ? '한국어' : 'Korean';
+    this.to_file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
   },
   watch: {
     language: function(lang) {
@@ -217,10 +229,14 @@ export default {
       this.to_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(to)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(to)];
       this.translate();
     }, 500),
-    file_lang: _.debounce(function(lang) {
-      this.file_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(lang)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(lang)];
-      this.uploadFile(this.test_file);
-    }, 200),
+    from_file_lang: _.debounce(function(lang) {
+      this.from_file_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(lang)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(lang)];
+      if (this.from_text != "" || this.from_text != null) this.uploadFile(this.test_file);
+    }, 500), 
+    to_file_lang: _.debounce(function(lang) {
+      this.to_file_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(lang)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(lang)];
+      if (this.from_text != "" || this.from_text != null) this.uploadFile(this.test_file);
+    }, 500),
     from_text: _.debounce(function(text) {
       this.translate();
     }, 500)
@@ -263,45 +279,50 @@ export default {
       }
     },
     async uploadFile(file) {
-      if (file != null) {
-        this.test_file = file;
-        const filename = '' + this.test_file.name;
-        const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
-        switch (ext) {
-          case 'txt':
-            // 텍스트 파일
-            this.$nuxt.$loading.start();
-            let txt_text = await this.test_file.text();
-            const txtResponse = await this.$store.dispatch('manager/Test', {
-              from: 'ko',
-              to: this.file_code,
-              text: txt_text,
-              returnValue: true,
-            });
-            this.$nuxt.$loading.finish();
-            this.file_text = txtResponse;
-            break;
-          case 'docx':
-            // 워드 파일
-            /*const docxResponse = await this.$store.dispatch('manager/textExtract', { 
-              file: this.test_file, 
-              to: this.file_code 
-            });
-            console.log(docxResponse);*/
-            break;
-          case 'pdf':
-            // pdf 파일
-            this.$nuxt.$loading.start();
-            const pdfResponse = await this.$store.dispatch('manager/textExtract', {
-              file: this.test_file,
-              to: this.file_code
-            });
-            this.$nuxt.$loading.finish();
-            //console.log(pdfResponse);
-            this.file_text = pdfResponse;
-            break;
-          default:
-            break;
+      if (file != null && typeof(file) == 'object') {
+        if ((file.size / 1000000) >= 5.5) {
+          this.$manage.showMessage({ message: '파일 크기가 너무 큽니다.', color: 'red' });
+        } else {
+          this.test_file = file;
+          const filename = '' + this.test_file.name;
+          const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
+          switch (ext) {
+            case 'txt':
+              // 텍스트 파일
+              this.$nuxt.$loading.start();
+              let txt_text = await this.test_file.text();
+              const txtResponse = await this.$store.dispatch('manager/Test', {
+                from: this.from_file_code,
+                to: this.to_file_code,
+                text: txt_text,
+                returnValue: true,
+              });
+              this.$nuxt.$loading.finish();
+              this.file_text = txtResponse;
+              break;
+            case 'docx':
+              // 워드 파일
+              /*const docxResponse = await this.$store.dispatch('manager/textExtract', { 
+                file: this.test_file, 
+                to: this.to_file_code 
+              });
+              console.log(docxResponse);*/
+              break;
+            case 'pdf':
+              // pdf 파일
+              this.$nuxt.$loading.start();
+              const pdfResponse = await this.$store.dispatch('manager/textExtract', {
+                from: this.from_file_code,
+                to: this.to_file_code,
+                file: this.test_file,
+              });
+              this.$nuxt.$loading.finish();
+              //console.log(pdfResponse);
+              this.file_text = pdfResponse;
+              break;
+            default:
+              break;
+          }
         }
       } else {
         this.file_text = '';

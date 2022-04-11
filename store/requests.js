@@ -23,6 +23,7 @@ export const state = () => ({
     hasMoreRequest: true,
     filePaths: ['', '', '', '', ''],
     costs: ['', '', '', '', ''],
+    fileInfo: ['', '', '', '', ''],
     ex_cost: 0,
 });
 
@@ -47,6 +48,9 @@ export const mutations = {
     },
     setExcost(state, payload) {
         state.ex_cost = payload;
+    },
+    setFileInfo(state, payload) {
+        state.fileInfo[payload.index] = payload.info;
     }
 };
 
@@ -145,7 +149,42 @@ export const actions = {
             console.error(err);
         }
     },
-    calcExcost({ commit },) {
-
+    async extracting({ commit }, payload) {
+        try {
+            payload.file.append('lang', payload.lang);
+            const ext = payload.file.get('fileKey').name.substring(payload.file.get('fileKey').name.lastIndexOf('.') + 1, payload.file.get('fileKey').name.length);
+            if (ext === 'pdf') {
+                const pdfResponse = await this.$axios.post('/request/extract/pdf', payload.file, {
+                    withCredentials: true,
+                    headers: {
+                        "Content-Type" : "multipart/form-data" 
+                    },
+                });
+                console.log(pdfResponse.data.count);
+                // 글자수 파싱 -> count 숫자만 반환
+                return pdfResponse.data.count;
+            }
+            else if (ext === 'txt') {
+                const txtResponse = await this.$axios.post('/request/extract/txt', payload.file, {
+                    withCredentials: true,
+                    headers: {
+                        "Content-Type" : "multipart/form-data" 
+                    },
+                });
+                console.log(txtResponse.data.count);
+                // 글자수 파싱 -> count 숫자만 반환
+                return txtResponse.data.count;
+            } else {
+                this.$manage.showMessage({ message: '지원하지 않는 파일 형식입니다.', color: 'red'});
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    setFileInfo({ commit }, payload) {
+        commit('setFileInfo', {
+            index: payload.index,
+            info: payload.info
+        });
     }
 };

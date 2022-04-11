@@ -61,7 +61,7 @@ export const actions = {
     async textExtract({ commit, state }, payload) {
         const ext = payload.file.name.substring(payload.file.name.lastIndexOf('.') + 1, payload.file.name.length).toLowerCase();
         let fileExtract = '';
-        console.log("확장자 : " + ext);
+        // console.log("확장자 : " + ext);
         try {
             if (ext === 'docx') {
                 const formdata = new FormData();
@@ -80,7 +80,7 @@ export const actions = {
                     return 'error';
                 }
                 fileExtract = await this.$axios.post('http://dmtcloud.kr:3535/translate-text', {
-                    from: 'ko',
+                    from: payload.from,
                     to: payload.to,
                     text: pdfres.data,
                 }, { progress: false });

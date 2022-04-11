@@ -261,7 +261,7 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[0]"
+                  v-model="file[0]"
                   ref="file0"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
@@ -271,6 +271,7 @@
                   dense
                   :rules="[(v) => !!v || '번역 파일을 첨부해주세요.']"
                   :accept="acceptFiles"
+                  :disabled="req_lang[0] === ''"
                   @change="onChangeFile(0, $event)"
                   @click:clear="onClearFile(0)"
                 />
@@ -316,6 +317,7 @@
                   multiple
                   dense
                   :accept="acceptFiles"
+                  :disabled="req_lang[1] === ''"
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
                 />
@@ -361,6 +363,7 @@
                   multiple
                   dense
                   :accept="acceptFiles"
+                  :disabled="req_lang[2] === ''"
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
                 />
@@ -406,6 +409,7 @@
                   multiple
                   dense
                   :accept="acceptFiles"
+                  :disabled="req_lang[3] === ''"
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
                 />
@@ -451,6 +455,7 @@
                   multiple
                   dense
                   :accept="acceptFiles"
+                  :disabled="req_lang[4] === ''"
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
                 />
@@ -582,7 +587,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   :rules="[(v) => !!v || 'Please attach the File.']"
                   @change="onChangeFile(0, $event)"
@@ -626,7 +631,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
@@ -669,7 +674,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
@@ -712,7 +717,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
@@ -755,7 +760,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
@@ -951,7 +956,7 @@ export default {
                         widths: ['auto', '*', '*', '*', 'auto'],
                         headerRows: 2,
                         body: [
-                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.proce[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4], colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
                             [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
                             [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
                             [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
@@ -1055,7 +1060,7 @@ export default {
     onChangeTextarea() {
         this.hideDetails = true;
     },
-    onChangeFile(index, e) {
+    async onChangeFile(index, e) {
         const fileFormData = new FormData();
 
         if (e != null) {
@@ -1082,7 +1087,14 @@ export default {
               e = null;
             }
           });
-          this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+          try {
+            this.$nuxt.$loading.start();
+            await this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+            await this.$store.dispatch('requests/extracting', {lang: this.req_lang[index], file: fileFormData});
+            this.$nuxt.$loading.finish();
+          } catch(err) {
+            console.log(err);
+          }
         } else {
             console.log("e is null!!!");
         }
@@ -1112,7 +1124,7 @@ export default {
     },
     requestCost(selLang1, selLang2, selField) {
       this.$CALC_COST(this.languages[this.selLang1], );
-    }
+    },
   }
 }
 </script>
