@@ -1037,7 +1037,7 @@ export default {
                 if (submitResponse.statusText === 'OK') {
                   this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
                   console.log('의뢰');
-                  this.$router.push({ path: '/user/textmain'});
+                  this.$router.push({ path: '/text/textmain'});
                 }
                 else {
                   this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
@@ -1105,7 +1105,13 @@ export default {
       }
     },
     calcCost() {
-      this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField])
+      if (this.language === '한국어')
+        this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField]);
+      else 
+        this.$CALC_COST(this.e_languages[this.selectLanguage1], this.e_languages[this.selectLanguage2], this.e_field[this.selectField]);
+    },
+    requestCost(selLang1, selLang2, selField) {
+      this.$CALC_COST(this.languages[this.selLang1], );
     }
   }
 }
