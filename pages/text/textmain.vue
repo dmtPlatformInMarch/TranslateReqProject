@@ -54,7 +54,6 @@
           prepend-inner-icon="mdi-book-sync"
           placeholder="번역할 언어를 적어주세요."
           rows="15"
-          auto-grow
           clearable
           counter
           outlined
@@ -67,7 +66,6 @@
           prepend-inner-icon="mdi-book-sync"
           placeholder="Enter what you want to translate."
           rows="15"
-          auto-grow
           clearable
           counter
           outlined
@@ -85,7 +83,6 @@
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
             single-line
             hide-details=""
-            
           />
         </client-only>
         <v-textarea
@@ -94,7 +91,6 @@
           prepend-inner-icon="mdi-book-check"
           placeholder="번역한 결과입니다."
           rows="15"
-          auto-grow
           counter
           outlined
           readonly
@@ -107,7 +103,6 @@
           prepend-inner-icon="mdi-book-check"
           placeholder="Result of the translation."
           rows="15"
-          auto-grow
           counter
           outlined
           readonly
@@ -138,7 +133,6 @@
         <v-textarea
           v-model="file_text"
           rows="15"
-          auto-grow
           counter
           outlined
           readonly
