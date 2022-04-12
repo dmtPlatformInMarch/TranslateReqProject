@@ -6,7 +6,7 @@ export const state = () => ({
         message: '',
         color: '',
     },
-    translateTest : {
+    translateTest: {
         from: '',
         to: '',
         text: ''
@@ -39,7 +39,7 @@ export const actions = {
             const agent = new https.Agent({
                 rejectUnauthorized: false
             });
-            const res = await this.$axios.post('http://dmtcloud.kr:3535/translate-text', {
+            const res = await this.$axios.post(/*'http://dmtcloud.kr:3535/translate-text'*/'http://182.230.16.82:3535/translate-text', {
                 from: payload.from,
                 to: payload.to,
                 text: payload.text,
@@ -53,10 +53,10 @@ export const actions = {
                 commit('setTranslate', res.data[0].translations);
                 console.log(res.data[0].translations);
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
-        
+
     },
     async textExtract({ commit, state }, payload) {
         const ext = payload.file.name.substring(payload.file.name.lastIndexOf('.') + 1, payload.file.name.length).toLowerCase();
@@ -68,7 +68,7 @@ export const actions = {
                 formdata.append('extFile', payload.file);
                 const docxres = await this.$axios.post('/extract/docx', formdata, {
                     headers: {
-                        "Content-Type" : "multipart/form-data"
+                        "Content-Type": "multipart/form-data"
                     },
                 });
                 return docxres.data;
@@ -79,14 +79,14 @@ export const actions = {
                 if (pdfres.status === 400) {
                     return 'error';
                 }
-                fileExtract = await this.$axios.post('http://dmtcloud.kr:3535/translate-text', {
+                fileExtract = await this.$axios.post(/*'http://dmtcloud.kr:3535/translate-text'*/'http://182.230.16.82:3535/translate-text', {
                     from: payload.from,
                     to: payload.to,
                     text: pdfres.data,
                 }, { progress: false });
                 return fileExtract.data[0].translations;
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
