@@ -987,7 +987,7 @@ export default {
                         widths: ['auto', '*', '*', '*', 'auto'],
                         headerRows: 2,
                         body: [
-                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.proce[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4], colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4], colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
                             [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
                             [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
                             [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
