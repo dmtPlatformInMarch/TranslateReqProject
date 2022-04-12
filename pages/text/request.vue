@@ -848,7 +848,8 @@ export default {
     req_field: ['', '', '', '', ''],
     req_lang: ['', '', '', '', ''],
     grant_lang: ['', '', '', '', ''],
-    price: [ , , , , ],
+    price: [ 0, 0, 0, 0, 0 ],
+    unit_price: [0, 0, 0, 0, 0],
     file: [],
     options: '',
     dialog: false,
@@ -888,7 +889,7 @@ export default {
     },
     exRate() {
       return this.$DOLLAR;
-    }
+    },
   },
   watch: {
     selectLanguage1() {
@@ -899,7 +900,37 @@ export default {
     },
     selectField() {
       this.calcCost();
-    }
+    },
+    req_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    grant_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    req_field: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
   },
   asyncData({ store }) {
     store.commit('requests/setExcost', 0);
@@ -1024,7 +1055,8 @@ export default {
                     req_lang: this.req_lang,
                     grant_lang: this.grant_lang,
                     options: this.options,
-                    trans_state: '번역 준비중'
+                    trans_state: '번역 준비중',
+                    fileInfo: this.$store.state.requests.fileInfo,
                 });
                 /*console.log(
                     `name: ${this.name}\n`,
@@ -1038,6 +1070,7 @@ export default {
                     `grant_lang: ${this.grant_lang}\n`,
                     `options: ${this.options}\n`,
                     `trans_state: ${'번역 준비중'}\n`,
+                    `fileInfo: ${this.$store.state.requests.fileInfo}\n`,
                 );*/
                 if (submitResponse.statusText === 'OK') {
                   this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
@@ -1089,8 +1122,13 @@ export default {
           });
           try {
             this.$nuxt.$loading.start();
-            await this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
-            await this.$store.dispatch('requests/extracting', {lang: this.req_lang[index], file: fileFormData});
+            await this.$store.dispatch('requests/uploadFile', { index: index, file: fileFormData });
+            const res = await this.$store.dispatch('requests/extracting', { lang: this.req_lang[index], file: fileFormData, unitcost: this.unit_price[index] });
+            if (res != undefined) {
+              this.$store.dispatch('requests/setFileInfo', { index: index, info: res });
+            } else {
+              
+            }
             this.$nuxt.$loading.finish();
           } catch(err) {
             console.log(err);
@@ -1123,7 +1161,8 @@ export default {
         this.$CALC_COST(this.e_languages[this.selectLanguage1], this.e_languages[this.selectLanguage2], this.e_field[this.selectField]);
     },
     requestCost(selLang1, selLang2, selField) {
-      this.$CALC_COST(this.languages[this.selLang1], );
+      this.$CALC_COST(selLang1, selLang2, selField);
+      return this.$store.state.requests.ex_cost;
     },
   }
 }
