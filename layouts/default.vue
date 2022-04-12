@@ -17,7 +17,7 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/text/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
               <v-list-item @click="go('/text/textmain')">
@@ -35,15 +35,15 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/voice/info')">
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> 영상 번역 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> 번역 단가 </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -53,15 +53,15 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/video/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> 음성 번역 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> 번역 단가 </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -70,7 +70,7 @@
       <v-toolbar-items v-else-if="language === '영어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white"  depressed v-bind="attrs" v-on="on"> Text </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Text </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -148,7 +148,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <client-only>
-    <nuxt />
+      <nuxt />
     </client-only>
     <bottom-component />
     <snack-bar />
