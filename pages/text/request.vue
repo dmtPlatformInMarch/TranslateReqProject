@@ -950,7 +950,7 @@ export default {
             content: [
                 // 제목
                 {
-                    text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
+                    text: '\n' + 'DMTLABS Translation Request Estimate' + '\n\n',
                     style: 'style_header'
                 },
                 // 공급자 테이블
@@ -959,10 +959,10 @@ export default {
                     table: {
                         widths: ['auto', 100, '*', '*'],
                         body: [
-                            [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
-                            [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
-                            [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
-                            [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
+                            [ {text:'Provider', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Representative'}, {text: 'KIM-UN', colSpan:2}, '' ],
+                            [ '', {text: 'Trade'}, {text: 'DMTLABS', colSpan: 2}, '' ],
+                            [ '', {text: 'Address'}, {text: '(04386) Room 404, Hangang-daero 40-gil 18, Yongsan-gu, Seoul, Republic of Korea (144-2 Dai Building, Hangang-ro 2-ga)', colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: '02-794-5333', colSpan: 2}, '' ],
                         ]
                     }
                 },
@@ -972,10 +972,10 @@ export default {
                     table: {
                         widths: ['auto', 100, '*', '*'],
                         body: [
-                            [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
-                            [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
-                            [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                            [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
+                            [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
+                            [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSan: 2}, '' ],
                         ]
                     }
                 },
@@ -987,13 +987,13 @@ export default {
                         widths: ['auto', '*', '*', '*', 'auto'],
                         headerRows: 2,
                         body: [
-                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4], colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
-                            [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
-                            [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
+                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4] + 'Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: 'Translation Info', colSpan: 2, fillColor: '#dedede'}, '', {text: 'Unit price', colSpan: 2, fillColor: '#dedede'}, '', {text: 'etc', fillColor: '#dedede'} ],
+                            [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}Won`, colSpan: 2}, '', '' ],
                         ]
                     }
                 }
