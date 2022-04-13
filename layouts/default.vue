@@ -35,7 +35,7 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item @click="go('/voice/info')">
+              <v-list-item @click="go('/video/info')">
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
               <!--v-list-item>
@@ -53,7 +53,7 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item @click="go('/video/info')">
+              <v-list-item @click="go('/voice/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
               <!--v-list-item>
@@ -74,7 +74,7 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/text/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
               <v-list-item @click="go('/text/textmain')">
@@ -92,15 +92,15 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/video/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> Video Translation </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> Unit Price </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -110,15 +110,15 @@
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/voice/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> Speech Translation </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> Unit Price </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>

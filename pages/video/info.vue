@@ -1,20 +1,45 @@
 <template>
   <v-container class="full-height">
-    <v-card class="full-height" elevation="0">
-      <v-card>
-        <v-card-title class="text-h2 header"> 디엠티랩스 영상 번역 </v-card-title>
-      </v-card>
-      <v-container class="body">
-        <v-card-title class="font-weight-bold"> 디엠티랩스의 영상 번역 시스템 </v-card-title>
-        <v-card-text>
-          현재 DMTLABS에서는 영상 번역에 대한 연구가 진행 중이며, <br />
-          그 전 단계로 음성 단계의 번역에 집중하고 있습니다.<br /><br />
+    <!--메인 헤드라인-->
+    <div>
+      <v-parallax :src="mainimg" height="300">
+        <v-row align="center" justify="center">
+          <v-col class="text-center" cols="12">
+            <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
+            <h4 class="subheading" v-if="language === '한국어'">
+              DMTLABS의 영상 번역 시스템
+            </h4>
+            <h4 class="subheading" v-else-if="language === '영어'">
+              DMTLABS Video Translation System
+            </h4>
+          </v-col>
+        </v-row>
+      </v-parallax>
+    </div>
 
-          음성 단계의 번역 과정을 거쳐 최종적으로는 <br />
-          영상 자막 및 영상 내 이미지 번역까지 수행하는 시스템 구축을 목표로 하고 있습니다.<br /><br />
-        </v-card-text>
-      </v-container>
-    </v-card>
+    <v-container v-if="this.language === '한국어'" class="body">
+      <v-card-title class="font-weight-bold"> 디엠티랩스의 영상 번역 시스템 </v-card-title>
+      <v-card-text>
+        현재 DMTLABS에서는 영상 번역에 대한 연구가 진행 중이며, <br />
+        그 전 단계로 음성 단계의 번역에 집중하고 있습니다.<br /><br />
+
+        음성 단계의 번역 과정을 거쳐 최종적으로는 <br />
+        영상 자막 및 영상 내 이미지 번역까지 수행하는 시스템 구축을 목표로 하고 있습니다.<br /><br />
+      </v-card-text>
+    </v-container>
+
+    <v-container v-else-if="this.language === '영어'" class="body">
+      <v-card-title class="font-weight-bold"> DMTLABS's Video Translation System </v-card-title>
+      <v-card-text>
+        Currently, DMTLABS is working on video translation, <br />
+        and as a preliminary step, it is focusing on translation at the voice stage. <br /><br />
+
+        The goal is to establish a system that performs video subtitles and image translation <br />
+        in the video after translation in the voice stage. <br /><br />
+      </v-card-text>
+    </v-container>
+
+    <v-divider />
   </v-container>
 </template>
 
@@ -47,7 +72,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      mainimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/video.jpg',// || require("~/static/mainImg1.jpg"),
+    };
+  },
+  computed: {
+    language() {
+      return this.$store.state.manager.language;
+    },
   },
 };
 </script>
