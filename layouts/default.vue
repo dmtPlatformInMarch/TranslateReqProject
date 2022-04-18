@@ -166,7 +166,12 @@ export default {
   name: "default",
   components: { SnackBar, BottomComponent },
   data() {
-    return {};
+    return {
+
+    };
+  },
+  mounted() {
+    this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
   },
   computed: {
     language: {
