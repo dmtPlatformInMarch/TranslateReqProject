@@ -43,7 +43,7 @@ export const actions = {
         }
     },
     async deleteRequest({ commit }, payload) {
-        await this.$axios.delete(`/admin/request/${payload}`);
+        await this.$axios.delete(`/admin/request/delete/${payload}`);
         const requestResponse = await this.$axios.get(`/admin/requests`);
         commit('loadallRequest', requestResponse.data);
         this.$manage.showMessage({ message: '의뢰 취소 완료', color: 'primary' });
