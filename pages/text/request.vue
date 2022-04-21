@@ -987,13 +987,13 @@ export default {
                         widths: ['auto', '*', '*', '*', 'auto'],
                         headerRows: 2,
                         body: [
-                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4] + 'Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: (this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4]) + ' Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
                             [ {text: 'Translation Info', colSpan: 2, fillColor: '#dedede'}, '', {text: 'Price', colSpan: 2, fillColor: '#dedede'}, '', {text: 'etc', fillColor: '#dedede'} ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[0])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[0])]}`, colSpan: 2}, '', {text: `${this.price[0]}Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[1])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[1])]}`, colSpan: 2}, '', {text: `${this.price[1]}Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[2])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[2])]}`, colSpan: 2}, '', {text: `${this.price[2]}Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[3])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[3])]}`, colSpan: 2}, '', {text: `${this.price[3]}Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[4])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[4])]}`, colSpan: 2}, '', {text: `${this.price[4]}Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[0])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[0])]}`, colSpan: 2}, '', {text: `${this.price[0]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[1])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[1])]}`, colSpan: 2}, '', {text: `${this.price[1]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[2])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[2])]}`, colSpan: 2}, '', {text: `${this.price[2]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[3])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[3])]}`, colSpan: 2}, '', {text: `${this.price[3]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[4])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[4])]}`, colSpan: 2}, '', {text: `${this.price[4]} Won`, colSpan: 2}, '', '' ],
                         ]
                     }
                 }
@@ -1126,6 +1126,7 @@ export default {
             const res = await this.$store.dispatch('requests/extracting', { lang: this.req_lang[index], file: fileFormData, unitcost: this.unit_price[index] });
             if (res != undefined) {
               this.$store.dispatch('requests/setFileInfo', { index: index, info: res });
+              this.price[index] = this.$store.state.requests.fileInfo[index].cost;
             } else {
               
             }

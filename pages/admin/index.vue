@@ -88,7 +88,7 @@
             <v-toolbar class="bottom" color="grey lighten-1" flat>
               <v-toolbar-title v-text="item.name" />
               <v-spacer />
-              <v-btn rounded color="blue-grey lighten-4"> 조회 </v-btn>
+              <v-btn rounded color="blue-grey lighten-4" @click="setinq(item)"> 조회 </v-btn>              
             </v-toolbar>
           </v-card>
         </v-col>
@@ -105,6 +105,90 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+
+      <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
+        <v-card class="overflow-y-auto">
+          <v-toolbar dark color="#013183">
+            <v-btn icon dark @click="show = false;">
+                <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title>
+              {{ inquery.name }} 님의 의뢰
+            </v-toolbar-title>
+          </v-toolbar>
+
+          <v-card v-for="item in inquery.Files" :key="item.id">
+            <v-card-title>
+              {{ item.src.substring(item.src.lastIndexOf('/') + 1, item.src.length) }}
+            </v-card-title>
+            <v-row class="text-center align-center" no-gutters>
+              <v-col cols="12" md="4">
+                <div style="border: 1px solid black">
+                  <h3>분류</h3>
+                  <v-divider />
+                  {{ item.field }}
+                </div>
+              </v-col>
+              <v-col cols="12" md="4">
+                <div style="border: 1px solid black">
+                  <h3>요청 언어</h3>
+                  <v-divider />
+                  {{ item.req_lang }}
+                </div>
+              </v-col>
+              <v-col cols="12" md="4">
+                <div style="border: 1px solid black">
+                  <h3>번역 언어</h3>
+                  <v-divider />
+                  {{ item.grant_lang }}
+                </div>
+              </v-col>
+
+              <v-col cols="12" sm="2">
+                <v-btn color="orange" dark depressed rounded block>
+                  번역 준비중
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="1">
+                <v-icon>
+                  mdi-arrow-right-bold
+                </v-icon>
+              </v-col>
+              <v-col cols="12" sm="2">
+                <v-btn color="primary" dark depressed rounded block>
+                  번역 시작
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="1">
+                <v-icon>
+                  mdi-arrow-right-bold
+                </v-icon>
+              </v-col>
+              <v-col cols="12" sm="2">
+                <v-btn color="indigo" dark depressed rounded block>
+                  번역 검수중
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="1">
+                <v-icon>
+                  mdi-arrow-right-bold
+                </v-icon>
+              </v-col>
+              <v-col cols="12" sm="2">
+                <v-btn color="success" dark depressed rounded block>
+                  번역 완료
+                </v-btn>
+              </v-col>
+              <v-col>
+                <v-btn large plain>
+                  전송
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-card>
+      </v-dialog>
+
     </v-container>
     <snack-bar />
   </v-container>
@@ -131,6 +215,8 @@ export default {
         dialog: 0,
         file_id: 0,
         isDev: process.env.NODE_ENV.includes('dev'),
+        show: false,
+        inquery: '',
       }
     },
     fetch({ store }) {
@@ -149,7 +235,11 @@ export default {
       cancelRequest(id) {
         this.$store.dispatch('admin/deleteRequest', id);
         this.dialog = false;
-      }
+      },
+      setinq(item) {
+        this.show = true;
+        this.inquery = item;
+      },
     }
 }
 </script>
