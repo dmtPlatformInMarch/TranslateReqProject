@@ -39,7 +39,7 @@ export const actions = {
             const agent = new https.Agent({
                 rejectUnauthorized: false
             });
-            const res = await this.$axios.post(/*'http://dmtcloud.kr:3535/translate-text'*/'http://182.230.16.82:3535/translate-text', {
+            const res = await this.$axios.post('https://dmtcloud.kr/translate-text', {
                 from: payload.from,
                 to: payload.to,
                 text: payload.text,
@@ -79,7 +79,7 @@ export const actions = {
                 if (pdfres.status === 400) {
                     return 'error';
                 }
-                fileExtract = await this.$axios.post(/*'http://dmtcloud.kr:3535/translate-text'*/'http://182.230.16.82:3535/translate-text', {
+                fileExtract = await this.$axios.post('https://dmtcloud.kr/translate-text', {
                     from: payload.from,
                     to: payload.to,
                     text: pdfres.data,
