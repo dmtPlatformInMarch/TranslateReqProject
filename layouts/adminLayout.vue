@@ -86,7 +86,6 @@ export default {
       onLogout() {
           this.loginMenu = false;
           this.$store.dispatch('users/logout');
-          this.$router.replace('/text/textmain');
       },
       update(data) {
         this.loginMenu = data;

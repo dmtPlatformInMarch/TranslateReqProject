@@ -26,7 +26,12 @@
       </v-toolbar>
 
       <!--의뢰 카드-->
-      <v-row dense>
+      <v-card v-if="list.length === 0" class="d-flex align-center" style="height: 90%">
+        <v-card-text class="text-center">
+          의뢰 목록이 비어있습니다.
+        </v-card-text>
+      </v-card>
+      <v-row v-else dense>
         <v-col v-for="item in list" :key="item.id" :cols="3">
           <v-card style="height: 55vh" elevation="10">
             <v-card-title style="background: #1a237e; color: white">
@@ -229,7 +234,6 @@ export default {
     },
     mounted() {
       this.list = this.$store.state.admin.allRequest;
-      console.log("mounted");
     },
     watch: {
       searchName: _.debounce(function (name) {
