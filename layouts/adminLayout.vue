@@ -14,7 +14,7 @@
       </v-toolbar-items-->
     </v-toolbar>
 
-    <div style="display: flex; flex-direction: row; height: 100%">
+    <div style="display: flex; flex-direction: row; height: 100%;">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
         <v-list rounded dense>
           <v-list-item style="padding: 0px 8px">
@@ -43,9 +43,11 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
+
       <nuxt />
-      <snack-bar />
     </div>
+
+    <snack-bar />
   </v-app>
 </template>
 
