@@ -4,7 +4,7 @@ Version
 *    Node.js
 >    v14.16.1   
 *    npm
->    v6.14.12   
+>    v8.9.0   
 *    Vue
 >    v2.6.14   
 *    Vuetify
