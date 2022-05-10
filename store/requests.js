@@ -22,7 +22,7 @@ export const state = () => ({
     mainRequest: [],
     hasMoreRequest: true,
     filePaths: ['', '', '', '', ''],
-    costs: ['', '', '', '', ''],
+    fileInfo: ['', '', '', '', ''],
     ex_cost: 0,
 });
 
@@ -47,6 +47,12 @@ export const mutations = {
     },
     setExcost(state, payload) {
         state.ex_cost = payload;
+    },
+    setFileInfo(state, payload) {
+        state.fileInfo[payload.index] = payload.info;
+    },
+    removeFileInfo(state, payload) {
+        state.fileInfo[payload] = '';
     }
 };
 
@@ -82,6 +88,7 @@ export const actions = {
                 options: payload.options,
                 trans_state: '번역 준비중',
                 file: state.filePaths,
+                fileInfo: payload.fileInfo,
             }, {
                 withCredentials: true,
             });
@@ -104,16 +111,16 @@ export const actions = {
             console.error(err);
         }
     },
-    async removeFile({ commit, state }, payload) {
+    async removeFile({ commit, state }, index) {
         try {
             const removeResponse = await this.$axios.delete(`/request/file/delete`, {
                 data: {
-                    files: state.filePaths[payload],
+                    files: state.filePaths[index],
                 },
                 withCredentials: true,
             });
             if (removeResponse.status === 201) {
-                commit('removeFilePaths', payload);
+                commit('removeFilePaths', index);
             } else {
                 console.log('파일 삭제 오류\n', removeResponse);
             }
@@ -145,7 +152,55 @@ export const actions = {
             console.error(err);
         }
     },
-    calcExcost({ commit },) {
-
+    async extracting({ commit }, payload) {
+        try {
+            if (payload.file.get('fileKey') != null) {
+                payload.file.append('lang', payload.lang);
+                const ext = payload.file.get('fileKey').name.substring(payload.file.get('fileKey').name.lastIndexOf('.') + 1, payload.file.get('fileKey').name.length);
+                if (ext === 'pdf') {
+                    const pdfResponse = await this.$axios.post('/request/extract/pdf', payload.file, {
+                        withCredentials: true,
+                        headers: {
+                            "Content-Type" : "multipart/form-data" 
+                        },
+                    });
+                    // console.log(pdfResponse.data.count);
+                    // 글자수 파싱 -> count 숫자만 반환
+                    return Object({ 
+                        ext: ext,
+                        words : pdfResponse.data.count, 
+                        cost: payload.unitcost * pdfResponse.data.count,
+                    });
+                }
+                else if (ext === 'txt') {
+                    const txtResponse = await this.$axios.post('/request/extract/txt', payload.file, {
+                        withCredentials: true,
+                        headers: {
+                            "Content-Type" : "multipart/form-data" 
+                        },
+                    });
+                    // console.log(txtResponse.data.count);
+                    // 글자수 파싱 -> count 숫자만 반환
+                    return Object({ 
+                        ext: ext,
+                        words : txtResponse.data.count, 
+                        cost: payload.unitcost * txtResponse.data.count,
+                    });
+                } else {
+                    this.$manage.showMessage({ message: '지원하지 않는 파일 형식입니다.', color: 'red'});
+                }
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    setFileInfo({ commit }, payload) {
+        commit('setFileInfo', {
+            index: payload.index,
+            info: payload.info
+        });
+    },
+    delFileInfo({ commit }, index) {
+        commit('removeFileInfo', index);
     }
 };

@@ -13,17 +13,17 @@
       <v-toolbar-items v-if="language === '한국어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 텍스트 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 텍스트 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/text/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/user/textmain')">
-                <v-list-item-title> 텍스트 번역 의뢰 </v-list-item-title>
+              <v-list-item @click="go('/text/textmain')">
+                <v-list-item-title> 텍스트 번역 </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <v-list-item @click="go('/text/request')">
                 <v-list-item-title> 번역 단가 </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
@@ -31,37 +31,37 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 영상 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 영상 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/video/info')">
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title> 영상 번역 의뢰 </v-list-item-title>
+              <!--v-list-item>
+                <v-list-item-title> 영상 번역 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> 번역 단가 </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" depressed v-bind="attrs" v-on="on"> 음성 번역 </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 음성 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/voice/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title> 음성 번역 의뢰 </v-list-item-title>
+              <!--v-list-item>
+                <v-list-item-title> 음성 번역 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> 번역 단가 </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -70,17 +70,17 @@
       <v-toolbar-items v-else-if="language === '영어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Text Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Text </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/text/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/user/textmain')">
-                <v-list-item-title> Request </v-list-item-title>
+              <v-list-item @click="go('/text/textmain')">
+                <v-list-item-title> Text Translation </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <v-list-item @click="go('/text/request')">
                 <v-list-item-title> Unit Price </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
@@ -88,37 +88,37 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Video Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Video </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/video/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title> Request </v-list-item-title>
+              <!--v-list-item>
+                <v-list-item-title> Video Translation </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> Unit Price </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn depressed v-bind="attrs" v-on="on"> Speech Translation </v-btn>
+            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Speech </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
-              <v-list-item>
+              <v-list-item @click="go('/voice/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title> Request </v-list-item-title>
+              <!--v-list-item>
+                <v-list-item-title> Speech Translation </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title> Unit Price </v-list-item-title>
-              </v-list-item>
+              </v-list-item-->
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -148,7 +148,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <client-only>
-    <nuxt />
+      <nuxt />
     </client-only>
     <bottom-component />
     <snack-bar />
@@ -166,7 +166,12 @@ export default {
   name: "default",
   components: { SnackBar, BottomComponent },
   data() {
-    return {};
+    return {
+
+    };
+  },
+  mounted() {
+    this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
   },
   computed: {
     language: {

@@ -9,12 +9,12 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
-      <v-toolbar-items>
+      <!--v-toolbar-items>
         <v-btn text @click="goSite">의뢰사이트로 이동</v-btn>
-      </v-toolbar-items>
+      </v-toolbar-items-->
     </v-toolbar>
 
-    <div style="display: flex; flex-direction: row; height: 100%">
+    <div style="display: flex; flex-direction: row; height: 100%;">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
         <v-list rounded dense>
           <v-list-item style="padding: 0px 8px">
@@ -43,9 +43,11 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
+
       <nuxt />
-      <snack-bar />
     </div>
+
+    <snack-bar />
   </v-app>
 </template>
 
@@ -84,13 +86,12 @@ export default {
       onLogout() {
           this.loginMenu = false;
           this.$store.dispatch('users/logout');
-          this.$router.replace('/user/textmain');
       },
       update(data) {
         this.loginMenu = data;
       },
       goSite() {
-        this.$router.push('/user/textmain');
+        this.$router.push('/text/textmain');
       }
   }
 };

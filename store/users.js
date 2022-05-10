@@ -16,7 +16,7 @@ export const actions = {
     // 유저 정보 불러오기
     async loadUser({ commit, state }) {
         try {
-            console.log('Start Load User');
+            //console.log('Start Load User');
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });

@@ -107,7 +107,7 @@ export default {
             nickname: this.nickname,
           });
           if (onResponse.status === 201) {
-            this.$router.push({ path: "/user/textmain" });
+            this.$router.push({ path: "/text/textmain" });
           } else if (onResponse.status === 202) {
             this.dialog = true;
             this.errorMessage = onResponse.data.message;

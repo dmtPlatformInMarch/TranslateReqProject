@@ -60,16 +60,15 @@ module.exports = {
     plugins: [
         { src: '~/plugins/manage.js', ssr: false },
         { src: '~/plugins/constants.js', ssr: false },
-        { src: '~/plugins/persistedstate.js', ssr: false },
     ],
     vuetify: {},
     axios: {
         browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.dmtlabs.kr' : 'http://localhost:3085',
         baseURL: process.env.NODE_ENV === 'production' ? 'https://api.dmtlabs.kr' : 'http://localhost:3085',
         https: false,
-        proxy: true,
     },
     server: {
         port: process.env.PORT || 3080,
     },
+    loading: '~/components/loading.vue'
 }

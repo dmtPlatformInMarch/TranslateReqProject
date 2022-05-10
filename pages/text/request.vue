@@ -2,11 +2,11 @@
   <v-container>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle class="d-flex align-center justify-center" mandatory group style="width: 100%" v-model="sels" ref="toggle" @change="loginCheck">
-        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
+      <v-btn-toggle class="toggle_group" v-model="sels" mandatory ref="toggle" color="primary" style="width: 100%" @change="loginCheck" >
+        <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
-        <v-btn color="primary" text width="50%" style="margin: 0; padding: 0">
+        <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "의뢰" : "Request" }}
         </v-btn>
       </v-btn-toggle>
@@ -21,7 +21,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 원본 언어 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage1" mandatory>
                 <v-list-item v-for="(lang, i) in languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -37,7 +37,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 번역 언어 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
                 <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -50,7 +50,7 @@
             <v-toolbar class="toolbar_class" elevation="0">
               <v-toolbar-title class="font-weight-bold"> 요청 분야 </v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectField" mandatory>
                 <v-list-item v-for="(f, i) in field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
@@ -67,7 +67,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Original Language</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage1" mandatory>
                 <v-list-item v-for="(lang, i) in e_languages" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -83,7 +83,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Translate Language</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
                 <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']" :key="i" active-class="list_select">
                   <v-list-item-title>{{ lang }}</v-list-item-title>
@@ -96,7 +96,7 @@
             <v-toolbar color="primary">
               <v-toolbar-title>Request Field</v-toolbar-title>
             </v-toolbar>
-            <v-list class="overflow-y-auto">
+            <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectField" mandatory>
                 <v-list-item v-for="(f, i) in e_field" :key="i" active-class="list_select">
                   <v-list-item-title>{{ f }}</v-list-item-title>
@@ -261,7 +261,7 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[0]"
+                  v-model="file[0]"
                   ref="file0"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
@@ -270,6 +270,8 @@
                   multiple
                   dense
                   :rules="[(v) => !!v || '번역 파일을 첨부해주세요.']"
+                  :accept="acceptFiles"
+                  :disabled="req_lang[0] === ''"
                   @change="onChangeFile(0, $event)"
                   @click:clear="onClearFile(0)"
                 />
@@ -314,6 +316,8 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[1] === ''"
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
                 />
@@ -358,6 +362,8 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[2] === ''"
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
                 />
@@ -402,6 +408,8 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[3] === ''"
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
                 />
@@ -446,6 +454,8 @@
                   small-chips
                   multiple
                   dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[4] === ''"
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
                 />
@@ -577,7 +587,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   :rules="[(v) => !!v || 'Please attach the File.']"
                   @change="onChangeFile(0, $event)"
@@ -621,7 +631,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
@@ -664,7 +674,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
@@ -707,7 +717,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
@@ -750,7 +760,7 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  multiple
+                  
                   dense
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
@@ -812,6 +822,9 @@
   border: solid #013183 !important;
   color: #013183 !important;
 }
+.toggle_group {
+  border: 1px solid #013183 !important;
+}
 </style>
 
 <script lang="js">
@@ -835,7 +848,8 @@ export default {
     req_field: ['', '', '', '', ''],
     req_lang: ['', '', '', '', ''],
     grant_lang: ['', '', '', '', ''],
-    price: [ , , , , ],
+    price: [ 0, 0, 0, 0, 0 ],
+    unit_price: [0, 0, 0, 0, 0],
     file: [],
     options: '',
     dialog: false,
@@ -848,6 +862,7 @@ export default {
     e_selectField: 0,
     dollar: false,
     wordCount: '',
+    acceptFiles: '.txt,.pdf,.docx',
   }),
   computed: {
     ...mapState('requests', ['imagePaths']),
@@ -874,7 +889,7 @@ export default {
     },
     exRate() {
       return this.$DOLLAR;
-    }
+    },
   },
   watch: {
     selectLanguage1() {
@@ -885,7 +900,37 @@ export default {
     },
     selectField() {
       this.calcCost();
-    }
+    },
+    req_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    grant_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    req_field: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
   },
   asyncData({ store }) {
     store.commit('requests/setExcost', 0);
@@ -905,7 +950,7 @@ export default {
             content: [
                 // 제목
                 {
-                    text: '\n' + 'DMTLABS 번역 의뢰 견적서' + '\n\n',
+                    text: '\n' + 'DMTLABS Translation Request Estimate' + '\n\n',
                     style: 'style_header'
                 },
                 // 공급자 테이블
@@ -914,10 +959,10 @@ export default {
                     table: {
                         widths: ['auto', 100, '*', '*'],
                         body: [
-                            [ {text:'공급자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '대표'}, {text: 'DMTLABS 대표자', colSpan:2}, '' ],
-                            [ '', {text: '상호'}, {text: 'DMTLABS', colSpan: 2}, '' ],
-                            [ '', {text: '주소'}, {text: 'DMTLABS 주소', colSpan: 2}, '' ],
-                            [ '', {text: '연락처'}, {text: 'DMTLABS 대표 연락처', colSpan: 2}, '' ],
+                            [ {text:'Provider', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Representative'}, {text: 'KIM-UN', colSpan:2}, '' ],
+                            [ '', {text: 'Trade'}, {text: 'DMTLABS', colSpan: 2}, '' ],
+                            [ '', {text: 'Address'}, {text: '(04386) Room 404, Hangang-daero 40-gil 18, Yongsan-gu, Seoul, Republic of Korea (144-2 Dai Building, Hangang-ro 2-ga)', colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: '02-794-5333', colSpan: 2}, '' ],
                         ]
                     }
                 },
@@ -927,10 +972,10 @@ export default {
                     table: {
                         widths: ['auto', 100, '*', '*'],
                         body: [
-                            [ {text:'의뢰자', rowSpan: 4, fillColor: '#bdcce3'}, {text: '의뢰인'}, {text: `${this.name}`, colSpan:2}, '' ],
-                            [ '', {text: '의뢰처'}, {text: `${this.company}`, colSpan: 2}, '' ],
-                            [ '', {text: '연락처'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                            [ '', {text: '의뢰 희망일'}, {text: `${this.date}`, colSan: 2}, '' ],
+                            [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
+                            [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSan: 2}, '' ],
                         ]
                     }
                 },
@@ -942,13 +987,13 @@ export default {
                         widths: ['auto', '*', '*', '*', 'auto'],
                         headerRows: 2,
                         body: [
-                            [ {text: '총 금액', colSpan: 2, fillColor: '#f49d80'}, '', {text: '20000원', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
-                            [ {text: '번역 내용', colSpan: 2, fillColor: '#dedede'}, '', {text: '번역 단가', colSpan: 2, fillColor: '#dedede'}, '', {text: '비고', fillColor: '#dedede'} ],
-                            [ {text: `${this.req_lang[0]} -> ${this.grant_lang[0]}`, colSpan: 2}, '', {text: `${this.price[0]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[1]} -> ${this.grant_lang[1]}`, colSpan: 2}, '', {text: `${this.price[1]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[2]} -> ${this.grant_lang[2]}`, colSpan: 2}, '', {text: `${this.price[2]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[3]} -> ${this.grant_lang[3]}`, colSpan: 2}, '', {text: `${this.price[3]}원`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.req_lang[4]} -> ${this.grant_lang[4]}`, colSpan: 2}, '', {text: `${this.price[4]}원`, colSpan: 2}, '', '' ],
+                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: (this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4]) + ' Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: 'Translation Info', colSpan: 2, fillColor: '#dedede'}, '', {text: 'Price', colSpan: 2, fillColor: '#dedede'}, '', {text: 'etc', fillColor: '#dedede'} ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[0])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[0])]}`, colSpan: 2}, '', {text: `${this.price[0]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[1])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[1])]}`, colSpan: 2}, '', {text: `${this.price[1]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[2])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[2])]}`, colSpan: 2}, '', {text: `${this.price[2]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[3])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[3])]}`, colSpan: 2}, '', {text: `${this.price[3]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[4])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[4])]}`, colSpan: 2}, '', {text: `${this.price[4]} Won`, colSpan: 2}, '', '' ],
                         ]
                     }
                 }
@@ -1010,7 +1055,8 @@ export default {
                     req_lang: this.req_lang,
                     grant_lang: this.grant_lang,
                     options: this.options,
-                    trans_state: '번역 준비중'
+                    trans_state: '번역 준비중',
+                    fileInfo: this.$store.state.requests.fileInfo,
                 });
                 /*console.log(
                     `name: ${this.name}\n`,
@@ -1024,11 +1070,12 @@ export default {
                     `grant_lang: ${this.grant_lang}\n`,
                     `options: ${this.options}\n`,
                     `trans_state: ${'번역 준비중'}\n`,
+                    `fileInfo: ${this.$store.state.requests.fileInfo}\n`,
                 );*/
                 if (submitResponse.statusText === 'OK') {
                   this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
                   console.log('의뢰');
-                  this.$router.push({ path: '/user/textmain'});
+                  this.$router.push({ path: '/text/textmain'});
                 }
                 else {
                   this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
@@ -1046,7 +1093,7 @@ export default {
     onChangeTextarea() {
         this.hideDetails = true;
     },
-    onChangeFile(index, e) {
+    async onChangeFile(index, e) {
         const fileFormData = new FormData();
 
         if (e != null) {
@@ -1073,7 +1120,20 @@ export default {
               e = null;
             }
           });
-          this.$store.dispatch('requests/uploadFile', {index: index, file: fileFormData});
+          try {
+            this.$nuxt.$loading.start();
+            await this.$store.dispatch('requests/uploadFile', { index: index, file: fileFormData });
+            const res = await this.$store.dispatch('requests/extracting', { lang: this.req_lang[index], file: fileFormData, unitcost: this.unit_price[index] });
+            if (res != undefined) {
+              this.$store.dispatch('requests/setFileInfo', { index: index, info: res });
+              this.price[index] = this.$store.state.requests.fileInfo[index].cost;
+            } else {
+              
+            }
+            this.$nuxt.$loading.finish();
+          } catch(err) {
+            console.log(err);
+          }
         } else {
             console.log("e is null!!!");
         }
@@ -1096,8 +1156,15 @@ export default {
       }
     },
     calcCost() {
-      this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField])
-    }
+      if (this.language === '한국어')
+        this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField]);
+      else 
+        this.$CALC_COST(this.e_languages[this.selectLanguage1], this.e_languages[this.selectLanguage2], this.e_field[this.selectField]);
+    },
+    requestCost(selLang1, selLang2, selField) {
+      this.$CALC_COST(selLang1, selLang2, selField);
+      return this.$store.state.requests.ex_cost;
+    },
   }
 }
 </script>
