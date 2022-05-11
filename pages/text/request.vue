@@ -975,7 +975,7 @@ export default {
                             [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
                             [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
                             [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSan: 2}, '' ],
+                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSpan: 2}, '' ],
                         ]
                     }
                 },
