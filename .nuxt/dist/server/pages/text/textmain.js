@@ -214,11 +214,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /* harmony import */ var _transitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40);
 /* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(22);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
+/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
 /* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(15);
 /* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16);
-/* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(49);
+/* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(50);
 /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(3);
 // Styles
 
@@ -559,7 +559,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(50);
+/* harmony import */ var _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
 // Extensions
 
 /* @vue/component */
@@ -684,7 +684,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(7).default
 module.exports.__inject__ = function (context) {
-  add("67474a4e", content, true, context)
+  add("3d00defe", content, true, context)
 };
 
 /***/ }),
@@ -829,7 +829,7 @@ var VDivider = __webpack_require__(166);
 var VSubheader = __webpack_require__(195);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
-var VListItem = __webpack_require__(42);
+var VListItem = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemAction.js
 var VListItemAction = __webpack_require__(70);
@@ -2397,9 +2397,9 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__[/* default *
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_d42025f4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(230);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_d42025f4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_d42025f4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_d42025f4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_d42025f4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_5bcb2c18_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(230);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_5bcb2c18_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_5bcb2c18_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_5bcb2c18_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_textmain_vue_vue_type_style_index_0_id_5bcb2c18_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -2411,7 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".selector[data-v-d42025f4]{width:20vw}.file_upload[data-v-d42025f4] input{text-align:center}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "@font-face{font-family:\"MinSans-Medium\";src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff) format(\"woff\");font-weight:400;font-style:normal}.selector[data-v-5bcb2c18]{width:20vw}.file_upload[data-v-5bcb2c18] input{text-align:center}.recruit[data-v-5bcb2c18]{font-family:\"MinSans-Medium\",sans-serif!important;font-size:48px}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2481,15 +2481,15 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/textmain.vue?vue&type=template&id=d42025f4&scoped=true&
-var textmainvue_type_template_id_d42025f4_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',[_c('v-layout',{staticStyle:{"display":"flex","height":"6vh"}},[_c('v-btn-toggle',{attrs:{"tile":"","mandatory":""},model:{value:(_vm.toggle),callback:function ($$v) {_vm.toggle=$$v},expression:"toggle"}},[_c('v-btn',{staticStyle:{"display":"flex","align-content":"center","justify-content":"space-around"}},[_c('div',{staticStyle:{"display":"flex","align-content":"center","justify-content":"center"}},[_c('v-icon',[_vm._v("mdi-earth")])],1),_vm._v(" "),(_vm.language === '한국어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column","width":"10vw"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("언어 번역")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("8개의 언어")])]):(_vm.language === '영어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("Language translation")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("8 languages")])]):_vm._e()]),_vm._v(" "),_c('v-btn',{staticStyle:{"display":"flex","align-content":"center","justify-content":"space-around"}},[_c('div',{staticStyle:{"display":"flex","align-content":"center","justify-content":"center"}},[_c('v-icon',[_vm._v("mdi-file")])],1),_vm._v(" "),(_vm.language === '한국어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column","width":"8vw"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("파일 번역")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v(".txt .pdf만 가능")])]):(_vm.language === '영어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("File translation")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("Only .txt / .pdf")])]):_vm._e()])],1),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),(_vm.toggle === 0)?_c('v-layout',{staticStyle:{"display":"flex","height":"50vh"},attrs:{"align-center":"","justify-space-around":""}},[_c('div',{staticStyle:{"width":"40vw"}},[_c('client-only',[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.from_lang),callback:function ($$v) {_vm.from_lang=$$v},expression:"from_lang"}})],1),_vm._v(" "),(_vm.language === '한국어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-sync","placeholder":"번역할 언어를 적어주세요.","rows":"15","clearable":"","counter":"","outlined":"","background-color":"grey lighten-2"},model:{value:(_vm.from_text),callback:function ($$v) {_vm.from_text=$$v},expression:"from_text"}}):(_vm.language === '영어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-sync","placeholder":"Enter what you want to translate.","rows":"15","clearable":"","counter":"","outlined":"","background-color":"grey lighten-2"},model:{value:(_vm.from_text),callback:function ($$v) {_vm.from_text=$$v},expression:"from_text"}}):_vm._e()],1),_vm._v(" "),_c('div',{staticStyle:{"width":"40vw"}},[_c('client-only',[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.to_lang),callback:function ($$v) {_vm.to_lang=$$v},expression:"to_lang"}})],1),_vm._v(" "),(_vm.language === '한국어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-check","placeholder":"번역한 결과입니다.","rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.to_text),callback:function ($$v) {_vm.to_text=$$v},expression:"to_text"}}):(_vm.language === '영어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-check","placeholder":"Result of the translation.","rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.to_text),callback:function ($$v) {_vm.to_text=$$v},expression:"to_text"}}):_vm._e()],1)]):_c('v-layout',{staticStyle:{"height":"50vh"},attrs:{"align-center":"","justify-space-around":""}},[_c('div',{staticClass:"text-center",staticStyle:{"margin":"10vw"},attrs:{"align-center":"","justify-center":""}},[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.from_file_lang),callback:function ($$v) {_vm.from_file_lang=$$v},expression:"from_file_lang"}}),_vm._v(" "),_c('v-icon',{staticClass:"text-h1"},[_vm._v("mdi-folder-upload")]),_vm._v(" "),_c('div',[_vm._v("5MB 아래 파일만 가능 "),_c('br'),_vm._v(" (Only Low than 5MB)")]),_vm._v(" "),(_vm.language === '한국어')?_c('v-file-input',{staticClass:"file_upload",attrs:{"placeholder":"업로드","accept":_vm.acceptFiles,"outlined":"","rounded":"","prepend-icon":""},on:{"change":_vm.uploadFile}}):(_vm.language === '영어')?_c('v-file-input',{staticClass:"file_upload",attrs:{"placeholder":"Upload","accept":_vm.acceptFiles,"outlined":"","rounded":"","prepend-icon":""},on:{"change":_vm.uploadFile}}):_vm._e()],1),_vm._v(" "),_c('div',{staticStyle:{"width":"60vw"}},[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.to_file_lang),callback:function ($$v) {_vm.to_file_lang=$$v},expression:"to_file_lang"}}),_vm._v(" "),_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.file_text),callback:function ($$v) {_vm.file_text=$$v},expression:"file_text"}})],1)]),_vm._v(" "),_c('v-layout',[_c('v-carousel',{attrs:{"cycle":"","interval":"3000","height":"40vh","hide-delimiter-background":"","hide-delimiters":"","show-arrows":false}},_vm._l((_vm.slides),function(slide,i){return _c('v-carousel-item',{key:i},[_c('v-sheet',{attrs:{"color":_vm.colors[i],"height":"100%"}},[_c('v-layout',{staticClass:"fill-height",attrs:{"align-center":"","justify-center":""}},[_c('v-icon',{staticClass:"text-h1"},[_vm._v("mdi-account-box")]),_vm._v(" "),(_vm.language === '한국어')?_c('div',{staticClass:"text-h4"},[_vm._v("\n              번역자 : "+_vm._s(slide)),_c('br'),_vm._v("\n              번역 건수 : "+_vm._s(i + (i + 1) * 20)),_c('br'),_vm._v("\n              번역 분야 : "+_vm._s(_vm.fields[i])+"\n            ")]):(_vm.language === '영어')?_c('div',{staticClass:"text-h4"},[_vm._v("\n              Translator : "+_vm._s(slide)),_c('br'),_vm._v("\n              The number of translations : "+_vm._s(i + (i + 1) * 20)),_c('br'),_vm._v("\n              Translation field : "+_vm._s(_vm.fields[i])+"\n            ")]):_vm._e()],1)],1)],1)}),1)],1)],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/textmain.vue?vue&type=template&id=5bcb2c18&scoped=true&
+var textmainvue_type_template_id_5bcb2c18_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',[_c('v-layout',{staticStyle:{"display":"flex","height":"6vh"}},[_c('v-btn-toggle',{attrs:{"tile":"","mandatory":""},model:{value:(_vm.toggle),callback:function ($$v) {_vm.toggle=$$v},expression:"toggle"}},[_c('v-btn',{staticStyle:{"display":"flex","align-content":"center","justify-content":"space-around"}},[_c('div',{staticStyle:{"display":"flex","align-content":"center","justify-content":"center"}},[_c('v-icon',[_vm._v("mdi-earth")])],1),_vm._v(" "),(_vm.language === '한국어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column","width":"10vw"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("언어 번역")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("8개의 언어")])]):(_vm.language === '영어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("Language translation")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("8 languages")])]):_vm._e()]),_vm._v(" "),_c('v-btn',{staticStyle:{"display":"flex","align-content":"center","justify-content":"space-around"}},[_c('div',{staticStyle:{"display":"flex","align-content":"center","justify-content":"center"}},[_c('v-icon',[_vm._v("mdi-file")])],1),_vm._v(" "),(_vm.language === '한국어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column","width":"8vw"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("파일 번역")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v(".txt .pdf만 가능")])]):(_vm.language === '영어')?_c('div',{staticStyle:{"display":"flex","flex-direction":"column"}},[_c('h4',{staticStyle:{"margin-right":"auto"}},[_vm._v("File translation")]),_vm._v(" "),_c('div',{staticStyle:{"margin-right":"auto","font-size":"50%"}},[_vm._v("Only .txt / .pdf")])]):_vm._e()])],1),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),(_vm.toggle === 0)?_c('v-layout',{staticStyle:{"display":"flex","height":"50vh"}},[_c('v-container',{staticStyle:{"width":"40vw"}},[_c('client-only',[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.from_lang),callback:function ($$v) {_vm.from_lang=$$v},expression:"from_lang"}})],1),_vm._v(" "),(_vm.language === '한국어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-sync","placeholder":"번역할 언어를 적어주세요.","rows":"15","clearable":"","counter":"","outlined":"","background-color":"grey lighten-2"},model:{value:(_vm.from_text),callback:function ($$v) {_vm.from_text=$$v},expression:"from_text"}}):(_vm.language === '영어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-sync","placeholder":"Enter what you want to translate.","rows":"15","clearable":"","counter":"","outlined":"","background-color":"grey lighten-2"},model:{value:(_vm.from_text),callback:function ($$v) {_vm.from_text=$$v},expression:"from_text"}}):_vm._e()],1),_vm._v(" "),_c('v-container',{staticStyle:{"width":"40vw"}},[_c('client-only',[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.to_lang),callback:function ($$v) {_vm.to_lang=$$v},expression:"to_lang"}})],1),_vm._v(" "),(_vm.language === '한국어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-check","placeholder":"번역한 결과입니다.","rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.to_text),callback:function ($$v) {_vm.to_text=$$v},expression:"to_text"}}):(_vm.language === '영어')?_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"prepend-inner-icon":"mdi-book-check","placeholder":"Result of the translation.","rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.to_text),callback:function ($$v) {_vm.to_text=$$v},expression:"to_text"}}):_vm._e()],1)],1):_c('v-layout',{staticStyle:{"height":"50vh"},attrs:{"align-center":"","justify-space-around":""}},[_c('div',{staticClass:"text-center",staticStyle:{"margin":"10vw"},attrs:{"align-center":"","justify-center":""}},[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.from_file_lang),callback:function ($$v) {_vm.from_file_lang=$$v},expression:"from_file_lang"}}),_vm._v(" "),_c('v-icon',{staticClass:"text-h1"},[_vm._v("mdi-folder-upload")]),_vm._v(" "),_c('div',[_vm._v("5MB 아래 파일만 가능 "),_c('br'),_vm._v(" (Only Low than 5MB)")]),_vm._v(" "),(_vm.language === '한국어')?_c('v-file-input',{staticClass:"file_upload",attrs:{"placeholder":"업로드","accept":_vm.acceptFiles,"outlined":"","rounded":"","prepend-icon":""},on:{"change":_vm.uploadFile}}):(_vm.language === '영어')?_c('v-file-input',{staticClass:"file_upload",attrs:{"placeholder":"Upload","accept":_vm.acceptFiles,"outlined":"","rounded":"","prepend-icon":""},on:{"change":_vm.uploadFile}}):_vm._e()],1),_vm._v(" "),_c('div',{staticStyle:{"width":"60vw"}},[_c('v-select',{staticClass:"selector",attrs:{"dense":"","items":_vm.language === '한국어' ? _vm.languages : _vm.e_languages,"placeholder":_vm.language === '한국어' ? '언어 선택' : 'Select',"single-line":"","hide-details":""},model:{value:(_vm.to_file_lang),callback:function ($$v) {_vm.to_file_lang=$$v},expression:"to_file_lang"}}),_vm._v(" "),_c('v-textarea',{staticStyle:{"z-index":"0"},attrs:{"rows":"15","counter":"","outlined":"","readonly":"","background-color":"grey lighten-2"},model:{value:(_vm.file_text),callback:function ($$v) {_vm.file_text=$$v},expression:"file_text"}})],1)]),_vm._v(" "),_c('v-layout',[_c('v-carousel',{attrs:{"cycle":"","interval":"3000","height":"40vh","hide-delimiter-background":"","hide-delimiters":"","show-arrows":false}},_vm._l((_vm.slides),function(slide,i){return _c('v-carousel-item',{key:i},[_c('v-sheet',{attrs:{"color":_vm.colors[i],"height":"100%"}},[_c('v-layout',{staticClass:"recruit fill-height text-center",attrs:{"align-center":"","justify-center":""}},[_vm._v("\n            번역자 공고"),_c('br'),_vm._v("\n            공고 기간은 추후 공지\n          ")])],1)],1)}),1)],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/text/textmain.vue?vue&type=template&id=d42025f4&scoped=true&
+// CONCATENATED MODULE: ./pages/text/textmain.vue?vue&type=template&id=5bcb2c18&scoped=true&
 
 // EXTERNAL MODULE: external "lodash"
-var external_lodash_ = __webpack_require__(53);
+var external_lodash_ = __webpack_require__(41);
 var external_lodash_default = /*#__PURE__*/__webpack_require__.n(external_lodash_);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/textmain.vue?vue&type=script&lang=js&
@@ -2499,7 +2499,7 @@ var external_lodash_default = /*#__PURE__*/__webpack_require__.n(external_lodash
 
   data() {
     return {
-      colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
+      colors: ['indigo lighten-4', 'amber lighten-2', 'pink lighten-4', 'red lighten-3', 'deep-purple lighten-3'],
       slides: ['김민수', '이민지', '김철수', '홍길동', '제임스'],
       fields: ['경제', '정보통신', '언어', '과학', '자동차'],
       toggle: 0,
@@ -2529,6 +2529,8 @@ var external_lodash_default = /*#__PURE__*/__webpack_require__.n(external_lodash
     language: function (lang) {
       this.from_lang = lang === '한국어' ? '한국어' : 'Korean';
       this.to_lang = lang === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+      this.from_file_lang = this.language === '한국어' ? '한국어' : 'Korean';
+      this.to_file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
     },
     from_lang: external_lodash_default.a.debounce(function (from) {
       this.from_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(from)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(from)];
@@ -2686,7 +2688,7 @@ var components_VBtn = __webpack_require__(39);
 var VIcon = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VItemGroup/VItemGroup.js
-var VItemGroup = __webpack_require__(50);
+var VItemGroup = __webpack_require__(51);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VWindow/VWindow.js
 // Styles
@@ -3182,10 +3184,10 @@ var console = __webpack_require__(3);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/bootable/index.js
-var bootable = __webpack_require__(51);
+var bootable = __webpack_require__(52);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/groupable/index.js
-var groupable = __webpack_require__(48);
+var groupable = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(2);
@@ -3446,11 +3448,11 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = Object(componentNormalizer["a" /* default */])(
   text_textmainvue_type_script_lang_js_,
-  textmainvue_type_template_id_d42025f4_scoped_true_render,
+  textmainvue_type_template_id_5bcb2c18_scoped_true_render,
   staticRenderFns,
   false,
   injectStyles,
-  "d42025f4",
+  "5bcb2c18",
   "a7051f86"
   
 )

@@ -22,7 +22,17 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
-    }, 3000),
+    }, 1000),
+    reloadReq: throttle( async function({ commit }) {
+        try {
+            const requestResponse = await this.$axios.get(`/admin/requests`, {
+                headers: { 'Cache-Control': 'no-cache' }
+            });
+            commit('loadallRequest', requestResponse.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }, 1000),
     loadUser: throttle ( async function({ commit, state }) {
         try {
             const userResponse = await this.$axios.get('/admin/users');
@@ -32,7 +42,7 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
-    }, 3000),
+    }, 1000),
     async deleteUser({ commit }, payload) {
         try {
             const deleteUserResponse = await this.$axios.delete(`admin/user/delete/${payload}`);
@@ -47,5 +57,20 @@ export const actions = {
         const requestResponse = await this.$axios.get(`/admin/requests`);
         commit('loadallRequest', requestResponse.data);
         this.$manage.showMessage({ message: '의뢰 취소 완료', color: 'primary' });
+    },
+    async setState({ commit, state }, payload) {
+        try {
+            const stateResponse = await this.$axios.post(`/admin/stateSet`, {
+                request: payload.request,
+                state: payload.state
+            });
+            console.log(stateResponse);
+            const requestResponse = await this.$axios.get(`/admin/requests`, {
+                headers: { 'Cache-Control': 'no-cache' }
+            });
+            commit('loadallRequest', requestResponse.data);
+        } catch (err) {
+            console.log(err);
+        }
     }
 }

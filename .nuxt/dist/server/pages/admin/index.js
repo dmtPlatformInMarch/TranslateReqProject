@@ -203,11 +203,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /* harmony import */ var _transitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40);
 /* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(22);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
+/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
 /* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(15);
 /* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16);
-/* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(49);
+/* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(50);
 /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(3);
 // Styles
 
@@ -870,7 +870,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(7).default
 module.exports.__inject__ = function (context) {
-  add("38cec627", content, true, context)
+  add("057e7819", content, true, context)
 };
 
 /***/ }),
@@ -1015,7 +1015,7 @@ var VDivider = __webpack_require__(166);
 var VSubheader = __webpack_require__(195);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
-var VListItem = __webpack_require__(42);
+var VListItem = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemAction.js
 var VListItemAction = __webpack_require__(70);
@@ -2129,9 +2129,9 @@ const baseMixins = Object(mixins["a" /* default */])(VTextField_VTextField["a" /
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6229c7f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(225);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6229c7f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6229c7f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6229c7f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6229c7f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2b84c396_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(225);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2b84c396_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2b84c396_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2b84c396_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2b84c396_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -2143,7 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".bottom[data-v-6229c7f6]{position:absolute;width:100%;bottom:0}.search_input[data-v-6229c7f6]{width:20vw}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".bottom[data-v-2b84c396]{position:absolute;width:100%;bottom:0}.search_input[data-v-2b84c396]{width:20vw}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2213,20 +2213,22 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/index.vue?vue&type=template&id=6229c7f6&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/index.vue?vue&type=template&id=2b84c396&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',{staticStyle:{"dispaly":"flex","flex-direction":"column","margin":"auto"}},[_c('v-container',{staticStyle:{"width":"80vw","height":"100vh"},attrs:{"fluid":""}},[_c('v-toolbar',{attrs:{"elevation":"0"}},[_c('v-toolbar-title',{staticClass:"text-center"},[_vm._v("filter")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-toolbar-items',[_c('v-container',[_c('v-row',[_c('v-col',{attrs:{"cols":"12","sm":"6"}},[_c('v-text-field',{staticClass:"search_input",attrs:{"dense":"","full-width":"","label":"유저(User)"},model:{value:(_vm.searchName),callback:function ($$v) {_vm.searchName=$$v},expression:"searchName"}})],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"6"}},[_c('v-select',{staticClass:"search_input",attrs:{"dense":"","full-width":"","clearable":"","label":"분야(Field)","items":_vm.ko_field},model:{value:(_vm.searchField),callback:function ($$v) {_vm.searchField=$$v},expression:"searchField"}})],1)],1)],1)],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"rounded":"","depressed":"","color":"success"},on:{"click":_vm.reload}},[_vm._v("Reload")])],1),_vm._v(" "),(_vm.list.length === 0)?_c('v-card',{staticClass:"d-flex align-center",staticStyle:{"height":"90%"}},[_c('v-card-text',{staticClass:"text-center"},[_vm._v("\n        의뢰 목록이 비어있습니다.\n      ")])],1):_c('v-row',{attrs:{"dense":""}},_vm._l((_vm.list),function(item){return _c('v-col',{key:item.id,attrs:{"cols":3}},[_c('v-card',{staticStyle:{"height":"55vh"},attrs:{"elevation":"10"}},[_c('v-card-title',{staticStyle:{"background":"#1a237e","color":"white"}},[_vm._v("\n            의뢰 "+_vm._s(item.id)+"\n            "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","dark":""},on:{"click":function () {
                   _vm.dialog = true;
                   _vm.file_id = item.id;
-                }}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-container',[_c('v-card',{attrs:{"flat":""}},[_c('v-card-subtitle',[_vm._v(" 의뢰분야 ")]),_vm._v(" "),_c('v-chip-group',{attrs:{"column":""}},_vm._l((item.Files),function(i){return _c('div',{key:i.id},[[(i.field != '')?_c('v-chip',[_vm._v(_vm._s(i.field))]):_vm._e()]],2)}),0)],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_c('v-card',{attrs:{"flat":""}},[_c('v-card-subtitle',[_vm._v("의뢰언어")]),_vm._v(" "),_vm._l((item.Files),function(i){return _c('div',{key:i.id,staticStyle:{"display":"flex"}},[(i.req_lang != '' || i.grant_lang != '')?[_c('v-chip',[_vm._v(_vm._s(i.req_lang))]),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-chip',[_vm._v(_vm._s(i.grant_lang))]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","href":(_vm.isDev ? 'http://localhost:3085' : 'http://api.dmtlabs.kr') +
+                }}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-container',[_c('v-card',{attrs:{"flat":""}},[_c('v-card-subtitle',[_vm._v(" 의뢰분야 ")]),_vm._v(" "),_c('v-chip-group',{attrs:{"column":""}},_vm._l((item.Files),function(i){return _c('div',{key:i.id},[[(i.field != '')?_c('v-chip',[_vm._v(_vm._s(i.field))]):_vm._e()]],2)}),0)],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_c('v-card',{attrs:{"flat":""}},[_c('v-card-subtitle',[_vm._v("의뢰언어")]),_vm._v(" "),_vm._l((item.Files),function(i){return _c('div',{key:i.id,staticStyle:{"display":"flex"}},[(i.req_lang != '' || i.grant_lang != '')?[_c('v-chip',[_vm._v(_vm._s(i.req_lang))]),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-chip',[_vm._v(_vm._s(i.grant_lang))]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","href":(_vm.isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
                       '/admin/file/download/' +
-                      i.src.substring(i.src.lastIndexOf('/') + 1),"download":""}},[_c('v-icon',[_vm._v("mdi-file")])],1)]:_vm._e()],2)})],2)],1),_vm._v(" "),_c('v-toolbar',{staticClass:"bottom",attrs:{"color":"grey lighten-1","flat":""}},[_c('v-toolbar-title',{domProps:{"textContent":_vm._s(item.name)}}),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"rounded":"","color":"blue-grey lighten-4"},on:{"click":function($event){return _vm.setinq(item)}}},[_vm._v(" 조회 ")])],1)],1)],1)}),1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("의뢰 취소")]),_vm._v(" "),_c('v-card-text',[_vm._v("[의뢰"+_vm._s(_vm.file_id)+"] 을(를) 취소하시겠습니까?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("취소")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":function($event){return _vm.cancelRequest(_vm.file_id)}}},[_vm._v("확인")])],1)],1)],1),_vm._v(" "),_c('v-dialog',{attrs:{"fullscreen":"","hide-overlay":"","transition":"dialog-bottom-transition"},model:{value:(_vm.show),callback:function ($$v) {_vm.show=$$v},expression:"show"}},[_c('v-card',{staticClass:"overflow-y-auto"},[_c('v-toolbar',{attrs:{"dark":"","color":"#013183"}},[_c('v-btn',{attrs:{"icon":"","dark":""},on:{"click":function($event){_vm.show = false;}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-toolbar-title',[_vm._v("\n            "+_vm._s(_vm.inquery.name)+" 님의 의뢰\n          ")])],1),_vm._v(" "),_vm._l((_vm.inquery.Files),function(item){return _c('v-card',{key:item.id},[_c('v-card-title',[_vm._v("\n            "+_vm._s(item.src.substring(item.src.lastIndexOf('/') + 1, item.src.length))+"\n          ")]),_vm._v(" "),_c('v-row',{staticClass:"text-center align-center",attrs:{"no-gutters":""}},[_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("분류")]),_vm._v(" "),_c('v-divider'),_vm._v("\n                "+_vm._s(item.field)+"\n              ")],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("요청 언어")]),_vm._v(" "),_c('v-divider'),_vm._v("\n                "+_vm._s(item.req_lang)+"\n              ")],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("번역 언어")]),_vm._v(" "),_c('v-divider'),_vm._v("\n                "+_vm._s(item.grant_lang)+"\n              ")],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"2"}},[_c('v-btn',{attrs:{"color":"orange","dark":"","depressed":"","rounded":"","block":""}},[_vm._v("\n                번역 준비중\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"1"}},[_c('v-icon',[_vm._v("\n                mdi-arrow-right-bold\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"2"}},[_c('v-btn',{attrs:{"color":"primary","dark":"","depressed":"","rounded":"","block":""}},[_vm._v("\n                번역 시작\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"1"}},[_c('v-icon',[_vm._v("\n                mdi-arrow-right-bold\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"2"}},[_c('v-btn',{attrs:{"color":"indigo","dark":"","depressed":"","rounded":"","block":""}},[_vm._v("\n                번역 검수중\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"1"}},[_c('v-icon',[_vm._v("\n                mdi-arrow-right-bold\n              ")])],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","sm":"2"}},[_c('v-btn',{attrs:{"color":"success","dark":"","depressed":"","rounded":"","block":""}},[_vm._v("\n                번역 완료\n              ")])],1),_vm._v(" "),_c('v-col',[_c('v-btn',{attrs:{"large":"","plain":""}},[_vm._v("\n                전송\n              ")])],1)],1)],1)})],2)],1)],1),_vm._v(" "),_c('snack-bar')],1)}
+                      i.src.substring(i.src.lastIndexOf('/') + 1),"download":""}},[_c('v-icon',[_vm._v("mdi-file-download")])],1)]:_vm._e()],2)})],2)],1),_vm._v(" "),_c('v-toolbar',{staticClass:"bottom",attrs:{"color":"grey lighten-1","flat":""}},[_c('v-toolbar-title',{domProps:{"textContent":_vm._s(item.name)}}),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"rounded":"","color":"blue-grey lighten-4"},on:{"click":function($event){return _vm.setinq(item)}}},[_vm._v(" 조회 ")])],1)],1)],1)}),1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("의뢰 취소")]),_vm._v(" "),_c('v-card-text',[_vm._v("[의뢰"+_vm._s(_vm.file_id)+"] 을(를) 취소하시겠습니까?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("취소")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":function($event){return _vm.cancelRequest(_vm.file_id)}}},[_vm._v("확인")])],1)],1)],1),_vm._v(" "),_c('v-dialog',{attrs:{"fullscreen":"","hide-overlay":"","transition":"dialog-bottom-transition"},model:{value:(_vm.show),callback:function ($$v) {_vm.show=$$v},expression:"show"}},[_c('v-card',[_c('v-toolbar',{attrs:{"dark":"","color":"#013183"}},[_c('v-btn',{attrs:{"icon":"","dark":""},on:{"click":function($event){_vm.show = false;}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-toolbar-title',[_vm._v("\n            "+_vm._s(_vm.inquery.name)+" 님의 의뢰\n          ")])],1),_vm._v(" "),_c('div',{staticClass:"overflow-y-auto"},_vm._l((_vm.inquery.Files),function(item){return _c('v-card',{key:item.id},[_c('v-card-title',[_vm._v("\n              "+_vm._s(item.src.substring(item.src.lastIndexOf('/') + 1))+"\n              "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","href":(_vm.isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                  '/admin/file/download/' +
+                  item.src.substring(item.src.lastIndexOf('/') + 1),"download":""}},[_c('v-icon',[_vm._v("mdi-file-download")])],1)],1),_vm._v(" "),_c('v-row',{staticClass:"text-center align-center",attrs:{"no-gutters":""}},[_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("분류")]),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_vm._v("\n                    "+_vm._s(item.field)+"\n                  ")])],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("요청 언어")]),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_vm._v("\n                    "+_vm._s(item.req_lang)+"\n                  ")])],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"4"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("번역 언어")]),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_vm._v("\n                    "+_vm._s(item.grant_lang)+"\n                  ")])],1)])],1)],1)}),1),_vm._v(" "),_c('v-row',{staticClass:"text-center align-center bottom",attrs:{"no-gutters":""}},[_c('v-col',{attrs:{"cols":"12","md":"12"}},[_c('div',{staticStyle:{"border":"1px solid black"}},[_c('h3',[_vm._v("현재 상태")]),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('v-container',[_c('v-btn',{attrs:{"color":_vm.stateColor(_vm.inquery.trans_state),"dark":"","rounded":"","readonly":"","depressed":""}},[_vm._v("\n                  "+_vm._s(_vm.inquery.trans_state)+"\n                  "),_c('v-icon',{attrs:{"right":""}},[_vm._v(_vm._s(_vm.stateIcon(_vm.inquery.trans_state)))])],1)],1)],1)]),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"3"}},[_c('v-container',[_c('v-btn',{attrs:{"color":_vm.stateColor('번역 준비중'),"disabled":_vm.inquery.trans_state === '번역 준비중',"dark":_vm.inquery.trans_state != '번역 준비중',"rounded":"","block":""},on:{"click":function($event){return _vm.setState('번역 준비중')}}},[_vm._v("\n                번역 준비중\n                "),_c('v-icon',{attrs:{"right":""}},[_vm._v(_vm._s(_vm.stateIcon('번역 준비중')))])],1)],1)],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"3"}},[_c('v-container',[_c('v-btn',{attrs:{"color":_vm.stateColor('번역 시작'),"disabled":_vm.inquery.trans_state === '번역 시작',"dark":_vm.inquery.trans_state != '번역 시작',"rounded":"","block":""},on:{"click":function($event){return _vm.setState('번역 시작')}}},[_vm._v("\n                번역 시작\n                "),_c('v-icon',{attrs:{"right":""}},[_vm._v(_vm._s(_vm.stateIcon('번역 시작')))])],1)],1)],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"3"}},[_c('v-container',[_c('v-btn',{attrs:{"color":_vm.stateColor('번역 검수중'),"disabled":_vm.inquery.trans_state === '번역 검수중',"dark":_vm.inquery.trans_state != '번역 검수중',"rounded":"","block":""},on:{"click":function($event){return _vm.setState('번역 검수중')}}},[_vm._v("\n                번역 검수중\n                "),_c('v-icon',{attrs:{"right":""}},[_vm._v(_vm._s(_vm.stateIcon('번역 검수중')))])],1)],1)],1),_vm._v(" "),_c('v-col',{attrs:{"cols":"12","md":"3"}},[_c('v-container',[_c('v-btn',{attrs:{"color":_vm.stateColor('번역 완료'),"disabled":_vm.inquery.trans_state === '번역 완료',"dark":_vm.inquery.trans_state != '번역 완료',"rounded":"","block":""},on:{"click":function($event){return _vm.setState('번역 완료')}}},[_vm._v("\n                번역 완료\n                "),_c('v-icon',{attrs:{"right":""}},[_vm._v(_vm._s(_vm.stateIcon('번역 완료')))])],1)],1)],1)],1)],1)],1)],1),_vm._v(" "),_c('snack-bar')],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/admin/index.vue?vue&type=template&id=6229c7f6&scoped=true&
+// CONCATENATED MODULE: ./pages/admin/index.vue?vue&type=template&id=2b84c396&scoped=true&
 
 // EXTERNAL MODULE: external "lodash"
-var external_lodash_ = __webpack_require__(53);
+var external_lodash_ = __webpack_require__(41);
 var external_lodash_default = /*#__PURE__*/__webpack_require__.n(external_lodash_);
 
 // EXTERNAL MODULE: ./components/SnackBar.vue + 4 modules
@@ -2250,7 +2252,8 @@ var SnackBar = __webpack_require__(25);
       inquery: '',
       searchName: '',
       searchField: '',
-      list: []
+      list: [],
+      stateSelect: ''
     };
   },
 
@@ -2288,8 +2291,7 @@ var SnackBar = __webpack_require__(25);
   },
   methods: {
     reload() {
-      this.$store.dispatch('admin/loadReq');
-      console.log('Reload');
+      this.$store.dispatch('admin/reloadReq');
     },
 
     cancelRequest(id) {
@@ -2300,6 +2302,30 @@ var SnackBar = __webpack_require__(25);
     setinq(item) {
       this.show = true;
       this.inquery = item;
+    },
+
+    async setState(st) {
+      try {
+        await this.$store.dispatch('admin/setState', {
+          request: this.inquery,
+          state: st
+        });
+        this.list = this.$store.state.admin.allRequest;
+        this.inquery = this.list.find(item => item.id === this.inquery.id); // this.inquery를 바뀐걸로 해줘야 함.
+
+        this.$manage.showMessage({
+          message: `번역 상태 [ ${st} ]로 변경`,
+          color: 'success'
+        });
+      } catch (err) {}
+    },
+
+    stateIcon(state) {
+      if (state === '번역 준비중') return "mdi-briefcase-clock";else if (state === '번역 시작') return "mdi-briefcase-edit";else if (state === '번역 검수중') return "mdi-briefcase-search";else if (state === '번역 완료') return "mdi-briefcase-check";else return "mdi-briefcase-off";
+    },
+
+    stateColor(state) {
+      if (state === '번역 준비중') return "orange";else if (state === '번역 시작') return "primary";else if (state === '번역 검수중') return "indigo";else if (state === '번역 완료') return "success";else return "grey";
     }
 
   }
@@ -2338,7 +2364,7 @@ var VIcon = __webpack_require__(22);
 var transitions = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VItemGroup/VItemGroup.js
-var VItemGroup = __webpack_require__(50);
+var VItemGroup = __webpack_require__(51);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/mobile/index.js
 var mobile = __webpack_require__(64);
@@ -2903,7 +2929,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "6229c7f6",
+  "2b84c396",
   "2900c40d"
   
 )

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <!--버튼 레이아웃-->
-    <v-layout style="display: flex; height: 6vh">
+    <v-layout style="display: flex; height: 6vh;">
       <v-btn-toggle v-model="toggle" tile mandatory>
         <v-btn style="display: flex; align-content: center; justify-content: space-around">
           <div style="display: flex; align-content: center; justify-content: center">
@@ -35,8 +35,8 @@
     </v-layout>
 
     <!--언어 번역 레이아웃-->
-    <v-layout v-if="toggle === 0" style="display: flex; height: 50vh" align-center justify-space-around>
-      <div style="width: 40vw">
+    <v-layout v-if="toggle === 0" style="display: flex; height: 50vh;">
+      <v-container style="width: 40vw">
         <client-only>
           <v-select
             class="selector"
@@ -72,8 +72,8 @@
           background-color="grey lighten-2"
           style="z-index: 0"
         />
-      </div>
-      <div style="width: 40vw">
+      </v-container>
+      <v-container style="width: 40vw">
         <client-only>
           <v-select
             class="selector"
@@ -109,7 +109,7 @@
           background-color="grey lighten-2"
           style="z-index: 0"
         />
-      </div>
+      </v-container>
     </v-layout>
 
     <!--파일 번역 레이아웃-->
@@ -156,7 +156,7 @@
       <v-carousel cycle interval="3000" height="40vh" hide-delimiter-background hide-delimiters :show-arrows="false">
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
           <v-sheet :color="colors[i]" height="100%">
-            <v-layout class="fill-height" align-center justify-center>
+            <!--v-layout class="fill-height" align-center justify-center>
               <v-icon class="text-h1">mdi-account-box</v-icon>
               <div v-if="language === '한국어'" class="text-h4">
                 번역자 : {{ slide }}<br />
@@ -168,6 +168,10 @@
                 The number of translations : {{ i + (i + 1) * 20 }}<br />
                 Translation field : {{ fields[i] }}
               </div>
+            </v-layout-->
+            <v-layout class="recruit fill-height text-center" align-center justify-center>
+              번역자 공고<br />
+              공고 기간은 추후 공지
             </v-layout>
           </v-sheet>
         </v-carousel-item>
@@ -177,11 +181,21 @@
 </template>
 
 <style scoped>
+@font-face {
+    font-family: 'MinSans-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .selector {
   width: 20vw;
 }
 .file_upload >>> input {
   text-align: center;
+}
+.recruit {
+  font-family: 'MinSans-Medium', sans-serif !important;
+  font-size: 48px;
 }
 </style>
 
@@ -192,7 +206,7 @@ export default {
   layout: 'textLayout',
   data() {
       return {
-          colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
+          colors: ['indigo lighten-4', 'amber lighten-2', 'pink lighten-4', 'red lighten-3', 'deep-purple lighten-3'],
           slides: ['김민수', '이민지', '김철수', '홍길동', '제임스'],
           fields: ['경제', '정보통신', '언어', '과학', '자동차'],
           toggle: 0,
@@ -220,6 +234,8 @@ export default {
     language: function(lang) {
       this.from_lang = lang === '한국어' ? '한국어' : 'Korean';
       this.to_lang = lang === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+      this.from_file_lang = this.language === '한국어' ? '한국어' : 'Korean';
+      this.to_file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
     },
     from_lang: _.debounce(function(from) {
       this.from_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(from)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(from)];

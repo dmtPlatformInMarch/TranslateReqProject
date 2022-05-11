@@ -25,9 +25,9 @@
       </div>
       <v-spacer />
       <template v-slot:actions>
-        <v-chip color="orange darken-2">
+        <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
-          <v-icon right>mdi-briefcase-clock</v-icon>
+          <v-icon right color="white"> {{ stateIcon(p.trans_state) }} </v-icon>
         </v-chip>
       </template>
     </v-expansion-panel-header>
@@ -92,9 +92,9 @@
       </div>
       <v-spacer />
       <template v-slot:actions>
-        <v-chip color="orange darken-2">
+        <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
-          <v-icon right>mdi-briefcase-clock</v-icon>
+          <v-icon right color="white"> {{ "stateIcon(p.trans_state)" }} </v-icon>
         </v-chip>
       </template>
     </v-expansion-panel-header>
@@ -224,6 +224,20 @@ export default {
         this.dialog = false;
       } catch (err) {}
     },
+    stateIcon(state) {
+      if (state === '번역 준비중') return "mdi-briefcase-clock";
+      else if (state === '번역 시작') return "mdi-briefcase-edit";
+      else if (state === '번역 검수중') return "mdi-briefcase-search";
+      else if (state === '번역 완료') return "mdi-briefcase-check";
+      else return "mdi-briefcase-off";
+    },
+    stateColor(state) {
+      if (state === '번역 준비중') return "orange";
+      else if (state === '번역 시작') return "primary";
+      else if (state === '번역 검수중') return "indigo";
+      else if (state === '번역 완료') return "success";
+      else return "grey";
+    }
   },
 };
 </script>
