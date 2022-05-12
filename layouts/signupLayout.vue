@@ -46,7 +46,7 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
-  name: 'signupLayout',
+  name: 'SignupLayout',
   components: {
       SnackBar,
       BottomComponent,

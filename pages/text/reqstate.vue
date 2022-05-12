@@ -20,7 +20,7 @@
             <v-list-item-title> 번역을 요청하신 의뢰가 없습니다. </v-list-item-title>
           </v-list-item>
 
-          <v-expansion-panels flat accordion focusable v-else>
+          <v-expansion-panels v-else flat accordion focusable>
             <client-only>
               <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
@@ -79,7 +79,7 @@
           <v-list-item v-if="mainRequest.length == 0">
             <v-list-item-title> There is no request for translation. </v-list-item-title>
           </v-list-item>
-          <v-expansion-panels flat accordion focusable v-else>
+          <v-expansion-panels v-else flat accordion focusable>
             <client-only>
               <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
@@ -132,7 +132,7 @@ import transDashBoard from '~/components/TransDashBoard';
 import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
-  layout: 'textLayout',
+  layout: 'TextLayout',
   components: {
       transDashBoard,
       transHistoryBoard,

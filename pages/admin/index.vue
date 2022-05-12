@@ -11,10 +11,10 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6">
-                <v-text-field class="search_input" dense full-width label="유저(User)" v-model="searchName" />
+                <v-text-field v-model="searchName" class="search_input" dense full-width label="유저(User)" />
               </v-col>
               <v-col cols="12" sm="6">
-                <v-select class="search_input" dense full-width clearable label="분야(Field)" v-model="searchField" :items="ko_field" />
+                <v-select v-model="searchField" class="search_input" :items="ko_field" dense full-width clearable label="분야(Field)" />
               </v-col>
             </v-row>
           </v-container>
@@ -55,9 +55,7 @@
                 <v-card-subtitle> 의뢰분야 </v-card-subtitle>
                 <v-chip-group column>
                   <div v-for="i in item.Files" :key="i.id">
-                    <template>
-                      <v-chip v-if="i.field != ''">{{ i.field }}</v-chip>
-                    </template>
+                    <v-chip v-if="i.field != ''">{{ i.field }}</v-chip>
                   </div>
                 </v-chip-group>
               </v-card>
@@ -110,9 +108,9 @@
       </v-dialog>
 
       <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <v-card >
+        <v-card>
           <v-toolbar dark color="#013183">
-            <v-btn icon dark @click="show = false;">
+            <v-btn icon dark @click="show = false">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>
@@ -222,7 +220,6 @@
           </v-row>
         </v-card>
       </v-dialog>
-
     </v-container>
     <snack-bar />
   </v-container>
@@ -244,7 +241,7 @@ import _ from 'lodash';
 import SnackBar from '~/components/SnackBar';
 
 export default {
-    layout: 'adminLayout',
+    layout: 'AdminLayout',
     components: {
       SnackBar,
     },
@@ -267,6 +264,11 @@ export default {
     mounted() {
       this.list = this.$store.state.admin.allRequest;
     },
+    computed: {
+      ko_field() {
+        return this.$FIELDS_KO;
+      }
+    },
     watch: {
       searchName: _.debounce(function (name) {
         if (name) {
@@ -286,11 +288,6 @@ export default {
           else this.list = this.$store.state.admin.allRequest;
         }
       }, 500),
-    },
-    computed: {
-      ko_field() {
-        return this.$FIELDS_KO;
-      }
     },
     methods: {
       reload() {

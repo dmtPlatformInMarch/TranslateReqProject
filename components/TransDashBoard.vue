@@ -24,7 +24,7 @@
         {{ p.date }}
       </div>
       <v-spacer />
-      <template v-slot:actions>
+      <template #actions>
         <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
           <v-icon right color="white"> {{ stateIcon(p.trans_state) }} </v-icon>
@@ -82,8 +82,9 @@
               <v-btn text @click="dialog = false">No</v-btn>
               <v-btn color="success" text @click="cancelRequest">Yes</v-btn>
             </v-card-actions>
-          </v-card> </v-dialog
-        >의뢰ID : {{ p.id }}
+          </v-card> 
+          </v-dialog>
+          의뢰ID : {{ p.id }}
       </div>
       <v-spacer />
       <div>
@@ -91,7 +92,7 @@
         {{ p.date }}
       </div>
       <v-spacer />
-      <template v-slot:actions>
+      <template #actions>
         <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
           <v-icon right color="white"> {{ "stateIcon(p.trans_state)" }} </v-icon>

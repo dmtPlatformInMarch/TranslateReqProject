@@ -7,7 +7,7 @@
     color="#013183"
     dark
   >
-    <div class="text-center text-caption" v-if="language === '한국어'">
+    <div v-if="language === '한국어'" class="text-center text-caption">
       © (주)디엠티랩스 <br />
       고객센터 : help@dmtlabs.co.kr | 02-794-5333 <br />
       주소 : (04386) 서울특별시 용산구 한강대로40길 18, 404호 (한강로2가 144-2 다이빌딩) <br />
@@ -19,7 +19,7 @@
       </v-breadcrumbs>
     </div>
 
-    <div class="text-center text-caption" v-else-if="language === '영어'">
+    <div v-else-if="language === '영어'" class="text-center text-caption">
       © DMTLABS Co., Ltd.<br />
       Customer Service : help@dmtlabs.co.kr | 02-794-5333 <br />
       Address : (04386) Room 404, Hangang-daero 40-gil 18, Yongsan-gu, Seoul, Republic of Korea

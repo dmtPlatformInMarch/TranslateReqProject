@@ -163,7 +163,7 @@ import SnackBar from "~/components/SnackBar";
 import BottomComponent from "~/components/BottomComponent";
 
 export default {
-  name: "default",
+  name: "Default",
   components: { SnackBar, BottomComponent },
   data() {
     return {

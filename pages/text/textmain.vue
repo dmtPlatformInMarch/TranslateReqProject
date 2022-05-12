@@ -39,8 +39,8 @@
       <v-container style="width: 40vw">
         <client-only>
           <v-select
-            class="selector"
             v-model="from_lang"
+            class="selector"
             dense
             :items="language === '한국어' ? languages : e_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -76,8 +76,8 @@
       <v-container style="width: 40vw">
         <client-only>
           <v-select
-            class="selector"
             v-model="to_lang"
+            class="selector"
             dense
             :items="language === '한국어' ? languages : e_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -116,8 +116,8 @@
     <v-layout v-else style="height: 50vh" align-center justify-space-around>
       <div class="text-center" align-center justify-center style="margin: 10vw">
         <v-select
-            class="selector"
             v-model="from_file_lang"
+            class="selector"
             dense
             :items="language === '한국어' ? languages : e_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -131,8 +131,8 @@
         </div>
       <div style="width: 60vw">
         <v-select
-            class="selector"
             v-model="to_file_lang"
+            class="selector"
             dense
             :items="language === '한국어' ? languages : e_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
@@ -203,7 +203,7 @@
 import _ from 'lodash';
 
 export default {
-  layout: 'textLayout',
+  layout: 'TextLayout',
   data() {
       return {
           colors: ['indigo lighten-4', 'amber lighten-2', 'pink lighten-4', 'red lighten-3', 'deep-purple lighten-3'],
@@ -229,6 +229,20 @@ export default {
     this.to_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
     this.from_file_lang = this.language === '한국어' ? '한국어' : 'Korean';
     this.to_file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+  },
+  computed: {
+    language() {
+      return this.$store.state.manager.language;
+    },
+    languages() {
+      return this.$LANGUAGES_KO;
+    },
+    e_languages() {
+      return this.$LANGUAGES_EN;
+    },
+    to_text() {
+      return this.$store.state.manager.translateText;
+    }
   },
   watch: {
     language: function(lang) {
@@ -256,20 +270,6 @@ export default {
     from_text: _.debounce(function(text) {
       this.translate();
     }, 500)
-  },
-  computed: {
-    language() {
-      return this.$store.state.manager.language;
-    },
-    languages() {
-      return this.$LANGUAGES_KO;
-    },
-    e_languages() {
-      return this.$LANGUAGES_EN;
-    },
-    to_text() {
-      return this.$store.state.manager.translateText;
-    }
   },
   methods: {
     async translate() {

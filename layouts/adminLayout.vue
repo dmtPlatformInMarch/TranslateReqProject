@@ -55,18 +55,21 @@
 </style>
 
 <script lang="js">
-import LoginForm from '~/components/LoginForm'
 import SnackBar from '~/components/SnackBar'
 
 export default {
-  name: 'adminLayout',
+  name: 'AdminLayout',
   components: {
-      LoginForm,
       SnackBar,
   },
   data: () => ({
     loginMenu: false,
   }),
+  computed: {
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
+  },
   beforeCreate() {
     const check = this.$store.state.users.loginState;
     if(check === null) {
@@ -76,11 +79,6 @@ export default {
         this.$router.push('/');
       }
     }
-  },
-  computed: {
-    loginState() {
-        return this.$store.state.users.loginState;
-    },
   },
   methods: {
       onLogout() {

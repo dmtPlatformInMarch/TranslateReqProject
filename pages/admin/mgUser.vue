@@ -44,7 +44,7 @@
 
 <script lang="js">
 export default {
-    layout: 'adminLayout',
+    layout: 'AdminLayout',
     data() {
       return {
         dialog: false,

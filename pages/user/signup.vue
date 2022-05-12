@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  layout: "signupLayout",
+  layout: "SignupLayout",
   head() {
     return {
       title: "회원가입",

@@ -2,7 +2,7 @@
   <v-container>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle class="toggle_group" v-model="sels" mandatory ref="toggle" color="primary" style="width: 100%" @change="loginCheck" >
+      <v-btn-toggle ref="toggle" v-model="sels" class="toggle_group" mandatory color="primary" style="width: 100%" @change="loginCheck">
         <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
@@ -13,7 +13,7 @@
     </v-col>
 
     <!--견적 페이지-->
-    <v-card outlined elevation="10" v-if="sels === 0">
+    <v-card v-if="sels === 0" outlined elevation="10">
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
         <v-row>
@@ -142,7 +142,7 @@
       <!--전체 가격 필드-->
       <v-card>
         <v-card-title class="text-h4">
-          <v-btn icon v-model="dollar" @click="dollar = !dollar">
+          <v-btn v-model="dollar" icon @click="dollar = !dollar">
             <v-icon v-if="dollar">mdi-currency-usd</v-icon>
             <v-icon v-else>mdi-currency-krw</v-icon>
           </v-btn>
@@ -175,7 +175,7 @@
     </v-card>
 
     <!--의뢰 페이지-->
-    <v-card outlined elevation="10" v-else-if="sels === 1">
+    <v-card v-else-if="sels === 1" outlined elevation="10">
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
         <v-form ref="form" v-model="valid" @submit.prevent>
@@ -261,8 +261,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[0]"
                   ref="file0"
+                  v-model="file[0]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -308,8 +308,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[1]"
                   ref="file1"
+                  v-model.lazy="file[1]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -354,8 +354,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[2]"
                   ref="file2"
+                  v-model.lazy="file[2]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -400,8 +400,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[3]"
                   ref="file3"
+                  v-model.lazy="file[3]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -446,8 +446,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[4]"
                   ref="file4"
+                  v-model.lazy="file[4]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -489,7 +489,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">취소</v-btn>
-                  <v-btn color="success" text @click="onSubmitForm" type="submit">확인</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">확인</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -795,7 +795,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">Cancel</v-btn>
-                  <v-btn color="success" text @click="onSubmitForm" type="submit">OK</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">OK</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -834,7 +834,7 @@ import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
-  layout: 'textLayout',
+  layout: 'TextLayout',
   data: () => ({
     hideDetails: true,
     valid: false,
@@ -864,6 +864,9 @@ export default {
     wordCount: '',
     acceptFiles: '.txt,.pdf,.docx',
   }),
+  asyncData({ store }) {
+    store.commit('requests/setExcost', 0);
+  },
   computed: {
     ...mapState('requests', ['imagePaths']),
     loginState() {
@@ -931,9 +934,6 @@ export default {
       },
       deep: true,
     },
-  },
-  asyncData({ store }) {
-    store.commit('requests/setExcost', 0);
   },
   methods: {
     pdfTest: function() {

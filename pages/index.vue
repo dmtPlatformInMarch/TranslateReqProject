@@ -6,10 +6,10 @@
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-thin mb-4">DMTLABS</h1>
-            <h4 class="subheading" v-if="language === '한국어'">
+            <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS는 다국적 번역 서비스를 제공합니다.
             </h4>
-            <h4 class="subheading" v-else-if="language === '영어'">
+            <h4 v-else-if="language === '영어'" class="subheading">
               DMTLABS provides multinational translation services.
             </h4>
           </v-col>
@@ -20,10 +20,10 @@
     <!--서비스 소개-->
     <v-container class="text-center">
       <v-container>
-        <div class="text-h2 font-weight-bold" v-if="language === '한국어'">
+        <div v-if="language === '한국어'" class="text-h2 font-weight-bold">
           서비스
         </div>
-        <div class="text-h2 font-weight-bold" v-if="language === '영어'">
+        <div v-else-if="language === '영어'" class="text-h2 font-weight-bold">
           Service
         </div>
       </v-container>
@@ -35,10 +35,7 @@
               <v-avatar class="ma-3" size="250" tile>
                 <v-img :src="textimg" />
               </v-avatar>
-              <div
-                class="d-flex flex-column text-left"
-                v-if="language === '한국어'"
-              >
+              <div v-if="language === '한국어'" class="d-flex flex-column text-left">
                 <v-card-title class="text-h4 font-weight-bold">
                   텍스트 번역
                 </v-card-title>
@@ -47,10 +44,7 @@
                   경험해보세요.
                 </v-card-text>
               </div>
-              <div
-                class="d-flex flex-column text-left"
-                v-else-if="language === '영어'"
-              >
+              <div v-else-if="language === '영어'" class="d-flex flex-column text-left">
                 <v-card-title class="text-h4 font-weight-bold">
                   Text Translation
                 </v-card-title>
@@ -67,10 +61,7 @@
         <v-col cols="6">
           <v-card color="blue-grey lighten-4">
             <div class="d-flex flex-no-wrap align-center justify-end">
-              <div
-                class="d-flex flex-column text-right"
-                v-if="language === '한국어'"
-              >
+              <div v-if="language === '한국어'" class="d-flex flex-column text-right">
                 <v-card-title class="text-h4 font-weight-bold">
                   <v-spacer />영상 번역
                 </v-card-title>
@@ -79,10 +70,7 @@
                   경험해보세요.
                 </v-card-text>
               </div>
-              <div
-                class="d-flex flex-column text-right"
-                v-else-if="language === '영어'"
-              >
+              <div v-else-if="language === '영어'" class="d-flex flex-column text-right">
                 <v-card-title class="text-h4 font-weight-bold">
                   <v-spacer />Video Translation
                 </v-card-title>
@@ -105,10 +93,7 @@
               <v-avatar class="ma-3" size="250" tile>
                 <v-img :src="voiceimg" />
               </v-avatar>
-              <div
-                class="d-flex flex-column text-left"
-                v-if="language === '한국어'"
-              >
+              <div v-if="language === '한국어'" class="d-flex flex-column text-left">
                 <v-card-title class="text-h4 font-weight-bold">
                   음성 번역
                 </v-card-title>
@@ -116,10 +101,7 @@
                   DMTLABS에서 제공하는 다국적 음성 더빙 서비스를 경험해보세요.
                 </v-card-text>
               </div>
-              <div
-                class="d-flex flex-column text-left"
-                v-else-if="language === '영어'"
-              >
+              <div v-else-if="language === '영어'" class="d-flex flex-column text-left">
                 <v-card-title class="text-h4 font-weight-bold">
                   Speech Translation
                 </v-card-title>
@@ -136,10 +118,7 @@
     </v-container>
 
     <!--기타 설명-->
-    <!--div
-      class="text-center"
-      style="background: purple; width: 100%; height: 50vh"
-    >
+    <!--div class="text-center" style="background: purple; width: 100%; height: 50vh">
       기타 컨테이너
     </div-->
   </div>
@@ -150,7 +129,7 @@
 
 <script>
 export default {
-  layout: "default",
+  layout: "Default",
   data() {
     return {
       mainimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/mainImg1.jpg',// || require("~/static/mainImg1.jpg"),

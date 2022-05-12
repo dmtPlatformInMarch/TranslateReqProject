@@ -2,7 +2,7 @@
   <v-snackbar v-model="act" :color="color" :timeout="time">
     {{ message }}
     <v-spacer />
-    <template v-slot:action="{ attrs }">
+    <template #action="{ attrs }">
       <v-btn text v-bind="attrs" @click="act = false">닫기</v-btn>
     </template>
   </v-snackbar>

@@ -6,10 +6,10 @@
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
-            <h4 class="subheading" v-if="language === '한국어'">
+            <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS의 음성 번역 시스템
             </h4>
-            <h4 class="subheading" v-else-if="language === '영어'">
+            <h4 v-else-if="language === '영어'" class="subheading">
               DMTLABS Voice Translation System
             </h4>
           </v-col>
@@ -17,7 +17,7 @@
       </v-parallax>
     </div>
 
-    <v-container v-if="this.language === '한국어'" class="body">
+    <v-container v-if="language === '한국어'" class="body">
       <v-card-title class="font-weight-bold"> 디엠티랩스의 음성 번역 시스템 </v-card-title>
       <v-card-text>
         DMTLABS의 음성 번역 시스템은 영상에서 추출한 음성을 텍스트로 변환하여<br />
@@ -28,7 +28,7 @@
       </v-card-text>
     </v-container>
 
-    <v-container v-else-if="this.language === '영어'" class="body">
+    <v-container v-else-if="language === '영어'" class="body">
       <v-card-title class="font-weight-bold"> DMTLABS's Voice Translation System </v-card-title>
       <v-card-text>
         DMTLABS' voice translation system converts the voice extracted from the video into text and provides <br />

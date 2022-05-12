@@ -18,6 +18,23 @@
         "vue/singleline-html-element-content-newline": "off",
         "vue/html-indent": "off",
         "vue/multi-word-component-names": "off",
-        "vue/component-tags-order": "off"
+        "vue/component-tags-order": "off",
+        "vue/html-self-closing": "off",
+        "vue/order-in-components": ["warn", {
+                "order": [
+                    "layout",
+                    "name",
+                    "components",
+                    "head",
+                    "props",
+                    "data",
+                    ["fetch", "asyncData"],
+                    ["created", "beforecreated", "mounted", "beforemounted", "updated"],
+                    "computed",
+                    "watch",
+                    "method"
+                ]
+            }
+        ]
     }
 }

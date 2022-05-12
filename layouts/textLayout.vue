@@ -32,14 +32,13 @@
           </v-list>
         </v-menu>
         
-        <v-menu v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200" v-if="!loginState">
+        <v-menu v-if="!loginState" v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200">
           <template #activator="{ on, attrs }">
             <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on">로그인</v-btn>
             <v-btn v-else-if="language === '영어'" text class="text-center" v-bind="attrs" v-on="on">Login</v-btn>
           </template>
           <login-form @update="update" />
         </v-menu>
-        
       </v-toolbar-items>
     </v-toolbar>
     
@@ -62,8 +61,8 @@
               <v-list-item-title v-else-if="language === '영어'" class="text-h6">Hello, <br />{{ loginState.nickname }}</v-list-item-title>
               <v-list-item-subtitle v-if="language === '한국어'">번역 의뢰 : N건</v-list-item-subtitle>
               <v-list-item-subtitle v-else-if="language === '영어'">Your Request : N cases</v-list-item-subtitle>
-              <v-btn depressed color="#06d183" @click="onLogout" v-if="language === '한국어'">로그아웃</v-btn>
-              <v-btn depressed color="#06d183" @click="onLogout" v-else-if="language === '영어'">Logout</v-btn>
+              <v-btn v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
+              <v-btn v-else-if="language === '영어'" depressed color="#06d183" @click="onLogout">Logout</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -101,7 +100,7 @@ import SnackBar from '~/components/SnackBar'
 import BottomComponent from '~/components/BottomComponent'
 
 export default {
-  name: 'textLayout',
+  name: 'TextLayout',
   components: {
       LoginForm,
       SnackBar,

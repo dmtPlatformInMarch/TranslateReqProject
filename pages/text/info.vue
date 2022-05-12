@@ -2,14 +2,14 @@
   <v-container class="full-height">
     <!--메인 헤드라인-->
     <div>
-      <v-parallax :src="mainimg"  height="300">
+      <v-parallax :src="mainimg" height="300">
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
-            <h4 class="subheading" v-if="language === '한국어'">
+            <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS의 텍스트 번역 시스템
             </h4>
-            <h4 class="subheading" v-else-if="language === '영어'">
+            <h4 v-else-if="language === '영어'" class="subheading">
               DMTLABS Text Translation System
             </h4>
           </v-col>
@@ -17,7 +17,7 @@
       </v-parallax>
     </div>
 
-    <v-container v-if="this.language === '한국어'" class="body">
+    <v-container v-if="language === '한국어'" class="body">
       <v-card-title class="font-weight-bold"> 디엠티랩스의 텍스트 번역 시스템 </v-card-title>
       <v-card-text>
         DMTLABS에서는 언어와 데이터를 수집하여 구축한 다국어 번역 시스템을 통해 <br />
@@ -41,7 +41,7 @@
       </v-card-text>
     </v-container>
 
-    <v-container v-else-if="this.language === '영어'" class="body">
+    <v-container v-else-if="language === '영어'" class="body">
       <v-card-title class="font-weight-bold"> DMTLABS's Text Translation System </v-card-title>
       <v-card-text>
         DMTLABS operates a translation and translation request service for documents <br />
@@ -65,7 +65,6 @@
         but also the process of translating text in image.<br /><br />
       </v-card-text>
     </v-container>
-
   </v-container>
 </template>
 
