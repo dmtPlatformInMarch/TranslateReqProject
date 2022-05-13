@@ -5,7 +5,7 @@
       <v-toolbar-title>
         <nuxt-link to="/">
           <v-avatar height="80px" width="200px" tile>
-            <img src="https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png" />
+            <img :src="logo" />
           </v-avatar>
         </nuxt-link>
       </v-toolbar-title>
@@ -167,7 +167,7 @@ export default {
   components: { SnackBar, BottomComponent },
   data() {
     return {
-
+      logo:     'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png',
     };
   },
   mounted() {
