@@ -1,13 +1,13 @@
 exports.ids = [11];
 exports.modules = {
 
-/***/ 183:
+/***/ 182:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(185);
+var content = __webpack_require__(184);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -15,7 +15,7 @@ __webpack_require__(7).default("b9f570ac", content, true)
 
 /***/ }),
 
-/***/ 184:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80,7 +80,7 @@ function VGrid(name) {
 
 /***/ }),
 
-/***/ 185:
+/***/ 184:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -94,15 +94,15 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 186:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(91);
 /* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(183);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(182);
 /* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(184);
+/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(183);
 /* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(27);
 
 
@@ -171,13 +171,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 275:
+/***/ 273:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(276);
+var content = __webpack_require__(274);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -185,7 +185,7 @@ __webpack_require__(7).default("12a190a6", content, true)
 
 /***/ }),
 
-/***/ 276:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -199,13 +199,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 277:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(278);
+var content = __webpack_require__(276);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -213,7 +213,7 @@ __webpack_require__(7).default("2e2bc7da", content, true)
 
 /***/ }),
 
-/***/ 278:
+/***/ 276:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -227,19 +227,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 289:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=template&id=589366a0&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=template&id=a17ce300&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.language === '한국어')?_c('v-container',[_c('v-card',[_c('v-container',[_c('v-form',{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c('v-text-field',{attrs:{"label":"이름","type":"text","rules":_vm.nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"이메일","type":"email","rules":_vm.emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"사용할 비밀번호","type":"password","rules":_vm.passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"비밀번호 확인","type":"password","rules":_vm.passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c('v-checkbox',{attrs:{"required":"","label":"가입 약관","rules":[function (v) { return !!v || '약관 동의는 필수입니다.'; }]},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c('v-btn',{attrs:{"type":"submit","color":"success"}},[_vm._v("가입하기")]),_vm._v(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',{staticClass:"text-h5"},[_vm._v("회원가입 오류")]),_vm._v(" "),_c('v-card-text',[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("닫기")])],1)],1)],1)],1)],1)],1)],1):(_vm.language === '영어')?_c('v-container',[_c('v-card',[_c('v-container',[_c('v-form',{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c('v-text-field',{attrs:{"label":"Name","type":"text","rules":_vm.e_nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"E-mail","type":"email","rules":_vm.e_emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"Password","type":"password","rules":_vm.e_passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c('v-text-field',{attrs:{"label":"Password Check","type":"password","rules":_vm.e_passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c('v-checkbox',{attrs:{"required":"","label":"Subscription Terms ","rules":[function (v) { return !!v || 'It is essential to agree to the terms and conditions.'; }]},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c('v-btn',{attrs:{"type":"submit","color":"success"}},[_vm._v("SignUp")]),_vm._v(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',{staticClass:"text-h5"},[_vm._v("SignUp Error")]),_vm._v(" "),_c('v-card-text',[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("Close")])],1)],1)],1)],1)],1)],1)],1):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/user/signup.vue?vue&type=template&id=589366a0&scoped=true&
+// CONCATENATED MODULE: ./pages/user/signup.vue?vue&type=template&id=a17ce300&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=script&lang=js&
 //
@@ -305,7 +305,7 @@ var staticRenderFns = []
 //
 //
 /* harmony default export */ var signupvue_type_script_lang_js_ = ({
-  layout: "signupLayout",
+  layout: "SignupLayout",
 
   head() {
     return {
@@ -380,16 +380,16 @@ var installComponents_default = /*#__PURE__*/__webpack_require__.n(installCompon
 var VBtn = __webpack_require__(172);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(68);
+var VCard = __webpack_require__(75);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/index.js
 var components_VCard = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCheckbox/VCheckbox.sass
-var VCheckbox = __webpack_require__(275);
+var VCheckbox = __webpack_require__(273);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/styles/components/_selection-controls.sass
-var _selection_controls = __webpack_require__(277);
+var _selection_controls = __webpack_require__(275);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(22);
@@ -714,16 +714,16 @@ function prevent(e) {
   }
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
-var VContainer = __webpack_require__(186);
+var VContainer = __webpack_require__(185);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js
-var VDialog = __webpack_require__(182);
+var VDialog = __webpack_require__(180);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
-var VForm = __webpack_require__(179);
+var VForm = __webpack_require__(181);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(181);
+var VSpacer = __webpack_require__(179);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
 var VTextField = __webpack_require__(167);
@@ -745,7 +745,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "589366a0",
+  "a17ce300",
   "0a81fa51"
   
 )
