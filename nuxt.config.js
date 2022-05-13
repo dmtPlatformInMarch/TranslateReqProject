@@ -53,6 +53,7 @@ module.exports = {
     },
     modules: [
         '@nuxtjs/axios',
+        '@nuxtjs/style-resources',
     ],
     moduleContext: {
         './node_modules/pdfmake/build/vfs_fonts.js': 'window',
@@ -61,6 +62,15 @@ module.exports = {
         { src: '~/plugins/manage.js', ssr: false },
         { src: '~/plugins/constants.js', ssr: false },
     ],
+    css: [
+        '~/assets/scss/common.scss'
+    ],
+    styleResources: {
+        scss: [
+            '~/assets/scss/_variables.scss',
+            '~/assets/scss/index.scss'
+        ]
+    },
     vuetify: {},
     axios: {
         browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.dmtlabs.kr' : 'http://localhost:3085',

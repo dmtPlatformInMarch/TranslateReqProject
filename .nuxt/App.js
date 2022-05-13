@@ -5,6 +5,8 @@ import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch,
 import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from '~/components/loading.vue'
 
+import '..\\assets\\scss\\common.scss'
+
 import _98f1ccfa from '..\\layouts\\AdminLayout.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
 import _7e53c578 from '..\\layouts\\SignupLayout.vue'

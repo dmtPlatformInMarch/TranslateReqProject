@@ -1,6 +1,14 @@
 <template>
-  <v-container>
-    <a href="http://localhost:3085/admin/file/download/1647233959169TransRequestForm.pdf" download>테스트 파일 다운로드</a>
+  <v-container class="test">
+    <h1 class="head">테스트 페이지 입니다.</h1>
+    <v-card class="main_card">
+      <v-card-title>
+        main_card의 제목
+      </v-card-title>
+      <v-card-text>
+        스타일 적용 테스트
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
