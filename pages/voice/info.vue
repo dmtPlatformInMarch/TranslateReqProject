@@ -71,6 +71,7 @@
 
 <script>
 export default {
+  layout: 'TextLayout',
   data() {
     return {
       mainimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/voice.jpg',// || require("~/static/mainImg1.jpg"),
