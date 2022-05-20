@@ -1,6 +1,6 @@
 <template>
   <v-toolbar
-    class="d-flex align-center justify-center"
+    class="bottom__bar d-flex align-center justify-center"
     bottom
     extended
     extension-height="150"
@@ -53,6 +53,11 @@
 </template>
 
 <style scoped>
+.bottom__bar {
+  display: absolute;
+  bottom: 0;
+  max-height: 200px;
+}
 </style>
 
 <script>

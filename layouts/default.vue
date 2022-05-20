@@ -1,28 +1,31 @@
-<template>
-  <v-app>
-    <v-toolbar elevation="0" style="flex: initial; width: 100%">
+<template class="main__page">
+  <v-app app>
+    <v-app-bar app class="main__toolbar" elevation="0" color="transparent" width="100vw">
       <!--로고-->
-      <v-toolbar-title>
+      <div>
         <nuxt-link to="/">
           <v-avatar height="80px" width="200px" tile>
             <img :src="logo" />
           </v-avatar>
         </nuxt-link>
-      </v-toolbar-title>
+      </div>
+
       <!--툴바 목록-->
-      <v-toolbar-items v-if="language === '한국어'">
+      <div v-if="language === '한국어'" class="menu__selector">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 텍스트 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 텍스트 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
               <v-list-item @click="go('/text/info')">
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
+              <v-spacer />
               <v-list-item @click="go('/text/textmain')">
                 <v-list-item-title> 텍스트 번역 </v-list-item-title>
               </v-list-item>
+              <v-spacer />
               <v-list-item @click="go('/text/request')">
                 <v-list-item-title> 번역 단가 </v-list-item-title>
               </v-list-item>
@@ -31,7 +34,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 영상 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 영상 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -49,7 +52,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> 음성 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 음성 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -65,21 +68,23 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-      </v-toolbar-items>
+      </div>
 
-      <v-toolbar-items v-else-if="language === '영어'">
+      <div v-else-if="language === '영어'">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Text </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> Text </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
               <v-list-item @click="go('/text/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
+              <v-spacer />
               <v-list-item @click="go('/text/textmain')">
                 <v-list-item-title> Text Translation </v-list-item-title>
               </v-list-item>
+              <v-spacer />
               <v-list-item @click="go('/text/request')">
                 <v-list-item-title> Unit Price </v-list-item-title>
               </v-list-item>
@@ -88,7 +93,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Video </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> Video </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -106,7 +111,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="white" depressed v-bind="attrs" v-on="on"> Speech </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> Speech </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -122,15 +127,14 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-      </v-toolbar-items>
-
-      <v-spacer />
+      </div>
 
       <!--페이지 언어 선택-->
-      <v-toolbar-items>
+      <div class="lang__selector">
+        <v-spacer />
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
-            <v-btn tile icon v-bind="attrs" v-on="on">
+            <v-btn icon v-bind="attrs" v-on="on" dark>
               <v-icon>mdi-translate</v-icon>
             </v-btn>
           </template>
@@ -145,26 +149,58 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-      </v-toolbar-items>
-    </v-toolbar>
+      </div>
+    </v-app-bar>
+
     <client-only>
-      <nuxt />
+      <nuxt class="viewer" />
     </client-only>
-    <bottom-component />
+
     <snack-bar />
+
   </v-app>
 </template>
 
 <style scoped>
+body {
+    overflow: hidden !important;
+}
+.main__toolbar {
+  display: flex;
+  align-items: center;
+  height: 10% !important;
+}
+.main__toolbar >>> .v-toolbar__content {
+  width: 100%;
+  
+  justify-content: space-around;
+}
+.viewer {
+  display: absolute;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.menu__selector {
+  display: flex !important;
+  width: 30% !important;
+  justify-content: space-between;
+}
+.menu__selector >>> .v-btn.v-size--default {
+  font-size: 1.5rem !important;
+}
+.lang__selector {
+  display: flex !important;
+  width: 200px;
+}
 </style>
 
 <script>
 import SnackBar from "~/components/SnackBar";
-import BottomComponent from "~/components/BottomComponent";
 
 export default {
   name: "Default",
-  components: { SnackBar, BottomComponent },
+  components: { SnackBar },
   data() {
     return {
       logo:     'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png',

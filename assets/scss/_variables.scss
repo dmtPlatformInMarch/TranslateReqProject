@@ -1,4 +1,16 @@
-$DMT-COLOR  :   #013183;
+/***
+*
+*   스타일 베이스 변수 및 함수 정의 페이지
+*   nuxt.config.js - styleResources - scss 에 정의되어 있음.
+*
+***/
+
+// 팔레트 컬러 정의
+$DMT-MAIN   :   #013183;
+$DMT-SERVE  :   #2172FF;
+$DMT-WARN   :   #E69E07;
+$DMT-UI     :   #8C867A;
+$DMT-FONT   :   #FFFFFF;
 
 @mixin full-size {
     width: 100%;
