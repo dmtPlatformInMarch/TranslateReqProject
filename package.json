@@ -1,6 +1,7 @@
 {
   "name": "dmt",
   "version": "1.0.0",
+  "type": "module",
   "description": "DMTlabs Translate Web",
   "main": "index.js",
   "scripts": {
@@ -19,6 +20,7 @@
     "axios": "^0.24.0",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",
+    "gsap": "^3.10.4",
     "lodash": "^4.17.21",
     "nuxt": "^2.15.8",
     "pdfmake": "^0.2.5",

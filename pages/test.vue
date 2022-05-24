@@ -2,44 +2,48 @@
   <div ref="box" class="scroll__box">
 
     <div class="scroll__item">
-      <v-img :src="mainimg" height="100vh">
-        <div class="scroll__item__textbox">
-          <div class="scroll__item__title">
-            1페이지
+        <v-img class="bg1" height="100vh">
+          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+          <div class="scroll__item__textbox" v-if="lookup === 0">
+            <div class="scroll__item__title">페이지1</div>
+            <div class="scroll__item__subtitle">서브헤더</div>
           </div>
-        </div>
-      </v-img>
-    </div>
+          </transition>
+        </v-img>
+      </div>
 
-    <div class="scroll__item">
-      <v-img :src="mainimg" height="100vh">
-        <div class="scroll__item__textbox">
-          <div class="scroll__item__title">
-            2페이지
-          </div>
-        </div>
-      </v-img>
-    </div>
+      <div class="scroll__item">
+        <v-img class="bg2" height="100vh">
+          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+            <div class="scroll__item__textbox" v-if="lookup === 1" >
+              <h1 class="scroll__item__title">페이지2</h1>
+              <h4 class="scroll__item__subtitle">서브헤더</h4>
+            </div>
+          </transition>
+        </v-img>
+      </div>
 
-    <div class="scroll__item">
-      <v-img :src="mainimg" height="100vh">
-        <div class="scroll__item__textbox">
-          <div class="scroll__item__title">
-            3페이지
-          </div>
-        </div>
-      </v-img>
-    </div>
+      <div class="scroll__item">
+        <v-img class="bg3" height="100vh">
+          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+            <div class="scroll__item__textbox" v-if="lookup === 2" >
+              <h1 class="scroll__item__title">페이지3</h1>
+              <h4 class="scroll__item__subtitle">서브헤더</h4>
+            </div>
+          </transition>
+        </v-img>
+      </div>
 
-    <div class="scroll__item">
-      <v-img :src="mainimg" height="100vh">
-        <div class="scroll__item__textbox">
-          <div class="scroll__item__title">
-            4페이지
-          </div>
-        </div>
-      </v-img>
-    </div>
+      <div class="scroll__item">
+        <v-img class="bg4" height="100vh">
+          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+            <div class="scroll__item__textbox" v-if="lookup === 3">
+              <h1 class="scroll__item__title">페이지4</h1>
+              <h4 class="scroll__item__subtitle">서브헤더</h4>
+            </div>
+          </transition>
+        </v-img>
+      </div>
 
   </div>
 </template>
@@ -61,7 +65,6 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  cursor: default;
 }
 .scroll__item__textbox {
   height: 100vh;
@@ -75,17 +78,44 @@
   font-weight: lighter;
   color: white;
 }
+.scroll__item__subtitle {
+  font-size: 1.5rem;
+  color: white;
+}
+.bg1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/mainImg1.jpg');
+  background-size: cover;
+}
+.bg2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/text.jpg');
+  background-size: cover;
+}
+.bg3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/video.jpg');
+  background-size: cover;
+}
+.bg4 {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/voice.jpg');
+  background-size: cover;
+}
 </style>
 
 <script>
+import gsap from "gsap";
+
 export default {
   data() {
     return {
       mainimg:  'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/mainImg1.jpg',// || require("~/static/mainImg1.jpg"),
+      textimg:  'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/text.jpg',// || require("~/static/text.jpg"),
+      videoimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/video.jpg',// || require("~/static/video.jpg"),
+      voiceimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/voice.jpg', //|| require("~/static/voice.jpg"),
       sections: 4,
       scdir: '',
       swdir: '',
       hold: false,
+      lookup: 0,
+      show: true,
     };
   },
   mounted() {
@@ -96,7 +126,7 @@ export default {
     this.swipe(box);
   },
   beforeDestroy() {
-    const box = this.$refs.box;
+    const box = this.$refs.box; 
     box.removeEventListener('wheel', this.scrollY);
     box.removeEventListener('wheel', this.handleScroll);
   },
@@ -121,7 +151,6 @@ export default {
       plength = parseInt(pan.offsetHeight / vh);
       plength = plength || parseInt(pan.offsetHeight / vmin);
       slength = parseInt(pan.style.transform.replace('translateY(',''));
-      console.log(pan);
       if (this.scdir === 'up' && Math.abs(slength) < (plength - plength / this.sections)) {
         slength = slength - step;
       } else if (this.scdir === 'down' && slength < 0) {
@@ -132,13 +161,17 @@ export default {
       
       if (this.hold === false) {
         this.hold = true;
+        if (this.scdir === 'up') {
+          if (this.lookup < this.sections - 1) this.lookup++;
+        }
+        else if (this.scdir === 'down') {
+          if (this.lookup > 0) this.lookup--;
+        }
         pan.style.transform = 'translateY(' + slength + 'vh)';
-        console.log(pan.style.transform);
         setTimeout(() => {
           this.hold = false;
         }, 1000);
       }
-      console.log(this.scdir + ":" + slength + ":" + plength + ":" + (plength - plength / this.sections));
     },
     swipe() {
       var sX;
@@ -184,6 +217,33 @@ export default {
           }
         }
       }, false);
+    },
+    beforeEnter(el) {
+      el.style.position = 'relative';
+      el.style.top = '30vh';
+      el.style.opacity = 0;
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        duration: 2,
+        opacity: 1,
+        top: 0,
+        ease: 'power2.out', 
+        stagger: 0.2,
+        onComplete: done
+      });
+    },
+    leave(el, done) {
+      gsap.to(el, {
+        duration: 0.7,
+        top: '30vh',
+        ease: 'elastic.inOut(2.5, 1)'
+      })
+      gsap.to(el, {
+        duration: 0.2,
+        opacity: 0,
+        onComplete: done
+      });
     }
   },
 };
