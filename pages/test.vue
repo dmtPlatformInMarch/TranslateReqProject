@@ -3,21 +3,29 @@
 
     <div class="scroll__item">
         <v-img class="bg1" height="100vh">
-          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
-          <div class="scroll__item__textbox" v-if="lookup === 0">
-            <div class="scroll__item__title">페이지1</div>
-            <div class="scroll__item__subtitle">서브헤더</div>
-          </div>
+          <transition @leave="leave">
+            <div class="scroll__item__textbox" v-if="lookup === 0">
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
+                <div class="scroll__item__title">페이지1</div>
+              </transition>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
+                <div class="scroll__item__subtitle">서브헤더</div>
+              </transition>
+            </div>
           </transition>
         </v-img>
       </div>
 
       <div class="scroll__item">
         <v-img class="bg2" height="100vh">
-          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+          <transition @leave="leave">
             <div class="scroll__item__textbox" v-if="lookup === 1" >
-              <h1 class="scroll__item__title">페이지2</h1>
-              <h4 class="scroll__item__subtitle">서브헤더</h4>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
+                <h1 class="scroll__item__title">페이지2</h1>
+              </transition>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
+                <h4 class="scroll__item__subtitle">서브헤더</h4>
+              </transition>
             </div>
           </transition>
         </v-img>
@@ -25,10 +33,14 @@
 
       <div class="scroll__item">
         <v-img class="bg3" height="100vh">
-          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+          <transition @leave="leave">
             <div class="scroll__item__textbox" v-if="lookup === 2" >
-              <h1 class="scroll__item__title">페이지3</h1>
-              <h4 class="scroll__item__subtitle">서브헤더</h4>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
+                <h1 class="scroll__item__title">페이지3</h1>
+              </transition>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
+                <h4 class="scroll__item__subtitle">서브헤더</h4>
+              </transition>
             </div>
           </transition>
         </v-img>
@@ -36,10 +48,14 @@
 
       <div class="scroll__item">
         <v-img class="bg4" height="100vh">
-          <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+          <transition @leave="leave">
             <div class="scroll__item__textbox" v-if="lookup === 3">
-              <h1 class="scroll__item__title">페이지4</h1>
-              <h4 class="scroll__item__subtitle">서브헤더</h4>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
+                <h1 class="scroll__item__title">페이지4</h1>
+              </transition>
+              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
+                <h4 class="scroll__item__subtitle">서브헤더</h4>
+              </transition>
             </div>
           </transition>
         </v-img>
@@ -226,6 +242,17 @@ export default {
     enter(el, done) {
       gsap.to(el, {
         duration: 2,
+        opacity: 1,
+        top: 0,
+        ease: 'power2.out', 
+        stagger: 0.2,
+        onComplete: done
+      });
+    },
+    subEnter(el, done) {
+      gsap.to(el, {
+        delay: 0.6,
+        duration: 1.4,
         opacity: 1,
         top: 0,
         ease: 'power2.out', 

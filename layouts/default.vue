@@ -70,7 +70,7 @@
         </v-menu>
       </div>
 
-      <div v-else-if="language === '영어'">
+      <div v-else-if="language === '영어'" class="menu__selector">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
             <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> Text </v-btn>
@@ -152,6 +152,29 @@
       </div>
     </v-app-bar>
 
+    <!--모바일 메뉴 버튼-->
+    <v-speed-dial class="fab__btn" v-model="fab" transition="slide-y-reverse-transition">
+      <template v-slot:activator>
+        <v-btn class="fab__btn" v-model="fab" fab dark>
+          <v-icon v-if="fab">mdi-close</v-icon>
+          <v-icon v-else>mdi-plus</v-icon>
+        </v-btn>
+      </template>
+      
+      <v-btn class="mobile__menu" dark small color="purple" @click="go('/voice/info')">
+        <v-icon>mdi-account-voice</v-icon>
+        음성
+      </v-btn>
+      <v-btn class="mobile__menu" dark small color="indigo" @click="go('/video/info')">
+        <v-icon>mdi-message-video</v-icon>
+        영상
+      </v-btn>
+      <v-btn class="mobile__menu" dark small color="green" @click="go('/text/textmain')">
+        <v-icon>mdi-clipboard-text-multiple</v-icon>
+        글자
+      </v-btn>
+    </v-speed-dial>
+
     <client-only>
       <nuxt class="viewer" />
     </client-only>
@@ -193,6 +216,31 @@ body {
   display: flex !important;
   width: 200px;
 }
+.fab__btn {
+  display: none;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 900px){
+  .menu__selector >>> .v-btn.v-size--default {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .menu__selector >>> .v-btn.v-size--default {
+    display: none !important;
+  }
+  .fab__btn {
+    display: block;
+  }
+}
 </style>
 
 <script>
@@ -204,6 +252,7 @@ export default {
   data() {
     return {
       logo:     'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png',
+      fab: false,
     };
   },
   mounted() {

@@ -1,4 +1,4 @@
-<template>
+<template class="snackbar__template">
   <v-snackbar v-model="act" :color="color" :timeout="time">
     {{ message }}
     <v-spacer />
@@ -9,6 +9,9 @@
 </template>
 
 <style scoped>
+.snackbar__template {
+  z-index: 99;
+}
 </style>
 
 <script>
