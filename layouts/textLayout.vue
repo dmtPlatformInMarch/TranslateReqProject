@@ -1,22 +1,24 @@
-<template>
+<template class="main">
   <v-app>
-    <v-toolbar elevation="0" style="flex: initial; width: 100%">
-      <v-toolbar-title>
-        <nuxt-link to="/text/textmain">
-          <v-avatar height="80px" width="200px" tile>
-            <img :src="logo" />
-          </v-avatar>
-        </nuxt-link>
-      </v-toolbar-title>
-      <v-toolbar-items>
-        <v-btn color="white" depressed class="text-center" to="/"> {{ language === "한국어" ? "메인 페이지" : "Main page" }}</v-btn>
-        <v-btn color="white" depressed class="text-center" to="/text/info"> {{ language === "한국어" ? "소개" : "Introduce" }}</v-btn>
-      </v-toolbar-items>
-      <v-spacer />
-      <v-toolbar-items>
+    <v-app-bar class="main__toolbar" elevation="0" color="transparent" width="100vw">
+      <nuxt-link to="/text/textmain" class="main__toolbar__logo">
+        <v-avatar width="100%" height="100%" tile>
+          <img :src="logo" />
+        </v-avatar>
+      </nuxt-link>
+
+      <div class="main__toolbar__items">
+        <v-btn class="text-center main__toolbar__btn" color="transparent" to="/text/info" depressed tile > {{ language === "한국어" ? "소개" : "Introduce" }}</v-btn>
+      </div>
+
+      <div class="main__toolbar__settings">
+        <v-btn class="main__toolbar__btn" tile icon to="/">
+          <v-icon>mdi-home</v-icon>
+        </v-btn>
+
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
-            <v-btn tile icon v-bind="attrs" v-on="on">
+            <v-btn class="main__toolbar__btn" tile icon v-bind="attrs" v-on="on">
               <v-icon>mdi-translate</v-icon>
             </v-btn>
           </template>
@@ -34,13 +36,13 @@
         
         <v-menu v-if="!loginState" v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200">
           <template #activator="{ on, attrs }">
-            <v-btn v-if="language === '한국어'" text class="text-center" v-bind="attrs" v-on="on">로그인</v-btn>
-            <v-btn v-else-if="language === '영어'" text class="text-center" v-bind="attrs" v-on="on">Login</v-btn>
+            <v-btn v-if="language === '한국어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">로그인</v-btn>
+            <v-btn v-else-if="language === '영어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">Login</v-btn>
           </template>
           <login-form @update="update" />
         </v-menu>
-      </v-toolbar-items>
-    </v-toolbar>
+      </div>
+    </v-app-bar>
     
     <div style="display: flex; flex-direction: row; height: 100%">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
@@ -92,6 +94,52 @@
 </template>
 
 <style scoped>
+.main__toolbar {
+  display: flex;
+  align-items: center;
+  height: 5% !important;
+}
+.main__toolbar >>> .v-toolbar__content {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 20px !important;
+  justify-content: space-between;
+}
+.main__toolbar__logo {
+  width: 200px;
+  height: 100%;
+}
+.main__toolbar__items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  height: 100%;
+  font-family: 'MinSans-Medium', sans-serif !important;
+}
+.main__toolbar__btn {
+  height: 100% !important;
+  font-size: 1.5rem;
+}
+.main__toolbar__settings {
+  display: flex;
+  width: 20%;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 900px) {
+  
+}
+
+@media screen and (max-width: 500px) {
+  
+}
+
+@media screen and (max-width: 361px) {
+  
+}
 </style>
 
 <script lang="js">

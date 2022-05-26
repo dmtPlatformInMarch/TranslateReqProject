@@ -42,7 +42,7 @@
             v-model="from_lang"
             class="selector"
             dense
-            :items="language === '한국어' ? languages : e_languages"
+            :items="language === '한국어' ? from_languages : e_from_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
             single-line
             hide-details=""
@@ -119,7 +119,7 @@
             v-model="from_file_lang"
             class="selector"
             dense
-            :items="language === '한국어' ? languages : e_languages"
+            :items="language === '한국어' ? from_languages : e_from_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
             single-line
             hide-details=""
@@ -134,7 +134,7 @@
             v-model="to_file_lang"
             class="selector"
             dense
-            :items="language === '한국어' ? languages : e_languages"
+            :items="language === '한국어' ? file_languages : e_file_languages"
             :placeholder="language === '한국어' ? '언어 선택' : 'Select'"
             single-line
             hide-details=""
@@ -234,11 +234,31 @@ export default {
     language() {
       return this.$store.state.manager.language;
     },
-    languages() {
+    from_languages() {
       return this.$LANGUAGES_KO;
     },
-    e_languages() {
+    e_from_languages() {
       return this.$LANGUAGES_EN;
+    },
+    languages() {
+      let newLanguages = this.$LANGUAGES_KO;
+      if (newLanguages != undefined) newLanguages = newLanguages.filter(lang => lang != this.from_lang);
+      return newLanguages;
+    },
+    e_languages() {
+      let newLanguages = this.$LANGUAGES_EN;
+      if (newLanguages != undefined) newLanguages = newLanguages.filter(lang => lang != this.from_lang);
+      return newLanguages;
+    },
+    file_languages() {
+      let newLanguages = this.$LANGUAGES_KO;
+      if (newLanguages != undefined) newLanguages = newLanguages.filter(lang => lang != this.from_file_lang);
+      return newLanguages;
+    },
+    e_file_languages() {
+      let newLanguages = this.$LANGUAGES_EN;
+      if (newLanguages != undefined) newLanguages = newLanguages.filter(lang => lang != this.from_file_lang);
+      return newLanguages;
     },
     to_text() {
       return this.$store.state.manager.translateText;

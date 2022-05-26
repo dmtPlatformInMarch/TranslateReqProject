@@ -131,7 +131,11 @@
 
       <!--페이지 언어 선택-->
       <div class="lang__selector">
-        <v-spacer />
+        <v-btn rounded dark href="https://jobs.dmtlabs.kr" color="transparent" depressed>
+          <img src="../static/dmtcloud.png" alt="" />
+          DMTCLOUD
+        </v-btn>
+
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on" dark>
@@ -214,6 +218,7 @@ body {
 }
 .lang__selector {
   display: flex !important;
+  align-items: center;
   width: 200px;
 }
 .fab__btn {
