@@ -1,42 +1,41 @@
 <template>
-  <v-container>
+  <v-container class="layout__container">
     <!--버튼 레이아웃-->
-    <v-layout style="display: flex; height: 6vh;">
-      <v-btn-toggle v-model="toggle" tile mandatory>
-        <v-btn style="display: flex; align-content: center; justify-content: space-around">
-          <div style="display: flex; align-content: center; justify-content: center">
+    <v-layout class="button__layout">
+      <v-btn-toggle class="button__group" v-model="toggle" tile mandatory>
+        <v-btn class="button__object">
+          <div>
             <v-icon>mdi-earth</v-icon>
           </div>
-          <div v-if="language === '한국어'" style="display: flex; flex-direction: column; width: 10vw">
-            <h4 style="margin-right: auto">언어 번역</h4>
-            <div style="margin-right: auto; font-size: 50%">8개의 언어</div>
+          <div v-if="language === '한국어'">
+            <h4>언어 번역</h4>
+            <div>8개의 언어</div>
           </div>
-          <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
-            <h4 style="margin-right: auto">Language translation</h4>
-            <div style="margin-right: auto; font-size: 50%">8 languages</div>
+          <div v-else-if="language === '영어'">
+            <h4>Language translation</h4>
+            <div>8 languages</div>
           </div>
         </v-btn>
-        <v-btn style="display: flex; align-content: center; justify-content: space-around">
-          <div style="display: flex; align-content: center; justify-content: center">
+
+        <v-btn class="button__object">
+          <div>
             <v-icon>mdi-file</v-icon>
           </div>
-          <div v-if="language === '한국어'" style="display: flex; flex-direction: column; width: 8vw">
-            <h4 style="margin-right: auto">파일 번역</h4>
-            <div style="margin-right: auto; font-size: 50%">.txt .pdf만 가능</div>
+          <div v-if="language === '한국어'">
+            <h4>파일 번역</h4>
+            <div>.txt .pdf만 가능</div>
           </div>
-          <div v-else-if="language === '영어'" style="display: flex; flex-direction: column">
-            <h4 style="margin-right: auto">File translation</h4>
-            <div style="margin-right: auto; font-size: 50%">Only .txt / .pdf</div>
+          <div v-else-if="language === '영어'">
+            <h4>File translation</h4>
+            <div>Only .txt / .pdf</div>
           </div>
         </v-btn>
       </v-btn-toggle>
-
-      <v-spacer />
     </v-layout>
 
     <!--언어 번역 레이아웃-->
-    <v-layout v-if="toggle === 0" style="display: flex; height: 50vh;">
-      <v-container style="width: 40vw">
+    <v-layout class="translate__layout" v-if="toggle === 0">
+      <v-container class="translate__container">
         <client-only>
           <v-select
             v-model="from_lang"
@@ -49,11 +48,11 @@
           />
         </client-only>
         <v-textarea
+          class="translate__input"
           v-if="language === '한국어'"
           v-model="from_text"
           prepend-inner-icon="mdi-book-sync"
           placeholder="번역할 언어를 적어주세요."
-          rows="15"
           clearable
           counter
           outlined
@@ -61,11 +60,11 @@
           style="z-index: 0"
         />
         <v-textarea
+          class="translate__input"
           v-else-if="language === '영어'"
           v-model="from_text"
           prepend-inner-icon="mdi-book-sync"
           placeholder="Enter what you want to translate."
-          rows="15"
           clearable
           counter
           outlined
@@ -73,7 +72,7 @@
           style="z-index: 0"
         />
       </v-container>
-      <v-container style="width: 40vw">
+      <v-container class="translate__container">
         <client-only>
           <v-select
             v-model="to_lang"
@@ -86,11 +85,11 @@
           />
         </client-only>
         <v-textarea
+          class="translate__input"
           v-if="language === '한국어'"
           v-model="to_text"
           prepend-inner-icon="mdi-book-check"
           placeholder="번역한 결과입니다."
-          rows="15"
           counter
           outlined
           readonly
@@ -98,11 +97,11 @@
           style="z-index: 0"
         />
         <v-textarea
+          class="translate__input"
           v-else-if="language === '영어'"
           v-model="to_text"
           prepend-inner-icon="mdi-book-check"
           placeholder="Result of the translation."
-          rows="15"
           counter
           outlined
           readonly
@@ -113,8 +112,8 @@
     </v-layout>
 
     <!--파일 번역 레이아웃-->
-    <v-layout v-else style="height: 50vh" align-center justify-space-around>
-      <div class="text-center" align-center justify-center style="margin: 10vw">
+    <v-layout class="file__layout" v-else>
+      <div class="file__container text-center">
         <v-select
             v-model="from_file_lang"
             class="selector"
@@ -126,10 +125,10 @@
           />
         <v-icon class="text-h1">mdi-folder-upload</v-icon>
         <div>5MB 아래 파일만 가능 <br /> (Only Low than 5MB)</div>
-          <v-file-input v-if="language === '한국어'" class="file_upload" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
-          <v-file-input v-else-if="language === '영어'" class="file_upload" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
-        </div>
-      <div style="width: 60vw">
+        <v-file-input v-if="language === '한국어'" class="file_upload" placeholder="업로드" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+        <v-file-input v-else-if="language === '영어'" class="file_upload" placeholder="Upload" :accept="acceptFiles" outlined rounded prepend-icon="" @change="uploadFile" />
+      </div>
+      <div class="file__translate">
         <v-select
             v-model="to_file_lang"
             class="selector"
@@ -152,10 +151,10 @@
     </v-layout>
 
     <!--번역자 레이아웃-->
-    <v-layout>
-      <v-carousel cycle interval="3000" height="40vh" hide-delimiter-background hide-delimiters :show-arrows="false">
+    <v-layout class="translator__layout">
+      <v-carousel interval="3000" hide-delimiter-background hide-delimiters :show-arrows="false" height="100%">
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-sheet :color="colors[i]" height="100%">
+          <v-sheet class="translator__sheet" :color="colors[i]">
             <!--v-layout class="fill-height" align-center justify-center>
               <v-icon class="text-h1">mdi-account-box</v-icon>
               <div v-if="language === '한국어'" class="text-h4">
@@ -169,7 +168,7 @@
                 Translation field : {{ fields[i] }}
               </div>
             </v-layout-->
-            <v-layout class="recruit fill-height text-center" align-center justify-center>
+            <v-layout class="translator__recruit fill-height text-center" align-center justify-center>
               번역자 공고<br />
               공고 기간은 추후 공지
             </v-layout>
@@ -181,21 +180,150 @@
 </template>
 
 <style scoped>
-@font-face {
-    font-family: 'MinSans-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+.layout__container {
+  display: flex;
+  flex-direction: column;
+}
+.button__layout {
+  display: flex;
+  flex-direction: column;
+}
+.button__group {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: 0 3%;
+}
+.button__object {
+  justify-content: flex-start;
+  width: 50%;
+}
+.button__object >>> div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 0.75rem;
 }
 .selector {
-  width: 20vw;
+  width: 100%;
+}
+.translate__layout {
+  display: flex;
+  height: 50vh;
+  margin-bottom: 25px;
+}
+.translate__container {
+  width: 40vw;
+  height: 100%;
+}
+.translate__input {
+  height: 100%;
+}
+.file__layout {
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 25px;
+}
+.file__container {
+  padding: 25px;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+.file__translate {
+  width: 60%;
+}
+::v-deep .v-input__control {
+  height: 100%;
+  flex-direction: row;
+}
+::v-deep .v-input__slot {
+  height: 90%;
+}
+::v-deep .v-text-field__details {
+  height: 10%;
 }
 .file_upload >>> input {
   text-align: center;
 }
-.recruit {
-  font-family: 'MinSans-Medium', sans-serif !important;
+.translator__layout {
+  height: 47vh;
+  margin: 0 25px;
+}
+.translator__sheet {
+  height: 100%;
+}
+.translator__recruit {
   font-size: 48px;
+}
+
+@media screen and (max-width: 1300px) {
+  .button__group {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .button__group {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .button__group {
+    width: auto;
+  }
+  .translate__layout {
+    flex-direction: column;
+  }
+  .translate__container {
+    width: 100%;
+  }
+  .file__layout {
+    flex-direction: column;
+  }
+  .file__container {
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+  }
+  .file__translate {
+    width: 100%;
+    height: 50%;    
+  }
+  .file__translate >>> .v-textarea {
+    height: 90%;
+  }
+  .translator__layout {
+    height: 40vh;
+    margin: 0 10px;
+  }
+  .translator__recruit {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .layout__container {
+    padding: 0;
+  }
+  .button__object {
+    overflow: hidden;
+    font-size: 0.25rem;
+  } 
+  .translate__layout {
+    height: auto;
+  }
+  .translator__layout {
+    height: auto;
+  }
+  .translator__recruit {
+    font-size: 1rem;
+  }
 }
 </style>
 

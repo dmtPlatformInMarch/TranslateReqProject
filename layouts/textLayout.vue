@@ -8,7 +8,9 @@
       </nuxt-link>
 
       <div class="main__toolbar__items">
-        <v-btn class="text-center main__toolbar__btn" color="transparent" to="/text/info" depressed tile > {{ language === "한국어" ? "소개" : "Introduce" }}</v-btn>
+        <v-btn class="text-center main__toolbar__btn" color="transparent" to="/text/info" depressed tile > 
+          {{ language === "한국어" ? "소개" : "Introduce" }}
+        </v-btn>
       </div>
 
       <div class="main__toolbar__settings">
@@ -36,35 +38,39 @@
         
         <v-menu v-if="!loginState" v-model="loginMenu" offset-x offset-y :close-on-content-click="false" :nudge-width="200">
           <template #activator="{ on, attrs }">
-            <v-btn v-if="language === '한국어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">로그인</v-btn>
-            <v-btn v-else-if="language === '영어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">Login</v-btn>
+            <v-btn v-if="language === '한국어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">
+              로그인
+            </v-btn>
+            <v-btn v-else-if="language === '영어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">
+              Login
+            </v-btn>
           </template>
           <login-form @update="update" />
         </v-menu>
       </div>
     </v-app-bar>
     
-    <div style="display: flex; flex-direction: row; height: 100%">
+    <div style="display: flex; height: 100%">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
-        <v-list rounded dense>
+        <v-list class="nav__info" rounded dense>
           <v-list-item v-if="!loginState" style="padding: 0px 8px">
             <v-list-item-icon>
               <v-icon>mdi-account-alert</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-if="language === '한국어'">로그인이 <br />필요합니다.</v-list-item-title>
-            <v-list-item-title v-else-if="language === '영어'">You need to <br />login.</v-list-item-title>
+            <div class="nav__title" v-if="language === '한국어'">로그인이 <br />필요합니다.</div>
+            <div class="nav__subtitle" v-else-if="language === '영어'">You need to <br />login.</div>
           </v-list-item>
           <v-list-item v-else style="padding: 0px 8px">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-if="language === '한국어'" class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
-              <v-list-item-title v-else-if="language === '영어'" class="text-h6">Hello, <br />{{ loginState.nickname }}</v-list-item-title>
-              <v-list-item-subtitle v-if="language === '한국어'">번역 의뢰 : N건</v-list-item-subtitle>
-              <v-list-item-subtitle v-else-if="language === '영어'">Your Request : N cases</v-list-item-subtitle>
-              <v-btn v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
-              <v-btn v-else-if="language === '영어'" depressed color="#06d183" @click="onLogout">Logout</v-btn>
+              <div class="nav__title" v-if="language === '한국어'">{{ loginState.nickname }} 님</div>
+              <div class="nav__title" v-else-if="language === '영어'">Hello, <br />{{ loginState.nickname }}</div>
+              <div class="nav__subtitle" v-if="language === '한국어'">번역 의뢰 : N건</div>
+              <div class="nav__subtitle" v-else-if="language === '영어'">Your Request : N cases</div>
+              <v-btn class="nav__btn" v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
+              <v-btn class="nav__btn" v-else-if="language === '영어'" depressed color="#06d183" @click="onLogout">Logout</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -116,6 +122,7 @@
   width: 80%;
   height: 100%;
   font-family: 'MinSans-Medium', sans-serif !important;
+  font-size: 1.5rem;
 }
 .main__toolbar__btn {
   height: 100% !important;
@@ -128,16 +135,62 @@
   align-items: center;
   justify-content: flex-end;
 }
+.nav__title {
+  font-size: 1rem;
+}
+.nav__subtitle {
+  font-size: 0.5rem;
+}
 
 @media screen and (max-width: 900px) {
-  
+  .v-list ::v-deep .v-list-item__icon {
+    margin-right: 10px !important;
+  }
+  .nav__title {
+    font-size: 0.75rem;
+  }
+  .nav__subtitle {
+    font-size: 0.25rem;
+  }
+  .nav__btn {
+  font-size: 0.75rem;
+}
+  .main__toolbar__items {
+    font-size: 1.25rem;
+  }
+  .main ::v-deep .v-icon {
+    font-size: 1.25rem !important;
+  }
+  .main__toolbar__btn {
+    font-size: 1.25rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  
+  .main__toolbar__items {
+    font-size: 1rem;
+  }
+  .main ::v-deep .v-icon {
+    font-size: 1rem !important;
+  }
+  .main__toolbar__btn {
+    font-size: 1rem;
+  }
+  .nav__btn {
+    height: 24px !important;
+  }
 }
 
-@media screen and (max-width: 361px) {
+@media screen and (max-width: 400px) {
+  .v-list ::v-deep .v-list-item__icon {
+    margin-right: 0 !important;
+  }
+  .nav__title {
+    font-size: 0.75rem;
+  }
+  .nav__subtitle {
+    font-size: 0.5rem;
+  }
   
 }
 </style>

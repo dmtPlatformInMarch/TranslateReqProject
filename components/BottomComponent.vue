@@ -2,8 +2,6 @@
   <v-toolbar
     class="bottom__bar d-flex align-center justify-center"
     bottom
-    extended
-    extension-height="150"
     color="#013183"
     dark
   >
@@ -56,7 +54,7 @@
 .bottom__bar {
   display: absolute;
   bottom: 0;
-  max-height: 200px;
+  height: 200px !important;
 }
 </style>
 
