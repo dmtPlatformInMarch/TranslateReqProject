@@ -195,6 +195,7 @@
   margin: 0 3%;
 }
 .button__object {
+  overflow: hidden;
   justify-content: flex-start;
   width: 50%;
 }
@@ -210,7 +211,7 @@
 }
 .translate__layout {
   display: flex;
-  height: 50vh;
+  height: 60%;
   margin-bottom: 25px;
 }
 .translate__container {
@@ -223,7 +224,7 @@
 .file__layout {
   display: flex;
   flex-direction: row;
-  height: 50vh;
+  height: 60%;
   align-items: center;
   justify-content: space-around;
   margin: 0 25px;
@@ -235,7 +236,7 @@
   justify-content: center;
 }
 .file__translate {
-  width: 60%;
+  width: 50%;
 }
 ::v-deep .v-input__control {
   height: 100%;
@@ -268,8 +269,15 @@
 }
 
 @media screen and (max-width: 900px) {
+  .layout__container {
+    display: block;
+  }
   .button__group {
     width: 50%;
+  }
+  .translator__layout {
+    height: 40vh;
+    margin: 0 10px;
   }
 }
 
@@ -298,10 +306,6 @@
   .file__translate >>> .v-textarea {
     height: 90%;
   }
-  .translator__layout {
-    height: 40vh;
-    margin: 0 10px;
-  }
   .translator__recruit {
     font-size: 2rem;
   }
@@ -312,14 +316,13 @@
     padding: 0;
   }
   .button__object {
-    overflow: hidden;
-    font-size: 0.25rem;
-  } 
+    font-size: 0.1rem;
+  }
   .translate__layout {
     height: auto;
   }
   .translator__layout {
-    height: auto;
+    height: 40vh;
   }
   .translator__recruit {
     font-size: 1rem;

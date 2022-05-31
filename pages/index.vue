@@ -336,8 +336,7 @@ export default {
       threshold: 100,
       slack: 50,
       lookup: 0,
-    };
-  },
+  }},
   mounted() {
     const box = this.$refs.box;
     box.style.transform = 'translateY(0)';

@@ -54,7 +54,7 @@
 .bottom__bar {
   display: absolute;
   bottom: 0;
-  height: 200px !important;
+  height: 250px !important;
 }
 </style>
 

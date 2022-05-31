@@ -5,7 +5,7 @@
       <v-parallax :src="mainimg" height="300">
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
-            <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
+            <h1 class="main__title text-h1 font-weight-thin mb-4"> DMTLABS </h1>
             <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS의 텍스트 번역 시스템
             </h4>
@@ -72,14 +72,16 @@
 .full-height {
   height: 100%;
 }
-.header {
-  font-family: 'CBNUJIKJI', sans-serif !important;
-  color: white;
-  background: #013183;
-}
 .body {
   font-family: 'MinSans-Medium', sans-serif !important;
 }
+
+@media screen and (max-width: 500px) {
+  .main__title {
+    font-size: 3.5rem !important;
+  }
+}
+
 </style>
 
 <script>
