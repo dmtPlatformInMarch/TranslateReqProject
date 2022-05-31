@@ -76,6 +76,13 @@
         </v-list>
         <v-divider />
         <v-list nav dense>
+          <v-list-item class="mobile__visible" link to="/text/info">
+            <v-list-item-icon>
+              <v-icon>mdi-clipboard-alert</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-if="language === '한국어'"> 소개 </v-list-item-title>
+            <v-list-item-title v-else-if="language === '영어'"> Introduce </v-list-item-title>
+          </v-list-item>
           <v-list-item link to="/text/request">
             <v-list-item-icon>
               <v-icon>mdi-clipboard-edit</v-icon>
@@ -197,6 +204,9 @@
   display: flex;
   height: 100%;
 }
+.mobile__visible {
+  display: none;
+}
 
 @media screen and (max-width: 900px) {
   .v-list ::v-deep .v-list-item__icon {
@@ -234,6 +244,9 @@
   }
   .nav__btn {
     height: 24px !important;
+  }
+  .mobile__visible {
+    display: flex;
   }
 }
 
