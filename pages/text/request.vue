@@ -226,9 +226,10 @@
               <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
             </v-date-picker>
           </v-menu>
+
           <v-banner shaped>의뢰할 내용</v-banner>
-          <div>
-            <div style="display: flex; justify-content: space-between">
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[0]"
@@ -277,7 +278,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[1]"
@@ -323,7 +324,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[2]"
@@ -369,7 +370,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[3]"
@@ -415,7 +416,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[4]"
@@ -472,8 +473,8 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
-          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
-            <v-spacer />
+          <div class="request__btn">
+            <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               견적서 발급
               <v-icon right>mdi-file-download</v-icon>
@@ -547,9 +548,10 @@
               <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
             </v-date-picker>
           </v-menu>
+
           <v-banner shaped>The Request</v-banner>
-          <div>
-            <div style="display: flex; justify-content: space-between">
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[0]"
@@ -595,7 +597,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[1]"
@@ -638,7 +640,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[2]"
@@ -681,7 +683,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[3]"
@@ -724,7 +726,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[4]"
@@ -778,8 +780,8 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
-          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
-            <v-spacer />
+          <div class="request__btn">
+            <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               Issuing Quotation
               <v-icon right>mdi-file-download</v-icon>
@@ -825,6 +827,26 @@
 .toggle_group {
   border: 1px solid #013183 !important;
 }
+.request__btn {
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  margin: auto; 
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .request__btn {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+  }
+  .spacer {
+    display: none;
+  }
+
+}
 </style>
 
 <script lang="js">
@@ -868,7 +890,7 @@ export default {
     store.commit('requests/setExcost', 0);
   },
   computed: {
-    ...mapState('requests', ['imagePaths']),
+    ...mapState('requests'),
     loginState() {
         return this.$store.state.users.loginState;
     },

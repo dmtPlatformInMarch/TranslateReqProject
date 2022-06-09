@@ -10,9 +10,10 @@ import '..\\assets\\scss\\common.scss'
 import _98f1ccfa from '..\\layouts\\AdminLayout.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
 import _7e53c578 from '..\\layouts\\SignupLayout.vue'
+import _14693a1c from '..\\layouts\\TestLayout.vue'
 import _059d7966 from '..\\layouts\\TextLayout.vue'
 
-const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_SignupLayout": sanitizeComponent(_7e53c578),"_TextLayout": sanitizeComponent(_059d7966) }
+const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966) }
 
 export default {
   render (h, props) {

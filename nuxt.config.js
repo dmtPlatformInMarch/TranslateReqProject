@@ -61,6 +61,7 @@ module.exports = {
     plugins: [
         { src: '~/plugins/manage.js', ssr: false },
         { src: '~/plugins/constants.js', ssr: false },
+        { src: '~/plugins/gtag.js', mode: 'client' },
     ],
     css: [
         '~/assets/scss/common.scss'
