@@ -403,7 +403,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(5).default
 module.exports.__inject__ = function (context) {
-  add("6b7d3d65", content, true, context)
+  add("076de722", content, true, context)
 };
 
 /***/ }),
@@ -413,9 +413,9 @@ module.exports.__inject__ = function (context) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_8275356a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(230);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_8275356a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_8275356a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_8275356a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_8275356a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_fa0a16ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(230);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_fa0a16ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_fa0a16ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_fa0a16ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransDashBoard_vue_vue_type_style_index_0_id_fa0a16ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -427,7 +427,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".chipStyle[data-v-8275356a]{justify-content:center;min-width:75px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".panel__header__date[data-v-fa0a16ec],.panel__header__id[data-v-fa0a16ec]{display:flex;align-items:center}.chipStyle[data-v-fa0a16ec]{justify-content:center;min-width:75px}.textStyle[data-v-fa0a16ec]{display:flex;width:30vw}.iconStyle[data-v-fa0a16ec]{margin:8px 0!important}@media screen and (max-width:700px){[data-v-fa0a16ec] .v-expansion-panel-content__wrap{padding:0!important}.panel__header[data-v-fa0a16ec]{padding:8px!important}.panel__header__date[data-v-fa0a16ec],.panel__header__id[data-v-fa0a16ec],.pannel__header__state[data-v-fa0a16ec]  .v-chip__content{font-size:10px}.panel__header__date[data-v-fa0a16ec]  .v-icon,.pannel__header__state[data-v-fa0a16ec]  .v-icon{font-size:14px}.textStyle[data-v-fa0a16ec]{display:none}}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -467,14 +467,65 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/TransDashBoard.vue?vue&type=template&id=8275356a&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.language === '한국어')?_c('v-expansion-panel',[_c('v-expansion-panel-header',{attrs:{"disable-icon-rotate":""},scopedSlots:_vm._u([{key:"actions",fn:function(){return [_c('v-chip',{attrs:{"color":_vm.stateColor(_vm.p.trans_state),"dark":""}},[_vm._v("\n        "+_vm._s(_vm.p.trans_state)+"\n        "),_c('v-icon',{attrs:{"right":"","color":"white"}},[_vm._v(" "+_vm._s(_vm.stateIcon(_vm.p.trans_state))+" ")])],1)]},proxy:true}],null,false,4002257777)},[_c('div',{staticStyle:{"display":"flex","align-items":"center"}},[_c('v-btn',{attrs:{"depressed":"","icon":""},on:{"click":function($event){_vm.dialog = true}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("의뢰 취소")]),_vm._v(" "),_c('v-card-text',[_vm._v("해당 의뢰를 취소하시겠습니까?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("취소")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":_vm.cancelRequest}},[_vm._v("확인")])],1)],1)],1),_vm._v("\n      의뢰ID : "+_vm._s(_vm.p.id)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',[_c('v-icon',[_vm._v("mdi-calendar-clock")]),_vm._v("\n      "+_vm._s(_vm.p.date)+"\n    ")],1),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),_c('v-expansion-panel-content',[_c('v-divider'),_vm._v(" "),_vm._l((_vm.mfFile),function(file,i){return _c('v-list',{key:file.id},[_c('v-list-item',{attrs:{"dense":""}},[_c('v-chip',{staticClass:"chipStyle",staticStyle:{"min-width":"10vw"},attrs:{"label":""}},[_vm._v("\n          "+_vm._s(file.field)+"\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","width":"10vw"}},[_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.req_lang)+"\n          ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.grant_lang)+"\n          ")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"text-caption",staticStyle:{"display":"flex","width":"30vw"}},[_c('v-icon',{attrs:{"left":""}},[_vm._v(" mdi-file-document-multiple ")]),_vm._v("\n          "+_vm._s(file.src.substring(file.src.lastIndexOf("/") + 1))+"\n          "),(_vm.countingFile[i] - 1 != 0)?_c('span',[_vm._v("외 "+_vm._s(_vm.countingFile[i] - 1)+"개의 파일")]):_vm._e()],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-list-item-icon',[_c('v-icon',{attrs:{"color":"success"}},[_vm._v(" mdi-check-circle ")])],1)],1)],1)})],2)],1):(_vm.language === '영어')?_c('v-expansion-panel',[_c('v-expansion-panel-header',{attrs:{"disable-icon-rotate":""},scopedSlots:_vm._u([{key:"actions",fn:function(){return [_c('v-chip',{attrs:{"color":_vm.stateColor(_vm.p.trans_state),"dark":""}},[_vm._v("\n        "+_vm._s(_vm.p.trans_state)+"\n        "),_c('v-icon',{attrs:{"right":"","color":"white"}},[_vm._v(" "+_vm._s("stateIcon(p.trans_state)")+" ")])],1)]},proxy:true}])},[_c('div',{staticStyle:{"display":"flex","align-items":"center"}},[_c('v-btn',{attrs:{"depressed":"","icon":""},on:{"click":function($event){_vm.dialog = true}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("Request Cancel")]),_vm._v(" "),_c('v-card-text',[_vm._v("Are you sure you want to cancel the quest?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("No")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":_vm.cancelRequest}},[_vm._v("Yes")])],1)],1)],1),_vm._v("\n        의뢰ID : "+_vm._s(_vm.p.id)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',[_c('v-icon',[_vm._v("mdi-calendar-clock")]),_vm._v("\n      "+_vm._s(_vm.p.date)+"\n    ")],1),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),_c('v-expansion-panel-content',[_c('v-divider'),_vm._v(" "),_vm._l((_vm.mfFile),function(file,i){return _c('v-list',{key:file.id},[_c('v-list-item',{attrs:{"dense":""}},[_c('v-chip',{staticClass:"chipStyle",staticStyle:{"min-width":"10vw"},attrs:{"label":""}},[_vm._v("\n          "+_vm._s(file.field)+"\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","width":"10vw"}},[_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.req_lang)+"\n          ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.grant_lang)+"\n          ")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","width":"30vw"}},[_c('v-icon',{attrs:{"left":""}},[_vm._v(" mdi-file-document-multiple ")]),_vm._v("\n          "+_vm._s(file.src.substring(file.src.lastIndexOf("/") + 1))+"\n          "),(_vm.countingFile[i] - 1 != 0)?_c('span',[_vm._v("other "+_vm._s(_vm.countingFile[i] - 1)+" files")]):_vm._e()],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-list-item-icon',[_c('v-icon',{attrs:{"color":"success"}},[_vm._v(" mdi-check-circle ")])],1)],1)],1)})],2)],1):_c('v-expansion-panel',[_c('div',{staticClass:"text-h1"},[_vm._v("페이지 로드 에러")])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/TransDashBoard.vue?vue&type=template&id=fa0a16ec&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.language === '한국어')?_c('v-expansion-panel',[_c('v-expansion-panel-header',{staticClass:"panel__header",attrs:{"disable-icon-rotate":""}},[_c('div',{staticClass:"panel__header__id"},[_c('v-btn',{attrs:{"depressed":"","icon":""},on:{"click":function($event){_vm.dialog = true}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("의뢰 취소")]),_vm._v(" "),_c('v-card-text',[_vm._v("해당 의뢰를 취소하시겠습니까?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("취소")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":_vm.cancelRequest}},[_vm._v("확인")])],1)],1)],1),_vm._v("\n      의뢰ID : "+_vm._s(_vm.p.id)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"panel__header__date"},[_c('v-icon',[_vm._v("mdi-calendar-clock")]),_vm._v("\n      "+_vm._s(_vm.p.date)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pannel__header__state"},[_c('v-chip',{attrs:{"color":_vm.stateColor(_vm.p.trans_state),"dark":""}},[_vm._v("\n        "+_vm._s(_vm.p.trans_state)+"\n        "),_c('v-icon',{attrs:{"right":"","color":"white"}},[_vm._v(" "+_vm._s(_vm.stateIcon(_vm.p.trans_state))+" ")])],1)],1)],1),_vm._v(" "),_c('v-expansion-panel-content',_vm._l((_vm.mfFile),function(file,i){return _c('v-list',{key:file.id},[_c('v-list-item',{staticClass:"itemStyle",attrs:{"dense":""}},[_c('v-chip',{staticClass:"chipStyle",attrs:{"label":""}},[_vm._v("\n          "+_vm._s(file.field)+"\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"display":"flex"}},[_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.req_lang)+"\n          ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.grant_lang)+"\n          ")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"textStyle"},[_c('v-icon',{attrs:{"left":""}},[_vm._v(" mdi-file-document-multiple ")]),_vm._v("\n          "+_vm._s(file.src.substring(file.src.lastIndexOf("/") + 1))+"\n          "),(_vm.countingFile[i] - 1 != 0)?_c('span',[_vm._v("외 "+_vm._s(_vm.countingFile[i] - 1)+"개의 파일")]):_vm._e()],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-list-item-icon',{staticClass:"iconStyle"},[_c('v-icon',{attrs:{"color":"success"}},[_vm._v(" mdi-check-circle ")])],1)],1)],1)}),1)],1):(_vm.language === '영어')?_c('v-expansion-panel',[_c('v-expansion-panel-header',{staticClass:"panel__header",attrs:{"disable-icon-rotate":""}},[_c('div',{staticClass:"panel__header__id"},[_c('v-btn',{attrs:{"depressed":"","icon":""},on:{"click":function($event){_vm.dialog = true}}},[_c('v-icon',[_vm._v("mdi-close")])],1),_vm._v(" "),_c('v-dialog',{attrs:{"width":"30vw"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card-title',[_vm._v("Request Cancel")]),_vm._v(" "),_c('v-card-text',[_vm._v("Are you sure you want to cancel the quest?")]),_vm._v(" "),_c('v-card-actions',[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("No")]),_vm._v(" "),_c('v-btn',{attrs:{"color":"success","text":""},on:{"click":_vm.cancelRequest}},[_vm._v("Yes")])],1)],1)],1),_vm._v("\n        의뢰ID : "+_vm._s(_vm.p.id)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"panel__header__date"},[_c('v-icon',[_vm._v("mdi-calendar-clock")]),_vm._v("\n      "+_vm._s(_vm.p.date)+"\n    ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pannel__header__state"},[_c('v-chip',{attrs:{"color":_vm.stateColor(_vm.p.trans_state),"dark":""}},[_vm._v("\n        "+_vm._s(_vm.p.trans_state)+"\n        "),_c('v-icon',{attrs:{"right":"","color":"white"}},[_vm._v(" "+_vm._s(_vm.stateIcon(_vm.p.trans_state))+" ")])],1)],1)],1),_vm._v(" "),_c('v-expansion-panel-content',[_c('v-divider'),_vm._v(" "),_vm._l((_vm.mfFile),function(file,i){return _c('v-list',{key:file.id},[_c('v-list-item',{attrs:{"dense":""}},[_c('v-chip',{staticClass:"chipStyle",staticStyle:{"min-width":"10vw"},attrs:{"label":""}},[_vm._v("\n          "+_vm._s(file.field)+"\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","width":"10vw"}},[_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.req_lang)+"\n          ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-icon',[_vm._v("mdi-arrow-right-bold")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-chip',{staticClass:"chipStyle"},[_vm._v("\n            "+_vm._s(file.grant_lang)+"\n          ")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"textStyle"},[_c('v-icon',{attrs:{"left":""}},[_vm._v(" mdi-file-document-multiple ")]),_vm._v("\n          "+_vm._s(file.src.substring(file.src.lastIndexOf("/") + 1))+"\n          "),(_vm.countingFile[i] - 1 != 0)?_c('span',[_vm._v("other "+_vm._s(_vm.countingFile[i] - 1)+" files")]):_vm._e()],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-list-item-icon',[_c('v-icon',{attrs:{"color":"success"}},[_vm._v(" mdi-check-circle ")])],1)],1)],1)})],2)],1):_c('v-expansion-panel',[_c('div',{staticClass:"text-h1"},[_vm._v("페이지 로드 에러")])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/TransDashBoard.vue?vue&type=template&id=8275356a&scoped=true&
+// CONCATENATED MODULE: ./components/TransDashBoard.vue?vue&type=template&id=fa0a16ec&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./components/TransDashBoard.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1054,7 +1105,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "8275356a",
+  "fa0a16ec",
   "35aa69f2"
   
 )

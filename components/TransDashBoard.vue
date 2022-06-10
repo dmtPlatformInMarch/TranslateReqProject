@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel v-if="language === '한국어'">
-    <v-expansion-panel-header disable-icon-rotate>
-      <div style="display: flex; align-items: center">
+    <v-expansion-panel-header class="panel__header" disable-icon-rotate>
+      <div class="panel__header__id">
         <v-btn depressed icon @click="dialog = true">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -18,29 +18,34 @@
         </v-dialog>
         의뢰ID : {{ p.id }}
       </div>
+
       <v-spacer />
-      <div>
+
+      <div class="panel__header__date">
         <v-icon>mdi-calendar-clock</v-icon>
         {{ p.date }}
       </div>
+
       <v-spacer />
-      <template #actions>
+
+      <div class="pannel__header__state">
         <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
           <v-icon right color="white"> {{ stateIcon(p.trans_state) }} </v-icon>
         </v-chip>
-      </template>
+      </div>
     </v-expansion-panel-header>
 
     <v-expansion-panel-content>
-      <v-divider />
       <v-list v-for="(file, i) in mfFile" :key="file.id">
-        <v-list-item dense>
-          <v-chip class="chipStyle" style="min-width: 10vw" label>
+        <v-list-item class="itemStyle" dense>
+          <v-chip class="chipStyle" label>
             {{ file.field }}
           </v-chip>
+
           <v-spacer />
-          <div style="display: flex; width: 10vw">
+
+          <div style="display: flex;">
             <v-spacer />
             <v-chip class="chipStyle">
               {{ file.req_lang }}
@@ -53,13 +58,13 @@
             </v-chip>
           </div>
           <v-spacer />
-          <div class="text-caption" style="display: flex; width: 30vw">
+          <div class="textStyle">
             <v-icon left> mdi-file-document-multiple </v-icon>
             {{ file.src.substring(file.src.lastIndexOf("/") + 1) }}
             <span v-if="countingFile[i] - 1 != 0">외 {{ countingFile[i] - 1 }}개의 파일</span>
           </div>
           <v-spacer />
-          <v-list-item-icon>
+          <v-list-item-icon class="iconStyle">
             <v-icon color="success"> mdi-check-circle </v-icon>
           </v-list-item-icon>
         </v-list-item>
@@ -70,8 +75,8 @@
   </v-expansion-panel>
 
   <v-expansion-panel v-else-if="language === '영어'">
-    <v-expansion-panel-header disable-icon-rotate>
-      <div style="display: flex; align-items: center">
+    <v-expansion-panel-header class="panel__header" disable-icon-rotate>
+      <div class="panel__header__id">
         <v-btn depressed icon @click="dialog = true"><v-icon>mdi-close</v-icon></v-btn>
         <v-dialog v-model="dialog" width="30vw">
           <v-card>
@@ -86,18 +91,22 @@
           </v-dialog>
           의뢰ID : {{ p.id }}
       </div>
+      
       <v-spacer />
-      <div>
+      
+      <div class="panel__header__date">
         <v-icon>mdi-calendar-clock</v-icon>
         {{ p.date }}
       </div>
+
       <v-spacer />
-      <template #actions>
+
+      <div class="pannel__header__state">
         <v-chip :color="stateColor(p.trans_state)" dark>
           {{ p.trans_state }}
-          <v-icon right color="white"> {{ "stateIcon(p.trans_state)" }} </v-icon>
+          <v-icon right color="white"> {{ stateIcon(p.trans_state) }} </v-icon>
         </v-chip>
-      </template>
+      </div>
     </v-expansion-panel-header>
 
     <v-expansion-panel-content>
@@ -121,7 +130,7 @@
             </v-chip>
           </div>
           <v-spacer />
-          <div style="display: flex; width: 30vw">
+          <div class="textStyle">
             <v-icon left> mdi-file-document-multiple </v-icon>
             {{ file.src.substring(file.src.lastIndexOf("/") + 1) }}
             <span v-if="countingFile[i] - 1 != 0">other {{ countingFile[i] - 1 }} files</span>
@@ -143,9 +152,51 @@
 </template>
 
 <style scoped>
+.panel__header__id {
+  display: flex;
+  align-items: center;
+}
+.panel__header__date {
+  display: flex;
+  align-items: center;
+}
 .chipStyle {
   justify-content: center;
   min-width: 75px;
+}
+.textStyle {
+  display: flex; 
+  width: 30vw;
+}
+.iconStyle {
+  margin: 8px 0 !important;
+}
+
+@media screen and (max-width: 700px) {
+  ::v-deep .v-expansion-panel-content__wrap {
+    padding: 0 !important;
+  }
+  .panel__header {
+    padding: 8px !important;
+  }
+  .panel__header__id {
+    font-size: 10px;
+  }
+  .panel__header__date {
+    font-size: 10px;
+  }
+  .pannel__header__state ::v-deep .v-chip__content {
+    font-size: 10px;
+  }
+  .pannel__header__state ::v-deep .v-icon {
+    font-size: 14px;
+  }
+  .panel__header__date ::v-deep .v-icon {
+    font-size: 14px;
+  }
+  .textStyle {
+    display: none; 
+  }
 }
 </style>
 

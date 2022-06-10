@@ -207,7 +207,12 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
           />
-          <v-text-field v-model="second_phone" type="tel" label="전화" prepend-inner-icon="mdi-deskphone" />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="전화" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
           <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
               <v-text-field
@@ -443,7 +448,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[4]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="field" 
+                  label="요청분야" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
               </div>
               <div>
                 <v-file-input
@@ -463,6 +476,48 @@
               </div>
             </div>
           </div>
+
+          <div class="request__mobile">
+            <v-select
+              v-model="req_lang[0]"
+              :items="languages"
+              label="번역이 필요한 언어"
+              prepend-icon="mdi-book-sync"
+              hide-details
+              outlined
+              dense
+            />
+            <v-icon>mdi-arrow-down-bold</v-icon>
+            <v-select
+              v-model="grant_lang[0]"
+              :items="req_lang[0] === '한국어' ? languages : ['한국어']"
+              label="번역할 언어"
+              prepend-icon="mdi-book-check"
+              outlined
+              dense
+            />
+            <v-select 
+              v-model="req_field[0]" 
+              :items="field" 
+              label="요청분야" 
+              prepend-icon="mdi-shape" 
+              outlined 
+              dense 
+            />
+            <v-file-input
+              v-model.lazy="file[0]"
+              prepend-icon="mdi-content-save"
+              label="파일 첨부"
+              multiple
+              small-chips
+              dense
+              :disabled="req_lang[0] === ''"
+              :accept="acceptFiles"
+              @change="onChangeFile(0, $event)"
+              @click:clear="onClearFile(0)"
+            />
+          </div>
+
           <v-textarea
             v-model="options"
             outlined
@@ -473,6 +528,7 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
+
           <div class="request__btn">
             <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
@@ -483,6 +539,7 @@
               번역 의뢰
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
+
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">의뢰 내용 확인</v-card-title>
@@ -529,7 +586,12 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || 'Please enter name of your company.']"
           />
-          <v-text-field v-model="second_phone" type="tel" label="Tel" prepend-inner-icon="mdi-deskphone" />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="Tel" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
           <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
               <v-text-field
@@ -753,7 +815,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[4]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="e_field" 
+                  label="Request field" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
               </div>
               <div>
                 <v-file-input
@@ -770,6 +840,20 @@
               </div>
             </div>
           </div>
+
+          <div class="request__mobile">
+            <div>
+              <v-select
+                v-model="req_lang[0]"
+                :items="e_languages"
+                label="Need Translation"
+                prepend-icon="mdi-book-sync"
+                outlined
+                dense
+              />
+            </div>
+          </div>
+
           <v-textarea
             v-model="options"
             outlined
@@ -780,6 +864,7 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
+
           <div class="request__btn">
             <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
@@ -790,6 +875,7 @@
               Translation request
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
+
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">Check the request</v-card-title>
@@ -834,6 +920,20 @@
   margin: auto; 
   padding: 10px 0;
 }
+.request__mobile {
+  display: none;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .request__btn {
@@ -845,7 +945,13 @@
   .spacer {
     display: none;
   }
-
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
 
@@ -890,7 +996,6 @@ export default {
     store.commit('requests/setExcost', 0);
   },
   computed: {
-    ...mapState('requests'),
     loginState() {
         return this.$store.state.users.loginState;
     },
@@ -1117,8 +1222,11 @@ export default {
     },
     async onChangeFile(index, e) {
         const fileFormData = new FormData();
-
         if (e != null) {
+          if (e.length === 0) {
+            e = null;
+            return;
+          }
           [].forEach.call(e, (f) => {
             if (
               f.type === 'application/pdf'  ||  // .pdf
@@ -1135,10 +1243,6 @@ export default {
                 color : 'orange darken-1' 
               });
               this.file[index] = null;
-              console.log(this.$refs.file0);
-              this.$refs.file0.hasInput = false;
-              this.$refs.file0.initialValue = null;
-              this.$refs.file0.lazyValue = null;
               e = null;
             }
           });

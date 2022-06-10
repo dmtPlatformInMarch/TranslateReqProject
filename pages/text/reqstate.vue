@@ -5,7 +5,7 @@
       <v-btn rounded color="success" @click="update">조회하기</v-btn>
     </v-toolbar>
 
-    <v-card>
+    <v-card elevation="0">
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle"> 번역 요청 현황 </v-card-title>
         <v-card outlined style="height: 45vh; text-align: center" elevation="10">
@@ -29,7 +29,7 @@
       </v-container>
     </v-card>
 
-    <v-card>
+    <v-card elevation="0">
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle">번역 요청 이력</v-card-title>
         <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">

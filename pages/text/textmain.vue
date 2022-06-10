@@ -12,7 +12,7 @@
             <div>8개의 언어</div>
           </div>
           <div v-else-if="language === '영어'">
-            <h4>Language translation</h4>
+            <h4>Translation</h4>
             <div>8 languages</div>
           </div>
         </v-btn>
@@ -169,8 +169,8 @@
               </div>
             </v-layout-->
             <v-layout class="translator__recruit fill-height text-center" align-center justify-center>
-              번역자 공고<br />
-              공고 기간은 추후 공지
+              {{ language === '한국어' ? "번역자 모집" : "Translator Recruit" }}<br>
+              {{ language === '한국어' ? "모집일은 추후 공지" : "Recruitment date will be announced later" }}
             </v-layout>
           </v-sheet>
         </v-carousel-item>

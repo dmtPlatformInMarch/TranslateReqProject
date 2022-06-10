@@ -66,7 +66,7 @@
             </v-list-item-icon>
             <v-list-item-content>
               <div class="nav__title" v-if="language === '한국어'">{{ loginState.nickname }} 님</div>
-              <div class="nav__title" v-else-if="language === '영어'">Hello, <br />{{ loginState.nickname }}</div>
+              <div class="nav__title" v-else-if="language === '영어'">Hello, {{ loginState.nickname }}</div>
               <div class="nav__subtitle" v-if="language === '한국어'">번역 의뢰 : N건</div>
               <div class="nav__subtitle" v-else-if="language === '영어'">Your Request : N cases</div>
               <v-btn class="nav__btn full-width" v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
@@ -115,7 +115,7 @@
             </v-list-item-icon>
             <v-list-item-content>
               <div class="nav__title" v-if="language === '한국어'">{{ loginState.nickname }} 님</div>
-              <div class="nav__title" v-else-if="language === '영어'">Hello, <br />{{ loginState.nickname }}</div>
+              <div class="nav__title" v-else-if="language === '영어'">Hello, {{ loginState.nickname }}</div>
               <div class="nav__subtitle" v-if="language === '한국어'">번역 의뢰 : N건</div>
               <div class="nav__subtitle" v-else-if="language === '영어'">Your Request : N cases</div>
               <v-btn class="nav__btn full-width" v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
@@ -232,7 +232,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .main__toolbar__items {
     display: none;
   }
@@ -244,6 +244,9 @@
   }
   .nav__btn {
     height: 24px !important;
+  }
+  .nav__main {
+    display: none;
   }
   .mobile__visible {
     display: flex;
@@ -329,7 +332,7 @@ export default {
       this.loginMenu = data;
     },
     swipeStart(e) {
-      if (window.innerWidth < 400) {
+      if (window.innerWidth < 600) {
         var tchs = e.changedTouches[0];
         this.swdir = 'none';
         this.sX = tchs.pageX;
@@ -338,7 +341,7 @@ export default {
       }
     },
     swipeEnd(e) {
-      if (window.innerWidth < 400) {
+      if (window.innerWidth < 600) {
         var tchs = e.changedTouches[0];
         this.dX = tchs.pageX - this.sX;
         this.dY = tchs.pageY - this.sY;

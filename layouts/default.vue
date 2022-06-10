@@ -4,7 +4,7 @@
       <!--로고-->
       <div>
         <nuxt-link to="/">
-          <v-avatar height="80px" width="200px" tile>
+          <v-avatar class="logo" height="80px" width="200px" tile>
             <img :src="logo" />
           </v-avatar>
         </nuxt-link>
@@ -165,17 +165,17 @@
         </v-btn>
       </template>
       
-      <v-btn class="mobile__menu" dark small color="purple" @click="go('/voice/info')">
+      <v-btn class="mobile__menu" dark small outlined @click="go('/voice/info')">
         <v-icon>mdi-account-voice</v-icon>
-        음성
+        <div>{{ language === '한국어' ? "음성" : "Voice" }}</div>
       </v-btn>
-      <v-btn class="mobile__menu" dark small color="indigo" @click="go('/video/info')">
+      <v-btn class="mobile__menu" dark small outlined @click="go('/video/info')">
         <v-icon>mdi-message-video</v-icon>
-        영상
+        <div>{{ language === '한국어' ? "영상" : "Video" }}</div>
       </v-btn>
-      <v-btn class="mobile__menu" dark small color="green" @click="go('/text/textmain')">
+      <v-btn class="mobile__menu" dark small outlined @click="go('/text/textmain')">
         <v-icon>mdi-clipboard-text-multiple</v-icon>
-        글자
+        <div>{{ language === '한국어' ? "글자" : "Text" }}</div>
       </v-btn>
     </v-speed-dial>
 
@@ -231,6 +231,12 @@ body {
   z-index: 1;
   opacity: 0.75;
 }
+.mobile__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 80px;
+}
 
 @media screen and (max-width: 900px){
   .menu__selector >>> .v-btn.v-size--default {
@@ -239,6 +245,9 @@ body {
 }
 
 @media screen and (max-width: 500px){
+  .logo {
+    width: 150px !important;
+  }
   .menu__selector >>> .v-btn.v-size--default {
     display: none !important;
   }
