@@ -29,16 +29,18 @@
     <div class="text-center">
       <nuxt />
     </div>
-    <div class="text-center">
+    <div class="btn__back text-center">
       <v-btn to="/text/textmain" color="primary">{{ language === "한국어" ? "돌아가기" : "Back" }}</v-btn>
     </div>
-    <v-spacer />
     <snack-bar />
     <bottom-component />
   </v-app>
 </template>
 
 <style scoped>
+.btn__back {
+  margin: 20px;
+}
 </style>
 
 <script lang="js">
