@@ -62,10 +62,30 @@
             <v-checkbox
               v-model="terms"
               required
-              label="Subscription Terms"
+              readonly
+              label="Signup Terms"
               @click="onPolicy" 
               :rules="[(v) => !!v || 'It is essential to agree to the terms and conditions.']"
             />
+            <v-dialog v-model="policy" max-width="80%">
+              <v-card class="card d-flex flex-column">
+                <div class="card__title">
+                  Signup Terms
+                </div>
+                <div class="text__box overflow-auto">
+                  <div class="card__subtitle">Terms</div>
+                  <div class="text__policy overflow-y-auto">
+                    <Term />
+                  </div>
+                  <div class="card__subtitle">Privacy Policy</div>
+                  <div class="text__policy overflow-y-auto">
+                    <Policy />
+                  </div>
+                </div>
+                <v-btn color="success" @click="agree">Agree</v-btn>
+              </v-card>
+            </v-dialog>
+
             <v-btn type="submit" color="success">SignUp</v-btn>
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
