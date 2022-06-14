@@ -8,7 +8,33 @@
             <v-text-field v-model="email" label="이메일" type="email" :rules="emailRules" />
             <v-text-field v-model="password" label="사용할 비밀번호" type="password" :rules="passwordRules" />
             <v-text-field v-model="passwordCheck" label="비밀번호 확인" type="password" :rules="passwordCheckRules" />
-            <v-checkbox v-model="terms" required label="가입 약관" :rules="[(v) => !!v || '약관 동의는 필수입니다.']" />
+            <v-checkbox 
+              v-model="terms" 
+              required
+              readonly
+              label="가입 약관" 
+              @click="onPolicy" 
+              :rules="[(v) => !!v || '약관 동의는 필수입니다.']" 
+            />
+            <v-dialog v-model="policy" max-width="80%">
+              <v-card class="card d-flex flex-column">
+                <div class="card__title">
+                  가입 약관
+                </div>
+                <div class="text__box overflow-auto">
+                  <div class="card__subtitle">이용약관</div>
+                  <div class="text__policy overflow-y-auto">
+                    <Term />
+                  </div>
+                  <div class="card__subtitle">개인정보처리방침</div>
+                  <div class="text__policy overflow-y-auto">
+                    <Policy />
+                  </div>
+                </div>
+                <v-btn color="success" @click="agree">동의합니다</v-btn>
+              </v-card>
+            </v-dialog>
+
             <v-btn type="submit" color="success">가입하기</v-btn>
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
@@ -36,7 +62,8 @@
             <v-checkbox
               v-model="terms"
               required
-              label="Subscription Terms "
+              label="Subscription Terms"
+              @click="onPolicy" 
               :rules="[(v) => !!v || 'It is essential to agree to the terms and conditions.']"
             />
             <v-btn type="submit" color="success">SignUp</v-btn>
@@ -58,11 +85,42 @@
 </template>
 
 <style scoped>
+.card {
+  width: 100%;
+  height: 80vh;
+}
+.card__title {
+  background: #013183;
+  padding: 25px;
+  font-size: 1.25rem;
+  color: white;
+}
+.card__subtitle {
+  padding: 10px;
+  border-top: 1px solid #013183;
+  border-bottom: 1px solid #013183;
+}
+.text__box {
+  width: 100%;
+  height: 100%;
+}
+.text__policy {
+  width: 100%;
+  max-height: calc(50% - 44px);
+  padding: 20px;
+}
 </style>
 
 <script>
+import Term from "../../components/Term.vue";
+import Policy from "../../components/Policy.vue";
+
 export default {
   layout: "SignupLayout",
+  components: {
+    Term,
+    Policy,
+  },
   head() {
     return {
       title: "회원가입",
@@ -71,6 +129,7 @@ export default {
   data() {
     return {
       dialog: false,
+      policy: false,
       errorMessage: false,
       valid: false,
       nickname: "",
@@ -117,6 +176,14 @@ export default {
         console.log("에러" + err);
       }
     },
+    onPolicy() {
+      if(!this.terms) this.policy = true;
+      else this.terms = false;
+    },
+    agree() {
+      this.terms = true;
+      this.policy = false;
+    }
   },
 };
 </script>
