@@ -11338,9 +11338,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "state", function() { return state; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mutations", function() { return mutations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actions", function() { return actions; });
-const state = () => ({});
-const mutations = {};
-const actions = {};
+const state = () => ({
+  file: undefined,
+  fileText: ""
+});
+const mutations = {
+  setFile(state, payload) {
+    state.file = payload;
+  },
+
+  setFileText(state, payload) {
+    state.fileText = payload;
+  }
+
+};
+const actions = {
+  async signedURL({
+    commit
+  }, payload) {
+    try {
+      for (var pair of payload.entries()) {
+        //console.log("페이로드 : ", pair[0], pair[1]);
+        commit('setFile', pair[1]);
+      }
+
+      const presignedURL = await this.$axios.post('/test/presigned', payload, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }); //console.log("받아온 URL : ", presignedURL.data);
+
+      return presignedURL.data;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  async deleteFile({
+    state,
+    commit
+  }) {
+    try {
+      const deleteResponse = await this.$axios.delete(`/test/file/delete/${state.file.name}`);
+
+      if (deleteResponse.status === 200) {
+        commit('setFile', undefined);
+        commit('setFileText', '');
+      } else {
+        console.log("삭제 실패");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  async extract({
+    state,
+    commit
+  }) {
+    try {
+      var _state$file;
+
+      const extractResponse = await this.$axios.get(`/test/file/extract/${(_state$file = state.file) === null || _state$file === void 0 ? void 0 : _state$file.name}`);
+      commit('setFileText', extractResponse.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+};
 
 /***/ }),
 /* 197 */
