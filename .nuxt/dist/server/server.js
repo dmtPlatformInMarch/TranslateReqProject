@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"pages/admin/index","2":"pages/admin/mgRequest","3":"pages/admin/mgUser","4":"pages/index","5":"pages/test","6":"pages/text/info","7":"pages/text/reqstate","8":"pages/text/request","9":"pages/text/textmain","10":"pages/user/index","11":"pages/user/signup","12":"pages/video/info","13":"pages/voice/info"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"pages/admin/index","2":"pages/admin/mgRequest","3":"pages/admin/mgUser","4":"pages/apitest","5":"pages/index","6":"pages/text/info","7":"pages/text/reqstate","8":"pages/text/request","9":"pages/text/textmain","10":"pages/uitest","11":"pages/user/index","12":"pages/user/signup","13":"pages/video/info","14":"pages/voice/info"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -12316,15 +12316,17 @@ function shouldScrollToTop(route) {
 
 const _c0bf7cb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/index */ 1).then(__webpack_require__.bind(null, 336)));
 
-const _d09a26da = () => interopDefault(__webpack_require__.e(/* import() | pages/test */ 5).then(__webpack_require__.bind(null, 337)));
+const _5e4d8b3b = () => interopDefault(__webpack_require__.e(/* import() | pages/apitest */ 4).then(__webpack_require__.bind(null, 337)));
 
-const _d90d1094 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 10).then(__webpack_require__.bind(null, 338)));
+const _7feb30e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/uitest */ 10).then(__webpack_require__.bind(null, 338)));
 
-const _96f4a432 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 2).then(__webpack_require__.bind(null, 339)));
+const _d90d1094 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 11).then(__webpack_require__.bind(null, 339)));
 
-const _6d747eba = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 3).then(__webpack_require__.bind(null, 340)));
+const _96f4a432 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 2).then(__webpack_require__.bind(null, 340)));
 
-const _50ef2f48 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 6).then(__webpack_require__.bind(null, 341)));
+const _6d747eba = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 3).then(__webpack_require__.bind(null, 341)));
+
+const _50ef2f48 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 6).then(__webpack_require__.bind(null, 342)));
 
 const _7aa43ce1 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/reqstate */ 7).then(__webpack_require__.bind(null, 333)));
 
@@ -12332,13 +12334,13 @@ const _d26f245e = () => interopDefault(__webpack_require__.e(/* import() | pages
 
 const _3a414dd8 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/textmain */ 9).then(__webpack_require__.bind(null, 334)));
 
-const _d947a838 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 11).then(__webpack_require__.bind(null, 335)));
+const _d947a838 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 12).then(__webpack_require__.bind(null, 335)));
 
-const _5870abf8 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 12).then(__webpack_require__.bind(null, 342)));
+const _5870abf8 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 13).then(__webpack_require__.bind(null, 343)));
 
-const _6be03fef = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 13).then(__webpack_require__.bind(null, 343)));
+const _6be03fef = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 14).then(__webpack_require__.bind(null, 344)));
 
-const _77806121 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 4).then(__webpack_require__.bind(null, 344)));
+const _77806121 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 5).then(__webpack_require__.bind(null, 345)));
 
 const emptyFn = () => {};
 
@@ -12354,9 +12356,13 @@ const routerOptions = {
     component: _c0bf7cb8,
     name: "admin"
   }, {
-    path: "/test",
-    component: _d09a26da,
-    name: "test"
+    path: "/apitest",
+    component: _5e4d8b3b,
+    name: "apitest"
+  }, {
+    path: "/uitest",
+    component: _7feb30e7,
+    name: "uitest"
   }, {
     path: "/user",
     component: _d90d1094,

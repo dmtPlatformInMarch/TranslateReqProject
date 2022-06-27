@@ -7,11 +7,18 @@
     "_name": "_c0bf7cb8"
   },
   {
-    "name": "test",
-    "path": "/test",
-    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\test.vue",
-    "chunkName": "pages/test",
-    "_name": "_d09a26da"
+    "name": "apitest",
+    "path": "/apitest",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\apitest.vue",
+    "chunkName": "pages/apitest",
+    "_name": "_5e4d8b3b"
+  },
+  {
+    "name": "uitest",
+    "path": "/uitest",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\uitest.vue",
+    "chunkName": "pages/uitest",
+    "_name": "_7feb30e7"
   },
   {
     "name": "user",
