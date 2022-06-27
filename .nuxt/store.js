@@ -18,6 +18,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin.js'), 'admin.js')
   resolveStoreModules(require('..\\store\\manager.js'), 'manager.js')
   resolveStoreModules(require('..\\store\\requests.js'), 'requests.js')
+  resolveStoreModules(require('..\\store\\test.js'), 'test.js')
   resolveStoreModules(require('..\\store\\users.js'), 'users.js')
 
   // If the environment supports hot reloading...

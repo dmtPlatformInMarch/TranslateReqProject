@@ -2,14 +2,14 @@
   <v-container class="full-height">
     <!--메인 헤드라인-->
     <div>
-      <v-parallax :src="mainimg"  height="300">
+      <v-parallax :src="mainimg" height="300">
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
-            <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
-            <h4 class="subheading" v-if="language === '한국어'">
+            <h1 class="main__title text-h1 font-weight-thin mb-4"> DMTLABS </h1>
+            <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS의 텍스트 번역 시스템
             </h4>
-            <h4 class="subheading" v-else-if="language === '영어'">
+            <h4 v-else-if="language === '영어'" class="subheading">
               DMTLABS Text Translation System
             </h4>
           </v-col>
@@ -17,7 +17,7 @@
       </v-parallax>
     </div>
 
-    <v-container v-if="this.language === '한국어'" class="body">
+    <v-container v-if="language === '한국어'" class="body">
       <v-card-title class="font-weight-bold"> 디엠티랩스의 텍스트 번역 시스템 </v-card-title>
       <v-card-text>
         DMTLABS에서는 언어와 데이터를 수집하여 구축한 다국어 번역 시스템을 통해 <br />
@@ -41,7 +41,7 @@
       </v-card-text>
     </v-container>
 
-    <v-container v-else-if="this.language === '영어'" class="body">
+    <v-container v-else-if="language === '영어'" class="body">
       <v-card-title class="font-weight-bold"> DMTLABS's Text Translation System </v-card-title>
       <v-card-text>
         DMTLABS operates a translation and translation request service for documents <br />
@@ -65,38 +65,28 @@
         but also the process of translating text in image.<br /><br />
       </v-card-text>
     </v-container>
-
   </v-container>
 </template>
 
 <style scoped>
-@font-face {
-    font-family: 'CBNUJIKJI';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'MinSans-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 .full-height {
   height: 100%;
-}
-.header {
-  font-family: 'CBNUJIKJI', sans-serif !important;
-  color: white;
-  background: #013183;
 }
 .body {
   font-family: 'MinSans-Medium', sans-serif !important;
 }
+
+@media screen and (max-width: 500px) {
+  .main__title {
+    font-size: 3.5rem !important;
+  }
+}
+
 </style>
 
 <script>
 export default {
+  layout: 'TextLayout',
   data() {
     return {
       mainimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/text.jpg',// || require("~/static/mainImg1.jpg"),

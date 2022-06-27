@@ -11,10 +11,10 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6">
-                <v-text-field class="search_input" dense full-width label="유저(User)" v-model="searchName" />
+                <v-text-field v-model="searchName" class="search_input" dense full-width label="유저(User)" />
               </v-col>
               <v-col cols="12" sm="6">
-                <v-select class="search_input" dense full-width clearable label="분야(Field)" v-model="searchField" :items="ko_field" />
+                <v-select v-model="searchField" class="search_input" :items="ko_field" dense full-width clearable label="분야(Field)" />
               </v-col>
             </v-row>
           </v-container>
@@ -55,9 +55,7 @@
                 <v-card-subtitle> 의뢰분야 </v-card-subtitle>
                 <v-chip-group column>
                   <div v-for="i in item.Files" :key="i.id">
-                    <template>
-                      <v-chip v-if="i.field != ''">{{ i.field }}</v-chip>
-                    </template>
+                    <v-chip v-if="i.field != ''">{{ i.field }}</v-chip>
                   </div>
                 </v-chip-group>
               </v-card>
@@ -75,13 +73,13 @@
                     <v-btn
                       icon
                       :href="
-                        (isDev ? 'http://localhost:3085' : 'http://api.dmtlabs.kr') +
+                        (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
                         '/admin/file/download/' +
                         i.src.substring(i.src.lastIndexOf('/') + 1)
                       "
                       download
                     >
-                      <v-icon>mdi-file</v-icon>
+                      <v-icon>mdi-file-download</v-icon>
                     </v-btn>
                   </template>
                 </div>
@@ -110,88 +108,118 @@
       </v-dialog>
 
       <v-dialog v-model="show" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <v-card class="overflow-y-auto">
+        <v-card>
           <v-toolbar dark color="#013183">
-            <v-btn icon dark @click="show = false;">
+            <v-btn icon dark @click="show = false">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>
               {{ inquery.name }} 님의 의뢰
             </v-toolbar-title>
           </v-toolbar>
+          <div class="overflow-y-auto">
+            <v-card v-for="item in inquery.Files" :key="item.id">
+              <v-card-title>
+                {{ item.src.substring(item.src.lastIndexOf('/') + 1) }}
+                <v-spacer />
+                <v-btn
+                  icon
+                  :href="
+                    (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                    '/admin/file/download/' +
+                    item.src.substring(item.src.lastIndexOf('/') + 1)
+                  "
+                  download
+                >
+                  <v-icon>mdi-file-download</v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-row class="text-center align-center" no-gutters>
+                <v-col cols="12" md="4">
+                  <div style="border: 1px solid black">
+                    <h3>분류</h3>
+                    <v-divider />
+                    <v-container>
+                      {{ item.field }}
+                    </v-container>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="4">
+                  <div style="border: 1px solid black">
+                    <h3>요청 언어</h3>
+                    <v-divider />
+                    <v-container>
+                      {{ item.req_lang }}
+                    </v-container>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="4">
+                  <div style="border: 1px solid black">
+                    <h3>번역 언어</h3>
+                    <v-divider />
+                    <v-container>
+                      {{ item.grant_lang }}
+                    </v-container>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-card>
+          </div>
 
-          <v-card v-for="item in inquery.Files" :key="item.id">
-            <v-card-title>
-              {{ item.src.substring(item.src.lastIndexOf('/') + 1, item.src.length) }}
-            </v-card-title>
-            <v-row class="text-center align-center" no-gutters>
-              <v-col cols="12" md="4">
-                <div style="border: 1px solid black">
-                  <h3>분류</h3>
-                  <v-divider />
-                  {{ item.field }}
-                </div>
-              </v-col>
-              <v-col cols="12" md="4">
-                <div style="border: 1px solid black">
-                  <h3>요청 언어</h3>
-                  <v-divider />
-                  {{ item.req_lang }}
-                </div>
-              </v-col>
-              <v-col cols="12" md="4">
-                <div style="border: 1px solid black">
-                  <h3>번역 언어</h3>
-                  <v-divider />
-                  {{ item.grant_lang }}
-                </div>
-              </v-col>
-
-              <v-col cols="12" sm="2">
-                <v-btn color="orange" dark depressed rounded block>
+          <v-row class="text-center align-center bottom" no-gutters>
+            <v-col cols="12" md="12">
+              <div style="border: 1px solid black">
+                <h3>현재 상태</h3>
+                <v-divider />
+                <v-container>
+                  <v-btn 
+                    :color="stateColor(inquery.trans_state)"
+                    dark
+                    rounded
+                    readonly
+                    depressed
+                  >
+                    {{ inquery.trans_state }}
+                    <v-icon right>{{ stateIcon(inquery.trans_state) }}</v-icon>
+                  </v-btn>
+                </v-container>
+              </div>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-container>
+                <v-btn :color="stateColor('번역 준비중')" :disabled="inquery.trans_state === '번역 준비중'" :dark="inquery.trans_state != '번역 준비중'" rounded block @click="setState('번역 준비중')">
                   번역 준비중
+                  <v-icon right>{{ stateIcon('번역 준비중') }}</v-icon>
                 </v-btn>
-              </v-col>
-              <v-col cols="12" sm="1">
-                <v-icon>
-                  mdi-arrow-right-bold
-                </v-icon>
-              </v-col>
-              <v-col cols="12" sm="2">
-                <v-btn color="primary" dark depressed rounded block>
+              </v-container>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-container>
+                <v-btn :color="stateColor('번역 시작')" :disabled="inquery.trans_state === '번역 시작'" :dark="inquery.trans_state != '번역 시작'" rounded block @click="setState('번역 시작')">
                   번역 시작
+                  <v-icon right>{{ stateIcon('번역 시작') }}</v-icon>
                 </v-btn>
-              </v-col>
-              <v-col cols="12" sm="1">
-                <v-icon>
-                  mdi-arrow-right-bold
-                </v-icon>
-              </v-col>
-              <v-col cols="12" sm="2">
-                <v-btn color="indigo" dark depressed rounded block>
+              </v-container>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-container>
+                <v-btn :color="stateColor('번역 검수중')" :disabled="inquery.trans_state === '번역 검수중'" :dark="inquery.trans_state != '번역 검수중'" rounded block @click="setState('번역 검수중')">
                   번역 검수중
+                  <v-icon right>{{ stateIcon('번역 검수중') }}</v-icon>
                 </v-btn>
-              </v-col>
-              <v-col cols="12" sm="1">
-                <v-icon>
-                  mdi-arrow-right-bold
-                </v-icon>
-              </v-col>
-              <v-col cols="12" sm="2">
-                <v-btn color="success" dark depressed rounded block>
+              </v-container>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-container>
+                <v-btn :color="stateColor('번역 완료')" :disabled="inquery.trans_state === '번역 완료'" :dark="inquery.trans_state != '번역 완료'" rounded block @click="setState('번역 완료')">
                   번역 완료
+                  <v-icon right>{{ stateIcon('번역 완료') }}</v-icon>
                 </v-btn>
-              </v-col>
-              <v-col>
-                <v-btn large plain>
-                  전송
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card>
+              </v-container>
+            </v-col>
+          </v-row>
         </v-card>
       </v-dialog>
-
     </v-container>
     <snack-bar />
   </v-container>
@@ -213,7 +241,7 @@ import _ from 'lodash';
 import SnackBar from '~/components/SnackBar';
 
 export default {
-    layout: 'adminLayout',
+    layout: 'AdminLayout',
     components: {
       SnackBar,
     },
@@ -227,6 +255,7 @@ export default {
         searchName: '',
         searchField: '',
         list: [],
+        stateSelect: '',
       }
     },
     fetch({ store }) {
@@ -234,6 +263,11 @@ export default {
     },
     mounted() {
       this.list = this.$store.state.admin.allRequest;
+    },
+    computed: {
+      ko_field() {
+        return this.$FIELDS_KO;
+      }
     },
     watch: {
       searchName: _.debounce(function (name) {
@@ -255,15 +289,9 @@ export default {
         }
       }, 500),
     },
-    computed: {
-      ko_field() {
-        return this.$FIELDS_KO;
-      }
-    },
     methods: {
       reload() {
-        this.$store.dispatch('admin/loadReq');
-        console.log('Reload');
+        this.$store.dispatch('admin/reloadReq');
       },
       cancelRequest(id) {
         this.$store.dispatch('admin/deleteRequest', id);
@@ -273,6 +301,35 @@ export default {
         this.show = true;
         this.inquery = item;
       },
+      async setState(st) {
+        try {
+          await this.$store.dispatch('admin/setState', {
+            request: this.inquery,
+            state: st,
+          });
+          
+          this.list = this.$store.state.admin.allRequest;
+          this.inquery = this.list.find(item => item.id === this.inquery.id);
+          // this.inquery를 바뀐걸로 해줘야 함.
+          this.$manage.showMessage({ message: `번역 상태 [ ${st} ]로 변경`, color: 'success' });
+        } catch (err) {
+
+        }
+      },
+      stateIcon(state) {
+        if (state === '번역 준비중') return "mdi-briefcase-clock";
+        else if (state === '번역 시작') return "mdi-briefcase-edit";
+        else if (state === '번역 검수중') return "mdi-briefcase-search";
+        else if (state === '번역 완료') return "mdi-briefcase-check";
+        else return "mdi-briefcase-off";
+      },
+      stateColor(state) {
+        if (state === '번역 준비중') return "orange";
+        else if (state === '번역 시작') return "primary";
+        else if (state === '번역 검수중') return "indigo";
+        else if (state === '번역 완료') return "success";
+        else return "grey";
+      }
     }
 }
 </script>

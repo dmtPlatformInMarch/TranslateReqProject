@@ -1,5 +1,5 @@
 <template>
-  <pre>
+  <pre class="text">
     - 1. 목적
 
     본 약관은 디엠티랩스(이하 "회사")가 제공하는 디엠티클라우드 (DMT Cloud) 및 관련 제반 서비스의 이용조건 및 절차, 이용자와 홈페이지의 **권리, 의무, 책임사항**과 **기타 필요한 사항**을 규정함을 목적으로 합니다.
@@ -194,3 +194,10 @@
     &lt;부칙&gt; (시행일) 본 약관은 2021년 06월 21일 부터 적용됩니다.
   </pre>
 </template>
+
+<style scoped>
+.text {
+    overflow: auto;
+    white-space: pre-wrap;
+}
+</style>

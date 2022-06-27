@@ -5,7 +5,8 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
-const _d09a26da = () => interopDefault(import('..\\pages\\test.vue' /* webpackChunkName: "pages/test" */))
+const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
+const _7feb30e7 = () => interopDefault(import('..\\pages\\uitest.vue' /* webpackChunkName: "pages/uitest" */))
 const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
 const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
 const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
@@ -34,9 +35,13 @@ export const routerOptions = {
     component: _c0bf7cb8,
     name: "admin"
   }, {
-    path: "/test",
-    component: _d09a26da,
-    name: "test"
+    path: "/apitest",
+    component: _5e4d8b3b,
+    name: "apitest"
+  }, {
+    path: "/uitest",
+    component: _7feb30e7,
+    name: "uitest"
   }, {
     path: "/user",
     component: _d90d1094,

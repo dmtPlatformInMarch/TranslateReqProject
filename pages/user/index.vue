@@ -28,8 +28,8 @@
 
     <v-container v-else>
       <v-toolbar elevation="0">
-        <v-toolbar-title class="text-h4 font-weight-bold" v-if="language === '한국어'"> 언어 설정 오류 </v-toolbar-title>
-        <v-toolbar-title class="text-h4 font-weight-bold" v-else-if="language === '영어'"> Language setting error </v-toolbar-title>
+        <v-toolbar-title v-if="language === '한국어'" class="text-h4 font-weight-bold"> 언어 설정 오류 </v-toolbar-title>
+        <v-toolbar-title v-else-if="language === '영어'" class="text-h4 font-weight-bold"> Language setting error </v-toolbar-title>
       </v-toolbar>
       <v-card>
         <v-card-title v-if="language === '한국어'">
@@ -38,7 +38,7 @@
         <v-card-title v-else-if="language === '영어'"> </v-card-title>
       </v-card>
     </v-container>
-    <v-snackbar />
+    <snack-bar />
   </v-container>
 </template>
 
@@ -49,7 +49,7 @@
 import SnackBar from "~/components/SnackBar";
 
 export default {
-  layout: "textLayout",
+  layout: "TextLayout",
   components: {
     SnackBar,
   },

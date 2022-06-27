@@ -1,6 +1,7 @@
 <template>
   <v-list-item v-if="language === '한국어'" class="flexing" dense>
     <div class="Basicdiv">의뢰ID : {{ p.id }}</div>
+
     <div class="Basicdiv">
       <v-chip class="chipStyle">
         {{ p.Files[0].req_lang }}
@@ -42,19 +43,30 @@
 .flexing {
   display: flex;
   align-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
   justify-items: center;
 }
 .Basicdiv {
   display: flex;
   align-content: center;
   justify-content: flex-start;
-  min-width: 10vw;
 }
 .chipStyle {
   justify-content: center;
-  min-width: 75px;
 }
+
+@media screen and (max-width: 500px) {
+  .Basicdiv {
+    font-size: 10px;
+  }
+  .chipStyle {
+    font-size: 10px;
+  }
+  .Basicdiv ::v-deep .v-icon {
+    font-size: 14px;
+  }
+}
+
 </style>
 
 <script>

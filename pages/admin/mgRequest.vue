@@ -31,13 +31,11 @@
 
 <script lang="js">
 import transDashBoard from '~/components/TransDashBoard';
-import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
-    layout: 'adminLayout',
+    layout: 'AdminLayout',
     components: {
       transDashBoard,
-      transHistoryBoard,
     },
     data() {
       return {

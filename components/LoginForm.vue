@@ -31,8 +31,8 @@
           <v-btn v-else-if="language === '영어'" style="width: 100%" depressed :disabled="!valid" type="submit" @click="onEmit">Login</v-btn>
         </v-list-item-action>
         <v-list-item-action>
-          <v-btn v-if="language === '한국어'" plain to="/user/signup" @click="onEmit" style="width: 90%">회원가입</v-btn>
-          <v-btn v-if="language === '영어'" plain to="/user/signup" @click="onEmit" style="width: 90%">Sign Up</v-btn>
+          <v-btn v-if="language === '한국어'" plain to="/user/signup" style="width: 90%" @click="onEmit">회원가입</v-btn>
+          <v-btn v-if="language === '영어'" plain to="/user/signup" style="width: 90%" @click="onEmit">Sign Up</v-btn>
         </v-list-item-action>
       </v-list>
     </v-form>

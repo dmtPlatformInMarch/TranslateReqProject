@@ -1,3 +1,6 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 const { loadNuxt, build } = require('nuxt')
 
 const app = require('express')()

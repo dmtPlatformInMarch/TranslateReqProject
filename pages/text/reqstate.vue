@@ -5,7 +5,7 @@
       <v-btn rounded color="success" @click="update">조회하기</v-btn>
     </v-toolbar>
 
-    <v-card>
+    <v-card elevation="0">
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle"> 번역 요청 현황 </v-card-title>
         <v-card outlined style="height: 45vh; text-align: center" elevation="10">
@@ -20,7 +20,7 @@
             <v-list-item-title> 번역을 요청하신 의뢰가 없습니다. </v-list-item-title>
           </v-list-item>
 
-          <v-expansion-panels flat accordion focusable v-else>
+          <v-expansion-panels v-else flat accordion focusable>
             <client-only>
               <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
@@ -29,7 +29,7 @@
       </v-container>
     </v-card>
 
-    <v-card>
+    <v-card elevation="0">
       <v-container v-if="!loginState">
         <v-card-title class="titleStyle">번역 요청 이력</v-card-title>
         <v-card class="overflow-y-auto" style="height: 45vh; text-align: center" elevation="10">
@@ -79,7 +79,7 @@
           <v-list-item v-if="mainRequest.length == 0">
             <v-list-item-title> There is no request for translation. </v-list-item-title>
           </v-list-item>
-          <v-expansion-panels flat accordion focusable v-else>
+          <v-expansion-panels v-else flat accordion focusable>
             <client-only>
               <trans-dash-board v-for="item in mainRequest" :id="item.id" :key="item.id" :p="item" />
             </client-only>
@@ -132,7 +132,7 @@ import transDashBoard from '~/components/TransDashBoard';
 import transHistoryBoard from '~/components/TransHistoryBoard';
 
 export default {
-  layout: 'textLayout',
+  layout: 'TextLayout',
   components: {
       transDashBoard,
       transHistoryBoard,

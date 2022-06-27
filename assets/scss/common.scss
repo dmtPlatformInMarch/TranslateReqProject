@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'CBNUJIKJI';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MinSans-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// 스크롤 바 비표시
+html {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+
+    // 기본 폰트 설정
+    .v-application {
+        font-family: 'MinSans-Medium', sans-serif !important;
+        font-size: 16px;
+    }
+}
+::-webkit-scrollbar {
+    display: none !important;
+}

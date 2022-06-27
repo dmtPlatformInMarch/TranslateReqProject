@@ -2,7 +2,7 @@
   <v-container>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle class="toggle_group" v-model="sels" mandatory ref="toggle" color="primary" style="width: 100%" @change="loginCheck" >
+      <v-btn-toggle ref="toggle" v-model="sels" class="toggle_group" mandatory color="primary" style="width: 100%" @change="loginCheck">
         <v-btn width="50%" style="margin: 0; padding: 0">
           {{ language === "한국어" ? "견적" : "Estimate" }}
         </v-btn>
@@ -13,7 +13,7 @@
     </v-col>
 
     <!--견적 페이지-->
-    <v-card outlined elevation="10" v-if="sels === 0">
+    <v-card v-if="sels === 0" outlined elevation="10">
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
         <v-row>
@@ -142,7 +142,7 @@
       <!--전체 가격 필드-->
       <v-card>
         <v-card-title class="text-h4">
-          <v-btn icon v-model="dollar" @click="dollar = !dollar">
+          <v-btn v-model="dollar" icon @click="dollar = !dollar">
             <v-icon v-if="dollar">mdi-currency-usd</v-icon>
             <v-icon v-else>mdi-currency-krw</v-icon>
           </v-btn>
@@ -175,7 +175,7 @@
     </v-card>
 
     <!--의뢰 페이지-->
-    <v-card outlined elevation="10" v-else-if="sels === 1">
+    <v-card v-else-if="sels === 1" outlined elevation="10">
       <!--한국어 필드-->
       <v-container v-if="language === '한국어'">
         <v-form ref="form" v-model="valid" @submit.prevent>
@@ -207,7 +207,12 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
           />
-          <v-text-field v-model="second_phone" type="tel" label="전화" prepend-inner-icon="mdi-deskphone" />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="전화" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
           <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
               <v-text-field
@@ -226,9 +231,10 @@
               <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
             </v-date-picker>
           </v-menu>
+
           <v-banner shaped>의뢰할 내용</v-banner>
-          <div>
-            <div style="display: flex; justify-content: space-between">
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[0]"
@@ -261,8 +267,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model="file[0]"
                   ref="file0"
+                  v-model="file[0]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -277,7 +283,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[1]"
@@ -308,8 +314,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[1]"
                   ref="file1"
+                  v-model.lazy="file[1]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -323,7 +329,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[2]"
@@ -354,8 +360,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[2]"
                   ref="file2"
+                  v-model.lazy="file[2]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -369,7 +375,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[3]"
@@ -400,8 +406,8 @@
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[3]"
                   ref="file3"
+                  v-model.lazy="file[3]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -415,7 +421,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[4]"
@@ -442,12 +448,20 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[4]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="field" 
+                  label="요청분야" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
               </div>
               <div>
                 <v-file-input
-                  v-model.lazy="file[4]"
                   ref="file4"
+                  v-model.lazy="file[4]"
                   class="file_selector"
                   prepend-icon="mdi-content-save"
                   label="파일 첨부"
@@ -462,6 +476,48 @@
               </div>
             </div>
           </div>
+
+          <div class="request__mobile">
+            <v-select
+              v-model="req_lang[0]"
+              :items="languages"
+              label="번역이 필요한 언어"
+              prepend-icon="mdi-book-sync"
+              hide-details
+              outlined
+              dense
+            />
+            <v-icon>mdi-arrow-down-bold</v-icon>
+            <v-select
+              v-model="grant_lang[0]"
+              :items="req_lang[0] === '한국어' ? languages : ['한국어']"
+              label="번역할 언어"
+              prepend-icon="mdi-book-check"
+              outlined
+              dense
+            />
+            <v-select 
+              v-model="req_field[0]" 
+              :items="field" 
+              label="요청분야" 
+              prepend-icon="mdi-shape" 
+              outlined 
+              dense 
+            />
+            <v-file-input
+              v-model.lazy="file[0]"
+              prepend-icon="mdi-content-save"
+              label="파일 첨부"
+              multiple
+              small-chips
+              dense
+              :disabled="req_lang[0] === ''"
+              :accept="acceptFiles"
+              @change="onChangeFile(0, $event)"
+              @click:clear="onClearFile(0)"
+            />
+          </div>
+
           <v-textarea
             v-model="options"
             outlined
@@ -472,8 +528,9 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
-          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
-            <v-spacer />
+
+          <div class="request__btn">
+            <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               견적서 발급
               <v-icon right>mdi-file-download</v-icon>
@@ -482,6 +539,7 @@
               번역 의뢰
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
+
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">의뢰 내용 확인</v-card-title>
@@ -489,7 +547,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">취소</v-btn>
-                  <v-btn color="success" text @click="onSubmitForm" type="submit">확인</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">확인</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -528,7 +586,12 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || 'Please enter name of your company.']"
           />
-          <v-text-field v-model="second_phone" type="tel" label="Tel" prepend-inner-icon="mdi-deskphone" />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="Tel" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
           <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
             <template #activator="{ on, attrs }">
               <v-text-field
@@ -547,9 +610,10 @@
               <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
             </v-date-picker>
           </v-menu>
+
           <v-banner shaped>The Request</v-banner>
-          <div>
-            <div style="display: flex; justify-content: space-between">
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[0]"
@@ -595,7 +659,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[1]"
@@ -638,7 +702,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[2]"
@@ -681,7 +745,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[3]"
@@ -724,7 +788,7 @@
                 />
               </div>
             </div>
-            <div style="display: flex; justify-content: space-between">
+            <div class="request__content" style="display: flex; justify-content: space-between">
               <div>
                 <v-select
                   v-model="req_lang[4]"
@@ -751,7 +815,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[4]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="e_field" 
+                  label="Request field" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
               </div>
               <div>
                 <v-file-input
@@ -768,6 +840,20 @@
               </div>
             </div>
           </div>
+
+          <div class="request__mobile">
+            <div>
+              <v-select
+                v-model="req_lang[0]"
+                :items="e_languages"
+                label="Need Translation"
+                prepend-icon="mdi-book-sync"
+                outlined
+                dense
+              />
+            </div>
+          </div>
+
           <v-textarea
             v-model="options"
             outlined
@@ -778,8 +864,9 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
-          <div style="display: flex; align-content: center; justify-content: flex-start; margin: auto; padding: 10px 0">
-            <v-spacer />
+
+          <div class="request__btn">
+            <v-spacer class="spacer" />
             <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
               Issuing Quotation
               <v-icon right>mdi-file-download</v-icon>
@@ -788,6 +875,7 @@
               Translation request
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
+
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">Check the request</v-card-title>
@@ -795,7 +883,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn text @click="dialog = false">Cancel</v-btn>
-                  <v-btn color="success" text @click="onSubmitForm" type="submit">OK</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">OK</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -825,6 +913,46 @@
 .toggle_group {
   border: 1px solid #013183 !important;
 }
+.request__btn {
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  margin: auto; 
+  padding: 10px 0;
+}
+.request__mobile {
+  display: none;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .request__btn {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+  }
+  .spacer {
+    display: none;
+  }
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
 
 <script lang="js">
@@ -834,7 +962,7 @@ import pdfFonts from "pdfmake/build/vfs_fonts.js";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
-  layout: 'textLayout',
+  layout: 'TextLayout',
   data: () => ({
     hideDetails: true,
     valid: false,
@@ -864,8 +992,10 @@ export default {
     wordCount: '',
     acceptFiles: '.txt,.pdf,.docx',
   }),
+  asyncData({ store }) {
+    store.commit('requests/setExcost', 0);
+  },
   computed: {
-    ...mapState('requests', ['imagePaths']),
     loginState() {
         return this.$store.state.users.loginState;
     },
@@ -932,9 +1062,6 @@ export default {
       deep: true,
     },
   },
-  asyncData({ store }) {
-    store.commit('requests/setExcost', 0);
-  },
   methods: {
     pdfTest: function() {
         var documentDefinition = {
@@ -975,7 +1102,7 @@ export default {
                             [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
                             [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
                             [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSan: 2}, '' ],
+                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSpan: 2}, '' ],
                         ]
                     }
                 },
@@ -1095,8 +1222,11 @@ export default {
     },
     async onChangeFile(index, e) {
         const fileFormData = new FormData();
-
         if (e != null) {
+          if (e.length === 0) {
+            e = null;
+            return;
+          }
           [].forEach.call(e, (f) => {
             if (
               f.type === 'application/pdf'  ||  // .pdf
@@ -1113,10 +1243,6 @@ export default {
                 color : 'orange darken-1' 
               });
               this.file[index] = null;
-              console.log(this.$refs.file0);
-              this.$refs.file0.hasInput = false;
-              this.$refs.file0.initialValue = null;
-              this.$refs.file0.lazyValue = null;
               e = null;
             }
           });

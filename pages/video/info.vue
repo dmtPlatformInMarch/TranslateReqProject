@@ -6,10 +6,10 @@
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
             <h1 class="text-h1 font-weight-thin mb-4"> DMTLABS </h1>
-            <h4 class="subheading" v-if="language === '한국어'">
+            <h4 v-if="language === '한국어'" class="subheading">
               DMTLABS의 영상 번역 시스템
             </h4>
-            <h4 class="subheading" v-else-if="language === '영어'">
+            <h4 v-else-if="language === '영어'" class="subheading">
               DMTLABS Video Translation System
             </h4>
           </v-col>
@@ -17,7 +17,7 @@
       </v-parallax>
     </div>
 
-    <v-container v-if="this.language === '한국어'" class="body">
+    <v-container v-if="language === '한국어'" class="body">
       <v-card-title class="font-weight-bold"> 디엠티랩스의 영상 번역 시스템 </v-card-title>
       <v-card-text>
         현재 DMTLABS에서는 영상 번역에 대한 연구가 진행 중이며, <br />
@@ -28,7 +28,7 @@
       </v-card-text>
     </v-container>
 
-    <v-container v-else-if="this.language === '영어'" class="body">
+    <v-container v-else-if="language === '영어'" class="body">
       <v-card-title class="font-weight-bold"> DMTLABS's Video Translation System </v-card-title>
       <v-card-text>
         Currently, DMTLABS is working on video translation, <br />
@@ -44,18 +44,6 @@
 </template>
 
 <style scoped>
-@font-face {
-    font-family: 'CBNUJIKJI';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/CBNUJIKJI.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'MinSans-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 .full-height {
   height: 100%;
 }
@@ -71,6 +59,7 @@
 
 <script>
 export default {
+  layout: 'TextLayout',
   data() {
     return {
       mainimg: 'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/video.jpg',// || require("~/static/mainImg1.jpg"),

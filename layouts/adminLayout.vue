@@ -4,7 +4,7 @@
       <v-toolbar-title>
         <nuxt-link to="/admin">
           <v-avatar height="80px" width="200px" tile>
-            <img src="https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png" />
+            <img :src="logo" />
           </v-avatar>
         </nuxt-link>
       </v-toolbar-title>
@@ -55,18 +55,22 @@
 </style>
 
 <script lang="js">
-import LoginForm from '~/components/LoginForm'
 import SnackBar from '~/components/SnackBar'
 
 export default {
-  name: 'adminLayout',
+  name: 'AdminLayout',
   components: {
-      LoginForm,
       SnackBar,
   },
   data: () => ({
+    logo:     'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png',
     loginMenu: false,
   }),
+  computed: {
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
+  },
   beforeCreate() {
     const check = this.$store.state.users.loginState;
     if(check === null) {
@@ -76,11 +80,6 @@ export default {
         this.$router.push('/');
       }
     }
-  },
-  computed: {
-    loginState() {
-        return this.$store.state.users.loginState;
-    },
   },
   methods: {
       onLogout() {

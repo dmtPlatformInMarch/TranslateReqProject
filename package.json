@@ -1,6 +1,7 @@
 {
   "name": "dmt",
   "version": "1.0.0",
+  "type": "module",
   "description": "DMTlabs Translate Web",
   "main": "index.js",
   "scripts": {
@@ -19,18 +20,24 @@
     "axios": "^0.24.0",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",
+    "gsap": "^3.10.4",
     "lodash": "^4.17.21",
     "nuxt": "^2.15.8",
     "pdfmake": "^0.2.5",
     "pm2": "^5.2.0",
     "redirect-https": "^1.3.1",
     "vue": "^2.6.14",
+    "vue-gtag": "^1.16.1",
     "vuetify": "^2.6.4",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
     "eslint": "^8.13.0",
-    "eslint-plugin-vue": "^8.6.0"
+    "eslint-plugin-vue": "^8.6.0",
+    "node-sass": "^6.0.1",
+    "sass": "^1.51.0",
+    "sass-loader": "^10.2.1"
   },
   "optionalDependencies": {
     "fsevents": "*"
