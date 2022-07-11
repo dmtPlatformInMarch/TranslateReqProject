@@ -1,6 +1,6 @@
 {
   "name": "dmt",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "DMTlabs Translate Web",
   "main": "index.js",
@@ -37,8 +37,7 @@
     "eslint-plugin-vue": "^8.6.0",
     "node-sass": "^6.0.1",
     "sass": "^1.51.0",
-    "sass-loader": "^10.2.1",
-    "video.js": "^7.19.2"
+    "sass-loader": "^10.2.1"
   },
   "optionalDependencies": {
     "fsevents": "*"
