@@ -41,10 +41,10 @@
               <v-list-item @click="go('/video/info')">
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
-              <!--v-list-item>
-                <v-list-item-title> 영상 번역 </v-list-item-title>
+              <v-list-item @click="go('/video/demo')">
+                <v-list-item-title> 데모 </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> 번역 단가 </v-list-item-title>
               </v-list-item-->
             </v-list-item-group>
@@ -100,10 +100,10 @@
               <v-list-item @click="go('/video/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <!--v-list-item>
-                <v-list-item-title> Video Translation </v-list-item-title>
+              <v-list-item @click="go('/video/demo')">
+                <v-list-item-title> demo </v-list-item-title>
               </v-list-item>
-              <v-list-item>
+              <!--v-list-item>
                 <v-list-item-title> Unit Price </v-list-item-title>
               </v-list-item-->
             </v-list-item-group>
@@ -118,7 +118,7 @@
               <v-list-item @click="go('/voice/info')">
                 <v-list-item-title> Introduce </v-list-item-title>
               </v-list-item>
-              <!--v-list-item>
+              <!--v-list-item @click="go('/voice/demo')">
                 <v-list-item-title> Speech Translation </v-list-item-title>
               </v-list-item>
               <v-list-item>

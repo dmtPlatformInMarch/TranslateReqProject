@@ -77,6 +77,13 @@
     "_name": "_d947a838"
   },
   {
+    "name": "video-demo",
+    "path": "/video/demo",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\demo.vue",
+    "chunkName": "pages/video/demo",
+    "_name": "_fe36baa6"
+  },
+  {
     "name": "video-info",
     "path": "/video/info",
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\info.vue",

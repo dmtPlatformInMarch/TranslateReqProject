@@ -46,6 +46,7 @@ export const actions = {
     async extract({ state, commit }) {
         try {
             const extractResponse = await this.$axios.get(`/test/file/extract/${state.file?.name}`);
+            //console.log(extractResponse);
             commit('setFileText', extractResponse.data);
         } catch (err) {
             console.log(err);

@@ -15,6 +15,7 @@ const _7aa43ce1 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /*
 const _d26f245e = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
 const _3a414dd8 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
 const _d947a838 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
+const _fe36baa6 = () => interopDefault(import('..\\pages\\video\\demo.vue' /* webpackChunkName: "pages/video/demo" */))
 const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
 const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
 const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
@@ -74,6 +75,10 @@ export const routerOptions = {
     path: "/user/signup",
     component: _d947a838,
     name: "user-signup"
+  }, {
+    path: "/video/demo",
+    component: _fe36baa6,
+    name: "video-demo"
   }, {
     path: "/video/info",
     component: _5870abf8,
