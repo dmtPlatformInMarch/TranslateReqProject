@@ -1,9 +1,14 @@
 <template>
     <v-app>
         <v-app-bar class="toolbar" elevation="0" color="#013183" dark absolute>
-            <v-app-bar-title>
-                비디오 데모 페이지
-            </v-app-bar-title>
+            <v-btn icon dark tile @click="home">
+                <v-icon>
+                    mdi-home
+                </v-icon>
+            </v-btn>
+            <v-toolbar-title>
+                자막 파일 커스텀 데모 페이지
+            </v-toolbar-title>
         </v-app-bar>
         <div class="main__wrapper">
             <v-navigation-drawer class="nav__Style" permanent>
@@ -19,7 +24,7 @@
                 
                 <div v-if="list.length != 0">
                     <v-list v-for="(item, index) in list" :key="index" class="list__group">
-                        <v-btn class="btn__list" color="#2172FF" dark block @click="selectVideo(sliceSlash(item.Key))">
+                        <v-btn class="list__btn" color="#2172FF" dark block @click="selectVideo(sliceSlash(item.Key))">
                             {{ sliceSlash(item.Key) }}
                         </v-btn>
                     </v-list>
@@ -30,10 +35,11 @@
                 </div>
             </v-navigation-drawer>
 
-            <v-container class="main overflow-y-auto">
+            <div class="main overflow-y-auto">
                 <nuxt />
-            </v-container>
+            </div>
         </div>
+        <scroll-top />
         <snack-bar />
     </v-app>
 </template>
@@ -51,10 +57,13 @@
 }
 .main {
     display: block;
+    width: 100%;
     height: 100%;
+    padding-right: 64px;
+    padding-left: 64px;
 }
 .nav__Style {
-    width: 20% !important;
+    width: 15% !important;
     border-right: 3px solid grey;
 }
 .list__group {
@@ -69,15 +78,21 @@
     justify-content: center;
     height: calc(100% - 64px);
 }
+.list__btn {
+    width: 100%;
+    white-space: normal;
+}
 </style>
 
 <script>
 import SnackBar from '~/components/SnackBar'
+import ScrollTop from '~/components/ScrolltopComponent'
 
 export default {
     name: 'VideoLayout',
     components: {
         SnackBar,
+        ScrollTop
     },
     data() {
         return {
@@ -93,11 +108,23 @@ export default {
         },
     },
     methods: {
+        home() {
+            this.$router.push({ path: '/' });
+        },
         sliceSlash(str) {
             if (this.list.length === 0) return '';
-            else return str.substring(str.lastIndexOf('/') + 1);
+            else {
+                return str.substring(str.lastIndexOf('/') + 1);
+            }
+        },
+        sliceName(str) {
+            if (this.list.length === 0) return '';
+            else {
+                return str.substring(0, str.lastIndexOf('.'));
+            } 
         },
         selectVideo(filename) {
+            this.$store.commit('videoes/setFileName', this.sliceName(filename));
             this.$nuxt.$emit('onVideoEvent', filename);
         },
     }

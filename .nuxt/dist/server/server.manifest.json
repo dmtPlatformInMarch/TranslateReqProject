@@ -13,8 +13,9 @@
     "pages/uitest.js": "pages/uitest.js",
     "pages/user/index.js": "pages/user/index.js",
     "pages/user/signup.js": "pages/user/signup.js",
-    "pages/video/demo.js": "pages/video/demo.js",
+    "pages/video/filetrack.js": "pages/video/filetrack.js",
     "pages/video/info.js": "pages/video/info.js",
+    "pages/video/realtrack.js": "pages/video/realtrack.js",
     "pages/voice/info.js": "pages/voice/info.js",
     "server.js": "server.js"
   },
@@ -31,8 +32,9 @@
     "pages/uitest.js": "pages/uitest.js.map",
     "pages/user/index.js": "pages/user/index.js.map",
     "pages/user/signup.js": "pages/user/signup.js.map",
-    "pages/video/demo.js": "pages/video/demo.js.map",
+    "pages/video/filetrack.js": "pages/video/filetrack.js.map",
     "pages/video/info.js": "pages/video/info.js.map",
+    "pages/video/realtrack.js": "pages/video/realtrack.js.map",
     "pages/voice/info.js": "pages/voice/info.js.map",
     "server.js": "server.js.map"
   }

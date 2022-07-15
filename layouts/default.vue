@@ -41,12 +41,12 @@
               <v-list-item @click="go('/video/info')">
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
-              <v-list-item @click="go('/video/demo')">
-                <v-list-item-title> 데모 </v-list-item-title>
+              <v-list-item @click="go('/video/filetrack')">
+                <v-list-item-title> 파일 자막 데모 </v-list-item-title>
               </v-list-item>
-              <!--v-list-item>
-                <v-list-item-title> 번역 단가 </v-list-item-title>
-              </v-list-item-->
+              <v-list-item @click="go('/video/realtrack')">
+                <v-list-item-title> 실시간 자막 데모 </v-list-item-title>
+              </v-list-item>
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -189,9 +189,6 @@
 </template>
 
 <style scoped>
-body {
-    overflow: hidden !important;
-}
 .main__toolbar {
   display: flex;
   align-items: center;
@@ -199,10 +196,9 @@ body {
 }
 .main__toolbar >>> .v-toolbar__content {
   width: 100%;
-  
   justify-content: space-around;
 }
-.viewer {
+.viewer{
   display: absolute;
   margin: 0;
   padding: 0;

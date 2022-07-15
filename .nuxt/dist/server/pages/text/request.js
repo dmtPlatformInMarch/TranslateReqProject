@@ -1,46 +1,24 @@
 exports.ids = [8];
 exports.modules = {
 
-/***/ 106:
+/***/ 215:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VDivider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(212);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_VDivider__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
-
-/***/ }),
-
-/***/ 210:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _VTextField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(209);
+/* harmony import */ var _VTextField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(214);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VTextField__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
 
 /***/ }),
 
-/***/ 228:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _VChip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(231);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_VChip__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
-
-/***/ }),
-
-/***/ 229:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(230);
+var content = __webpack_require__(234);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -48,7 +26,7 @@ __webpack_require__(6).default("197fcea4", content, true)
 
 /***/ }),
 
-/***/ 230:
+/***/ 234:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -62,20 +40,31 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 231:
+/***/ 235:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VChip_VChip_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(229);
+/* harmony import */ var _VChip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(236);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_VChip__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
+
+/***/ }),
+
+/***/ 236:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _src_components_VChip_VChip_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(233);
 /* harmony import */ var _src_components_VChip_VChip_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VChip_VChip_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _transitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(41);
-/* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
-/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var _transitions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
+/* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
+/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
 /* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(50);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
-/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16);
 /* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(51);
 /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4);
 // Styles
@@ -253,11 +242,39 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 232:
+/***/ 237:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(238);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+__webpack_require__(6).default("83ff91dc", content, true)
+
+/***/ }),
+
+/***/ 238:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".theme--light.v-file-input .v-file-input__text{color:rgba(0,0,0,.87)}.theme--light.v-file-input .v-file-input__text--placeholder{color:rgba(0,0,0,.6)}.theme--light.v-file-input.v-input--is-disabled .v-file-input__text,.theme--light.v-file-input.v-input--is-disabled .v-file-input__text .v-file-input__text--placeholder{color:rgba(0,0,0,.38)}.theme--dark.v-file-input .v-file-input__text{color:#fff}.theme--dark.v-file-input .v-file-input__text--placeholder{color:hsla(0,0%,100%,.7)}.theme--dark.v-file-input.v-input--is-disabled .v-file-input__text,.theme--dark.v-file-input.v-input--is-disabled .v-file-input__text .v-file-input__text--placeholder{color:hsla(0,0%,100%,.5)}.v-file-input input[type=file]{left:0;opacity:0;pointer-events:none;position:absolute;max-width:0;width:0}.v-file-input .v-file-input__text{align-items:center;align-self:stretch;display:flex;flex-wrap:wrap;width:100%}.v-file-input .v-file-input__text.v-file-input__text--chips{flex-wrap:wrap}.v-file-input .v-file-input__text .v-chip{margin:4px}.v-file-input .v-text-field__slot{min-height:32px}.v-file-input.v-input--dense .v-text-field__slot{min-height:26px}.v-file-input.v-text-field--filled:not(.v-text-field--single-line) .v-file-input__text{padding-top:22px}.v-file-input.v-text-field--outlined .v-text-field__slot{padding:6px 0}.v-file-input.v-text-field--outlined.v-input--dense .v-text-field__slot{padding:3px 0}", ""]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 239:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(244);
+/* harmony import */ var _src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(249);
 /* harmony import */ var _src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
@@ -290,50 +307,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 234:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(235);
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-__webpack_require__(6).default("83ff91dc", content, true)
-
-/***/ }),
-
-/***/ 235:
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".theme--light.v-file-input .v-file-input__text{color:rgba(0,0,0,.87)}.theme--light.v-file-input .v-file-input__text--placeholder{color:rgba(0,0,0,.6)}.theme--light.v-file-input.v-input--is-disabled .v-file-input__text,.theme--light.v-file-input.v-input--is-disabled .v-file-input__text .v-file-input__text--placeholder{color:rgba(0,0,0,.38)}.theme--dark.v-file-input .v-file-input__text{color:#fff}.theme--dark.v-file-input .v-file-input__text--placeholder{color:hsla(0,0%,100%,.7)}.theme--dark.v-file-input.v-input--is-disabled .v-file-input__text,.theme--dark.v-file-input.v-input--is-disabled .v-file-input__text .v-file-input__text--placeholder{color:hsla(0,0%,100%,.5)}.v-file-input input[type=file]{left:0;opacity:0;pointer-events:none;position:absolute;max-width:0;width:0}.v-file-input .v-file-input__text{align-items:center;align-self:stretch;display:flex;flex-wrap:wrap;width:100%}.v-file-input .v-file-input__text.v-file-input__text--chips{flex-wrap:wrap}.v-file-input .v-file-input__text .v-chip{margin:4px}.v-file-input .v-text-field__slot{min-height:32px}.v-file-input.v-input--dense .v-text-field__slot{min-height:26px}.v-file-input.v-text-field--filled:not(.v-text-field--single-line) .v-file-input__text{padding-top:22px}.v-file-input.v-text-field--outlined .v-text-field__slot{padding:6px 0}.v-file-input.v-text-field--outlined.v-input--dense .v-text-field__slot{padding:3px 0}", ""]);
-// Exports
-module.exports = ___CSS_LOADER_EXPORT___;
-
-
-/***/ }),
-
-/***/ 236:
+/***/ 241:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VSubheader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(232);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_VSubheader__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
-
-/***/ }),
-
-/***/ 238:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(107);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(108);
 /* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
@@ -484,11 +462,11 @@ const cache = new Map();
 
 /***/ }),
 
-/***/ 239:
+/***/ 242:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(107);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(108);
 /* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
@@ -642,13 +620,24 @@ const cache = new Map();
 
 /***/ }),
 
-/***/ 240:
+/***/ 243:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _VSubheader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(239);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_VSubheader__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
+
+/***/ }),
+
+/***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(241);
+var content = __webpack_require__(246);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -656,7 +645,7 @@ __webpack_require__(6).default("3f1da7f4", content, true)
 
 /***/ }),
 
-/***/ 241:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -670,13 +659,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 242:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(243);
+var content = __webpack_require__(248);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -684,7 +673,7 @@ __webpack_require__(6).default("5c37caa6", content, true)
 
 /***/ }),
 
-/***/ 243:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -698,13 +687,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 244:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(245);
+var content = __webpack_require__(250);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -712,7 +701,7 @@ __webpack_require__(6).default("e8b41e5e", content, true)
 
 /***/ }),
 
-/***/ 245:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -726,13 +715,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 246:
+/***/ 251:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(247);
+var content = __webpack_require__(252);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -740,7 +729,7 @@ __webpack_require__(6).default("5c8fbe94", content, true)
 
 /***/ }),
 
-/***/ 247:
+/***/ 252:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -754,46 +743,14 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 251:
+/***/ 258:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(52);
-// Extensions
-
-/* @vue/component */
-
-/* harmony default export */ __webpack_exports__["a"] = (_components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].extend({
-  name: 'button-group',
-
-  provide() {
-    return {
-      btnToggle: this
-    };
-  },
-
-  computed: {
-    classes() {
-      return _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].options.computed.classes.call(this);
-    }
-
-  },
-  methods: {
-    // Isn't being passed down through types
-    genData: _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].options.methods.genData
-  }
-}));
-
-/***/ }),
-
-/***/ 253:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _src_components_VFileInput_VFileInput_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(234);
+/* harmony import */ var _src_components_VFileInput_VFileInput_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(237);
 /* harmony import */ var _src_components_VFileInput_VFileInput_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VFileInput_VFileInput_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _VTextField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(210);
-/* harmony import */ var _VChip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(231);
+/* harmony import */ var _VTextField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(215);
+/* harmony import */ var _VChip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(236);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(0);
 /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
@@ -1069,13 +1026,56 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 258:
+/***/ 259:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(52);
+// Extensions
+
+/* @vue/component */
+
+/* harmony default export */ __webpack_exports__["a"] = (_components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].extend({
+  name: 'button-group',
+
+  provide() {
+    return {
+      btnToggle: this
+    };
+  },
+
+  computed: {
+    classes() {
+      return _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].options.computed.classes.call(this);
+    }
+
+  },
+  methods: {
+    // Isn't being passed down through types
+    genData: _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__[/* BaseItemGroup */ "a"].options.methods.genData
+  }
+}));
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _VBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(219);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_VBtn__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
+
+/***/ }),
+
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(259);
+var content = __webpack_require__(265);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1083,7 +1083,7 @@ __webpack_require__(6).default("01907af4", content, true)
 
 /***/ }),
 
-/***/ 259:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1097,13 +1097,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 265:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VTextarea_VTextarea_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(246);
+/* harmony import */ var _src_components_VTextarea_VTextarea_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(251);
 /* harmony import */ var _src_components_VTextarea_VTextarea_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VTextarea_VTextarea_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(209);
+/* harmony import */ var _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(214);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 // Styles
  // Extensions
@@ -1211,25 +1211,25 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__[/* default *
 
 /***/ }),
 
-/***/ 271:
+/***/ 280:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(315);
+var content = __webpack_require__(325);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("c77f3a72", content, true, context)
+  add("6ccd8f5e", content, true, context)
 };
 
 /***/ }),
 
-/***/ 279:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1237,19 +1237,19 @@ module.exports.__inject__ = function (context) {
 // UNUSED EXPORTS: defaultMenuProps
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VTextField/VTextField.sass
-var VTextField = __webpack_require__(108);
+var VTextField = __webpack_require__(109);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VSelect/VSelect.sass
-var VSelect = __webpack_require__(240);
+var VSelect = __webpack_require__(245);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VChip/index.js
-var VChip = __webpack_require__(228);
+var VChip = __webpack_require__(235);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VMenu/index.js
-var VMenu = __webpack_require__(82);
+var VMenu = __webpack_require__(83);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCheckbox/VSimpleCheckbox.sass
-var VSimpleCheckbox = __webpack_require__(242);
+var VSimpleCheckbox = __webpack_require__(247);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/ripple/index.js
 var directives_ripple = __webpack_require__(27);
@@ -1262,7 +1262,7 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 var VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
-var colorable = __webpack_require__(8);
+var colorable = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/themeable/index.js
 var themeable = __webpack_require__(7);
@@ -1363,10 +1363,10 @@ var helpers = __webpack_require__(0);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDivider/index.js
-var VDivider = __webpack_require__(106);
+var VDivider = __webpack_require__(82);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSubheader/index.js
-var VSubheader = __webpack_require__(236);
+var VSubheader = __webpack_require__(243);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
 var VListItem = __webpack_require__(44);
@@ -1634,13 +1634,13 @@ var mixins = __webpack_require__(3);
 var VInput = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
-var VTextField_VTextField = __webpack_require__(209);
+var VTextField_VTextField = __webpack_require__(214);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/comparable/index.js
-var comparable = __webpack_require__(84);
+var comparable = __webpack_require__(85);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/dependent/index.js
-var dependent = __webpack_require__(34);
+var dependent = __webpack_require__(35);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/mixins/filterable/index.js
 
@@ -1656,7 +1656,7 @@ var dependent = __webpack_require__(34);
   }
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/click-outside/index.js
-var click_outside = __webpack_require__(28);
+var click_outside = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/console.js
 var console = __webpack_require__(4);
@@ -2482,14 +2482,14 @@ const baseMixins = Object(mixins["a" /* default */])(VTextField_VTextField["a" /
 
 /***/ }),
 
-/***/ 301:
+/***/ 311:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VBtnToggle_VBtnToggle_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(258);
+/* harmony import */ var _src_components_VBtnToggle_VBtnToggle_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(264);
 /* harmony import */ var _src_components_VBtnToggle_VBtnToggle_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VBtnToggle_VBtnToggle_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mixins_button_group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(251);
-/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _mixins_button_group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(259);
+/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
 // Styles
  // Mixins
@@ -2539,13 +2539,13 @@ const baseMixins = Object(mixins["a" /* default */])(VTextField_VTextField["a" /
 
 /***/ }),
 
-/***/ 302:
+/***/ 312:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(303);
+var content = __webpack_require__(313);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2553,7 +2553,7 @@ __webpack_require__(6).default("182e503c", content, true)
 
 /***/ }),
 
-/***/ 303:
+/***/ 313:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2567,13 +2567,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 304:
+/***/ 314:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(305);
+var content = __webpack_require__(315);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2581,7 +2581,7 @@ __webpack_require__(6).default("122cac66", content, true)
 
 /***/ }),
 
-/***/ 305:
+/***/ 315:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2595,13 +2595,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 306:
+/***/ 316:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(307);
+var content = __webpack_require__(317);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2609,7 +2609,7 @@ __webpack_require__(6).default("2f127f34", content, true)
 
 /***/ }),
 
-/***/ 307:
+/***/ 317:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2623,13 +2623,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 308:
+/***/ 318:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(309);
+var content = __webpack_require__(319);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2637,7 +2637,7 @@ __webpack_require__(6).default("d0285c0c", content, true)
 
 /***/ }),
 
-/***/ 309:
+/***/ 319:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2651,13 +2651,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 310:
+/***/ 320:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(311);
+var content = __webpack_require__(321);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2665,7 +2665,7 @@ __webpack_require__(6).default("539d602c", content, true)
 
 /***/ }),
 
-/***/ 311:
+/***/ 321:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2679,13 +2679,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 312:
+/***/ 322:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(313);
+var content = __webpack_require__(323);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2693,7 +2693,7 @@ __webpack_require__(6).default("238c91c4", content, true)
 
 /***/ }),
 
-/***/ 313:
+/***/ 323:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2707,19 +2707,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 314:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_prod_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(271);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_prod_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_prod_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_prod_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_prod_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(280);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_request_vue_vue_type_style_index_0_id_683b5068_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 315:
+/***/ 325:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2733,18 +2733,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 33:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _VBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(214);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (_VBtn__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
-
-/***/ }),
-
-/***/ 342:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2752,19 +2741,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VBanner/VBanner.sass
-var VBanner = __webpack_require__(312);
+var VBanner = __webpack_require__(322);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/index.js
-var VSheet = __webpack_require__(36);
+var VSheet = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VAvatar/index.js
-var VAvatar = __webpack_require__(30);
+var VAvatar = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
-var VIcon = __webpack_require__(26);
+var VIcon = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(41);
+var transitions = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/mobile/index.js
 var mobile = __webpack_require__(66);
@@ -2925,10 +2914,10 @@ var helpers = __webpack_require__(0);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(214);
+var VBtn = __webpack_require__(219);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.js
-var VBtnToggle = __webpack_require__(301);
+var VBtnToggle = __webpack_require__(311);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
 var VCard = __webpack_require__(77);
@@ -2937,16 +2926,16 @@ var VCard = __webpack_require__(77);
 var components_VCard = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
-var VCol = __webpack_require__(239);
+var VCol = __webpack_require__(242);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
-var VContainer = __webpack_require__(227);
+var VContainer = __webpack_require__(230);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VDatePicker/VDatePickerTitle.sass
-var VDatePickerTitle = __webpack_require__(304);
+var VDatePickerTitle = __webpack_require__(314);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
-var colorable = __webpack_require__(8);
+var colorable = __webpack_require__(9);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/mixins/picker-button/index.js
 // Mixins
@@ -3069,10 +3058,10 @@ var colorable = __webpack_require__(8);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VDatePicker/VDatePickerHeader.sass
-var VDatePickerHeader = __webpack_require__(306);
+var VDatePickerHeader = __webpack_require__(316);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/index.js
-var components_VBtn = __webpack_require__(33);
+var components_VBtn = __webpack_require__(26);
 
 // EXTERNAL MODULE: external "vue"
 var external_vue_ = __webpack_require__(1);
@@ -3300,10 +3289,10 @@ function createNativeLocaleFormatter(locale, options, substrOptions = {
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VDatePicker/VDatePickerTable.sass
-var VDatePickerTable = __webpack_require__(308);
+var VDatePickerTable = __webpack_require__(318);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/touch/index.js
-var touch = __webpack_require__(83);
+var touch = __webpack_require__(84);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VDatePicker/util/eventHelpers.js
 function createItemTypeNativeListeners(instance, itemTypeSuffix, value) {
@@ -3830,7 +3819,7 @@ function isLeapYear(year) {
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VDatePicker/VDatePickerYears.sass
-var VDatePickerYears = __webpack_require__(310);
+var VDatePickerYears = __webpack_require__(320);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.js
  // Mixins
@@ -3927,10 +3916,10 @@ var VDatePickerYears = __webpack_require__(310);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VPicker/VPicker.sass
-var VPicker = __webpack_require__(302);
+var VPicker = __webpack_require__(312);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCard/VCard.sass
-var VCard_VCard = __webpack_require__(109);
+var VCard_VCard = __webpack_require__(110);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/elevatable/index.js
 var elevatable = __webpack_require__(54);
@@ -5094,16 +5083,16 @@ var util_console = __webpack_require__(4);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js
-var VDialog = __webpack_require__(225);
+var VDialog = __webpack_require__(231);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDivider/VDivider.js
-var VDivider = __webpack_require__(212);
+var VDivider = __webpack_require__(217);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VFileInput/VFileInput.js
-var VFileInput = __webpack_require__(253);
+var VFileInput = __webpack_require__(258);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
-var VForm = __webpack_require__(226);
+var VForm = __webpack_require__(232);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon_VIcon = __webpack_require__(73);
@@ -5121,35 +5110,33 @@ var VListItemGroup = __webpack_require__(75);
 var components_VList = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VMenu/VMenu.js + 1 modules
-var VMenu = __webpack_require__(213);
+var VMenu = __webpack_require__(218);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
-var VRow = __webpack_require__(238);
+var VRow = __webpack_require__(241);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSelect/VSelect.js + 3 modules
-var VSelect = __webpack_require__(279);
+var VSelect = __webpack_require__(289);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(224);
+var VSpacer = __webpack_require__(229);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSubheader/VSubheader.js
-var VSubheader = __webpack_require__(232);
+var VSubheader = __webpack_require__(239);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
-var VTextField = __webpack_require__(209);
+var VTextField = __webpack_require__(214);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextarea/VTextarea.js
-var VTextarea = __webpack_require__(265);
+var VTextarea = __webpack_require__(274);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/VToolbar.js
-var VToolbar = __webpack_require__(14);
+var VToolbar = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/index.js
-var components_VToolbar = __webpack_require__(18);
+var components_VToolbar = __webpack_require__(11);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/request.vue?vue&type=template&id=683b5068&scoped=true&
-
-
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/request.vue?vue&type=template&id=683b5068&scoped=true&
 
 
 
@@ -5178,1741 +5165,17 @@ var components_VToolbar = __webpack_require__(18);
 
 
 
-var requestvue_type_template_id_683b5068_scoped_true_render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
 
-  return _c(VContainer["a" /* default */], [_c(VCol["a" /* default */], [_c(VBtnToggle["a" /* default */], {
-    ref: "toggle",
-    staticClass: "toggle_group",
-    staticStyle: {
-      "width": "100%"
-    },
-    attrs: {
-      "mandatory": "",
-      "color": "primary"
-    },
-    on: {
-      "change": _vm.loginCheck
-    },
-    model: {
-      value: _vm.sels,
-      callback: function ($$v) {
-        _vm.sels = $$v;
-      },
-      expression: "sels"
-    }
-  }, [_c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "0",
-      "padding": "0"
-    },
-    attrs: {
-      "width": "50%"
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.language === "한국어" ? "견적" : "Estimate") + "\n      ")]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "0",
-      "padding": "0"
-    },
-    attrs: {
-      "width": "50%"
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.language === "한국어" ? "의뢰" : "Request") + "\n      ")])], 1)], 1), _vm._v(" "), _vm.sels === 0 ? _c(VCard["a" /* default */], {
-    attrs: {
-      "outlined": "",
-      "elevation": "10"
-    }
-  }, [_vm.language === '한국어' ? _c(VContainer["a" /* default */], [_c(VRow["a" /* default */], [_c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    staticClass: "toolbar_class",
-    attrs: {
-      "elevation": "0"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], {
-    staticClass: "font-weight-bold"
-  }, [_vm._v(" 원본 언어 ")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectLanguage1,
-      callback: function ($$v) {
-        _vm.selectLanguage1 = $$v;
-      },
-      expression: "selectLanguage1"
-    }
-  }, _vm._l(_vm.languages, function (lang, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(lang))])], 1);
-  }), 1)], 1)], 1), _vm._v(" "), _c('div', {
-    staticClass: "d-flex align-center justify-center"
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    staticClass: "toolbar_class",
-    attrs: {
-      "elevation": "0"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], {
-    staticClass: "font-weight-bold"
-  }, [_vm._v(" 번역 언어 ")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectLanguage2,
-      callback: function ($$v) {
-        _vm.selectLanguage2 = $$v;
-      },
-      expression: "selectLanguage2"
-    }
-  }, _vm._l(_vm.selectLanguage1 == 0 ? _vm.languages : ['한국어'], function (lang, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(lang))])], 1);
-  }), 1)], 1)], 1), _vm._v(" "), _c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    staticClass: "toolbar_class",
-    attrs: {
-      "elevation": "0"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], {
-    staticClass: "font-weight-bold"
-  }, [_vm._v(" 요청 분야 ")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectField,
-      callback: function ($$v) {
-        _vm.selectField = $$v;
-      },
-      expression: "selectField"
-    }
-  }, _vm._l(_vm.field, function (f, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(f))])], 1);
-  }), 1)], 1)], 1)], 1)], 1) : _vm.language === '영어' ? _c(VContainer["a" /* default */], [_c(VRow["a" /* default */], [_c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    attrs: {
-      "color": "primary"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], [_vm._v("Original Language")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectLanguage1,
-      callback: function ($$v) {
-        _vm.selectLanguage1 = $$v;
-      },
-      expression: "selectLanguage1"
-    }
-  }, _vm._l(_vm.e_languages, function (lang, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(lang))])], 1);
-  }), 1)], 1)], 1), _vm._v(" "), _c('div', {
-    staticClass: "d-flex align-center justify-center"
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    attrs: {
-      "color": "primary"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], [_vm._v("Translate Language")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectLanguage2,
-      callback: function ($$v) {
-        _vm.selectLanguage2 = $$v;
-      },
-      expression: "selectLanguage2"
-    }
-  }, _vm._l(_vm.selectLanguage1 == 0 ? _vm.e_languages : ['Korean'], function (lang, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(lang))])], 1);
-  }), 1)], 1)], 1), _vm._v(" "), _c(VCol["a" /* default */], [_c(VToolbar["a" /* default */], {
-    attrs: {
-      "color": "primary"
-    }
-  }, [_c(components_VToolbar["b" /* VToolbarTitle */], [_vm._v("Request Field")])], 1), _vm._v(" "), _c(VList["a" /* default */], {
-    staticClass: "overflow-y-auto",
-    attrs: {
-      "height": "300"
-    }
-  }, [_c(VListItemGroup["a" /* default */], {
-    attrs: {
-      "mandatory": ""
-    },
-    model: {
-      value: _vm.selectField,
-      callback: function ($$v) {
-        _vm.selectField = $$v;
-      },
-      expression: "selectField"
-    }
-  }, _vm._l(_vm.e_field, function (f, i) {
-    return _c(VListItem["a" /* default */], {
-      key: i,
-      attrs: {
-        "active-class": "list_select"
-      }
-    }, [_c(components_VList["c" /* VListItemTitle */], [_vm._v(_vm._s(f))])], 1);
-  }), 1)], 1)], 1)], 1)], 1) : _vm._e(), _vm._v(" "), _c(VDivider["a" /* default */]), _vm._v(" "), _vm.language === '한국어' ? _c(VCard["a" /* default */], [_c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-h4"
-  }, [_vm._v("\n        글자수\n        "), _c(VSpacer["a" /* default */]), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "number",
-      "hide-spin-buttons": "",
-      "prefix": "글자",
-      "reverse": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.wordCount,
-      callback: function ($$v) {
-        _vm.wordCount = $$v;
-      },
-      expression: "wordCount"
-    }
-  })], 1), _vm._v(" "), _c(components_VCard["b" /* VCardSubtitle */], {
-    staticClass: "text-caption"
-  }, [_vm._v("\n        중국어/일본어 = 1글자 당 "), _c('br'), _vm._v("\n        그 외 = 1단어 당\n      ")]), _vm._v(" "), _c(VSpacer["a" /* default */])], 1) : _vm.language === '영어' ? _c(VCard["a" /* default */], [_c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-h4"
-  }, [_vm._v("\n        Words(Characters)\n        "), _c(VSpacer["a" /* default */]), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "number",
-      "hide-spin-buttons": "",
-      "prefix": "words",
-      "reverse": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.wordCount,
-      callback: function ($$v) {
-        _vm.wordCount = $$v;
-      },
-      expression: "wordCount"
-    }
-  })], 1), _vm._v(" "), _c(components_VCard["b" /* VCardSubtitle */], {
-    staticClass: "text-caption"
-  }, [_vm._v("\n        Chinese/Japanese = per letter "), _c('br'), _vm._v("\n        Other = per word\n      ")]), _vm._v(" "), _c(VSpacer["a" /* default */])], 1) : _vm._e(), _vm._v(" "), _c(VDivider["a" /* default */]), _vm._v(" "), _c(VCard["a" /* default */], [_c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-h4"
-  }, [_c(VBtn["a" /* default */], {
-    attrs: {
-      "icon": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.dollar = !_vm.dollar;
-      }
-    },
-    model: {
-      value: _vm.dollar,
-      callback: function ($$v) {
-        _vm.dollar = $$v;
-      },
-      expression: "dollar"
-    }
-  }, [_vm.dollar ? _c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-currency-usd")]) : _c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-currency-krw")])], 1), _vm._v(" "), _c(VSpacer["a" /* default */]), _vm._v("\n        " + _vm._s(_vm.commas(_vm.dollar ? _vm.totalPrice : (_vm.totalPrice / _vm.exRate).toFixed(3)) * _vm.wordCount) + "\n        " + _vm._s(_vm.dollar ? "원" : "$") + "\n      ")], 1), _vm._v(" "), _c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-caption"
-  }, [_c('div', [_vm._v("\n          단위 가격(Unit Cost) * 글자 수(Words) "), _c('br'), _vm._v("\n          단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)\n        ")]), _vm._v(" "), _c(VSpacer["a" /* default */]), _vm._v("\n        단위 가격(Unit Cost) :\n        " + _vm._s(_vm.commas(_vm.dollar ? _vm.totalPrice : (_vm.totalPrice / _vm.exRate).toFixed(3))) + "\n        " + _vm._s(_vm.dollar ? "원" : "$") + "\n      ")], 1), _vm._v(" "), _c(VDivider["a" /* default */])], 1), _vm._v(" "), _vm.language === '한국어' ? _c(components_VCard["d" /* VCardTitle */], [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VSubheader["a" /* default */], {
-    domProps: {
-      "textContent": _vm._s('※본 견적은 정확하지 않을 수 있으며, 파일 내의 이미지 유무와 관련하여 추가 요금이 부과될 수 있습니다.')
-    }
-  })], 1) : _vm.language === '영어' ? _c(components_VCard["d" /* VCardTitle */], [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VSubheader["a" /* default */], {
-    domProps: {
-      "textContent": _vm._s('※This estimate may not be accurate and there may be an additional charge for the presence or absence of images in the file.')
-    }
-  })], 1) : _vm._e()], 1) : _vm.sels === 1 ? _c(VCard["a" /* default */], {
-    attrs: {
-      "outlined": "",
-      "elevation": "10"
-    }
-  }, [_vm.language === '한국어' ? _c(VContainer["a" /* default */], [_c(VForm["a" /* default */], {
-    ref: "form",
-    on: {
-      "submit": function ($event) {
-        $event.preventDefault();
-      }
-    },
-    model: {
-      value: _vm.valid,
-      callback: function ($$v) {
-        _vm.valid = $$v;
-      },
-      expression: "valid"
-    }
-  }, [_c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "text",
-      "label": "*성명",
-      "prepend-inner-icon": "mdi-account",
-      "rules": [v => !!v || '이름을 입력하셔야 합니다.']
-    },
-    model: {
-      value: _vm.name,
-      callback: function ($$v) {
-        _vm.name = $$v;
-      },
-      expression: "name"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "tel",
-      "label": "*휴대전화",
-      "prepend-inner-icon": "mdi-cellphone",
-      "rules": [v => !!v || '전화번호를 입력하셔야 합니다.']
-    },
-    model: {
-      value: _vm.phone,
-      callback: function ($$v) {
-        _vm.phone = $$v;
-      },
-      expression: "phone"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "email",
-      "label": "*이메일",
-      "prepend-inner-icon": "mdi-email",
-      "rules": [v => !!v || '이메일을 입력하셔야 합니다.']
-    },
-    model: {
-      value: _vm.email,
-      callback: function ($$v) {
-        _vm.email = $$v;
-      },
-      expression: "email"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "text",
-      "label": "*회사명",
-      "prepend-inner-icon": "mdi-office-building",
-      "rules": [v => !!v || '회사이름이나 소속명을 입력해주세요.']
-    },
-    model: {
-      value: _vm.company,
-      callback: function ($$v) {
-        _vm.company = $$v;
-      },
-      expression: "company"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "tel",
-      "label": "전화",
-      "prepend-inner-icon": "mdi-deskphone"
-    },
-    model: {
-      value: _vm.second_phone,
-      callback: function ($$v) {
-        _vm.second_phone = $$v;
-      },
-      expression: "second_phone"
-    }
-  }), _vm._v(" "), _c(VMenu["a" /* default */], {
-    ref: "menu",
-    attrs: {
-      "close-on-content-click": false,
-      "return-value": _vm.date,
-      "offset-y": "",
-      "min-width": "auto"
-    },
-    on: {
-      "update:returnValue": function ($event) {
-        _vm.date = $event;
-      },
-      "update:return-value": function ($event) {
-        _vm.date = $event;
-      }
-    },
-    scopedSlots: _vm._u([{
-      key: "activator",
-      fn: function ({
-        on,
-        attrs
-      }) {
-        return [_c(VTextField["a" /* default */], _vm._g(_vm._b({
-          attrs: {
-            "prepend-inner-icon": "mdi-calendar",
-            "readonly": "",
-            "label": "*희망 납품일",
-            "rules": [v => !!v || '희망 납품일을 입력해주세요.']
-          },
-          model: {
-            value: _vm.date,
-            callback: function ($$v) {
-              _vm.date = $$v;
-            },
-            expression: "date"
-          }
-        }, 'v-text-field', attrs, false), on))];
-      }
-    }], null, false, 2340921018),
-    model: {
-      value: _vm.menu,
-      callback: function ($$v) {
-        _vm.menu = $$v;
-      },
-      expression: "menu"
-    }
-  }, [_vm._v(" "), _c(VDatePicker, {
-    attrs: {
-      "no-title": "",
-      "scrollable": ""
-    },
-    model: {
-      value: _vm.date,
-      callback: function ($$v) {
-        _vm.date = $$v;
-      },
-      expression: "date"
-    }
-  }, [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.menu = false;
-      }
-    }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        return _vm.$refs.menu.save(_vm.date);
-      }
-    }
-  }, [_vm._v("OK")])], 1)], 1), _vm._v(" "), _c(VBanner_VBanner, {
-    attrs: {
-      "shaped": ""
-    }
-  }, [_vm._v("의뢰할 내용")]), _vm._v(" "), _c('div', {
-    staticClass: "request__wrapper"
-  }, [_c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": "",
-      "rules": [v => !!v || '번역될 언어를 선택하세요.']
-    },
-    model: {
-      value: _vm.req_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 0, $$v);
-      },
-      expression: "req_lang[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[0] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": "",
-      "rules": [v => !!v || '번역할 언어를 선택하세요.']
-    },
-    model: {
-      value: _vm.grant_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 0, $$v);
-      },
-      expression: "grant_lang[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 0, $$v);
-      },
-      expression: "req_field[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    ref: "file0",
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "small-chips": "",
-      "multiple": "",
-      "dense": "",
-      "rules": [v => !!v || '번역 파일을 첨부해주세요.'],
-      "accept": _vm.acceptFiles,
-      "disabled": _vm.req_lang[0] === ''
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(0, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(0);
-      }
-    },
-    model: {
-      value: _vm.file[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 0, $$v);
-      },
-      expression: "file[0]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 1, $$v);
-      },
-      expression: "req_lang[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[1] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 1, $$v);
-      },
-      expression: "grant_lang[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 1, $$v);
-      },
-      expression: "req_field[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    ref: "file1",
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "small-chips": "",
-      "multiple": "",
-      "dense": "",
-      "accept": _vm.acceptFiles,
-      "disabled": _vm.req_lang[1] === ''
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(1, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(1);
-      }
-    },
-    model: {
-      value: _vm.file[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 1, $$v);
-      },
-      expression: "file[1]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 2, $$v);
-      },
-      expression: "req_lang[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[2] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 2, $$v);
-      },
-      expression: "grant_lang[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 2, $$v);
-      },
-      expression: "req_field[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    ref: "file2",
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "small-chips": "",
-      "multiple": "",
-      "dense": "",
-      "accept": _vm.acceptFiles,
-      "disabled": _vm.req_lang[2] === ''
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(2, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(2);
-      }
-    },
-    model: {
-      value: _vm.file[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 2, $$v);
-      },
-      expression: "file[2]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 3, $$v);
-      },
-      expression: "req_lang[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[3] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 3, $$v);
-      },
-      expression: "grant_lang[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 3, $$v);
-      },
-      expression: "req_field[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    ref: "file3",
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "small-chips": "",
-      "multiple": "",
-      "dense": "",
-      "accept": _vm.acceptFiles,
-      "disabled": _vm.req_lang[3] === ''
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(3, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(3);
-      }
-    },
-    model: {
-      value: _vm.file[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 3, $$v);
-      },
-      expression: "file[3]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 4, $$v);
-      },
-      expression: "req_lang[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[4] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 4, $$v);
-      },
-      expression: "grant_lang[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 4, $$v);
-      },
-      expression: "req_field[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    ref: "file4",
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "small-chips": "",
-      "multiple": "",
-      "dense": "",
-      "accept": _vm.acceptFiles,
-      "disabled": _vm.req_lang[4] === ''
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(4, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(4);
-      }
-    },
-    model: {
-      value: _vm.file[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 4, $$v);
-      },
-      expression: "file[4]"
-    }
-  })], 1)])]), _vm._v(" "), _c('div', {
-    staticClass: "request__mobile"
-  }, [_c(VSelect["a" /* default */], {
-    attrs: {
-      "items": _vm.languages,
-      "label": "번역이 필요한 언어",
-      "prepend-icon": "mdi-book-sync",
-      "hide-details": "",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 0, $$v);
-      },
-      expression: "req_lang[0]"
-    }
-  }), _vm._v(" "), _c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-down-bold")]), _vm._v(" "), _c(VSelect["a" /* default */], {
-    attrs: {
-      "items": _vm.req_lang[0] === '한국어' ? _vm.languages : ['한국어'],
-      "label": "번역할 언어",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 0, $$v);
-      },
-      expression: "grant_lang[0]"
-    }
-  }), _vm._v(" "), _c(VSelect["a" /* default */], {
-    attrs: {
-      "items": _vm.field,
-      "label": "요청분야",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 0, $$v);
-      },
-      expression: "req_field[0]"
-    }
-  }), _vm._v(" "), _c(VFileInput["a" /* default */], {
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "파일 첨부",
-      "multiple": "",
-      "small-chips": "",
-      "dense": "",
-      "disabled": _vm.req_lang[0] === '',
-      "accept": _vm.acceptFiles
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(0, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(0);
-      }
-    },
-    model: {
-      value: _vm.file[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 0, $$v);
-      },
-      expression: "file[0]"
-    }
-  })], 1), _vm._v(" "), _c(VTextarea["a" /* default */], {
-    attrs: {
-      "outlined": "",
-      "auto-grow": "",
-      "clearable": "",
-      "label": "특이사항",
-      "prepend-inner-icon": "mdi-star-cog",
-      "hide-details": _vm.hideDetails
-    },
-    on: {
-      "input": _vm.onChangeTextarea
-    },
-    model: {
-      value: _vm.options,
-      callback: function ($$v) {
-        _vm.options = $$v;
-      },
-      expression: "options"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "request__btn"
-  }, [_c(VSpacer["a" /* default */], {
-    staticClass: "spacer"
-  }), _vm._v(" "), _c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "10px"
-    },
-    attrs: {
-      "depressed": "",
-      "color": "#0d6efd",
-      "dark": "",
-      "large": ""
-    },
-    on: {
-      "click": _vm.pdfTest
-    }
-  }, [_vm._v("\n            견적서 발급\n            "), _c(VIcon_VIcon["a" /* default */], {
-    attrs: {
-      "right": ""
-    }
-  }, [_vm._v("mdi-file-download")])], 1), _vm._v(" "), _c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "10px"
-    },
-    attrs: {
-      "depressed": "",
-      "color": "success",
-      "disabled": !_vm.loginState,
-      "dark": "",
-      "large": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.dialog = true;
-      }
-    }
-  }, [_vm._v("\n            번역 의뢰\n            "), _c(VIcon_VIcon["a" /* default */], {
-    attrs: {
-      "right": ""
-    }
-  }, [_vm._v("mdi-file-edit")])], 1), _vm._v(" "), _c(VDialog["a" /* default */], {
-    attrs: {
-      "persistent": "",
-      "max-width": "300"
-    },
-    model: {
-      value: _vm.dialog,
-      callback: function ($$v) {
-        _vm.dialog = $$v;
-      },
-      expression: "dialog"
-    }
-  }, [_c(VCard["a" /* default */], [_c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-h5"
-  }, [_vm._v("의뢰 내용 확인")]), _vm._v(" "), _c(components_VCard["c" /* VCardText */], [_vm._v("해당 의뢰 내용으로 제출하시겠습니까?")]), _vm._v(" "), _c(components_VCard["a" /* VCardActions */], [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.dialog = false;
-      }
-    }
-  }, [_vm._v("취소")]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "color": "success",
-      "text": "",
-      "type": "submit"
-    },
-    on: {
-      "click": _vm.onSubmitForm
-    }
-  }, [_vm._v("확인")])], 1)], 1)], 1)], 1)], 1)], 1) : _vm.language === '영어' ? _c(VContainer["a" /* default */], [_c(VForm["a" /* default */], {
-    ref: "form",
-    on: {
-      "submit": function ($event) {
-        $event.preventDefault();
-      }
-    },
-    model: {
-      value: _vm.valid,
-      callback: function ($$v) {
-        _vm.valid = $$v;
-      },
-      expression: "valid"
-    }
-  }, [_c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "text",
-      "label": "*Name",
-      "prepend-inner-icon": "mdi-account",
-      "rules": [v => !!v || 'You have to enter your name.']
-    },
-    model: {
-      value: _vm.name,
-      callback: function ($$v) {
-        _vm.name = $$v;
-      },
-      expression: "name"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "tel",
-      "label": "*Phone Number",
-      "prepend-inner-icon": "mdi-cellphone",
-      "rules": [v => !!v || 'You have to enter your phone number.']
-    },
-    model: {
-      value: _vm.phone,
-      callback: function ($$v) {
-        _vm.phone = $$v;
-      },
-      expression: "phone"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "email",
-      "label": "*Email",
-      "prepend-inner-icon": "mdi-email",
-      "rules": [v => !!v || 'You have to enter an email.']
-    },
-    model: {
-      value: _vm.email,
-      callback: function ($$v) {
-        _vm.email = $$v;
-      },
-      expression: "email"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "text",
-      "label": "*Company",
-      "prepend-inner-icon": "mdi-office-building",
-      "rules": [v => !!v || 'Please enter name of your company.']
-    },
-    model: {
-      value: _vm.company,
-      callback: function ($$v) {
-        _vm.company = $$v;
-      },
-      expression: "company"
-    }
-  }), _vm._v(" "), _c(VTextField["a" /* default */], {
-    attrs: {
-      "type": "tel",
-      "label": "Tel",
-      "prepend-inner-icon": "mdi-deskphone"
-    },
-    model: {
-      value: _vm.second_phone,
-      callback: function ($$v) {
-        _vm.second_phone = $$v;
-      },
-      expression: "second_phone"
-    }
-  }), _vm._v(" "), _c(VMenu["a" /* default */], {
-    ref: "menu",
-    attrs: {
-      "close-on-content-click": false,
-      "return-value": _vm.date,
-      "offset-y": "",
-      "min-width": "auto"
-    },
-    on: {
-      "update:returnValue": function ($event) {
-        _vm.date = $event;
-      },
-      "update:return-value": function ($event) {
-        _vm.date = $event;
-      }
-    },
-    scopedSlots: _vm._u([{
-      key: "activator",
-      fn: function ({
-        on,
-        attrs
-      }) {
-        return [_c(VTextField["a" /* default */], _vm._g(_vm._b({
-          attrs: {
-            "prepend-inner-icon": "mdi-calendar",
-            "readonly": "",
-            "label": "*Desired date",
-            "rules": [v => !!v || 'Please enter the desired date.']
-          },
-          model: {
-            value: _vm.date,
-            callback: function ($$v) {
-              _vm.date = $$v;
-            },
-            expression: "date"
-          }
-        }, 'v-text-field', attrs, false), on))];
-      }
-    }]),
-    model: {
-      value: _vm.menu,
-      callback: function ($$v) {
-        _vm.menu = $$v;
-      },
-      expression: "menu"
-    }
-  }, [_vm._v(" "), _c(VDatePicker, {
-    attrs: {
-      "no-title": "",
-      "scrollable": ""
-    },
-    model: {
-      value: _vm.date,
-      callback: function ($$v) {
-        _vm.date = $$v;
-      },
-      expression: "date"
-    }
-  }, [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.menu = false;
-      }
-    }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        return _vm.$refs.menu.save(_vm.date);
-      }
-    }
-  }, [_vm._v("OK")])], 1)], 1), _vm._v(" "), _c(VBanner_VBanner, {
-    attrs: {
-      "shaped": ""
-    }
-  }, [_vm._v("The Request")]), _vm._v(" "), _c('div', {
-    staticClass: "request__wrapper"
-  }, [_c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": "",
-      "rules": [v => !!v || 'Choose the language to be translated.']
-    },
-    model: {
-      value: _vm.req_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 0, $$v);
-      },
-      expression: "req_lang[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[0] === 'Korean' ? _vm.e_languages : ['Korean'],
-      "label": "To translate",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": "",
-      "rules": [v => !!v || 'Choose a language to translate.']
-    },
-    model: {
-      value: _vm.grant_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 0, $$v);
-      },
-      expression: "grant_lang[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_field,
-      "label": "Request field",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 0, $$v);
-      },
-      expression: "req_field[0]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "File",
-      "small-chips": "",
-      "dense": "",
-      "rules": [v => !!v || 'Please attach the File.']
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(0, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(0);
-      }
-    },
-    model: {
-      value: _vm.file[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 0, $$v);
-      },
-      expression: "file[0]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 1, $$v);
-      },
-      expression: "req_lang[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[1] === 'Korean' ? _vm.e_languages : ['Korean'],
-      "label": "To translate",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 1, $$v);
-      },
-      expression: "grant_lang[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_field,
-      "label": "Request field",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 1, $$v);
-      },
-      expression: "req_field[1]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "File",
-      "small-chips": "",
-      "dense": ""
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(1, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(1);
-      }
-    },
-    model: {
-      value: _vm.file[1],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 1, $$v);
-      },
-      expression: "file[1]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 2, $$v);
-      },
-      expression: "req_lang[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[2] === 'Korean' ? _vm.e_languages : ['Korean'],
-      "label": "To translate",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 2, $$v);
-      },
-      expression: "grant_lang[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_field,
-      "label": "Request field",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 2, $$v);
-      },
-      expression: "req_field[2]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "File",
-      "small-chips": "",
-      "dense": ""
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(2, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(2);
-      }
-    },
-    model: {
-      value: _vm.file[2],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 2, $$v);
-      },
-      expression: "file[2]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 3, $$v);
-      },
-      expression: "req_lang[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[3] === 'Korean' ? _vm.e_languages : ['Korean'],
-      "label": "To translate",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 3, $$v);
-      },
-      expression: "grant_lang[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_field,
-      "label": "Request field",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 3, $$v);
-      },
-      expression: "req_field[3]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "File",
-      "small-chips": "",
-      "dense": ""
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(3, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(3);
-      }
-    },
-    model: {
-      value: _vm.file[3],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 3, $$v);
-      },
-      expression: "file[3]"
-    }
-  })], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "request__content",
-    staticStyle: {
-      "display": "flex",
-      "justify-content": "space-between"
-    }
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 4, $$v);
-      },
-      expression: "req_lang[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "text-align": "center"
-    }
-  }, [_c(VIcon_VIcon["a" /* default */], [_vm._v("mdi-arrow-right-bold")])], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.req_lang[4] === 'Korean' ? _vm.e_languages : ['Korean'],
-      "label": "To translate",
-      "prepend-icon": "mdi-book-check",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.grant_lang[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.grant_lang, 4, $$v);
-      },
-      expression: "grant_lang[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VSelect["a" /* default */], {
-    staticClass: "selector",
-    attrs: {
-      "items": _vm.e_field,
-      "label": "Request field",
-      "prepend-icon": "mdi-shape",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_field[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_field, 4, $$v);
-      },
-      expression: "req_field[4]"
-    }
-  })], 1), _vm._v(" "), _c('div', [_c(VFileInput["a" /* default */], {
-    staticClass: "file_selector",
-    attrs: {
-      "prepend-icon": "mdi-content-save",
-      "label": "File",
-      "small-chips": "",
-      "dense": ""
-    },
-    on: {
-      "change": function ($event) {
-        return _vm.onChangeFile(4, $event);
-      },
-      "click:clear": function ($event) {
-        return _vm.onClearFile(4);
-      }
-    },
-    model: {
-      value: _vm.file[4],
-      callback: function ($$v) {
-        _vm.$set(_vm.file, 4, $$v);
-      },
-      expression: "file[4]"
-    }
-  })], 1)])]), _vm._v(" "), _c('div', {
-    staticClass: "request__mobile"
-  }, [_c('div', [_c(VSelect["a" /* default */], {
-    attrs: {
-      "items": _vm.e_languages,
-      "label": "Need Translation",
-      "prepend-icon": "mdi-book-sync",
-      "outlined": "",
-      "dense": ""
-    },
-    model: {
-      value: _vm.req_lang[0],
-      callback: function ($$v) {
-        _vm.$set(_vm.req_lang, 0, $$v);
-      },
-      expression: "req_lang[0]"
-    }
-  })], 1)]), _vm._v(" "), _c(VTextarea["a" /* default */], {
-    attrs: {
-      "outlined": "",
-      "auto-grow": "",
-      "clearable": "",
-      "label": "Special Order",
-      "prepend-inner-icon": "mdi-star-cog",
-      "hide-details": _vm.hideDetails
-    },
-    on: {
-      "input": _vm.onChangeTextarea
-    },
-    model: {
-      value: _vm.options,
-      callback: function ($$v) {
-        _vm.options = $$v;
-      },
-      expression: "options"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "request__btn"
-  }, [_c(VSpacer["a" /* default */], {
-    staticClass: "spacer"
-  }), _vm._v(" "), _c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "10px"
-    },
-    attrs: {
-      "depressed": "",
-      "color": "#0d6efd",
-      "dark": "",
-      "large": ""
-    },
-    on: {
-      "click": _vm.pdfTest
-    }
-  }, [_vm._v("\n            Issuing Quotation\n            "), _c(VIcon_VIcon["a" /* default */], {
-    attrs: {
-      "right": ""
-    }
-  }, [_vm._v("mdi-file-download")])], 1), _vm._v(" "), _c(VBtn["a" /* default */], {
-    staticStyle: {
-      "margin": "10px"
-    },
-    attrs: {
-      "depressed": "",
-      "color": "success",
-      "disabled": !_vm.loginState,
-      "dark": "",
-      "large": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.dialog = true;
-      }
-    }
-  }, [_vm._v("\n            Translation request\n            "), _c(VIcon_VIcon["a" /* default */], {
-    attrs: {
-      "right": ""
-    }
-  }, [_vm._v("mdi-file-edit")])], 1), _vm._v(" "), _c(VDialog["a" /* default */], {
-    attrs: {
-      "persistent": "",
-      "max-width": "300"
-    },
-    model: {
-      value: _vm.dialog,
-      callback: function ($$v) {
-        _vm.dialog = $$v;
-      },
-      expression: "dialog"
-    }
-  }, [_c(VCard["a" /* default */], [_c(components_VCard["d" /* VCardTitle */], {
-    staticClass: "text-h5"
-  }, [_vm._v("Check the request")]), _vm._v(" "), _c(components_VCard["c" /* VCardText */], [_vm._v("Would you like to submit the request?")]), _vm._v(" "), _c(components_VCard["a" /* VCardActions */], [_c(VSpacer["a" /* default */]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "text": ""
-    },
-    on: {
-      "click": function ($event) {
-        _vm.dialog = false;
-      }
-    }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c(VBtn["a" /* default */], {
-    attrs: {
-      "color": "success",
-      "text": "",
-      "type": "submit"
-    },
-    on: {
-      "click": _vm.onSubmitForm
-    }
-  }, [_vm._v("OK")])], 1)], 1)], 1)], 1)], 1)], 1) : _vm._e()], 1) : _vm._e()], 1);
-};
 
-var staticRenderFns = [];
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VContainer["a" /* default */],[_c(VCol["a" /* default */],[_c(VBtnToggle["a" /* default */],{ref:"toggle",staticClass:"toggle_group",staticStyle:{"width":"100%"},attrs:{"mandatory":"","color":"primary"},on:{"change":_vm.loginCheck},model:{value:(_vm.sels),callback:function ($$v) {_vm.sels=$$v},expression:"sels"}},[_c(VBtn["a" /* default */],{staticStyle:{"margin":"0","padding":"0"},attrs:{"width":"50%"}},[_vm._v("\n        "+_vm._s(_vm.language === "한국어" ? "견적" : "Estimate")+"\n      ")]),_vm._v(" "),_c(VBtn["a" /* default */],{staticStyle:{"margin":"0","padding":"0"},attrs:{"width":"50%"}},[_vm._v("\n        "+_vm._s(_vm.language === "한국어" ? "의뢰" : "Request")+"\n      ")])],1)],1),_vm._v(" "),(_vm.sels === 0)?_c(VCard["a" /* default */],{attrs:{"outlined":"","elevation":"10"}},[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[_c(VRow["a" /* default */],[_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{staticClass:"toolbar_class",attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"font-weight-bold"},[_vm._v(" 원본 언어 ")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectLanguage1),callback:function ($$v) {_vm.selectLanguage1=$$v},expression:"selectLanguage1"}},_vm._l((_vm.languages),function(lang,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(lang))])],1)}),1)],1)],1),_vm._v(" "),_c('div',{staticClass:"d-flex align-center justify-center"},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{staticClass:"toolbar_class",attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"font-weight-bold"},[_vm._v(" 번역 언어 ")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectLanguage2),callback:function ($$v) {_vm.selectLanguage2=$$v},expression:"selectLanguage2"}},_vm._l((_vm.selectLanguage1 == 0 ? _vm.languages : ['한국어']),function(lang,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(lang))])],1)}),1)],1)],1),_vm._v(" "),_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{staticClass:"toolbar_class",attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"font-weight-bold"},[_vm._v(" 요청 분야 ")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectField),callback:function ($$v) {_vm.selectField=$$v},expression:"selectField"}},_vm._l((_vm.field),function(f,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(f))])],1)}),1)],1)],1)],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[_c(VRow["a" /* default */],[_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"color":"primary"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_vm._v("Original Language")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectLanguage1),callback:function ($$v) {_vm.selectLanguage1=$$v},expression:"selectLanguage1"}},_vm._l((_vm.e_languages),function(lang,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(lang))])],1)}),1)],1)],1),_vm._v(" "),_c('div',{staticClass:"d-flex align-center justify-center"},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"color":"primary"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_vm._v("Translate Language")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectLanguage2),callback:function ($$v) {_vm.selectLanguage2=$$v},expression:"selectLanguage2"}},_vm._l((_vm.selectLanguage1 == 0 ? _vm.e_languages : ['Korean']),function(lang,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(lang))])],1)}),1)],1)],1),_vm._v(" "),_c(VCol["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"color":"primary"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_vm._v("Request Field")])],1),_vm._v(" "),_c(VList["a" /* default */],{staticClass:"overflow-y-auto",attrs:{"height":"300"}},[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.selectField),callback:function ($$v) {_vm.selectField=$$v},expression:"selectField"}},_vm._l((_vm.e_field),function(f,i){return _c(VListItem["a" /* default */],{key:i,attrs:{"active-class":"list_select"}},[_c(components_VList["c" /* VListItemTitle */],[_vm._v(_vm._s(f))])],1)}),1)],1)],1)],1)],1):_vm._e(),_vm._v(" "),_c(VDivider["a" /* default */]),_vm._v(" "),(_vm.language === '한국어')?_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h4"},[_vm._v("\n        글자수\n        "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"number","hide-spin-buttons":"","prefix":"글자","reverse":"","dense":""},model:{value:(_vm.wordCount),callback:function ($$v) {_vm.wordCount=$$v},expression:"wordCount"}})],1),_vm._v(" "),_c(components_VCard["b" /* VCardSubtitle */],{staticClass:"text-caption"},[_vm._v("\n        중국어/일본어 = 1글자 당 "),_c('br'),_vm._v("\n        그 외 = 1단어 당\n      ")]),_vm._v(" "),_c(VSpacer["a" /* default */])],1):(_vm.language === '영어')?_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h4"},[_vm._v("\n        Words(Characters)\n        "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"number","hide-spin-buttons":"","prefix":"words","reverse":"","dense":""},model:{value:(_vm.wordCount),callback:function ($$v) {_vm.wordCount=$$v},expression:"wordCount"}})],1),_vm._v(" "),_c(components_VCard["b" /* VCardSubtitle */],{staticClass:"text-caption"},[_vm._v("\n        Chinese/Japanese = per letter "),_c('br'),_vm._v("\n        Other = per word\n      ")]),_vm._v(" "),_c(VSpacer["a" /* default */])],1):_vm._e(),_vm._v(" "),_c(VDivider["a" /* default */]),_vm._v(" "),_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h4"},[_c(VBtn["a" /* default */],{attrs:{"icon":""},on:{"click":function($event){_vm.dollar = !_vm.dollar}},model:{value:(_vm.dollar),callback:function ($$v) {_vm.dollar=$$v},expression:"dollar"}},[(_vm.dollar)?_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-currency-usd")]):_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-currency-krw")])],1),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v("\n        "+_vm._s(_vm.commas(_vm.dollar ? _vm.totalPrice : (_vm.totalPrice / _vm.exRate).toFixed(3)) * _vm.wordCount)+"\n        "+_vm._s(_vm.dollar ? "원" : "$")+"\n      ")],1),_vm._v(" "),_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-caption"},[_c('div',[_vm._v("\n          단위 가격(Unit Cost) * 글자 수(Words) "),_c('br'),_vm._v("\n          단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)\n        ")]),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v("\n        단위 가격(Unit Cost) :\n        "+_vm._s(_vm.commas(_vm.dollar ? _vm.totalPrice : (_vm.totalPrice / _vm.exRate).toFixed(3)))+"\n        "+_vm._s(_vm.dollar ? "원" : "$")+"\n      ")],1),_vm._v(" "),_c(VDivider["a" /* default */])],1),_vm._v(" "),(_vm.language === '한국어')?_c(components_VCard["d" /* VCardTitle */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VSubheader["a" /* default */],{domProps:{"textContent":_vm._s('※본 견적은 정확하지 않을 수 있으며, 파일 내의 이미지 유무와 관련하여 추가 요금이 부과될 수 있습니다.')}})],1):(_vm.language === '영어')?_c(components_VCard["d" /* VCardTitle */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VSubheader["a" /* default */],{domProps:{"textContent":_vm._s('※This estimate may not be accurate and there may be an additional charge for the presence or absence of images in the file.')}})],1):_vm._e()],1):(_vm.sels === 1)?_c(VCard["a" /* default */],{attrs:{"outlined":"","elevation":"10"}},[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"type":"text","label":"*성명","prepend-inner-icon":"mdi-account","rules":[function (v) { return !!v || '이름을 입력하셔야 합니다.'; }]},model:{value:(_vm.name),callback:function ($$v) {_vm.name=$$v},expression:"name"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"tel","label":"*휴대전화","prepend-inner-icon":"mdi-cellphone","rules":[function (v) { return !!v || '전화번호를 입력하셔야 합니다.'; }]},model:{value:(_vm.phone),callback:function ($$v) {_vm.phone=$$v},expression:"phone"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"email","label":"*이메일","prepend-inner-icon":"mdi-email","rules":[function (v) { return !!v || '이메일을 입력하셔야 합니다.'; }]},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"text","label":"*회사명","prepend-inner-icon":"mdi-office-building","rules":[function (v) { return !!v || '회사이름이나 소속명을 입력해주세요.'; }]},model:{value:(_vm.company),callback:function ($$v) {_vm.company=$$v},expression:"company"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"tel","label":"전화","prepend-inner-icon":"mdi-deskphone"},model:{value:(_vm.second_phone),callback:function ($$v) {_vm.second_phone=$$v},expression:"second_phone"}}),_vm._v(" "),_c(VMenu["a" /* default */],{ref:"menu",attrs:{"close-on-content-click":false,"return-value":_vm.date,"offset-y":"","min-width":"auto"},on:{"update:returnValue":function($event){_vm.date=$event},"update:return-value":function($event){_vm.date=$event}},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
+var on = ref.on;
+var attrs = ref.attrs;
+return [_c(VTextField["a" /* default */],_vm._g(_vm._b({attrs:{"prepend-inner-icon":"mdi-calendar","readonly":"","label":"*희망 납품일","rules":[function (v) { return !!v || '희망 납품일을 입력해주세요.'; }]},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},'v-text-field',attrs,false),on))]}}],null,false,2340921018),model:{value:(_vm.menu),callback:function ($$v) {_vm.menu=$$v},expression:"menu"}},[_vm._v(" "),_c(VDatePicker,{attrs:{"no-title":"","scrollable":""},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.menu = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){return _vm.$refs.menu.save(_vm.date)}}},[_vm._v("OK")])],1)],1),_vm._v(" "),_c(VBanner_VBanner,{attrs:{"shaped":""}},[_vm._v("의뢰할 내용")]),_vm._v(" "),_c('div',{staticClass:"request__wrapper"},[_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","outlined":"","dense":"","rules":[function (v) { return !!v || '번역될 언어를 선택하세요.'; }]},model:{value:(_vm.req_lang[0]),callback:function ($$v) {_vm.$set(_vm.req_lang, 0, $$v)},expression:"req_lang[0]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[0] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":"","rules":[function (v) { return !!v || '번역할 언어를 선택하세요.'; }]},model:{value:(_vm.grant_lang[0]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 0, $$v)},expression:"grant_lang[0]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[0]),callback:function ($$v) {_vm.$set(_vm.req_field, 0, $$v)},expression:"req_field[0]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{ref:"file0",staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","small-chips":"","multiple":"","dense":"","rules":[function (v) { return !!v || '번역 파일을 첨부해주세요.'; }],"accept":_vm.acceptFiles,"disabled":_vm.req_lang[0] === ''},on:{"change":function($event){return _vm.onChangeFile(0, $event)},"click:clear":function($event){return _vm.onClearFile(0)}},model:{value:(_vm.file[0]),callback:function ($$v) {_vm.$set(_vm.file, 0, $$v)},expression:"file[0]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[1]),callback:function ($$v) {_vm.$set(_vm.req_lang, 1, $$v)},expression:"req_lang[1]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[1] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[1]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 1, $$v)},expression:"grant_lang[1]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[1]),callback:function ($$v) {_vm.$set(_vm.req_field, 1, $$v)},expression:"req_field[1]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{ref:"file1",staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","small-chips":"","multiple":"","dense":"","accept":_vm.acceptFiles,"disabled":_vm.req_lang[1] === ''},on:{"change":function($event){return _vm.onChangeFile(1, $event)},"click:clear":function($event){return _vm.onClearFile(1)}},model:{value:(_vm.file[1]),callback:function ($$v) {_vm.$set(_vm.file, 1, $$v)},expression:"file[1]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[2]),callback:function ($$v) {_vm.$set(_vm.req_lang, 2, $$v)},expression:"req_lang[2]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[2] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[2]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 2, $$v)},expression:"grant_lang[2]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[2]),callback:function ($$v) {_vm.$set(_vm.req_field, 2, $$v)},expression:"req_field[2]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{ref:"file2",staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","small-chips":"","multiple":"","dense":"","accept":_vm.acceptFiles,"disabled":_vm.req_lang[2] === ''},on:{"change":function($event){return _vm.onChangeFile(2, $event)},"click:clear":function($event){return _vm.onClearFile(2)}},model:{value:(_vm.file[2]),callback:function ($$v) {_vm.$set(_vm.file, 2, $$v)},expression:"file[2]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[3]),callback:function ($$v) {_vm.$set(_vm.req_lang, 3, $$v)},expression:"req_lang[3]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[3] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[3]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 3, $$v)},expression:"grant_lang[3]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[3]),callback:function ($$v) {_vm.$set(_vm.req_field, 3, $$v)},expression:"req_field[3]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{ref:"file3",staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","small-chips":"","multiple":"","dense":"","accept":_vm.acceptFiles,"disabled":_vm.req_lang[3] === ''},on:{"change":function($event){return _vm.onChangeFile(3, $event)},"click:clear":function($event){return _vm.onClearFile(3)}},model:{value:(_vm.file[3]),callback:function ($$v) {_vm.$set(_vm.file, 3, $$v)},expression:"file[3]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[4]),callback:function ($$v) {_vm.$set(_vm.req_lang, 4, $$v)},expression:"req_lang[4]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[4] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[4]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 4, $$v)},expression:"grant_lang[4]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[4]),callback:function ($$v) {_vm.$set(_vm.req_field, 4, $$v)},expression:"req_field[4]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{ref:"file4",staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","small-chips":"","multiple":"","dense":"","accept":_vm.acceptFiles,"disabled":_vm.req_lang[4] === ''},on:{"change":function($event){return _vm.onChangeFile(4, $event)},"click:clear":function($event){return _vm.onClearFile(4)}},model:{value:(_vm.file[4]),callback:function ($$v) {_vm.$set(_vm.file, 4, $$v)},expression:"file[4]"}})],1)])]),_vm._v(" "),_c('div',{staticClass:"request__mobile"},[_c(VSelect["a" /* default */],{attrs:{"items":_vm.languages,"label":"번역이 필요한 언어","prepend-icon":"mdi-book-sync","hide-details":"","outlined":"","dense":""},model:{value:(_vm.req_lang[0]),callback:function ($$v) {_vm.$set(_vm.req_lang, 0, $$v)},expression:"req_lang[0]"}}),_vm._v(" "),_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-down-bold")]),_vm._v(" "),_c(VSelect["a" /* default */],{attrs:{"items":_vm.req_lang[0] === '한국어' ? _vm.languages : ['한국어'],"label":"번역할 언어","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[0]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 0, $$v)},expression:"grant_lang[0]"}}),_vm._v(" "),_c(VSelect["a" /* default */],{attrs:{"items":_vm.field,"label":"요청분야","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[0]),callback:function ($$v) {_vm.$set(_vm.req_field, 0, $$v)},expression:"req_field[0]"}}),_vm._v(" "),_c(VFileInput["a" /* default */],{attrs:{"prepend-icon":"mdi-content-save","label":"파일 첨부","multiple":"","small-chips":"","dense":"","disabled":_vm.req_lang[0] === '',"accept":_vm.acceptFiles},on:{"change":function($event){return _vm.onChangeFile(0, $event)},"click:clear":function($event){return _vm.onClearFile(0)}},model:{value:(_vm.file[0]),callback:function ($$v) {_vm.$set(_vm.file, 0, $$v)},expression:"file[0]"}})],1),_vm._v(" "),_c(VTextarea["a" /* default */],{attrs:{"outlined":"","auto-grow":"","clearable":"","label":"특이사항","prepend-inner-icon":"mdi-star-cog","hide-details":_vm.hideDetails},on:{"input":_vm.onChangeTextarea},model:{value:(_vm.options),callback:function ($$v) {_vm.options=$$v},expression:"options"}}),_vm._v(" "),_c('div',{staticClass:"request__btn"},[_c(VSpacer["a" /* default */],{staticClass:"spacer"}),_vm._v(" "),_c(VBtn["a" /* default */],{staticStyle:{"margin":"10px"},attrs:{"depressed":"","color":"#0d6efd","dark":"","large":""},on:{"click":_vm.pdfTest}},[_vm._v("\n            견적서 발급\n            "),_c(VIcon_VIcon["a" /* default */],{attrs:{"right":""}},[_vm._v("mdi-file-download")])],1),_vm._v(" "),_c(VBtn["a" /* default */],{staticStyle:{"margin":"10px"},attrs:{"depressed":"","color":"success","disabled":!_vm.loginState,"dark":"","large":""},on:{"click":function($event){_vm.dialog = true}}},[_vm._v("\n            번역 의뢰\n            "),_c(VIcon_VIcon["a" /* default */],{attrs:{"right":""}},[_vm._v("mdi-file-edit")])],1),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("의뢰 내용 확인")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v("해당 의뢰 내용으로 제출하시겠습니까?")]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("취소")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success","text":"","type":"submit"},on:{"click":_vm.onSubmitForm}},[_vm._v("확인")])],1)],1)],1)],1)],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"type":"text","label":"*Name","prepend-inner-icon":"mdi-account","rules":[function (v) { return !!v || 'You have to enter your name.'; }]},model:{value:(_vm.name),callback:function ($$v) {_vm.name=$$v},expression:"name"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"tel","label":"*Phone Number","prepend-inner-icon":"mdi-cellphone","rules":[function (v) { return !!v || 'You have to enter your phone number.'; }]},model:{value:(_vm.phone),callback:function ($$v) {_vm.phone=$$v},expression:"phone"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"email","label":"*Email","prepend-inner-icon":"mdi-email","rules":[function (v) { return !!v || 'You have to enter an email.'; }]},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"text","label":"*Company","prepend-inner-icon":"mdi-office-building","rules":[function (v) { return !!v || 'Please enter name of your company.'; }]},model:{value:(_vm.company),callback:function ($$v) {_vm.company=$$v},expression:"company"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"type":"tel","label":"Tel","prepend-inner-icon":"mdi-deskphone"},model:{value:(_vm.second_phone),callback:function ($$v) {_vm.second_phone=$$v},expression:"second_phone"}}),_vm._v(" "),_c(VMenu["a" /* default */],{ref:"menu",attrs:{"close-on-content-click":false,"return-value":_vm.date,"offset-y":"","min-width":"auto"},on:{"update:returnValue":function($event){_vm.date=$event},"update:return-value":function($event){_vm.date=$event}},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
+var on = ref.on;
+var attrs = ref.attrs;
+return [_c(VTextField["a" /* default */],_vm._g(_vm._b({attrs:{"prepend-inner-icon":"mdi-calendar","readonly":"","label":"*Desired date","rules":[function (v) { return !!v || 'Please enter the desired date.'; }]},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},'v-text-field',attrs,false),on))]}}]),model:{value:(_vm.menu),callback:function ($$v) {_vm.menu=$$v},expression:"menu"}},[_vm._v(" "),_c(VDatePicker,{attrs:{"no-title":"","scrollable":""},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.menu = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){return _vm.$refs.menu.save(_vm.date)}}},[_vm._v("OK")])],1)],1),_vm._v(" "),_c(VBanner_VBanner,{attrs:{"shaped":""}},[_vm._v("The Request")]),_vm._v(" "),_c('div',{staticClass:"request__wrapper"},[_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_languages,"label":"Need translation","prepend-icon":"mdi-book-sync","outlined":"","dense":"","rules":[function (v) { return !!v || 'Choose the language to be translated.'; }]},model:{value:(_vm.req_lang[0]),callback:function ($$v) {_vm.$set(_vm.req_lang, 0, $$v)},expression:"req_lang[0]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[0] === 'Korean' ? _vm.e_languages : ['Korean'],"label":"To translate","prepend-icon":"mdi-book-check","outlined":"","dense":"","rules":[function (v) { return !!v || 'Choose a language to translate.'; }]},model:{value:(_vm.grant_lang[0]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 0, $$v)},expression:"grant_lang[0]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_field,"label":"Request field","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[0]),callback:function ($$v) {_vm.$set(_vm.req_field, 0, $$v)},expression:"req_field[0]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"File","small-chips":"","dense":"","rules":[function (v) { return !!v || 'Please attach the File.'; }]},on:{"change":function($event){return _vm.onChangeFile(0, $event)},"click:clear":function($event){return _vm.onClearFile(0)}},model:{value:(_vm.file[0]),callback:function ($$v) {_vm.$set(_vm.file, 0, $$v)},expression:"file[0]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_languages,"label":"Need translation","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[1]),callback:function ($$v) {_vm.$set(_vm.req_lang, 1, $$v)},expression:"req_lang[1]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[1] === 'Korean' ? _vm.e_languages : ['Korean'],"label":"To translate","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[1]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 1, $$v)},expression:"grant_lang[1]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_field,"label":"Request field","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[1]),callback:function ($$v) {_vm.$set(_vm.req_field, 1, $$v)},expression:"req_field[1]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"File","small-chips":"","dense":""},on:{"change":function($event){return _vm.onChangeFile(1, $event)},"click:clear":function($event){return _vm.onClearFile(1)}},model:{value:(_vm.file[1]),callback:function ($$v) {_vm.$set(_vm.file, 1, $$v)},expression:"file[1]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_languages,"label":"Need translation","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[2]),callback:function ($$v) {_vm.$set(_vm.req_lang, 2, $$v)},expression:"req_lang[2]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[2] === 'Korean' ? _vm.e_languages : ['Korean'],"label":"To translate","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[2]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 2, $$v)},expression:"grant_lang[2]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_field,"label":"Request field","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[2]),callback:function ($$v) {_vm.$set(_vm.req_field, 2, $$v)},expression:"req_field[2]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"File","small-chips":"","dense":""},on:{"change":function($event){return _vm.onChangeFile(2, $event)},"click:clear":function($event){return _vm.onClearFile(2)}},model:{value:(_vm.file[2]),callback:function ($$v) {_vm.$set(_vm.file, 2, $$v)},expression:"file[2]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_languages,"label":"Need translation","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[3]),callback:function ($$v) {_vm.$set(_vm.req_lang, 3, $$v)},expression:"req_lang[3]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[3] === 'Korean' ? _vm.e_languages : ['Korean'],"label":"To translate","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[3]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 3, $$v)},expression:"grant_lang[3]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_field,"label":"Request field","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[3]),callback:function ($$v) {_vm.$set(_vm.req_field, 3, $$v)},expression:"req_field[3]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"File","small-chips":"","dense":""},on:{"change":function($event){return _vm.onChangeFile(3, $event)},"click:clear":function($event){return _vm.onClearFile(3)}},model:{value:(_vm.file[3]),callback:function ($$v) {_vm.$set(_vm.file, 3, $$v)},expression:"file[3]"}})],1)]),_vm._v(" "),_c('div',{staticClass:"request__content",staticStyle:{"display":"flex","justify-content":"space-between"}},[_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_languages,"label":"Need translation","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[4]),callback:function ($$v) {_vm.$set(_vm.req_lang, 4, $$v)},expression:"req_lang[4]"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"center"}},[_c(VIcon_VIcon["a" /* default */],[_vm._v("mdi-arrow-right-bold")])],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.req_lang[4] === 'Korean' ? _vm.e_languages : ['Korean'],"label":"To translate","prepend-icon":"mdi-book-check","outlined":"","dense":""},model:{value:(_vm.grant_lang[4]),callback:function ($$v) {_vm.$set(_vm.grant_lang, 4, $$v)},expression:"grant_lang[4]"}})],1),_vm._v(" "),_c('div',[_c(VSelect["a" /* default */],{staticClass:"selector",attrs:{"items":_vm.e_field,"label":"Request field","prepend-icon":"mdi-shape","outlined":"","dense":""},model:{value:(_vm.req_field[4]),callback:function ($$v) {_vm.$set(_vm.req_field, 4, $$v)},expression:"req_field[4]"}})],1),_vm._v(" "),_c('div',[_c(VFileInput["a" /* default */],{staticClass:"file_selector",attrs:{"prepend-icon":"mdi-content-save","label":"File","small-chips":"","dense":""},on:{"change":function($event){return _vm.onChangeFile(4, $event)},"click:clear":function($event){return _vm.onClearFile(4)}},model:{value:(_vm.file[4]),callback:function ($$v) {_vm.$set(_vm.file, 4, $$v)},expression:"file[4]"}})],1)])]),_vm._v(" "),_c('div',{staticClass:"request__mobile"},[_c('div',[_c(VSelect["a" /* default */],{attrs:{"items":_vm.e_languages,"label":"Need Translation","prepend-icon":"mdi-book-sync","outlined":"","dense":""},model:{value:(_vm.req_lang[0]),callback:function ($$v) {_vm.$set(_vm.req_lang, 0, $$v)},expression:"req_lang[0]"}})],1)]),_vm._v(" "),_c(VTextarea["a" /* default */],{attrs:{"outlined":"","auto-grow":"","clearable":"","label":"Special Order","prepend-inner-icon":"mdi-star-cog","hide-details":_vm.hideDetails},on:{"input":_vm.onChangeTextarea},model:{value:(_vm.options),callback:function ($$v) {_vm.options=$$v},expression:"options"}}),_vm._v(" "),_c('div',{staticClass:"request__btn"},[_c(VSpacer["a" /* default */],{staticClass:"spacer"}),_vm._v(" "),_c(VBtn["a" /* default */],{staticStyle:{"margin":"10px"},attrs:{"depressed":"","color":"#0d6efd","dark":"","large":""},on:{"click":_vm.pdfTest}},[_vm._v("\n            Issuing Quotation\n            "),_c(VIcon_VIcon["a" /* default */],{attrs:{"right":""}},[_vm._v("mdi-file-download")])],1),_vm._v(" "),_c(VBtn["a" /* default */],{staticStyle:{"margin":"10px"},attrs:{"depressed":"","color":"success","disabled":!_vm.loginState,"dark":"","large":""},on:{"click":function($event){_vm.dialog = true}}},[_vm._v("\n            Translation request\n            "),_c(VIcon_VIcon["a" /* default */],{attrs:{"right":""}},[_vm._v("mdi-file-edit")])],1),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("Check the request")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v("Would you like to submit the request?")]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success","text":"","type":"submit"},on:{"click":_vm.onSubmitForm}},[_vm._v("OK")])],1)],1)],1)],1)],1)],1):_vm._e()],1):_vm._e()],1)}
+var staticRenderFns = []
+
 
 // CONCATENATED MODULE: ./pages/text/request.vue?vue&type=template&id=683b5068&scoped=true&
 
@@ -6920,11 +5183,11 @@ var staticRenderFns = [];
 var external_vuex_ = __webpack_require__(43);
 
 // EXTERNAL MODULE: external "pdfmake/build/pdfmake"
-var pdfmake_ = __webpack_require__(216);
+var pdfmake_ = __webpack_require__(221);
 var pdfmake_default = /*#__PURE__*/__webpack_require__.n(pdfmake_);
 
 // EXTERNAL MODULE: external "pdfmake/build/vfs_fonts.js"
-var vfs_fonts_js_ = __webpack_require__(217);
+var vfs_fonts_js_ = __webpack_require__(222);
 var vfs_fonts_js_default = /*#__PURE__*/__webpack_require__.n(vfs_fonts_js_);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/text/request.vue?vue&type=script&lang=js&
@@ -7384,7 +5647,7 @@ pdfmake_default.a.vfs = vfs_fonts_js_default.a.pdfMake.vfs;
 // CONCATENATED MODULE: ./pages/text/request.vue?vue&type=script&lang=js&
  /* harmony default export */ var text_requestvue_type_script_lang_js_ = (requestvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(9);
+var componentNormalizer = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./pages/text/request.vue
 
@@ -7392,7 +5655,7 @@ var componentNormalizer = __webpack_require__(9);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(314)
+  var style0 = __webpack_require__(324)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -7401,7 +5664,7 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = Object(componentNormalizer["a" /* default */])(
   text_requestvue_type_script_lang_js_,
-  requestvue_type_template_id_683b5068_scoped_true_render,
+  render,
   staticRenderFns,
   false,
   injectStyles,
@@ -7418,7 +5681,18 @@ var component = Object(componentNormalizer["a" /* default */])(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(213);
+/* harmony import */ var _VDivider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(217);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_VDivider__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
+
+/***/ }),
+
+/***/ 83:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _VMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(218);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VMenu__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
