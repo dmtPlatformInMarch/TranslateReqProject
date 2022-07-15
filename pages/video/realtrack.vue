@@ -178,6 +178,8 @@ export default {
                         new Request(preSignedUrl, {
                             method: "PUT",
                             headers: {
+                                'Access-Control-Allow-Credentials': true,
+                                'Access-Control-Allow-Origin': "https://dmtlabs.kr",
                                 'Content-Type': this.extToContentType(ext),
                         },
                             body: e,
@@ -208,15 +210,14 @@ export default {
             }
         },
         onEmptyFile() {
-            this.$refs.fileupload.internalValue = null;
             this.readToVideo = !this.readToVideo;
             this.track = "";
         },
         onClearFile() {
             this.$store.dispatch('videoes/deleteFile');
             this.$store.commit('videoes/setFileURL', '');
-            this.$refs.fileupload.internalValue = null;
             this.readToVideo = false;
+            this.track = "";
         }
     }
 }
