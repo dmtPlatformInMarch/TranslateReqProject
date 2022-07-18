@@ -1005,7 +1005,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("4fbc9ac4", content, true, context)
+  add("c549add8", content, true, context)
 };
 
 /***/ }),
@@ -1015,9 +1015,9 @@ module.exports.__inject__ = function (context) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_2d1bc5da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(286);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_2d1bc5da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_2d1bc5da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_2d1bc5da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_2d1bc5da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_71736d26_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(286);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_71736d26_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_71736d26_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_71736d26_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_realtrack_vue_vue_type_style_index_0_id_71736d26_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -1029,7 +1029,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".video__box[data-v-2d1bc5da]{overflow:scroll;height:calc(100% - 12px)}.video__box[data-v-2d1bc5da]::-webkit-scrollbar{display:block;width:10px;height:8px}.video__box[data-v-2d1bc5da]::-webkit-scrollbar-track{background-color:transparent}.video__box[data-v-2d1bc5da]::-webkit-scrollbar-thumb{border-radius:5px;background:#2172ff}.video__player[data-v-2d1bc5da]{width:auto;height:50%;min-height:500px;border:1px solid red}.video__player__grid[data-v-2d1bc5da]{height:100%;min-height:500px}.video__player__box[data-v-2d1bc5da],.video__player__meta[data-v-2d1bc5da]{display:flex;align-items:center;justify-content:center;margin:25px 15px}.video__player__meta[data-v-2d1bc5da],.video__translator[data-v-2d1bc5da]{flex-direction:column}.video__translator[data-v-2d1bc5da]{display:flex;min-height:calc(50% - 128px);border:1px solid red}.video__translator__title[data-v-2d1bc5da]{display:flex;align-items:center;margin:15px;padding:0 15px}.video__translator__content[data-v-2d1bc5da]{min-height:30vh;display:flex;flex-direction:column;margin:0 15px 15px;border:1px solid red;white-space:pre-wrap}.video__uploadFile[data-v-2d1bc5da]{width:100%;padding:0 50px}.video[data-v-2d1bc5da]{padding:25px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".video__box[data-v-71736d26]{overflow:scroll;height:calc(100% - 12px)}.video__box[data-v-71736d26]::-webkit-scrollbar{display:block;width:10px;height:8px}.video__box[data-v-71736d26]::-webkit-scrollbar-track{background-color:transparent}.video__box[data-v-71736d26]::-webkit-scrollbar-thumb{border-radius:5px;background:#2172ff}.video__player[data-v-71736d26]{width:auto;height:50%;min-height:500px;border:1px solid red}.video__player__grid[data-v-71736d26]{height:100%;min-height:500px}.video__player__box[data-v-71736d26],.video__player__meta[data-v-71736d26]{display:flex;align-items:center;justify-content:center;margin:25px 15px}.video__player__meta[data-v-71736d26],.video__translator[data-v-71736d26]{flex-direction:column}.video__translator[data-v-71736d26]{display:flex;min-height:calc(50% - 128px);border:1px solid red}.video__translator__title[data-v-71736d26]{display:flex;align-items:center;margin:15px;padding:0 15px}.video__translator__content[data-v-71736d26]{min-height:30vh;display:flex;flex-direction:column;margin:0 15px 15px;border:1px solid red;white-space:pre-wrap}.video__uploadFile[data-v-71736d26]{width:100%;padding:0 50px}.video[data-v-71736d26]{padding:25px}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -1061,7 +1061,7 @@ var VRow = __webpack_require__(241);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(229);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/video/realtrack.vue?vue&type=template&id=2d1bc5da&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/video/realtrack.vue?vue&type=template&id=71736d26&scoped=true&
 
 
 
@@ -1069,11 +1069,11 @@ var VSpacer = __webpack_require__(229);
 
 
 
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"rtvideobox",staticClass:"video__box"},[_vm._ssrNode("<div data-v-2d1bc5da>","</div>",[_c(VFileInput["a" /* default */],{ref:"fileupload",attrs:{"label":"업로드 영상"},on:{"change":function($event){return _vm.onChange($event)}}})],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"video__player\" data-v-2d1bc5da>","</div>",[_c(VRow["a" /* default */],{staticClass:"video__player__grid",attrs:{"no-gutters":""}},[_c(VCol["a" /* default */],{staticClass:"video__player__box",attrs:{"cols":"8"}},[(this.readToVideo != false)?_c('div',{staticClass:"video"},[_c('video-component',{attrs:{"url":this.fileURL}})],1):_c('div',[_vm._v("\n                    비어있음\n                ")])]),_vm._v(" "),_c(VCol["a" /* default */],{staticClass:"video__player__meta"},[_c(VBtn["a" /* default */],{attrs:{"color":"warning","elevation":"0","block":"","disabled":!this.readToVideo},on:{"click":_vm.onEmptyFile}},[_c(VIcon["a" /* default */],[_vm._v("\n                        mdi-trash-can\n                    ")]),_vm._v("\n                    영상 비우기\n                ")],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"error","elevation":"0","block":"","disabled":!this.readToVideo},on:{"click":_vm.onClearFile}},[_c(VIcon["a" /* default */],[_vm._v("\n                        mdi-close\n                    ")]),_vm._v("\n                    영상 삭제\n                ")],1)],1)],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"video__translator\" data-v-2d1bc5da>","</div>",[_vm._ssrNode("<div class=\"video__translator__title\" data-v-2d1bc5da>","</div>",[_vm._ssrNode("<h1 data-v-2d1bc5da>자막</h1> "),_c(VSpacer["a" /* default */])],2),_vm._ssrNode(" <div class=\"video__translator__content\" data-v-2d1bc5da>"+(_vm._s(this.track))+"</div>")],2)],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"rtvideobox",staticClass:"video__box"},[_vm._ssrNode("<div data-v-71736d26>","</div>",[_c(VFileInput["a" /* default */],{ref:"fileupload",attrs:{"label":"업로드 영상"},on:{"change":function($event){return _vm.onChange($event)}}})],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"video__player\" data-v-71736d26>","</div>",[_c(VRow["a" /* default */],{staticClass:"video__player__grid",attrs:{"no-gutters":""}},[_c(VCol["a" /* default */],{staticClass:"video__player__box",attrs:{"cols":"8"}},[(this.readToVideo != false)?_c('div',{staticClass:"video"},[_c('video-component',{attrs:{"url":this.fileURL}})],1):_c('div',[_vm._v("\n                    비어있음\n                ")])]),_vm._v(" "),_c(VCol["a" /* default */],{staticClass:"video__player__meta"},[_c(VBtn["a" /* default */],{attrs:{"color":"warning","elevation":"0","block":"","disabled":!this.readToVideo},on:{"click":_vm.onEmptyFile}},[_c(VIcon["a" /* default */],[_vm._v("\n                        mdi-trash-can\n                    ")]),_vm._v("\n                    영상 비우기\n                ")],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"error","elevation":"0","block":"","disabled":!this.readToVideo},on:{"click":_vm.onClearFile}},[_c(VIcon["a" /* default */],[_vm._v("\n                        mdi-close\n                    ")]),_vm._v("\n                    영상 삭제\n                ")],1)],1)],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"video__translator\" data-v-71736d26>","</div>",[_vm._ssrNode("<div class=\"video__translator__title\" data-v-71736d26>","</div>",[_vm._ssrNode("<h1 data-v-71736d26>자막</h1> "),_c(VSpacer["a" /* default */])],2),_vm._ssrNode(" <div class=\"video__translator__content\" data-v-71736d26>"+(_vm._s(this.track))+"</div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/video/realtrack.vue?vue&type=template&id=2d1bc5da&scoped=true&
+// CONCATENATED MODULE: ./pages/video/realtrack.vue?vue&type=template&id=71736d26&scoped=true&
 
 // EXTERNAL MODULE: ./components/VideoComponent.vue + 4 modules
 var VideoComponent = __webpack_require__(269);
@@ -1261,13 +1261,13 @@ var VideoComponent = __webpack_require__(269);
           this.$store.commit('videoes/setFileName', name);
           this.$store.commit('videoes/setFileExt', ext);
           fileFormData.append('fileKey', e);
+          this.$nuxt.$loading.start();
           const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
+          this.$nuxt.$loading.finish();
           this.$nuxt.$loading.start();
           const response = await fetch(new Request(preSignedUrl, {
             method: "PUT",
             headers: {
-              'Access-Control-Allow-Credentials': true,
-              'Access-Control-Allow-Origin': "https://dmtlabs.kr",
               'Content-Type': this.extToContentType(ext)
             },
             body: e
@@ -1334,7 +1334,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "2d1bc5da",
+  "71736d26",
   "c14f6e3c"
   
 )
