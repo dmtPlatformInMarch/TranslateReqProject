@@ -39,8 +39,7 @@ export const actions = {
             }
             const presignedURL = await this.$axios.post('/video/presigned', payload, {
                 headers: {
-                    "Access-Control-Allow-Credentials": true,
-                    "Access-Control-Allow-Origin": "https://dmtlabs.kr",
+                    "Origin": "https://dmtlabs.kr",
                     "Content-Type" : "multipart/form-data"
                 },
             });
