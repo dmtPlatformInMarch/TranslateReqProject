@@ -172,14 +172,14 @@ export default {
                     this.$store.commit('videoes/setFileName', name);
                     this.$store.commit('videoes/setFileExt', ext);
                     fileFormData.append('fileKey', e);
+                    this.$nuxt.$loading.start();
                     const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
+                    this.$nuxt.$loading.finish();
                     this.$nuxt.$loading.start();
                     const response = await fetch(
                         new Request(preSignedUrl, {
                             method: "PUT",
                             headers: {
-                                'Access-Control-Allow-Credentials': true,
-                                'Access-Control-Allow-Origin': "https://dmtlabs.kr",
                                 'Content-Type': this.extToContentType(ext),
                         },
                             body: e,
