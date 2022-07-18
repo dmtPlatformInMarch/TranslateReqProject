@@ -37,11 +37,13 @@ export const actions = {
                 //console.log("페이로드 : ", pair[0], pair[1]);
                 commit('setFile', pair[1]);
             }
+            this.$nuxt.$loading.start();
             const presignedURL = await this.$axios.post('/video/presigned', payload, {
                 headers: {
                     "Content-Type" : "multipart/form-data"
                 },
             });
+            this.$nuxt.$loading.finish();
             //console.log("받아온 URL : ", presignedURL.data);
             return presignedURL.data;
         } catch (err) {

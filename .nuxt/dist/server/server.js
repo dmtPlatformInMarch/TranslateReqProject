@@ -11755,11 +11755,13 @@ const actions = {
         commit('setFile', pair[1]);
       }
 
+      this.$nuxt.$loading.start();
       const presignedURL = await this.$axios.post('/video/presigned', payload, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
-      }); //console.log("받아온 URL : ", presignedURL.data);
+      });
+      this.$nuxt.$loading.finish(); //console.log("받아온 URL : ", presignedURL.data);
 
       return presignedURL.data;
     } catch (err) {
