@@ -14,7 +14,7 @@
       <div v-if="language === '한국어'" class="menu__selector">
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 텍스트 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on"> 텍스트 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -34,7 +34,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 영상 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on"> 영상 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>
@@ -52,7 +52,7 @@
         </v-menu>
         <v-menu open-on-hover offset-y tile>
           <template #activator="{ on, attrs }">
-            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on" dark> 음성 </v-btn>
+            <v-btn class="font-weight-bold" color="transparent" depressed v-bind="attrs" v-on="on"> 음성 </v-btn>
           </template>
           <v-list dense>
             <v-list-item-group>

@@ -2,7 +2,7 @@
     <v-app>
         <v-toolbar>
             <v-toolbar-title>
-                <h1>테스트 페이지</h1>
+                <h1>test page</h1>
             </v-toolbar-title>
         </v-toolbar>
         <div class="page__box">

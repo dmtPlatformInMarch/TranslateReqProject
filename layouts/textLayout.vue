@@ -191,6 +191,9 @@
   align-items: center;
   justify-content: flex-end;
 }
+.nav__info {
+  display: block;
+}
 .nav__title {
   font-size: 1rem;
 }
