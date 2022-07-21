@@ -11,22 +11,22 @@ export const state = () => ({
 
 export const mutations = {
     setFile(state, payload) {
-        state.file = payload;
+        state.file = Object.freeze(payload);
     },
     setFiles(state, payload) {
-        state.files = payload;
+        state.files = Object.freeze(payload);
     },
     setFileURL(state, payload) {
-        state.fileURL = payload;
+        state.fileURL = Object.freeze(payload);
     },
     setTrackURL(state, payload) {
-        state.trackURL = payload;
+        state.trackURL = Object.freeze(payload);
     },
     setFileName(state, payload) {
-        state.fileName = payload;
+        state.fileName = Object.freeze(payload);
     },
     setFileExt(state, payload) {
-        state.fileExt = payload;
+        state.fileExt = Object.freeze(payload);
     }
 }
 
@@ -99,19 +99,36 @@ export const actions = {
             console.log(err);
         }
     }, 500),
-    async postVideo({ state, commit }) {
+    async postVideo({ state, commit }, payload) {
         try {
             const recognition = await this.$axios.post('/video/recognition', {
-                "fileURL": state.fileURL
+                "fileURL": state.fileURL,
+                "ext": payload
             });
             if (recognition.status === 200) {
                 //console.log(recognition.data);
                 return recognition.data;
             } else {
-                console.log("뭔가 뭔가 에러임!!!");
+                console.log("비디오 인식 실패");
             }
         } catch (err) {
 
+        }
+    },
+    async textToTrack({ state, commit }, payload) {
+        try {
+            const createTrack = await this.$axios.post('/video/track/create', {
+                "fileName": state.fileName,
+                "track": payload.track,
+                "ext": payload.ext
+            });
+            if (createTrack.status === 200) {
+                return createTrack.data;
+            } else {
+                return "업로드 에러";
+            }
+        } catch (err) {
+            console.log("트랙 만들기 실패");
         }
     }
 }

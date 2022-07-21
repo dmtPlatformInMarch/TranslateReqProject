@@ -33,12 +33,44 @@
             <div class="video__translator__title">
                 <h1>자막</h1>
                 <v-spacer />
-                <v-btn color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="getTrack">자막 가져오기</v-btn>
+                <div class="video__translator__btngroup">
+                    <v-btn 
+                        ref="download"
+                        v-show="false"
+                        :href="
+                            (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                            '/video/download/' +
+                            this.fileName + '.srt'"
+                    />
+                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn>
+                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackVTT">자막 내보내기 (.vtt)</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="dialog = !dialog">자막 가져오기</v-btn>
+                </div>
             </div>
             <div v-for="(tr, index) in videoTrack" :key="index" class="video__translator__content">
-                <track-component :start="tr.start" :end="tr.end" :text="tr.text" />
+                <track-component :start="tr.start" :end="tr.end" :text="tr.text" :idx="index" />
             </div>
         </div>
+
+        <v-dialog v-model="dialog" width="250">
+            <v-card>
+                <v-card-title>
+                    <h5>정말 가져오시겠습니까?</h5>
+                </v-card-title>
+
+                <v-card-text>
+                    <span style="font-weight: bold">수정하는 중</span>에 가져오는 경우, <br />
+                    수정한 내용이 <span style="color:red">모두 사라집니다.</span>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer />
+                    <v-btn text @click="getTrack">예</v-btn>
+                    <v-btn text @click="dialog = false">아니오</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <snack-bar />
     </div>
 </template>
 
@@ -94,6 +126,12 @@
     margin: 15px;
     padding: 0 15px;
 }
+.video__translator__btngroup {
+    display: flex;
+}
+.video__translator__btn {
+    margin: 5px;
+}
 .video__translator__content {
     display: flex;
     flex-direction: column;
@@ -112,17 +150,21 @@
 <script>
 import VideoComponent from '../../components/VideoComponent.vue';
 import TrackComponent from '../../components/TrackComponent.vue';
+import SnackBar from '../../components/SnackBar.vue';
 
 export default {
     layout: 'VideoLayout',
     components: {
         VideoComponent,
-        TrackComponent
+        TrackComponent,
+        SnackBar
     },
     data() {
         return {
+            isDev: process.env.NODE_ENV.includes('dev'),
             readToVideo: false,
             videoTrack: [],
+            dialog: false,
         }
     },
     created() {
@@ -137,6 +179,21 @@ export default {
                 behavior: 'smooth'
             });
         });
+        this.$nuxt.$on('startChange', (start, index) => {
+            if (start != undefined && this.videoTrack[index]?.start) {
+                this.videoTrack[index].start = start;
+            }
+        });
+        this.$nuxt.$on('endChange', (end, index) => {
+            if (end != undefined && this.videoTrack[index]?.end) {
+                this.videoTrack[index].end = end;
+            }
+        });
+        this.$nuxt.$on('textChange', (text, index) => {
+            if (text != undefined && this.videoTrack[index]?.text) {
+                this.videoTrack[index].text = text;
+            }
+        });
     },
     computed: {
         language() {
@@ -145,6 +202,9 @@ export default {
         fileURL() {
             return this.$store.state.videoes.fileURL;
         },
+        fileName() {
+            return this.$store.state.videoes.fileName;
+        }
     },
     methods: {
         extToContentType(ext) {
@@ -160,6 +220,10 @@ export default {
                 default:
                     return 'application/oct-stream';
             }
+        },
+        timeTransSRT(time) {
+            const srtTime = time.replace('.', ',');
+            return srtTime;
         },
         async onChange(e) {
             const fileFormData = new FormData();
@@ -202,12 +266,73 @@ export default {
             }
         },
         async getTrack() {
+            if (this.videoTrack != []) this.videoTrack = [];
+            this.dialog = !this.dialog;
             try {
+                this.$nuxt.$loading.start();
                 const loadStore = await this.$store.dispatch('videoes/loadTrack');
+                this.$nuxt.$loading.finish();
                 this.videoTrack = loadStore.segment;
             } catch (err) {
-
+                this.$nuxt.$loading.finish();
+                console.log("자막 가져오기 에러");
             }
+        },
+        async createTrackVTT() {
+            if (this.videoTrack.length === 0) {
+                this.$manage.showMessage({
+                    message: "해당 비디오의 자막이 없습니다.",
+                    color: "warning",
+                });
+            } else {
+                let tracks = "WEBVTT\n\n";
+                try {
+                    for (let track of this.videoTrack) {
+                        tracks += `${track.start} --> ${track.end}\n${track.text}\n\n`;
+                    }
+                    this.$nuxt.$loading.start();
+                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
+                        track: tracks,
+                        ext: "vtt"
+                    });
+                    this.$nuxt.$loading.finish();
+                    this.$nuxt.$emit('newTracks');
+                    this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
+                } catch (err) {
+                    this.$nuxt.$loading.finish();
+                    console.log(err);
+                }
+            }
+        },
+        async createTrackSRT() {
+            if (this.videoTrack.length === 0) {
+                this.$manage.showMessage({
+                    message: "해당 비디오의 자막이 없습니다.",
+                    color: "warning",
+                });
+            } else {
+                let tracks = "";
+                let count = 1;
+                try {
+                    for (let track of this.videoTrack) {
+                        tracks += `${count}\n${this.timeTransSRT(track.start)} --> ${this.timeTransSRT(track.end)}\n${track.text}\n\n`;
+                        count++;
+                    }
+                    this.$nuxt.$loading.start();
+                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
+                        track: tracks,
+                        ext: "srt"
+                    });
+                    this.$nuxt.$loading.finish();
+                    this.$refs.download.$el.click();
+                    this.$manage.showMessage({ message: "자막 다운로드", color: "success" });
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        },
+        goTrack() {
+            this.$nuxt.$emit('trackRefresh');
         },
         onEmptyFile() {
             this.readToVideo = !this.readToVideo;
@@ -216,8 +341,8 @@ export default {
         onClearFile() {
             this.$store.dispatch('videoes/deleteFile');
             this.$store.commit('videoes/setFileURL', '');
-            this.$refs.fileupload.internalValue = null;
             this.readToVideo = false;
+            this.videoTrack = [];
         }
     }
 }

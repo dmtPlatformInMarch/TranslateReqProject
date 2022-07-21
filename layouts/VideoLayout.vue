@@ -125,6 +125,8 @@ export default {
         },
         selectVideo(filename) {
             this.$store.commit('videoes/setFileName', this.sliceName(filename));
+            const ext = filename.substring(filename.lastIndexOf('.') + 1);
+            this.$store.commit('videoes/setFileExt', ext);
             this.$nuxt.$emit('onVideoEvent', filename);
         },
     }

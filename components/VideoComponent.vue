@@ -1,7 +1,7 @@
 <template>
     <div class="video__box">
         <video class="video__player" controls preload="auto" :src="url" crossorigin="use-credentials">
-            <track kind="subtitles" :src="temp" srclang="en" label="영어" default>
+            <track kind="subtitles" :src="videoTrack" srclang="en" label="자막">
         </video>
     </div>
 </template>
@@ -27,21 +27,25 @@ export default {
         return {
             video: '',
             tracks: [],
+            videoTrack: '',
+            reload: false
         }
     },
-    computed: {
-        temp() {
-            return `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`;
-        }
+    created() {
+        this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`;
+        this.$nuxt.$on('newTracks', async () => {
+            this.videoTrack = "/";
+            setTimeout(() => {
+                this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`
+        }, 500);
+        });
     },
     mounted() {
         this.video = document.querySelector('video');
-        //console.log("비디오 : ", this.video);
         this.tracks = this.video.textTracks;
-        //console.log("트랙 : ", this.tracks);
     },
     methods: {
-
+        
     }
 }
 </script>

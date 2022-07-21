@@ -33,12 +33,23 @@
             <div class="video__translator__title">
                 <h1>자막</h1>
                 <v-spacer />
-                <!--v-btn color="#013183" depressed tile dark>자막 생성하기</v-btn-->
+                <v-select v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" />
+                <v-spacer />
+                <v-btn 
+                    ref="download" 
+                    v-show="false" 
+                    :href="
+                        (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                            '/video/download/' +
+                            this.fileName + '.srt'"
+                />
+                <v-btn color="#013183" depressed tile dark @click="downloadSRT">다운로드</v-btn>
             </div>
             <div class="video__translator__content" v-html="this.track">
                 <!--track-component :start="0" :end="0" text="빈 자막" /-->
             </div>
         </div>
+        <snack-bar />
     </div>
 </template>
 
@@ -113,14 +124,19 @@
 
 <script>
 import VideoComponent from '../../components/VideoComponent.vue';
+import SnackBar from '../../components/SnackBar.vue';
 
 export default {
     layout: 'RTtrackLayout',
     components: {
         VideoComponent,
+        SnackBar
     },
     data() {
         return {
+            isDev: process.env.NODE_ENV.includes('dev'),
+            modes: ["vtt", "srt"],
+            mode: "vtt",
             readToVideo: false,
             track: "",
         }
@@ -129,7 +145,7 @@ export default {
         this.$nuxt.$on('onTrackVideoEvent', async (filename) => {
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
             this.$nuxt.$loading.start();
-            this.track = await this.$store.dispatch('videoes/postVideo');
+            this.track = await this.$store.dispatch('videoes/postVideo', this.mode);
             this.$nuxt.$loading.finish();
             this.readToVideo = true;
         });
@@ -147,6 +163,9 @@ export default {
         fileURL() {
             return this.$store.state.videoes.fileURL;
         },
+        fileName() {
+            return this.$store.state.videoes.fileName;
+        }
     },
     methods: {
         extToContentType(ext) {
@@ -172,9 +191,11 @@ export default {
                     this.$store.commit('videoes/setFileName', name);
                     this.$store.commit('videoes/setFileExt', ext);
                     fileFormData.append('fileKey', e);
+
                     this.$nuxt.$loading.start();
                     const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
                     this.$nuxt.$loading.finish();
+
                     this.$nuxt.$loading.start();
                     const response = await fetch(
                         new Request(preSignedUrl, {
@@ -186,11 +207,12 @@ export default {
                         }),
                     );
                     this.$nuxt.$loading.finish();
+                    
                     if (response.status === 200) {
                         this.$store.dispatch('videoes/setURL').then(
                             async () => {
                                 this.$nuxt.$loading.start();
-                                this.track = await this.$store.dispatch('videoes/postVideo');
+                                this.track = await this.$store.dispatch('videoes/postVideo', this.mode);
                                 this.$nuxt.$loading.finish();
                                 this.readToVideo = true;
                                 this.$store.dispatch('videoes/getFiles');
@@ -198,15 +220,29 @@ export default {
                         );
                         console.log("Upload Success");
                     } else {
+                        this.$menage.showMessage
                         // onError!!
                         console.log("Upload Error");
                         return;
                     }
+
                 } catch (err) {
+                    this.$nuxt.$loading.finish();
                     console.log(err);
                 }
             } else {
                 console.log("e is null");
+            }
+        },
+        async downloadSRT() {
+            try {
+                await this.$store.dispatch('videoes/textToTrack', {
+                    track: this.track,
+                    ext: this.mode
+                });
+                this.$refs.download.$el.click();
+            } catch (err) {
+
             }
         },
         onEmptyFile() {
