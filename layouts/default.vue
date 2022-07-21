@@ -42,10 +42,10 @@
                 <v-list-item-title>소개</v-list-item-title>
               </v-list-item>
               <v-list-item @click="go('/video/filetrack')">
-                <v-list-item-title> 파일 자막 데모 </v-list-item-title>
+                <v-list-item-title> 자막 편집 도구 </v-list-item-title>
               </v-list-item>
               <v-list-item @click="go('/video/realtrack')">
-                <v-list-item-title> 실시간 자막 데모 </v-list-item-title>
+                <v-list-item-title> 실시간 자막 번역 </v-list-item-title>
               </v-list-item>
             </v-list-item-group>
           </v-list>
