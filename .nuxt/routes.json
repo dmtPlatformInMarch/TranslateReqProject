@@ -77,11 +77,25 @@
     "_name": "_d947a838"
   },
   {
+    "name": "video-filetrack",
+    "path": "/video/filetrack",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\filetrack.vue",
+    "chunkName": "pages/video/filetrack",
+    "_name": "_a4934016"
+  },
+  {
     "name": "video-info",
     "path": "/video/info",
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\info.vue",
     "chunkName": "pages/video/info",
     "_name": "_5870abf8"
+  },
+  {
+    "name": "video-realtrack",
+    "path": "/video/realtrack",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\realtrack.vue",
+    "chunkName": "pages/video/realtrack",
+    "_name": "_05428213"
   },
   {
     "name": "voice-info",

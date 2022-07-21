@@ -2,3 +2,5 @@ node_modules
 
 static/*.txt
 static/*.png
+
+.env

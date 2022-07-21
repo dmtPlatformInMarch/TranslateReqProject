@@ -1,8 +1,6 @@
 <template>
   <div class="main__template">
-    <!--메인 헤드라인-->
     <div ref="box" class="scroll__box">
-
       <div class="scroll__item">
         <v-img class="bg1" height="100vh">
           <transition @leave="leave">
@@ -118,107 +116,7 @@
           </transition>
         </v-img>
       </div>
-
     </div>
-    <!--서비스 소개>
-    <v-container class="text-center">
-      <v-container>
-        <div v-if="language === '한국어'" class="text-h2 font-weight-bold">
-          서비스
-        </div>
-        <div v-else-if="language === '영어'" class="text-h2 font-weight-bold">
-          Service
-        </div>
-      </v-container>
-      <v-row>
-        <v-col cols="2" />
-        <v-col cols="6">
-          <v-card color="blue-grey lighten-4">
-            <div class="d-flex flex-no-wrap align-center">
-              <v-avatar class="ma-3" size="250" tile>
-                <v-img :src="textimg" />
-              </v-avatar>
-              <div v-if="language === '한국어'" class="d-flex flex-column text-left">
-                <v-card-title class="text-h4 font-weight-bold">
-                  텍스트 번역
-                </v-card-title>
-                <v-card-text>
-                  DMTLABS에서 제공하는 텍스트 파일 다국어 번역 서비스를
-                  경험해보세요.
-                </v-card-text>
-              </div>
-              <div v-else-if="language === '영어'" class="d-flex flex-column text-left">
-                <v-card-title class="text-h4 font-weight-bold">
-                  Text Translation
-                </v-card-title>
-                <v-card-text>
-                  Experience the text file multilingual translation service
-                  provided by DMTLABS.
-                </v-card-text>
-              </div>
-            </div>
-          </v-card>
-        </v-col>
-        <v-col cols="4" />
-        <v-col cols="4" />
-        <v-col cols="6">
-          <v-card color="blue-grey lighten-4">
-            <div class="d-flex flex-no-wrap align-center justify-end">
-              <div v-if="language === '한국어'" class="d-flex flex-column text-right">
-                <v-card-title class="text-h4 font-weight-bold">
-                  <v-spacer />영상 번역
-                </v-card-title>
-                <v-card-text>
-                  DMTLABS에서 제공하는 영상 자막 다국어 번역 서비스를
-                  경험해보세요.
-                </v-card-text>
-              </div>
-              <div v-else-if="language === '영어'" class="d-flex flex-column text-right">
-                <v-card-title class="text-h4 font-weight-bold">
-                  <v-spacer />Video Translation
-                </v-card-title>
-                <v-card-text>
-                  Experience the video caption multilingual translation service
-                  provided by DMTLABS.
-                </v-card-text>
-              </div>
-              <v-avatar class="ma-3" size="250" tile>
-                <v-img :src="videoimg" />
-              </v-avatar>
-            </div>
-          </v-card>
-        </v-col>
-        <v-col cols="2" />
-        <v-col cols="2" />
-        <v-col cols="6">
-          <v-card color="blue-grey lighten-4">
-            <div class="d-flex flex-no-wrap align-center justify-start">
-              <v-avatar class="ma-3" size="250" tile>
-                <v-img :src="voiceimg" />
-              </v-avatar>
-              <div v-if="language === '한국어'" class="d-flex flex-column text-left">
-                <v-card-title class="text-h4 font-weight-bold">
-                  음성 번역
-                </v-card-title>
-                <v-card-text>
-                  DMTLABS에서 제공하는 다국적 음성 더빙 서비스를 경험해보세요.
-                </v-card-text>
-              </div>
-              <div v-else-if="language === '영어'" class="d-flex flex-column text-left">
-                <v-card-title class="text-h4 font-weight-bold">
-                  Speech Translation
-                </v-card-title>
-                <v-card-text>
-                  Experience the multinational voice dubbing service provided by
-                  DMTLABS.
-                </v-card-text>
-              </div>
-            </div>
-          </v-card>
-        </v-col>
-        <v-col cols="4" />
-      </v-row>
-    </v-container-->
   </div>
 </template>
 

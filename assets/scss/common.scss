@@ -23,5 +23,6 @@ html {
     }
 }
 ::-webkit-scrollbar {
-    display: none !important;
+    // 여기를 수정해야 됨.
+    display: none;
 }

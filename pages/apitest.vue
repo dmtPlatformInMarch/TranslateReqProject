@@ -26,6 +26,7 @@
         rows="25" 
         row-height="25" 
         outlined 
+        hide-details
         readonly
       />
     </div>
@@ -56,7 +57,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
   border: 1px solid black;
   margin: 0 50px;
   padding: 25px;
@@ -70,6 +70,8 @@ export default {
     return {
       // readToExtract: S3에 파일이 업로드 완료됨을 알리는 트리거
       // 이게 없다면 파일을 올리면서 올라가지도 않을 파일을 불러옴.
+      // true = 파일이 준비됨.
+      // false = 파일이 없거나, 분석이 다 되어 다른 파일을 받을 수 있음.
       readToExtract: false,
     };
   },
@@ -89,9 +91,6 @@ export default {
         console.log(error);
       }
     },
-    watchFileText(value) {
-      
-    }
   },
   methods: {
     async onChange(e) {
@@ -100,6 +99,7 @@ export default {
         try {
           fileFormData.append('fileKey', e);
           const preSignedUrl = await this.$store.dispatch('test/signedURL', fileFormData);
+          this.$nuxt.$loading.start();
           const response = await fetch(
             new Request(preSignedUrl, {
               method: "PUT",
@@ -110,6 +110,7 @@ export default {
               body: e,
             }),
           );
+          this.$nuxt.$loading.finish();
           if (response.status === 200) {
             this.readToExtract = true;
           } else {

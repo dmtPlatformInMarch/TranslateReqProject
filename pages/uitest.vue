@@ -11,7 +11,7 @@ export default {
     layout: 'TestLayout',
     data() {
         return {
-
+            
         }
     },
     methods: {
