@@ -17,7 +17,9 @@ const _65df6425 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /*
 const _70ad63e6 = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
 const _63caff50 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
 const _51ff57b0 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
+const _9276738e = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
 const _21772998 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
+const _0e50e857 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
 const _02b3ff2b = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
 const _aa198546 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -85,9 +87,17 @@ export const routerOptions = {
     component: _51ff57b0,
     name: "user-signup"
   }, {
+    path: "/video/filetrack",
+    component: _9276738e,
+    name: "video-filetrack"
+  }, {
     path: "/video/info",
     component: _21772998,
     name: "video-info"
+  }, {
+    path: "/video/realtrack",
+    component: _0e50e857,
+    name: "video-realtrack"
   }, {
     path: "/voice/info",
     component: _02b3ff2b,

@@ -3,96 +3,126 @@
     "name": "admin",
     "path": "/admin",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index"
+    "chunkName": "pages/admin/index",
+    "_name": "_39772c30"
   },
   {
     "name": "apitest",
     "path": "/apitest",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\apitest.vue",
-    "chunkName": "pages/apitest"
+    "chunkName": "pages/apitest",
+    "_name": "_ff0b6f12"
   },
   {
     "name": "movingLine",
     "path": "/movingLine",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\movingLine.js",
-    "chunkName": "pages/movingLine"
+    "chunkName": "pages/movingLine",
+    "_name": "_0bf0ca70"
   },
   {
     "name": "uitest",
     "path": "/uitest",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\uitest.vue",
-    "chunkName": "pages/uitest"
+    "chunkName": "pages/uitest",
+    "_name": "_8a5847aa"
   },
   {
     "name": "uitest2",
     "path": "/uitest2",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\uitest2.vue",
-    "chunkName": "pages/uitest2"
+    "chunkName": "pages/uitest2",
+    "_name": "_c0815ad2"
   },
   {
     "name": "user",
     "path": "/user",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\user\\\\index.vue",
-    "chunkName": "pages/user/index"
+    "chunkName": "pages/user/index",
+    "_name": "_2a4d36f2"
   },
   {
     "name": "admin-mgRequest",
     "path": "/admin/mgRequest",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\mgRequest.vue",
-    "chunkName": "pages/admin/mgRequest"
+    "chunkName": "pages/admin/mgRequest",
+    "_name": "_84d7d7aa"
   },
   {
     "name": "admin-mgUser",
     "path": "/admin/mgUser",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\mgUser.vue",
-    "chunkName": "pages/admin/mgUser"
+    "chunkName": "pages/admin/mgUser",
+    "_name": "_0bb2be42"
   },
   {
     "name": "text-info",
     "path": "/text/info",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\info.vue",
-    "chunkName": "pages/text/info"
+    "chunkName": "pages/text/info",
+    "_name": "_683c5cc0"
   },
   {
     "name": "text-reqstate",
     "path": "/text/reqstate",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\reqstate.vue",
-    "chunkName": "pages/text/reqstate"
+    "chunkName": "pages/text/reqstate",
+    "_name": "_65df6425"
   },
   {
     "name": "text-request",
     "path": "/text/request",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\request.vue",
-    "chunkName": "pages/text/request"
+    "chunkName": "pages/text/request",
+    "_name": "_70ad63e6"
   },
   {
     "name": "text-textmain",
     "path": "/text/textmain",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\textmain.vue",
-    "chunkName": "pages/text/textmain"
+    "chunkName": "pages/text/textmain",
+    "_name": "_63caff50"
   },
   {
     "name": "user-signup",
     "path": "/user/signup",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\user\\\\signup.vue",
-    "chunkName": "pages/user/signup"
+    "chunkName": "pages/user/signup",
+    "_name": "_51ff57b0"
+  },
+  {
+    "name": "video-filetrack",
+    "path": "/video/filetrack",
+    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\filetrack.vue",
+    "chunkName": "pages/video/filetrack",
+    "_name": "_9276738e"
   },
   {
     "name": "video-info",
     "path": "/video/info",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\info.vue",
-    "chunkName": "pages/video/info"
+    "chunkName": "pages/video/info",
+    "_name": "_21772998"
+  },
+  {
+    "name": "video-realtrack",
+    "path": "/video/realtrack",
+    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\realtrack.vue",
+    "chunkName": "pages/video/realtrack",
+    "_name": "_0e50e857"
   },
   {
     "name": "voice-info",
     "path": "/voice/info",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\voice\\\\info.vue",
-    "chunkName": "pages/voice/info"
+    "chunkName": "pages/voice/info",
+    "_name": "_02b3ff2b"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_aa198546"
   }
 ]

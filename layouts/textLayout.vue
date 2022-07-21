@@ -149,8 +149,8 @@
         </v-list>
       </v-navigation-drawer>
       <nuxt />
-      <snack-bar />
     </div>
+    <snack-bar />
     <bottom-component />
   </v-app>
 </template>

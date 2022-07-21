@@ -1,6 +1,5 @@
 <template>
   <div class="main__template">
-    <!--메인 헤드라인-->
     <div ref="box" class="scroll__box">
 
       <!--1 페이지-->
@@ -245,7 +244,6 @@
           </transition>
         </v-img>
       </div>
-
     </div>
   </div>
 </template>
