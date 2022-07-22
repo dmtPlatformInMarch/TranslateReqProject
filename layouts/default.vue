@@ -133,13 +133,13 @@
       <div class="lang__selector">
         <v-btn rounded dark href="https://jobs.dmtlabs.kr" color="transparent" depressed>
           <img src="../static/dmtcloud.png" alt="" />
-          DMTCLOUD
+          <div style = "color : black">DMTCLOUD</div>
         </v-btn>
 
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on" dark>
-              <v-icon>mdi-translate</v-icon>
+              <v-icon style = "color : black">mdi-translate</v-icon>
             </v-btn>
           </template>
           <v-list>
@@ -225,13 +225,15 @@
   bottom: 20px;
   right: 20px;
   z-index: 1;
-  opacity: 0.75;
+  /* opacity: 0.75; */
+  color : #666666;
 }
 .mobile__menu {
   display: flex;
   align-items: center;
   justify-content: space-around;
   max-width: 80px;
+  color : black;
 }
 
 @media screen and (max-width: 900px){

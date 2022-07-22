@@ -60,21 +60,32 @@
                   </div>
 
                   <div v-show="language === '영어'">
-                    Text Translation
+                    <img class="DMT-logo" :src="require('@/assets/logo3.png')">
+                    <div class="slider">
+                      <div class="image-box">
+                        <div><img class="ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>
+                        <div><img class="ATOMI-logo" :src="require('@/assets/atomi-logo.png')"></div>
+                        <div><img class="KT-logo" :src="require('@/assets/kt-logo.png')"></div>
+                        <div><img class="KISITI-logo" :src="require('@/assets/kisiti-logo.png')"></div>
+                        <div><img class="MARS-logo" :src="require('@/assets/mars-logo.png')"></div>
+                        <div><img class="SALTLUX-logo" :src="require('@/assets/saltlux-logo.png')"></div>
+                        <div><img class="KDX-logo" :src="require('@/assets/kdx-logo.png')"></div>
+                        <div><img class="NIA-logo" :src="require('@/assets/nia-logo.png')"></div>
+                        <!--   clone     -->
+                        <div><img class="ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>
+                        <div><img class="ATOMI-logo" :src="require('@/assets/atomi-logo.png')"></div>
+                        <div><img class="KT-logo" :src="require('@/assets/kt-logo.png')"></div>
+                        <div><img class="KISITI-logo" :src="require('@/assets/kisiti-logo.png')"></div>
+                        <div><img class="MARS-logo" :src="require('@/assets/mars-logo.png')"></div>
+                        <div><img class="SALTLUX-logo" :src="require('@/assets/saltlux-logo.png')"></div>
+                        <div><img class="KDX-logo" :src="require('@/assets/kdx-logo.png')"></div>
+                        <div><img class="NIA-logo" :src="require('@/assets/nia-logo.png')"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </transition>
-              <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
-                <div class="scroll__item__subtitle">
-                  <h4 v-show="language === '한국어'">
-                    DMTLABS에서 제공하는 텍스트 파일 다국어 번역 서비스를 경험해보세요.
-                  </h4>
-                  <h4 v-show="language === '영어'">
-                    Experience the text file multilingual translation service
-                    provided by DMTLABS.
-                  </h4>
-                </div>
-              </transition>
+
             </div>
           </transition>
         </v-img>
@@ -88,6 +99,7 @@
               <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
                 <div class="scroll__item__title">
                   <div v-show="language === '한국어'">
+
                     <div class="slogan-page">
                       <div class="slogan-1">
                         <h1>Broad Vision</h1>
@@ -117,22 +129,52 @@
                           <li>뉴스 주제, 인물 이해 등에 활용</li>
                         </ul>
                       </div>
+
                     </div>
                   </div>
                   <div v-show="language === '영어'">
-                    Video Translation
+                    <div class="slogan-page">
+                      <div class="slogan-1">
+                        <h1>Broad Vision</h1>
+                        <ul>
+                          <li>Overseas market entry and expansion</li>
+                          <li>Guangzhou biomedical intellectual property trading company business agreement to be signed
+                          </li>
+                          <li>In 2023, Hanoi, Vietnam, and Tokyo, Japan will be established.</li>
+                          <li>Expected to enter Europe in 2024</li>
+                        </ul>
+                      </div>
+
+                      <div class="slogan-2">
+                        <h1>Honest Service</h1>
+                        <ul>
+                          <li>Business expansion through continuous AI technology development</li>
+                          <li>Text, video, multimedia integrated analysis technology development</li>
+                          <li>Real-time data input and processing technology development</li>
+                        </ul>
+                      </div>
+
+                      <div class="slogan-3">
+                        <h1>Great Value</h1>
+                        <ul>
+                          <li>Securing new AI technologies through cooperation with domestic research institutes and
+                            universities</li>
+                          <li>Used for middle and high school AI-based English reading comprehension education</li>
+                          <li>Used for job training for employees of large corporations</li>
+                          <li>Used for news topics, understanding people, etc.</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </transition>
               <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
                 <div class="scroll__item__subtitle">
                   <h4 v-show="language === '한국어'">
-                    DMTLABS에서 제공하는 영상 자막 다국어 번역 서비스를
-                    경험해보세요.
+                    DMTLABS는 끊임없는 성장을 목표로 나아가고 있습니다.
                   </h4>
                   <h4 v-show="language === '영어'">
-                    Experience the video caption multilingual translation service
-                    provided by DMTLABS.
+                    DMTLABS is moving towards the goal of continuous growth.
                   </h4>
                 </div>
               </transition>
@@ -148,6 +190,37 @@
             <div class="scroll__item__textbox" v-if="lookup === 3">
               <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
                 <div class="scroll__item__title">
+                  <div v-show="language === '영어'">
+                    <div class="indexpage-1-flexbox">
+                      <div class="indexpage-1-flexbox-item">
+                        <h3><span style="color : #512FDB">8</span> languages</h3>
+                        <p>Automatic translation technology in 8 languages ​​and fields<br>
+                          Construction of Korean-Chinese/Chinese-Korean translation DB<br>
+                          Technical documentation and patent translation services<br>
+                          Old documents translation and processing services<br>
+                        </p>
+                      </div>
+
+
+                      <div class="indexpage-1-flexbox-item">
+                        <h3><span style="color : #23bbb1">93%</span> accuracy</h3>
+                        <p>Text Mining Fields PDF Academic Papers Metadata and Expertise Extraction Techniques<br>
+                          Korean-English, Korean-Chinese automatic translation technology in general fields based on
+                          artificial intelligence<br>
+                          Korean-English, Korean-Chinese automatic translation technology in the field of artificial
+                          intelligence-based patent/technology<br>
+                          Korean and Chinese OCR technology (Korean 89%, Chinese 94%)</p>
+                      </div>
+
+                      <div class="indexpage-1-flexbox-item">
+                        <h3><span style="color : #2172FF">3</span> versions</h3>
+                        <p>Image translation, document (word,pdf) translation, video translation<br />
+                          Image object complex information tagging program<br />
+                          Automatic sorting of word-based patent document pairs<br />
+                          Cloud-based online post-translational proofreading (MTPE) platform</p>
+                      </div>
+                    </div>
+                  </div>
                   <div v-show="language === '한국어'">
                     <div class="indexpage-1-flexbox">
                       <div class="indexpage-1-flexbox-item">
@@ -163,8 +236,8 @@
                       <div class="indexpage-1-flexbox-item">
                         <h3><span style="color : #23bbb1">93%</span> 정확도</h3>
                         <p>텍스트 마이닝 분야 PDF 학술 논문 메타데이터 및 전문 추출 기술 분야<br>
-                          인공지능 기반 일반분야 한영, 한중 자동 번역 기술(한영 BLEU 0.53, 한중 BLEU 0.56)<br>
-                          인공지능 기반 특허/기술분야 한영, 한중 자동 번역 기술(한영 BLEU 0.33, 한중 BLEU 0.41)<br>
+                          인공지능 기반 일반분야 한영, 한중 자동 번역 기술<br>
+                          인공지능 기반 특허/기술분야 한영, 한중 자동 번역 기술<br>
                           한국어 및 중국어 OCR 기술 (한국어 89%, 중국어 94%)</p>
                       </div>
 
@@ -177,22 +250,21 @@
                       </div>
                     </div>
                   </div>
-                  <div v-show="language === '영어'">
-                    Speech Translation
-                  </div>
                 </div>
               </transition>
               <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="subEnter" :css="false">
                 <div class="scroll__item__subtitle">
                   <h4 v-show="language === '한국어'">
-                    <div class="indexpage-1-head" style="margin-top : 100px;">
-                      <h2 style="text-align: center;">전문성 있는 번역이 필요하다면</h2>
-                      <h1 style="text-align: center;">DMTLABS <span style="color :#8B00FF">AI 번역</span></h1>
+                    <div class="indexpage-1-head">
+                      <h4 style="text-align: center;">전문성 있는 번역이 필요하다면</h4>
+                      <h4 style="text-align: center;">DMTLABS <span style="color :#8B00FF">AI 번역</span></h4>
                     </div>
                   </h4>
                   <h4 v-show="language === '영어'">
-                    Experience the multinational voice dubbing service provided by
-                    DMTLABS.
+                    <div class="indexpage-1-head">
+                      <h4 style="text-align: center;">If you need professional translation</h4>
+                      <h4 style="text-align: center;">DMTLABS <span style="color :#8B00FF">AI translation</span></h4>
+                    </div>
                   </h4>
                 </div>
               </transition>
@@ -222,7 +294,17 @@
                     </div>
                   </div>
                   <div v-show="language === '영어'">
-                    Speech Translation
+                    <div class="indexpage-2">
+                      <div class="indexpage-2-article">
+                        <p class="article-center-1 floating">Cloud-based data construction and processing platform service</p>
+                        <p class="article-left-1 floating">Document area recognition-based metadata extraction technology</p>
+                        <p class="article-right-1 floating">Constructing dialogue data in various fields and processing dialogue knowledge</p>
+                        <p class="article-center-2 floating">Bi-lingual artificial intelligence automatic translation technology solution in 8 languages</p>
+                        <p class="article-left-2 floating">Foreign administrative document translation and production service</p>
+                        <p class="article-right-2 floating">Audio transcription and video subtitle translation and creation service</p>
+                        <p class="article-center-3 floating">Multilingual cross-language and example search system</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </transition>
@@ -230,13 +312,15 @@
                 <div class="scroll__item__subtitle">
                   <h4 v-show="language === '한국어'">
                     <div class="indexpage-2-head">
-                      <h2 style="text-align: center; margin-top : 100px;">다양한 서비스가 필요하다면</h2>
-                      <h1 style="text-align: center;">DMTLABS <span style="color :#512FDB">SERVICES</span></h1>
+                      <h4 style="text-align: center;">다양한 서비스가 필요하다면</h4>
+                      <h4 style="text-align: center;">DMTLABS <span style="color :#512FDB">SERVICES</span></h4>
                     </div>
                   </h4>
                   <h4 v-show="language === '영어'">
-                    Experience the multinational voice dubbing service provided by
-                    DMTLABS.
+                   <div class="indexpage-2-head">
+                      <h4 style="text-align: center;">If you need various services</h4>
+                      <h4 style="text-align: center;">DMTLABS <span style="color :#512FDB">SERVICES</span></h4>
+                    </div>
                   </h4>
                 </div>
               </transition>
@@ -249,6 +333,7 @@
 </template>
 
 <style scoped>
+
 .main__template {
   overflow: hidden;
   height: 100%;
@@ -286,7 +371,7 @@
 }
 
 .scroll__item__subtitle {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 2rem;
   color: #666666;
 }
@@ -336,6 +421,12 @@ ul {
   list-style-type: none;
 }
 
+h4{
+  margin-top : 0px;
+
+}
+
+
 .nav-box {
   position: fixed;
   width: 100vw;
@@ -343,56 +434,6 @@ ul {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
 }
 
-
-
-.control-button-1 {
-  left: 90%;
-  top: 20%;
-  position: sticky;
-
-  text-align: center;
-  line-height: 100px;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: #512FDB;
-  border-radius: 10px;
-  opacity: 0.7;
-  /* 80% 불투명도 */
-
-}
-
-.control-button-2 {
-  left: 90%;
-  top: 30%;
-  position: sticky;
-
-  text-align: center;
-  line-height: 100px;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: #2172FF;
-  border-radius: 10px;
-  opacity: 0.7;
-  /* 80% 불투명도 */
-}
-
-.control-button-3 {
-  left: 90%;
-  top: 40%;
-  position: sticky;
-
-  text-align: center;
-  line-height: 100px;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: #23bbb1;
-  border-radius: 10px;
-  opacity: 0.7;
-  /* 80% 불투명도 */
-}
 
 
 .title-block {
@@ -450,84 +491,77 @@ ul {
 
 .ETRI-logo {
   margin-left: 60px;
-  width: 200px;
+  width: 12.5rem;
   height: 100px;
 }
 
 .ATOMI-logo {
   margin-left: 70px;
   margin-right: 60px;
-  width: 200px;
+  width:12.5rem;
   height: 100px;
 }
 
 .KISITI-logo {
   margin-left: 60px;
   margin-right: 60px;
-  width: 200px;
+  width:12.5rem;
 }
 
 .KT-logo {
   margin-left: 60px;
   margin-right: 60px;
-  width: 75px;
+  width: 8rem;
   height: 75px;
 }
 
 .KDX-logo {
-  margin-top: 20px;
+
   margin-left: 30px;
   margin-right: 60px;
-  width: 200px;
+  width: 12.5rem;
   height: 100px;
 }
 
 .MARS-logo {
   margin-left: 60px;
   margin-right: 20px;
-  width: 150px;
+  width:9.375rem;
   height: 150px;
 }
 
 .SALTLUX-logo {
   margin-left: 60px;
   margin-right: 60px;
-  width: 350px;
+  width:  21.875rem;
   height: 100px;
 }
 
 .NIA-logo {
-  width: 300px;
+  width: 18.75rem;
   height: 150px;
 }
 
-.blank-box {
-  height: 200px;
-}
-
 .slogan-page {
-  font-size: 40px;
-  margin-top: 100px;
+  font-size: 1.5rem;
+  /* margin-top: 100px; */
+  
 }
 
 .slogan-page ul {
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .slogan-1 {
-  margin-right: 800px;
-  margin-bottom: 50px;
-}
-
-.slogan-2 {
-  /* margin-left :800px; */
-  margin-bottom: 50px;
-
+  
+  margin-right: 50rem;
+  
 }
 
 .slogan-3 {
-  margin-left: 800px;
-  margin-bottom: 50px;
+  margin-left: 50rem;
+  margin-bottom: 40px;
+  
 }
 
 .slogan-1::first-letter {
@@ -545,33 +579,35 @@ ul {
 .indexpage-1-flexbox {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  font-size: 25px;
+  margin-top : 5%;
+  gap: 2%;
 }
 
+.indexpage-1-head{
+ margin-top : 5%;
+}
+
+
 .indexpage-1-flexbox-item h3 {
-  font-size: 80px;
+  font-size: 3rem;
   text-align: center;
-  margin-bottom: 10px;
+  
 }
 
 .indexpage-1-flexbox-item p {
-  font-size: 20px;
+  font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 10px;
 }
 
 
 .indexpage-2-article {
-  margin-top: 200px;
+  margin: 0px;
+  margin-top: 5%;
 }
 
-.indexpage-2-head h2{
-  border-top : 0;
-}
 
 .indexpage-2-article p {
-  font-size: 40px;
+  font-size: 2rem;
 }
 
 
@@ -622,11 +658,14 @@ ul {
 }
 
 @media screen and (max-width: 900px) {
-  .blank-box {
-    height: 100px;
+
+  .scroll__item__title{
+    font-size : 3rem;
   }
+
+
   .scroll__item__subtitle{
-    display: none;
+    font-size : 1rem;
   }
 
   .DMT-logo {
@@ -638,12 +677,11 @@ ul {
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
-    margin-top: 50px;
+    font-size: 1rem;
   }
 
   .slogan-page li {
-    font-size: 20px;
+    font-size: 0.5rem;
     text-align: center;
   }
 
@@ -665,17 +703,15 @@ ul {
   .indexpage-1-flexbox {
     flex-direction: column;
     text-align: center;
-    margin-top: 100px;
   }
 
 .indexpage-1-flexbox-item h3 {
-  font-size: 40px;
+  font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 10px;
 }
 
 .indexpage-1-flexbox-item p {
-  font-size: 15px;
+  font-size: 0.5rem;
   text-align: center;
 }
 
@@ -683,13 +719,12 @@ ul {
   .indexpage-2-article {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+  
   }
 
   .indexpage-2-article p {
-    font-size: 30px;
+    font-size: 1rem;
     margin: auto;
-    margin-top: 10px;
   }
 
 
@@ -698,7 +733,11 @@ ul {
 @media screen and (max-width: 500px) {
 
   .scroll__item__title{
-    font-size : 50px;
+    font-size : 3rem;
+  }
+
+   .scroll__item__subtitle{
+    font-size : 1.25rem;
   }
 
   .blank-box {
@@ -714,15 +753,13 @@ ul {
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
-    margin-top: 50px;
+    font-size: 1.5rem;
   }
 
   .slogan-page li {
-    font-size: 20px;
-    text-align: center;
-    display : none;
+    font-size: 0.8rem;
   }
+
 
   .slogan-1 {
     margin: auto;
@@ -741,6 +778,9 @@ ul {
 
   .indexpage-1-flexbox {
     flex-direction: column;
+  }
+.indexpage-1-flexbox-item h3 {
+    font-size : 2rem;
   }
 
 .indexpage-1-flexbox-item p {
@@ -753,16 +793,10 @@ ul {
   }
 
   .indexpage-2-article p {
-    font-size: 20px;
+    font-size: 1rem;
     margin: auto;
-    margin-top: 10px;
   }
 
-  .Business-areas {
-    flex-direction: column;
-    margin: 0;
-    text-align: center;
-  }
 
 }
 
@@ -816,6 +850,8 @@ ul {
     margin: 0;
   }
 
+
+
 .indexpage-1-flexbox-item p {
    display : none;
 }
@@ -826,15 +862,9 @@ ul {
   }
 
   .indexpage-2-article p {
-    font-size: 15px;
+    font-size: 1rem;
     margin: auto;
-    margin-top: 10px;
-  }
 
-  .Business-areas {
-    flex-direction: column;
-    margin: 0;
-    text-align: center;
   }
 
 }
