@@ -1,7 +1,7 @@
 exports.ids = [18];
 exports.modules = {
 
-/***/ 251:
+/***/ 259:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -159,7 +159,7 @@ const cache = new Map();
 
 /***/ }),
 
-/***/ 252:
+/***/ 260:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -656,7 +656,7 @@ var installComponents_default = /*#__PURE__*/__webpack_require__.n(installCompon
 var VCard = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
-var VCol = __webpack_require__(251);
+var VCol = __webpack_require__(259);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
 var VContainer = __webpack_require__(231);
@@ -668,7 +668,7 @@ var VDivider = __webpack_require__(217);
 var VParallax = __webpack_require__(302);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
-var VRow = __webpack_require__(252);
+var VRow = __webpack_require__(260);
 
 // CONCATENATED MODULE: ./pages/voice/info.vue
 

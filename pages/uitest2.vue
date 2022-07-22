@@ -5,17 +5,6 @@
         <div class="nav-box"></div>
 
 
-        <!-- <div class="control-button-1">
-            <p>DMTLABS</p>
-        </div>
-        <div class="control-button-2">
-            <p>Control Box</p>
-        </div>
-        <div class="control-button-3">
-            <p>Testing Box</p>
-        </div> -->
-
-
     <img class = "DMT-logo" :src="require('@/assets/logo3.png')">
 
     <div class="slider">
@@ -158,57 +147,7 @@
             </div>
         </div>
 
-
         <div class="blank-box"></div>
-
-
-        <!-- <div class="indexpage-3">
-            <h1 style="text-align: center">주요 사업 분야</h1>
-            <div class="Business-areas">
-                <div class="transcription-area">
-                    <h2>전사</h2>
-                    <ui>
-                        <li>한국어 뉴스 음성</li>
-                        <li>한,중,일 음성 전사</li>
-                    </ui>
-                </div>
-                <div class="voice-area">
-                    <h2>음성</h2>
-                    <ui>
-                        <li>2-3인 자유 대화</li>
-                        <li>원어민 - 비원어민 대화</li>
-                        <li>목적지향 콜센터용 한국어 음성</li>
-                    </ui>
-                </div>
-                <div class="translate-area">
-                    <h2>번역</h2>
-                    <ui>
-                        <li>동영상 전사 및 번역</li>
-                        <li>중한 전문분야 번역 DB</li>
-                        <li>한중 자동번역 지식 DB</li>
-                        <li>한중 번역 말뭉치</li>
-                        <li>다국어 구어체 말뭉치</li>
-                    </ui>
-                </div>
-                <div class="talking-area">
-                    <h2>대화</h2>
-                    <ui>
-                        <li>목적지향 대화처리 DB</li>
-                        <li>지식기반 주제대화 코퍼스</li>
-                        <li>종단형 대화처리 코퍼스</li>
-                    </ui>
-                </div>
-                <div class="devlopment-area">
-                    <h2>개발</h2>
-                    <ui>
-                        <li>논문 추출 및 GUI 기반 입력 시스템</li>
-                        <li>동영상 자막 번역 도구</li>
-                    </ui>
-                </div>
-            </div>  
-        </div> -->
-
-         <div class="blank-box"></div>
 
 
     </div>
