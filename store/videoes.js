@@ -7,6 +7,7 @@ export const state = () => ({
     trackURL: '',
     fileName: '',
     fileExt: '',
+    loading: 0
 });
 
 export const mutations = {
@@ -27,6 +28,9 @@ export const mutations = {
     },
     setFileExt(state, payload) {
         state.fileExt = Object.freeze(payload);
+    },
+    setUploadPercent(state, payload) {
+        state.loading = payload;
     }
 }
 
@@ -54,9 +58,9 @@ export const actions = {
             if (deleteResponse.status === 200) {
                 commit('setFile', undefined);
                 dispatch('getFiles');
-                console.log("삭제 성공");
+                return "삭제 성공";
             } else {
-                console.log("삭제 실패");
+                return "삭제 실패";
             }
         } catch (err) {
             console.log(err);

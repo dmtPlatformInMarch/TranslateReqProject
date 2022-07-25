@@ -7,5 +7,11 @@ export default ({ app, store }, inject) => {
         setLanguage({ language = '' }) {
             store.commit('manager/setLanguage', language);
         },
+        startLoading() {
+            store.commit('manager/startLoading');
+        },
+        endLoading() {
+            store.commit('manager/endLoading');
+        }
     })
 }

@@ -4,24 +4,24 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _39772c30 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
-const _ff0b6f12 = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
-const _0bf0ca70 = () => interopDefault(import('..\\pages\\movingLine.js' /* webpackChunkName: "pages/movingLine" */))
-const _8a5847aa = () => interopDefault(import('..\\pages\\uitest.vue' /* webpackChunkName: "pages/uitest" */))
-const _c0815ad2 = () => interopDefault(import('..\\pages\\uitest2.vue' /* webpackChunkName: "pages/uitest2" */))
-const _2a4d36f2 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
-const _84d7d7aa = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
-const _0bb2be42 = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
-const _683c5cc0 = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
-const _65df6425 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
-const _70ad63e6 = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
-const _63caff50 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
-const _51ff57b0 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
-const _9276738e = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
-const _21772998 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
-const _0e50e857 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
-const _02b3ff2b = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
-const _aa198546 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
+const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
+const _9fd586e8 = () => interopDefault(import('..\\pages\\movingLine.js' /* webpackChunkName: "pages/movingLine" */))
+const _7feb30e7 = () => interopDefault(import('..\\pages\\uitest.vue' /* webpackChunkName: "pages/uitest" */))
+const _7d92955b = () => interopDefault(import('..\\pages\\uitest2.vue' /* webpackChunkName: "pages/uitest2" */))
+const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
+const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
+const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
+const _50ef2f48 = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
+const _7aa43ce1 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
+const _d26f245e = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
+const _3a414dd8 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
+const _d947a838 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
+const _a4934016 = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
+const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
+const _05428213 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
+const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
+const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -36,75 +36,75 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _39772c30,
+    component: _c0bf7cb8,
     name: "admin"
   }, {
     path: "/apitest",
-    component: _ff0b6f12,
+    component: _5e4d8b3b,
     name: "apitest"
   }, {
     path: "/movingLine",
-    component: _0bf0ca70,
+    component: _9fd586e8,
     name: "movingLine"
   }, {
     path: "/uitest",
-    component: _8a5847aa,
+    component: _7feb30e7,
     name: "uitest"
   }, {
     path: "/uitest2",
-    component: _c0815ad2,
+    component: _7d92955b,
     name: "uitest2"
   }, {
     path: "/user",
-    component: _2a4d36f2,
+    component: _d90d1094,
     name: "user"
   }, {
     path: "/admin/mgRequest",
-    component: _84d7d7aa,
+    component: _96f4a432,
     name: "admin-mgRequest"
   }, {
     path: "/admin/mgUser",
-    component: _0bb2be42,
+    component: _6d747eba,
     name: "admin-mgUser"
   }, {
     path: "/text/info",
-    component: _683c5cc0,
+    component: _50ef2f48,
     name: "text-info"
   }, {
     path: "/text/reqstate",
-    component: _65df6425,
+    component: _7aa43ce1,
     name: "text-reqstate"
   }, {
     path: "/text/request",
-    component: _70ad63e6,
+    component: _d26f245e,
     name: "text-request"
   }, {
     path: "/text/textmain",
-    component: _63caff50,
+    component: _3a414dd8,
     name: "text-textmain"
   }, {
     path: "/user/signup",
-    component: _51ff57b0,
+    component: _d947a838,
     name: "user-signup"
   }, {
     path: "/video/filetrack",
-    component: _9276738e,
+    component: _a4934016,
     name: "video-filetrack"
   }, {
     path: "/video/info",
-    component: _21772998,
+    component: _5870abf8,
     name: "video-info"
   }, {
     path: "/video/realtrack",
-    component: _0e50e857,
+    component: _05428213,
     name: "video-realtrack"
   }, {
     path: "/voice/info",
-    component: _02b3ff2b,
+    component: _6be03fef,
     name: "voice-info"
   }, {
     path: "/",
-    component: _aa198546,
+    component: _77806121,
     name: "index"
   }],
 

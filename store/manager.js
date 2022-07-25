@@ -2,6 +2,8 @@ import https from "https";
 
 export const state = () => ({
     language: '한국어',
+    loadingState: false,
+    loading: 0,
     snackBar: {
         message: '',
         color: '',
@@ -19,6 +21,15 @@ export const mutations = {
         state.snackBar.color = payload.color || primary;
         state.snackBar.message = payload.message;
     },
+    startLoading(state) {
+        state.loadingState = true;
+    },
+    endLoading(state) {
+        state.loadingState = false;
+    },
+    setUploadLoading(state, payload) {
+        state.loading = payload;
+    },
     setLanguage(state, payload) {
         state.language = payload || '한국어';
     },
@@ -33,6 +44,7 @@ export const mutations = {
 }
 
 export const actions = {
+    // DMT 번역기 테스트
     async Test({ commit }, payload) {
         try {
             // agent로 무시해보려고 했지만 되지 않음.
@@ -58,6 +70,7 @@ export const actions = {
         }
 
     },
+    // 파일 분석
     async textExtract({ commit, state }, payload) {
         const ext = payload.file.name.substring(payload.file.name.lastIndexOf('.') + 1, payload.file.name.length).toLowerCase();
         let fileExtract = '';

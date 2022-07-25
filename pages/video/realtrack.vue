@@ -50,6 +50,7 @@
             </div>
         </div>
         <snack-bar />
+        <loading-linear />
     </div>
 </template>
 
@@ -125,12 +126,15 @@
 <script>
 import VideoComponent from '../../components/VideoComponent.vue';
 import SnackBar from '../../components/SnackBar.vue';
+import LoadingLinear from '../../components/loadingLinear.vue'
+import axios from 'axios';
 
 export default {
     layout: 'RTtrackLayout',
     components: {
         VideoComponent,
-        SnackBar
+        SnackBar,
+        LoadingLinear
     },
     data() {
         return {
@@ -196,35 +200,42 @@ export default {
                     const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
                     this.$nuxt.$loading.finish();
 
-                    this.$nuxt.$loading.start();
-                    const response = await fetch(
-                        new Request(preSignedUrl, {
-                            method: "PUT",
-                            headers: {
-                                'Content-Type': this.extToContentType(ext),
+                    // 업로드
+                    const response = await axios({
+                        method: 'put',
+                        url: preSignedUrl,
+                        data: e,
+                        headers: {
+                            'Content-Type': this.extToContentType(ext),
                         },
-                            body: e,
-                        }),
-                    );
-                    this.$nuxt.$loading.finish();
+                        onUploadProgress: (progressEvent) => {
+                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
+                            let percentageCompleted = Math.round(percentage);
+                            this.$manage.startLoading();
+                            this.$store.commit('manager/setUploadLoading', percentageCompleted);
+                        }
+                    });
                     
+                    // 영상 인식
                     if (response.status === 200) {
                         this.$store.dispatch('videoes/setURL').then(
                             async () => {
+                                console.time("Recognition Time");
                                 this.$nuxt.$loading.start();
                                 this.track = await this.$store.dispatch('videoes/postVideo', this.mode);
                                 this.$nuxt.$loading.finish();
+                                console.timeEnd("Recognition Time");
                                 this.readToVideo = true;
                                 this.$store.dispatch('videoes/getFiles');
                             }
                         );
-                        console.log("Upload Success");
                     } else {
                         this.$menage.showMessage
                         // onError!!
                         console.log("Upload Error");
                         return;
                     }
+                    
 
                 } catch (err) {
                     this.$nuxt.$loading.finish();
@@ -249,8 +260,13 @@ export default {
             this.readToVideo = !this.readToVideo;
             this.track = "";
         },
-        onClearFile() {
-            this.$store.dispatch('videoes/deleteFile');
+        async onClearFile() {
+            const message = await this.$store.dispatch('videoes/deleteFile');
+            if (message === "삭제 성공") {
+                this.$manage.showMessage({ message: "삭제 성공", color: "success" });
+            } else {
+                this.$manage.showMessage({ message: "삭제 실패", color: "error" });
+            }
             this.$store.commit('videoes/setFileURL', '');
             this.readToVideo = false;
             this.track = "";

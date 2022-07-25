@@ -71,6 +71,7 @@
             </v-card>
         </v-dialog>
         <snack-bar />
+        <loading-linear />
     </div>
 </template>
 
@@ -151,13 +152,16 @@
 import VideoComponent from '../../components/VideoComponent.vue';
 import TrackComponent from '../../components/TrackComponent.vue';
 import SnackBar from '../../components/SnackBar.vue';
+import LoadingLinear from '../../components/loadingLinear.vue'
+import axios from 'axios';
 
 export default {
     layout: 'VideoLayout',
     components: {
         VideoComponent,
         TrackComponent,
-        SnackBar
+        SnackBar,
+        LoadingLinear
     },
     data() {
         return {
@@ -233,18 +237,25 @@ export default {
                     const name = e.name.substring(0, e.name.lastIndexOf('.'));
                     this.$store.commit('videoes/setFileName', name);
                     fileFormData.append('fileKey', e);
-                    const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
                     this.$nuxt.$loading.start();
-                    const response = await fetch(
-                        new Request(preSignedUrl, {
-                            method: "PUT",
-                            headers: {
-                                'Content-Type': this.extToContentType(ext),
-                        },
-                            body: e,
-                        }),
-                    );
+                    const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
                     this.$nuxt.$loading.finish();
+
+                    const response = await axios({
+                        method: 'put',
+                        url: preSignedUrl,
+                        data: e,
+                        headers: {
+                            'Content-Type': this.extToContentType(ext),
+                        },
+                        onUploadProgress: (progressEvent) => {
+                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
+                            let percentageCompleted = Math.round(percentage);
+                            this.$manage.startLoading();
+                            this.$store.commit('manager/setUploadLoading', percentageCompleted);
+                        }
+                    });
+                    
                     if (response.status === 200) {
                         this.$store.dispatch('videoes/setURL').then(
                             () => { 
@@ -338,8 +349,13 @@ export default {
             this.readToVideo = !this.readToVideo;
             this.videoTrack = [];
         },
-        onClearFile() {
-            this.$store.dispatch('videoes/deleteFile');
+        async onClearFile() {
+            const message = await this.$store.dispatch('videoes/deleteFile');
+            if (message === "삭제 성공") {
+                this.$manage.showMessage({ message: "삭제 성공", color: "success" });
+            } else {
+                this.$manage.showMessage({ message: "삭제 실패", color: "error" });
+            }
             this.$store.commit('videoes/setFileURL', '');
             this.readToVideo = false;
             this.videoTrack = [];
