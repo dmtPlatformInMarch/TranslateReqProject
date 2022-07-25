@@ -11849,6 +11849,7 @@ const actions = {
   }, payload) {
     try {
       const recognition = await this.$axios.post('/video/recognition', {
+        "fileName": state.fileName,
         "fileURL": state.fileURL,
         "ext": payload
       });

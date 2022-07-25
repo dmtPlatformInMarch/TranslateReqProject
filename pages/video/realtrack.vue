@@ -41,9 +41,9 @@
                     :href="
                         (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
                             '/video/download/' +
-                            this.fileName + '.srt'"
+                            this.fileName + '.' + this.mode"
                 />
-                <v-btn color="#013183" depressed tile dark @click="downloadSRT">다운로드</v-btn>
+                <v-btn color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
             </div>
             <div class="video__translator__content" v-html="this.track">
                 <!--track-component :start="0" :end="0" text="빈 자막" /-->
