@@ -183,14 +183,16 @@ export default {
                 behavior: 'smooth'
             });
         });
-        this.$nuxt.$on('startChange', (start, index) => {
-            if (start != undefined && this.videoTrack[index]?.start) {
-                this.videoTrack[index].start = start;
+        this.$nuxt.$on('timeChange', (time, index) => {
+            if (time != undefined) {
+                this.videoTrack[index].start = time.substring(0, time.indexOf(' ')).trim();
+                this.videoTrack[index].end = time.substring(time.lastIndexOf(' ') + 1).trim();
             }
         });
-        this.$nuxt.$on('endChange', (end, index) => {
-            if (end != undefined && this.videoTrack[index]?.end) {
-                this.videoTrack[index].end = end;
+        this.$nuxt.$on('transChange', (transText, index) => {
+            if (transText != undefined) {
+                console.log(transText);
+                //this.videoTrack[index].end = transText;
             }
         });
         this.$nuxt.$on('textChange', (text, index) => {

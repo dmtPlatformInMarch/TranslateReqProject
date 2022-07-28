@@ -2,22 +2,23 @@
     <div class="track__wrapper">
         <div class="track__time">
             <v-text-field
+                ref="inputTime"
                 class="input__time"
-                :value="start"
-                outlined 
-                dense 
-                hide-details
-                @input="changeStart($event)"
-            /> 
-            --> 
-            <v-text-field
-                class="input__time"
-                :value="end"
-                outlined 
-                dense 
-                hide-details
-                @input="changeEnd($event)"
+                :value="start + ' --> ' + end"
+                outlined
+                dense
+                hide-details="auto"
+                :readonly="editTime"
+                @input="changeTime($event)"
+                :rules="timeRule"
             />
+            <div class="edit__time">
+                <v-btn icon @click="timeEdit">
+                    <v-icon>
+                        mdi-timer-edit
+                    </v-icon>
+                </v-btn>
+            </div>
         </div>
         <div class="track__text">
             <v-textarea
@@ -31,18 +32,28 @@
                 @input="changeText($event)"
             />
         </div>
+        <div class="track__trans__text">
+            <v-textarea
+                
+                outlined
+                dense
+                auto-grow
+                rows="1"
+                row-height="20"
+                hide-details
+
+            />
+        </div>
     </div>
 </template>
 
 <style scoped>
 .track__wrapper {
     display: flex;
-    flex-direction: column;
-    height: 15%;
     border: 1px solid grey;
     margin: 5px;
     padding: 0 10px;
-    flex-basis: 6rem;
+    flex-basis: 4rem;
     justify-content: center;
 }
 .track__time {
@@ -50,16 +61,34 @@
     align-items: center;
     justify-content: space-around;
     padding: 5px;
+    width: 25%;
 }
 .input__time {
+    width: 80%;
     flex: 0 0 auto !important;
+}
+.input__time >>> input {
+    text-align: center;
+}
+.edit__time {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .track__text {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 5px;
-    min-height: 25px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    width: 35%;
+}
+.track__trans__text {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    width: 35%;
 }
 </style>
 
@@ -85,19 +114,16 @@ export default {
     },
     data() {
         return {
-
+            editTime: true,
+            timeRule: [
+                value => (/\d\d:\d\d:\d\d[,.]\d\d\d --> \d\d:\d\d:\d\d[,.]\d\d\d/).test(value) || '형식이 맞지 않습니다.'
+            ],
         }
     },
     computed: {
-        segmentStart() {
-            return this.msToString(this.start);
-        },
-        segmentEnd() {
-            return this.msToString(this.end);
-        },
         segmentText() {
             return this.text.split('\\n');
-        }
+        },
     },
     methods: {
         msToString(time) {
@@ -115,18 +141,19 @@ export default {
                 return `${ooHour}:${ooMin}:${ooSec}.${oooMill}`;
             }
         },
-        changeStart(e) {
-            this.$nuxt.$emit('startChange', e, this.idx);
-            console.log(e);
-        },
-        changeEnd(e) {
-            this.$nuxt.$emit('endChange', e, this.idx);
-            console.log(e);
+        changeTime(e) {
+            this.$nuxt.$emit('timeChange', e, this.idx);
         },
         changeText(e) {
             this.$nuxt.$emit('textChange', e, this.idx);
-            console.log(e, this.idx);
         },
+        changeTrans(e) {
+            this.$nuxt.$emit('transChange', e, this.idx);
+        },
+        timeEdit() {
+            this.editTime = !this.editTime
+            if (!this.editTime) this.$refs.inputTime.focus();
+        }
     }
 }
 </script>
