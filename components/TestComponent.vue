@@ -8,9 +8,16 @@
             </v-btn>
         </div>
         <div class="box" v-else>
-            <p>
-                {{ text }}
-            </p>
+            <div>
+                <p>
+                    {{ text }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    {{ addText }}
+                </p>
+            </div>
             <v-btn class="clear" icon @click="removeComponent">
                 <v-icon>
                     mdi-close
@@ -32,7 +39,9 @@ p {
     margin: 15px 0;
 }
 .box {
+    width: 80%;
     display: flex;
+    justify-content: space-around;
 }
 .clear {
     position: absolute;
@@ -47,6 +56,9 @@ export default {
             type: Number
         },
         text: {
+            type: String
+        },
+        addText: {
             type: String
         },
         plus: {

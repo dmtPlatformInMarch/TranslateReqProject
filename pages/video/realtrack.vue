@@ -35,18 +35,27 @@
                 <v-spacer />
                 <v-select v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" />
                 <v-spacer />
-                <v-btn 
-                    ref="download" 
-                    v-show="false" 
-                    :href="
-                        (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
-                            '/video/download/' +
-                            this.fileName + '.' + this.mode"
-                />
-                <v-btn color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
+                <client-only>
+                    <v-select class="lang__select" v-model="req_lang" :items="languages" :disabled="!this.readyToTrack" />
+                    <v-select class="lang__select" v-model="grant_lang" :items="languages" :disabled="!this.readyToTrack" />
+                </client-only>
+                <v-spacer />
+                <div class="video__translator__btngroup">
+                    <v-btn 
+                        ref="download" 
+                        v-show="false" 
+                        :href="
+                            (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                                '/video/download/' +
+                                this.fileName + '.' + this.mode"
+                    />
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
+                </div>
             </div>
-            <div class="video__translator__content" v-html="this.track">
-                <!--track-component :start="0" :end="0" text="빈 자막" /-->
+            <div class="video__translator__wrapper">
+                <div class="video__translator__content" v-html="this.track" />
+                <div class="video__translator__content" v-html="this.transTrack" />
             </div>
         </div>
         <snack-bar />
@@ -74,12 +83,12 @@
 .video__player {
     width: auto;
     height: 50%;
-    min-height: 500px;
+    min-height: 625px;
     border: 1px solid red;
 }
 .video__player__grid {
     height: 100%;
-    min-height: 500px;
+    min-height: 625;
 }
 .video__player__box {
     display: flex;
@@ -106,13 +115,25 @@
     margin: 15px;
     padding: 0 15px;
 }
+.video__translator__wrapper {
+    display: flex;
+    justify-content: space-around;
+}
 .video__translator__content {
     min-height: 30vh;
+    width: 35vw;
     display: flex;
     flex-direction: column;
     margin: 0 15px 15px 15px;
+    padding: 15px;
     border: 1px solid red;
     white-space: pre-wrap;
+}
+.video__translator__btngroup {
+    display: flex;
+}
+.video__translator__btn {
+    margin: 5px;
 }
 .video__uploadFile {
     width: 100%;
@@ -120,6 +141,9 @@
 }
 .video {
     padding: 25px;
+}
+.lang__select {
+    width: 50px;
 }
 </style>
 
@@ -142,16 +166,30 @@ export default {
             modes: ["vtt", "srt"],
             mode: "vtt",
             readToVideo: false,
+            readyToTrack: false,
             track: "",
+            transTrack: "",
+            trackArray: [],
+            timeLine: [],
+            req_lang: "한국어",
+            grant_lang: "중국어(간체)",
+            req_code: "ko",
+            grant_code: "zh-CN"
         }
     },
     created() {
         this.$nuxt.$on('onTrackVideoEvent', async (filename) => {
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
+            console.time("Recognition Time");
             this.$nuxt.$loading.start();
-            this.track = await this.$store.dispatch('videoes/postVideo', this.mode);
+            const trackResponse = await this.$store.dispatch('videoes/postVideo', this.mode);
             this.$nuxt.$loading.finish();
+            console.timeEnd("Recognition Time");
+            this.track = trackResponse.track;
+            this.trackArray = trackResponse.segment;
+            this.timeLine = trackResponse.timeline;
             this.readToVideo = true;
+            this.readyToTrack = true;
         });
         this.$nuxt.$on('onScrollTop', () => {
             this.$refs.rtvideobox.scrollBy({
@@ -164,11 +202,22 @@ export default {
         language() {
             return this.$store.state.manager.language;
         },
+        languages() {
+            return this.$LANGUAGES_KO;
+        },
         fileURL() {
             return this.$store.state.videoes.fileURL;
         },
         fileName() {
             return this.$store.state.videoes.fileName;
+        }
+    },
+    watch: {
+        req_lang(value) {
+            this.req_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
+        },
+        grant_lang(value) {
+            this.grant_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
         }
     },
     methods: {
@@ -187,6 +236,7 @@ export default {
             }
         },
         async onChange(e) {
+            this.transTrack = "";
             const fileFormData = new FormData();
             if (e != null) {
                 try {
@@ -222,10 +272,14 @@ export default {
                             async () => {
                                 console.time("Recognition Time");
                                 this.$nuxt.$loading.start();
-                                this.track = await this.$store.dispatch('videoes/postVideo', this.mode);
+                                const trackResponse = await this.$store.dispatch('videoes/postVideo', this.mode);
                                 this.$nuxt.$loading.finish();
                                 console.timeEnd("Recognition Time");
+                                this.track = trackResponse.track;
+                                this.trackArray = trackResponse.segment;
+                                this.timeLine = trackResponse.timeline;
                                 this.readToVideo = true;
+                                this.readyToTrack = true;
                                 this.$store.dispatch('videoes/getFiles');
                             }
                         );
@@ -235,7 +289,6 @@ export default {
                         console.log("Upload Error");
                         return;
                     }
-                    
 
                 } catch (err) {
                     this.$nuxt.$loading.finish();
@@ -253,12 +306,32 @@ export default {
                 });
                 this.$refs.download.$el.click();
             } catch (err) {
-
+                console.log(err);
+            }
+        },
+        async translation() {
+            try {
+                this.$nuxt.$loading.start();
+                const transResponse = await this.$store.dispatch('videoes/textToTrans', {
+                    from: this.req_code,
+                    to: this.grant_code,
+                    track: this.trackArray,
+                    timeline: this.timeLine,
+                    mode: this.mode
+                });
+                this.$nuxt.$loading.finish();
+                this.transTrack = transResponse;
+            } catch (err) {
+                console.log(err);
             }
         },
         onEmptyFile() {
-            this.readToVideo = !this.readToVideo;
+            this.readToVideo = false;
+            this.readyToTrack = false;
             this.track = "";
+            this.transTrack = "";
+            this.trackArray = [];
+            this.timeLine = [];
         },
         async onClearFile() {
             const message = await this.$store.dispatch('videoes/deleteFile');
@@ -269,7 +342,11 @@ export default {
             }
             this.$store.commit('videoes/setFileURL', '');
             this.readToVideo = false;
+            this.readyToTrack = false;
             this.track = "";
+            this.transTrack = "";
+            this.trackArray = [];
+            this.timeLine = [];
         }
     }
 }

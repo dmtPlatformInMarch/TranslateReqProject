@@ -33,6 +33,11 @@
             <div class="video__translator__title">
                 <h1>자막</h1>
                 <v-spacer />
+                <client-only>
+                    <v-select class="lang__select" v-model="req_lang" :items="languages" :disabled="!this.readyToTrack" />
+                    <v-select class="lang__select" v-model="grant_lang" :items="languages" :disabled="!this.readyToTrack" />
+                </client-only>
+                <v-spacer />
                 <div class="video__translator__btngroup">
                     <v-btn 
                         ref="download"
@@ -44,11 +49,12 @@
                     />
                     <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn>
                     <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackVTT">자막 내보내기 (.vtt)</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="dialog = !dialog">자막 가져오기</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="bringTrack">자막 가져오기</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readyToTrack" @click="bringTransTrack">자막 번역하기</v-btn>
                 </div>
             </div>
             <div v-for="(tr, index) in videoTrack" :key="index" class="video__translator__content">
-                <track-component :start="tr.start" :end="tr.end" :text="tr.text" :idx="index" />
+                <track-component :start="tr.start" :end="tr.end" :text="tr.text" :trans="transTrack[index]" :idx="index" />
             </div>
         </div>
 
@@ -66,7 +72,7 @@
                 <v-card-actions>
                     <v-spacer />
                     <v-btn text @click="getTrack">예</v-btn>
-                    <v-btn text @click="dialog = false">아니오</v-btn>
+                    <v-btn text @click="dialogFalse">아니오</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -146,6 +152,9 @@
 .video {
     padding: 25px;
 }
+.lang__select {
+    width: 50px;
+}
 </style>
 
 <script>
@@ -167,14 +176,22 @@ export default {
         return {
             isDev: process.env.NODE_ENV.includes('dev'),
             readToVideo: false,
+            readyToTrack: false,
             videoTrack: [],
+            transTrack: [],
             dialog: false,
+            req_lang: "한국어",
+            grant_lang: "중국어(간체)",
+            req_code: "ko",
+            grant_code: "zh-CN"
         }
     },
     created() {
         this.$nuxt.$on('onVideoEvent', (filename) => {
             this.readToVideo = true;
+            this.readyToTrack = false;
             this.videoTrack = [];
+            this.transTrack = [];
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
         });
         this.$nuxt.$on('onScrollTop', () => {
@@ -196,7 +213,7 @@ export default {
             }
         });
         this.$nuxt.$on('textChange', (text, index) => {
-            if (text != undefined && this.videoTrack[index]?.text) {
+            if (text != undefined) {
                 this.videoTrack[index].text = text;
             }
         });
@@ -205,11 +222,22 @@ export default {
         language() {
             return this.$store.state.manager.language;
         },
+        languages() {
+            return this.$LANGUAGES_KO;
+        },
         fileURL() {
             return this.$store.state.videoes.fileURL;
         },
         fileName() {
             return this.$store.state.videoes.fileName;
+        },
+    },
+    watch: {
+        req_lang(value) {
+            this.req_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
+        },
+        grant_lang(value) {
+            this.grant_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
         }
     },
     methods: {
@@ -281,6 +309,7 @@ export default {
         async getTrack() {
             if (this.videoTrack != []) this.videoTrack = [];
             this.dialog = !this.dialog;
+            this.readyToTrack = true;
             try {
                 this.$nuxt.$loading.start();
                 const loadStore = await this.$store.dispatch('videoes/loadTrack');
@@ -344,12 +373,34 @@ export default {
                 }
             }
         },
+        goTransTrack() {
+
+        },
         goTrack() {
             this.$nuxt.$emit('trackRefresh');
         },
+        bringTrack() {
+            this.dialog = !this.dialog;
+        },
+        async bringTransTrack() {
+            // 트랙 배열을 넘김
+            this.$nuxt.$loading.start();
+            const transTrackArray = await this.$store.dispatch('videoes/transTrack', {
+                "from": this.req_code,
+                "to": this.grant_code,
+                "track": this.videoTrack
+            });
+            this.$nuxt.$loading.finish();
+            for (let i = 0; i < this.videoTrack.length; i++) {
+                this.transTrack[i] = transTrackArray[i];
+            }
+            this.transTrack = this.transTrack.slice();
+        },
         onEmptyFile() {
-            this.readToVideo = !this.readToVideo;
+            this.readToVideo = false;
+            this.readyToTrack = false;
             this.videoTrack = [];
+            this.transTrack = [];
         },
         async onClearFile() {
             const message = await this.$store.dispatch('videoes/deleteFile');
@@ -360,7 +411,13 @@ export default {
             }
             this.$store.commit('videoes/setFileURL', '');
             this.readToVideo = false;
+            this.readyToTrack = false;
             this.videoTrack = [];
+            this.transTrack = [];
+        },
+        dialogFalse() {
+            this.dialog = !this.dialog;
+            this.readyToTrack = false;
         }
     }
 }

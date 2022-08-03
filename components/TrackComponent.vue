@@ -34,14 +34,14 @@
         </div>
         <div class="track__trans__text">
             <v-textarea
-                
+                :value="segmentTrans"
                 outlined
                 dense
                 auto-grow
                 rows="1"
                 row-height="20"
                 hide-details
-
+                
             />
         </div>
     </div>
@@ -110,6 +110,10 @@ export default {
         text: {
             type: String,
             default: ""
+        },
+        trans: {
+            type: String,
+            default: ""
         }
     },
     data() {
@@ -124,6 +128,9 @@ export default {
         segmentText() {
             return this.text.split('\\n');
         },
+        segmentTrans() {
+            return this.trans.split('\\n');
+        }
     },
     methods: {
         msToString(time) {

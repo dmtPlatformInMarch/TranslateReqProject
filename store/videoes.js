@@ -135,6 +135,36 @@ export const actions = {
         } catch (err) {
             console.log("트랙 만들기 실패");
         }
+    },
+    async textToTrans({  }, payload) {
+        try {
+            const transTrack = await this.$axios.post('/video/track/format', {
+                "from": payload.from,
+                "to": payload.to,
+                "track": payload.track,
+                "timeline": payload.timeline,
+                "mode": payload.mode
+            });
+            return transTrack.data;
+        } catch (err) {
+
+        }
+    },
+    async transTrack({  }, payload) {
+        try {
+            // payload의 text속성을 추출
+            const tracks = payload.track.map(({ text }) => text);
+            const transResponse = await this.$axios.post('/video/track/trans', {
+                "from": payload.from,
+                "to": payload.to,
+                "track": tracks
+            });
+            // transResponse JSON
+            // from, to, translation
+            return transResponse.data?.translations;
+        } catch(err) {
+
+        }
     }
 }
 
