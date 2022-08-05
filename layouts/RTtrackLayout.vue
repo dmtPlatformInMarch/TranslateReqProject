@@ -1,20 +1,13 @@
 <template>
     <v-app>
-        <v-app-bar class="toolbar" elevation="0" color="#013183" dark absolute>
-            <v-btn icon dark tile @click="home">
-                <v-icon>
-                    mdi-home
-                </v-icon>
-            </v-btn>
-            <v-toolbar-title>
-                실시간 자막 데모 페이지
-            </v-toolbar-title>
-        </v-app-bar>
+       
+        <defaultToolbar></defaultToolbar>
+
         <div class="main__wrapper">
             <v-navigation-drawer class="nav__Style" permanent>
                 <v-list-item>
                     <v-list-item-content>
-                        <v-list-item-title>
+                        <v-list-item-title style="font-size : 2rem;">
                             작업 파일
                         </v-list-item-title>
                     </v-list-item-content>
@@ -31,25 +24,32 @@
                 </div>
             </v-navigation-drawer>
 
-            <v-container class="main overflow-y-auto">
+            <div class="main">
                 <nuxt />
-            </v-container>
+            </div>
         </div>
         <scroll-top />
         <snack-bar />
+
     </v-app>
 </template>
 
 <style scoped>
+
 .toolbar {
     height: 64px !important;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-size: cover;
+    color : black;
 }
 .main__wrapper {
+    overflow-y: scroll;
     display: flex;
     position: absolute;
     width: 100%;
+    top: 64px;
     height: calc(100% - 64px);
-    margin-top: 64px;
+    text-align: center;
 }
 .main {
     display: block;
@@ -58,13 +58,12 @@
     padding-right: 64px;
     padding-left: 64px;
 }
+
 .nav__Style {
-    width: 15% !important;
-    border-right: 3px solid grey;
+    width: 20% !important;
 }
 .list__group {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 25px;
@@ -79,17 +78,22 @@
     width: 100%;
     white-space: normal;
 }
+
 </style>
 
 <script>
 import SnackBar from '~/components/SnackBar'
 import ScrollTop from '~/components/ScrolltopComponent'
+import defaultToolbar from "../components/defaultToolbar.vue";
+
 
 export default {
     name: 'RTtrackLayout',
     components: {
         SnackBar,
-        ScrollTop
+        ScrollTop,
+        defaultToolbar
+        
     },
     data() {
         return {
