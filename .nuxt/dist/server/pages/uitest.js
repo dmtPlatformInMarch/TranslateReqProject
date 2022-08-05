@@ -178,7 +178,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "513dec94",
-  "8ad20b32"
+  "6b29570a"
   
 )
 
@@ -342,7 +342,7 @@ var uitest_component = Object(componentNormalizer["a" /* default */])(
   false,
   uitest_injectStyles,
   "d28f8dee",
-  "5bbd6f00"
+  "4c594714"
   
 )
 
