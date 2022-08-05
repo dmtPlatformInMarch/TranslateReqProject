@@ -136,6 +136,7 @@ export const actions = {
             console.log("트랙 만들기 실패");
         }
     },
+    // realTrack 자막 번역
     async textToTrans({  }, payload) {
         try {
             const transTrack = await this.$axios.post('/video/track/format', {
@@ -150,6 +151,7 @@ export const actions = {
 
         }
     },
+    // fileTrack 자막 번역
     async transTrack({  }, payload) {
         try {
             // payload의 text속성을 추출
