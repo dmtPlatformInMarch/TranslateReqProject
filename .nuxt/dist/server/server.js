@@ -11884,6 +11884,7 @@ const actions = {
     }
   },
 
+  // realTrack 자막 번역
   async textToTrans({}, payload) {
     try {
       const transTrack = await this.$axios.post('/video/track/format', {
@@ -11897,6 +11898,7 @@ const actions = {
     } catch (err) {}
   },
 
+  // fileTrack 자막 번역
   async transTrack({}, payload) {
     try {
       var _transResponse$data;
