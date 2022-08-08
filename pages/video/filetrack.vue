@@ -5,7 +5,7 @@
         </div>
         <div class="video__player">
             <v-row class="video__player__grid" no-gutters>
-                <v-col cols="8" class="video__player__box">
+                <v-col cols="12" class="video__player__box">
                     <div v-if="this.readToVideo != false" class="video">
                         <video-component :url="this.fileURL" />
                     </div>
@@ -14,13 +14,13 @@
                     </div>
                 </v-col>
                 <v-col class="video__player__meta">
-                    <v-btn color="warning" elevation="0" block :disabled="!this.readToVideo" @click="onEmptyFile">
+                    <v-btn class="video__player__metabtn" color="warning" elevation="0" :disabled="!this.readToVideo" @click="onEmptyFile">
                         <v-icon>
                             mdi-trash-can
                         </v-icon>
                         영상 비우기
                     </v-btn>
-                    <v-btn color="error" elevation="0" block :disabled="!this.readToVideo" @click="onClearFile">
+                    <v-btn class="video__player__metabtn" color="error" elevation="0" :disabled="!this.readToVideo" @click="onClearFile">
                         <v-icon>
                             mdi-close
                         </v-icon>
@@ -34,8 +34,8 @@
                 <h1>자막</h1>
                 <v-spacer />
                 <client-only>
-                    <v-select class="lang__select" v-model="req_lang" :items="languages" :disabled="!this.readyToTrack" />
-                    <v-select class="lang__select" v-model="grant_lang" :items="languages" :disabled="!this.readyToTrack" />
+                    <v-select class="lang__select" v-model="req_lang" :items="languages" />
+                    <v-select class="lang__select" v-model="grant_lang" :items="languages" />
                 </client-only>
                 <v-spacer />
                 <div class="video__translator__btngroup">
@@ -47,15 +47,17 @@
                             '/video/download/' +
                             this.fileName + '.srt'"
                     />
-                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn>
-                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackVTT">자막 내보내기 (.vtt)</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="bringTrack">자막 가져오기</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readyToTrack" @click="bringTransTrack">자막 번역하기</v-btn>
+                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="bringTrack">자막 편집</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="createTrackVTT">원본 자막 적용 (.vtt)</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="createTrackTrans">번역 자막 적용</v-btn>
+                    <!--v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn-->
                 </div>
             </div>
-            <div v-for="(tr, index) in videoTrack" :key="index" class="video__translator__content">
-                <track-component :start="tr.start" :end="tr.end" :text="tr.text" :trans="transTrack[index]" :idx="index" />
-            </div>
+            <v-virtual-scroll class="video__translator__content" bench="15" :items="videoTrack" height="600" item-height="112">
+                <template v-slot:default="{ item, index }">
+                    <track-component :start="item.start" :end="item.end" :text="item.text" :trans="transTrack[index]" :idx="index" />
+                </template>
+            </v-virtual-scroll>
         </div>
 
         <v-dialog v-model="dialog" width="250">
@@ -83,20 +85,8 @@
 
 <style scoped>
 .video__box {
-    overflow: scroll;
-    height: calc(100% - 12px);
-}
-.video__box::-webkit-scrollbar {
-    display: block;
-    width: 10px;
-    height: 8px;
-}
-.video__box::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-.video__box::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #2172FF;
+    overflow-y: scroll;
+    height: 100%;
 }
 .video__player {
     width: auto;
@@ -116,10 +106,12 @@
 }
 .video__player__meta {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: 25px 15px;
+}
+.video__player__metabtn{
+    width: 50%;
 }
 .video__translator {
     display: flex;
@@ -143,7 +135,18 @@
     display: flex;
     flex-direction: column;
     margin: 0 15px 15px 15px;
-    border: 1px solid red;
+}
+.video__translator__content::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+    height: 8px;
+}
+.video__translator__content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.video__translator__content::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #2172FF;
 }
 .video__uploadFile {
     width: 100%;
@@ -153,7 +156,7 @@
     padding: 25px;
 }
 .lang__select {
-    width: 50px;
+    flex: 1;
 }
 </style>
 
@@ -170,7 +173,7 @@ export default {
         VideoComponent,
         TrackComponent,
         SnackBar,
-        LoadingLinear
+        LoadingLinear,
     },
     data() {
         return {
@@ -209,7 +212,7 @@ export default {
         this.$nuxt.$on('transChange', (transText, index) => {
             if (transText != undefined) {
                 console.log(transText);
-                //this.videoTrack[index].end = transText;
+                this.transTrack[index] = transText;
             }
         });
         this.$nuxt.$on('textChange', (text, index) => {
@@ -313,11 +316,23 @@ export default {
             try {
                 this.$nuxt.$loading.start();
                 const loadStore = await this.$store.dispatch('videoes/loadTrack');
-                this.$nuxt.$loading.finish();
                 this.videoTrack = loadStore.segment;
+                const transTrackArray = await this.$store.dispatch('videoes/transTrack', {
+                    "from": this.req_code,
+                    "to": this.grant_code,
+                    "track": this.videoTrack
+                });
+                this.$nuxt.$loading.finish();
+                for (let i = 0; i < this.videoTrack.length; i++) {
+                    this.transTrack[i] = transTrackArray[i];
+                }
+                this.transTrack = this.transTrack.slice();
             } catch (err) {
                 this.$nuxt.$loading.finish();
-                console.log("자막 가져오기 에러");
+                this.$manage.showMessage({
+                    message: "자막을 가져오는 중 오류가 발생했습니다.",
+                    color: "error",
+                });
             }
         },
         async createTrackVTT() {
@@ -338,7 +353,7 @@ export default {
                         ext: "vtt"
                     });
                     this.$nuxt.$loading.finish();
-                    this.$nuxt.$emit('newTracks');
+                    this.$nuxt.$emit('newTracks', this.req_lang);
                     this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
                 } catch (err) {
                     this.$nuxt.$loading.finish();
@@ -373,6 +388,32 @@ export default {
                 }
             }
         },
+        async createTrackTrans() {
+            if (this.transTrack.length === 0) {
+                this.$manage.showMessage({
+                    message: "번역된 자막이 존재하지 않습니다.",
+                    color: "warning",
+                });
+            } else {
+                let tracks = "WEBVTT\n\n";
+                try {
+                    for (let i = 0; i < this.videoTrack.length; i++) {
+                        tracks += `${this.videoTrack[i].start} --> ${this.videoTrack[i].end}\n${this.transTrack[i]}\n\n`;
+                    }
+                    this.$nuxt.$loading.start();
+                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
+                        track: tracks,
+                        ext: "vtt"
+                    });
+                    this.$nuxt.$loading.finish();
+                    this.$nuxt.$emit('transTracks', this.grant_lang);
+                    this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
+                } catch (err) {
+                    this.$nuxt.$loading.finish();
+                    console.log(err);
+                }
+            }
+        },
         goTransTrack() {
 
         },
@@ -381,20 +422,6 @@ export default {
         },
         bringTrack() {
             this.dialog = !this.dialog;
-        },
-        async bringTransTrack() {
-            // 트랙 배열을 넘김
-            this.$nuxt.$loading.start();
-            const transTrackArray = await this.$store.dispatch('videoes/transTrack', {
-                "from": this.req_code,
-                "to": this.grant_code,
-                "track": this.videoTrack
-            });
-            this.$nuxt.$loading.finish();
-            for (let i = 0; i < this.videoTrack.length; i++) {
-                this.transTrack[i] = transTrackArray[i];
-            }
-            this.transTrack = this.transTrack.slice();
         },
         onEmptyFile() {
             this.readToVideo = false;

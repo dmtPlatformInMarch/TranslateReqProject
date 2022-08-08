@@ -25,8 +25,7 @@
                 :value="segmentText"
                 outlined
                 dense
-                auto-grow
-                rows="1"
+                rows="3"
                 row-height="20"
                 hide-details
                 @input="changeText($event)"
@@ -37,11 +36,10 @@
                 :value="segmentTrans"
                 outlined
                 dense
-                auto-grow
-                rows="1"
+                rows="3"
                 row-height="20"
                 hide-details
-                
+                @input="changeTrans($event)"
             />
         </div>
     </div>
@@ -49,6 +47,7 @@
 
 <style scoped>
 .track__wrapper {
+    height: 128px;
     display: flex;
     border: 1px solid grey;
     margin: 5px;

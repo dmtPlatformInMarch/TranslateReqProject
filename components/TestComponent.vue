@@ -10,6 +10,11 @@
         <div class="box" v-else>
             <div>
                 <p>
+                    {{ idx }}
+                </p>
+            </div>
+            <div>
+                <p>
                     {{ text }}
                 </p>
             </div>
