@@ -1,15 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar class="toolbar" elevation="0" color="#013183" dark absolute>
-            <v-btn icon dark tile @click="home">
-                <v-icon>
-                    mdi-home
-                </v-icon>
-            </v-btn>
-            <v-toolbar-title>
-                자막 파일 커스텀 데모 페이지
-            </v-toolbar-title>
-        </v-app-bar>
+        <defaultToolbar></defaultToolbar>
         <div class="main__wrapper">
             <v-navigation-drawer class="nav__Style" permanent>
                 <v-list-item>
@@ -54,6 +45,7 @@
     width: 100%;
     height: calc(100% - 64px);
     margin-top: 64px;
+    text-align: center;
 }
 .main {
     display: block;
@@ -63,8 +55,8 @@
     padding-left: 64px;
 }
 .nav__Style {
-    width: 15% !important;
-    border-right: 3px solid grey;
+    width: 20% !important;
+    /* border-right: 3px solid grey; */
 }
 .list__group {
     display: flex;
@@ -82,17 +74,21 @@
     width: 100%;
     white-space: normal;
 }
+
 </style>
 
 <script>
 import SnackBar from '~/components/SnackBar'
 import ScrollTop from '~/components/ScrolltopComponent'
+import defaultToolbar from "../components/defaultToolbar.vue";
+ 
 
 export default {
     name: 'VideoLayout',
     components: {
         SnackBar,
-        ScrollTop
+        ScrollTop,
+        defaultToolbar
     },
     data() {
         return {

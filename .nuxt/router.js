@@ -6,7 +6,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _39772c30 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _ff0b6f12 = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
-const _0bf0ca70 = () => interopDefault(import('..\\pages\\movingLine.js' /* webpackChunkName: "pages/movingLine" */))
 const _8a5847aa = () => interopDefault(import('..\\pages\\uitest.vue' /* webpackChunkName: "pages/uitest" */))
 const _c0815ad2 = () => interopDefault(import('..\\pages\\uitest2.vue' /* webpackChunkName: "pages/uitest2" */))
 const _2a4d36f2 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
@@ -42,10 +41,6 @@ export const routerOptions = {
     path: "/apitest",
     component: _ff0b6f12,
     name: "apitest"
-  }, {
-    path: "/movingLine",
-    component: _0bf0ca70,
-    name: "movingLine"
   }, {
     path: "/uitest",
     component: _8a5847aa,

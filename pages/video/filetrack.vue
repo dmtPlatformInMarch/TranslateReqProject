@@ -102,7 +102,8 @@
     width: auto;
     height: 50%;
     min-height: 625px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    
 }
 .video__player__grid {
     height: 100%;
@@ -125,7 +126,7 @@
     display: flex;
     flex-direction: column;
     min-height: calc(50% - 128px);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .video__translator__title {
     display: flex;

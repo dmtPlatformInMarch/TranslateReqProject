@@ -1,5 +1,6 @@
 <template>
     <div ref="rtvideobox" class="video__box">
+        <h1>실시간 자막 번역</h1>
         <div>
             <v-file-input ref="fileupload" label="업로드 영상" @change="onChange($event)" />
         </div>
@@ -10,7 +11,7 @@
                         <video-component :url="this.fileURL" />
                     </div>
                     <div v-else>
-                        비어있음
+                        작업 파일에서 선택하세요
                     </div>
                 </v-col>
                 <v-col class="video__player__meta">
@@ -31,12 +32,19 @@
         </div>
         <div class="video__translator">
             <div class="video__translator__title">
-                <h1>자막</h1>
-                <v-spacer />
-                <v-select v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" />
-                <v-spacer />
+              
+                <!-- <v-spacer /> -->
+                <!-- <v-select class = "button__select__mode" v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" /> -->
+                <!-- <v-spacer /> -->
+                
                 <client-only>
                     <v-select class="lang__select" v-model="req_lang" :items="languages" :disabled="!this.readyToTrack" />
+                </client-only>
+                <v-spacer />
+                <h3> mode : </h3>
+                <v-select class = "button__select__mode" v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" />
+                <v-spacer />
+                <client-only>
                     <v-select class="lang__select" v-model="grant_lang" :items="languages" :disabled="!this.readyToTrack" />
                 </client-only>
                 <v-spacer />
@@ -49,13 +57,17 @@
                                 '/video/download/' +
                                 this.fileName + '.' + this.mode"
                     />
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
+                    <!-- <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
+                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn> -->
                 </div>
             </div>
+            <div>
+                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
+                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
+            </div>
             <div class="video__translator__wrapper">
-                <div class="video__translator__content" v-html="this.track" />
-                <div class="video__translator__content" v-html="this.transTrack" />
+                <div class="video__translator__content__before" v-html="this.track" />
+                <div class="video__translator__content__after" v-html="this.transTrack" />
             </div>
         </div>
         <snack-bar />
@@ -64,6 +76,8 @@
 </template>
 
 <style scoped>
+
+
 .video__box {
     overflow: scroll;
     height: calc(100% - 12px);
@@ -78,23 +92,25 @@
 }
 .video__box::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: #2172FF;
+    /* background: #2172FF; */
+    background: lightgrey;
 }
 .video__player {
     width: auto;
     height: 50%;
     min-height: 625px;
-    border: 1px solid red;
 }
 .video__player__grid {
     height: 100%;
-    min-height: 625;
+    min-height: 625px;
 }
 .video__player__box {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 25px 15px;
+    font-size : 1.5rem;
+    /* border  : 1px solid red; */
 }
 .video__player__meta {
     display: flex;
@@ -107,28 +123,44 @@
     display: flex;
     flex-direction: column;
     min-height: calc(50% - 128px);
-    border: 1px solid red;
+    border-top: 1px solid grey;
 }
 .video__translator__title {
     display: flex;
     align-items: center;
-    margin: 15px;
-    padding: 0 15px;
+    justify-content: space-between;
+    text-align: center;
+    margin-left:5%;
+    /* padding: 0 15px; */
 }
+
 .video__translator__wrapper {
     display: flex;
     justify-content: space-around;
 }
-.video__translator__content {
+.video__translator__content__before {
     min-height: 30vh;
     width: 35vw;
     display: flex;
     flex-direction: column;
     margin: 0 15px 15px 15px;
     padding: 15px;
-    border: 1px solid red;
+    border: 1px solid grey;
     white-space: pre-wrap;
 }
+
+.video__translator__content__after {
+    min-height: 30vh;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px 15px 15px;
+    padding: 15px;
+    border: 1px solid #2172FF;
+    white-space: pre-wrap;
+}
+
+
 .video__translator__btngroup {
     display: flex;
 }
@@ -142,9 +174,11 @@
 .video {
     padding: 25px;
 }
-.lang__select {
-    width: 50px;
+
+.button__select__mode{
+    width : 5%;
 }
+
 </style>
 
 <script>
@@ -153,8 +187,10 @@ import SnackBar from '../../components/SnackBar.vue';
 import LoadingLinear from '../../components/loadingLinear.vue'
 import axios from 'axios';
 
+
 export default {
     layout: 'RTtrackLayout',
+    // layout: 'default',
     components: {
         VideoComponent,
         SnackBar,
