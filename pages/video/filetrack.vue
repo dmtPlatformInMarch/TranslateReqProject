@@ -5,22 +5,22 @@
         </div>
         <div class="video__player">
             <v-row class="video__player__grid" no-gutters>
-                <v-col cols="12" class="video__player__box">
+                <v-col cols="8" class="video__player__box">
                     <div v-if="this.readToVideo != false" class="video">
                         <video-component :url="this.fileURL" />
                     </div>
                     <div v-else>
-                        비어있음
+                        작업 파일에서 선택하세요
                     </div>
                 </v-col>
                 <v-col class="video__player__meta">
-                    <v-btn class="video__player__metabtn" color="warning" elevation="0" :disabled="!this.readToVideo" @click="onEmptyFile">
+                    <v-btn class="video__player__metabtn" color="warning" elevation="0" block :disabled="!this.readToVideo" @click="onEmptyFile">
                         <v-icon>
                             mdi-trash-can
                         </v-icon>
                         영상 비우기
                     </v-btn>
-                    <v-btn class="video__player__metabtn" color="error" elevation="0" :disabled="!this.readToVideo" @click="onClearFile">
+                    <v-btn class="video__player__metabtn" color="error" elevation="0" block :disabled="!this.readToVideo" @click="onClearFile">
                         <v-icon>
                             mdi-close
                         </v-icon>
@@ -86,14 +86,13 @@
 <style scoped>
 .video__box {
     overflow-y: scroll;
-    height: 100%;
+    height: calc(100% - 12px);
 }
 .video__player {
     width: auto;
     height: 50%;
     min-height: 625px;
     /* border: 1px solid red; */
-    
 }
 .video__player__grid {
     height: 100%;
@@ -107,12 +106,10 @@
 }
 .video__player__meta {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     margin: 25px 15px;
-}
-.video__player__metabtn{
-    width: 50%;
 }
 .video__translator {
     display: flex;

@@ -1,6 +1,5 @@
 <template>
     <div ref="rtvideobox" class="video__box">
-        <h1>실시간 자막 번역</h1>
         <div>
             <v-file-input ref="fileupload" label="업로드 영상" @change="onChange($event)" />
         </div>
@@ -76,8 +75,6 @@
 </template>
 
 <style scoped>
-
-
 .video__box {
     overflow: scroll;
     height: calc(100% - 12px);
@@ -355,8 +352,13 @@ export default {
                     timeline: this.timeLine,
                     mode: this.mode
                 });
-                this.$nuxt.$loading.finish();
                 this.transTrack = transResponse;
+                const textTrack = await this.$store.dispatch('videoes/textToTrack', {
+                    track: this.transTrack,
+                    ext: "vtt"
+                });
+                this.$nuxt.$loading.finish();
+                this.$nuxt.$emit('transTracks', this.grant_lang);
             } catch (err) {
                 console.log(err);
             }
