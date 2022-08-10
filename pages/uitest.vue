@@ -1,93 +1,83 @@
 <template class="main">
-    <div class="inner">
-        <div>
-            <v-btn @click="addTrans">
-                객체 배열의 속성값 변경
+    <div class="wrapper">
+        <div class="videobox">
+            <video video ref="player" class="video__player" controls preload="auto" :src="url" crossorigin="use-credentials">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+        </div>
+        <div class="btn__group">
+            <v-btn block @click="viewTrack">
+                자막 보이기
+            </v-btn>
+            <v-btn block @click="viewCreateTrack">
+                자막 만들고 보이기
+            </v-btn>
+            <v-btn block @click="isTrack">
+                자막 있는지 확인
             </v-btn>
         </div>
-        <draggable v-model="list">
-        <div v-for="(item, index) in list" :key="index">
-            <test-component :idx="index" :text="item.text" :addText="item.trans" />
-        </div>
-        </draggable>
-        <test-component :plus="true" />
     </div>
 </template>
 
 <style scoped>
 .main {
     display: flex;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.inner {
-    padding: 100px;
-    width: 80%;
-    height: 100%;
+.videobox {
+    width: 640px;
+}
+.btn__group {
+    width: 640px;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
 }
 </style>
 
 <script>
-import TestComponent from '../components/TestComponent.vue';
-import draggable from 'vuedraggable';
-import axios from "axios";
-
 export default {
     layout: 'TestLayout',
     components: {
-        TestComponent,
-        draggable
-    },
-    created() {
-        this.$nuxt.$on('addComponent', () => {
-            this.list.push({"text":"추가하는 컴포넌트", "trans": ""});
-        });
-        this.$nuxt.$on('removeComponent', (index) => {
-            this.list.splice(index, 1);
-        });
+        
     },
     data() {
         return{
-            list: [
-                {"text": "yet still going strong", "trans": ""},
-                {"text": "and if i remember these furry folks are taken advantage of a good weather to make sure there are state of the art security system is ready", "trans": ""},
-                {"text": "what are they all looking at a now i see", "trans": ""},
-                {"text": "looks like a new families moved in down the block and they're kind of a little well different", "trans": ""},
-                {"text": "which is an a bad thing of course but the citizens of dog towns still seemed to be feeling a little doubtful about their new neighbours", "trans": ""},
-                {"text": "these are burrowing ells and this is what burrowing ells do they move into burrows other animals have abandoned", "trans": ""},
-                {"text": "and since the average prary dog ways nearly eight times what one of those little oll guys does the owls don't pose any danger", "trans": ""},
-                {"text": "but badgers yeah definitely danger", "trans": ""},
-                {"text": "prery dog is one of a badger's favorite snacks and even though they'll defend their town to the death", "trans": ""},
-                {"text": "prery dogs are no match for him", "trans": ""},
-                {"text": "but way what's this let in that a little ou go give it you", "trans": ""},
-                {"text": "well seems like the little alls of really earned their place and dog town how many towns do you know with their own all air force", "trans": ""},
-                {"text": "it's definitely time to crank the party up a note", "trans": ""},
-            ],
-            translist: [],
+            url: "https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/360p_2%EB%B6%8416%EC%B4%88.mp4",
+            url_track: "https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/360p_2%EB%B6%8416%EC%B4%88.vtt",
+            video: ""
         }     
     },
+    mounted() {
+        this.video = document.querySelector('video');
+    },
     methods: {
-        async addTT() {
-            let templist = [];
-            for(let i = 0; i < this.list.length; i++) {
-                let str = this.list[i].text;
-                const res = await axios({
-                    method: "post",
-                    url: "https://dmtcloud.kr/translate-text",
-                    data: {
-                        "from": "en",
-                        "to": "zh-CN",
-                        "text": str
-                    }
-                });
-                if(res.status === 200) templist.push(res.data[0].translations);
-            }
-            this.translist = templist.slice();
+        viewTrack() {
+            this.video.textTracks[0].mode = this.video.textTracks[0].mode === 'showing' ? 'disabled' : 'showing';
+            console.log(this.video.textTracks);
         },
-        addTrans() {
-            const transTrack = ["번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과", "번역된 결과"];
-            for (let i = 0; i < this.list.length; i++) {
-                this.list[i].trans = transTrack[i];
+        viewCreateTrack() {
+            let track = document.createElement("track");
+            track.kind = "subtitles";
+            track.srclang = "en";
+            track.label = "새로 만든 자막";
+            track.src = this.url_track;
+            this.video.appendChild(track);
+            this.video.textTracks[0].mode = this.video.textTracks[0].mode === 'showing' ? 'disabled' : 'showing';
+            console.log(this.video.textTracks[0])
+        },
+        isTrack() {
+            if (this.video.textTracks.length === 0) {
+                console.log("비어있음");
+            } else {
+                console.log("여기서 처리");
             }
         }
     },

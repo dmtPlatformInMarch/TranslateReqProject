@@ -1,76 +1,76 @@
 exports.ids = [11];
 exports.modules = {
 
-/***/ 256:
+/***/ 255:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/ETRI-logo.dc12e11.png";
 
 /***/ }),
 
-/***/ 257:
+/***/ 256:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/atomi-logo.f37e1ff.png";
 
 /***/ }),
 
-/***/ 258:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kt-logo.873d1a8.png";
 
 /***/ }),
 
-/***/ 259:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kisiti-logo.9e2c039.png";
 
 /***/ }),
 
-/***/ 260:
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/mars-logo.c289a52.png";
 
 /***/ }),
 
-/***/ 261:
+/***/ 260:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/saltlux-logo.4536a33.png";
 
 /***/ }),
 
-/***/ 262:
+/***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kdx-logo.899d416.png";
 
 /***/ }),
 
-/***/ 263:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/nia-logo.c417239.png";
 
 /***/ }),
 
-/***/ 275:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo3.ba0a011.png";
 
 /***/ }),
 
-/***/ 298:
+/***/ 296:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(329);
+var content = __webpack_require__(325);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -82,19 +82,19 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 328:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(298);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(296);
 /* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_uitest2_vue_vue_type_style_index_0_id_566f8dc4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 329:
+/***/ 325:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -108,7 +108,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 393:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,7 +116,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/uitest2.vue?vue&type=template&id=566f8dc4&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"maintemplete"},[_vm._ssrNode("<div class=\"nav-box\" data-v-566f8dc4></div> <img"+(_vm._ssrAttr("src",__webpack_require__(275)))+" class=\"DMT-logo\" data-v-566f8dc4> <div class=\"slider\" data-v-566f8dc4><div class=\"image-box\" data-v-566f8dc4><div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(256)))+" class=\"ETRI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(257)))+" class=\"ATOMI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(258)))+" class=\"KT-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(259)))+" class=\"KISITI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(260)))+" class=\"MARS-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(261)))+" class=\"SALTLUX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(262)))+" class=\"KDX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(263)))+" class=\"NIA-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(256)))+" class=\"ETRI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(257)))+" class=\"ATOMI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(258)))+" class=\"KT-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(259)))+" class=\"KISITI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(260)))+" class=\"MARS-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(261)))+" class=\"SALTLUX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(262)))+" class=\"KDX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(263)))+" class=\"NIA-logo\" data-v-566f8dc4></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Vision</h4></div></div> <div class=\"slogan-page\" data-v-566f8dc4><div class=\"slogan-1\" data-v-566f8dc4><h1 data-v-566f8dc4>Broad Vision</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>해외 시장 진출 및 확장</li> <li data-v-566f8dc4>광저우 생물의학 지식재산권 거래 회사 업무 협약 체결 예정</li> <li data-v-566f8dc4>2023년도 베트남 하노이, 일본 도쿄 지사 설립 예정</li> <li data-v-566f8dc4>2024년도 유럽 진출 예정</li></ul></div> <div class=\"slogan-2\" data-v-566f8dc4><h1 data-v-566f8dc4>Honest Service</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>지속적인 AI 기술 개발을 통한 사업확장</li> <li data-v-566f8dc4>텍스트,영상,멀티미디어 통합 분석 기술 개발</li> <li data-v-566f8dc4>데이터 실시간 입력,처리되는 기술 개발</li></ul></div> <div class=\"slogan-3\" data-v-566f8dc4><h1 data-v-566f8dc4>Great Value</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>국내 연구소 및 대학 협력을 통한 AI 신기술 확보</li> <li data-v-566f8dc4>중고등학교 AI 기반 영어 독해 교육에 활용</li> <li data-v-566f8dc4>대기업 직원 직무 교육용으로 활용</li> <li data-v-566f8dc4>뉴스 주제, 인물 이해 등에 활용</li></ul></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Strength</h4></div></div> <div class=\"indexpage-1\" data-v-566f8dc4><div class=\"indexpage-1-head\" style=\"margin-top : 100px;\" data-v-566f8dc4><h2 style=\"text-align: center;\" data-v-566f8dc4>전문성 있는 번역이 필요하다면</h2> <h1 style=\"text-align: center;\" data-v-566f8dc4>DMTLABS <span style=\"color :#8B00FF\" data-v-566f8dc4>AI 번역</span></h1></div> <div class=\"indexpage-1-flexbox\" data-v-566f8dc4><div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #512FDB\" data-v-566f8dc4>8개</span> 국어</h3> <p data-v-566f8dc4>한/중/영/일/프/독/스/베 8개 국어 및 분야 자동 번역 기술<br data-v-566f8dc4>\n                    한중/중한 번역 DB 구축<br data-v-566f8dc4>\n                    기술 문서 및 특허 번역 서비스<br data-v-566f8dc4>\n                    고문서 번역 및 처리 서비스<br data-v-566f8dc4></p></div> <div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #23bbb1\" data-v-566f8dc4>93%</span> 정확도</h3> <p data-v-566f8dc4>텍스트 마이닝 분야 PDF 학술 논문 메타데이터 및 전문 추출 기술 분야<br data-v-566f8dc4>\n                    인공지능 기반 일반분야 한영, 한중 자동 번역 기술(한영 BLEU 0.53, 한중 BLEU 0.56)<br data-v-566f8dc4>\n                    인공지능 기반 특허/기술분야 한영, 한중 자동 번역 기술(한영 BLEU 0.33, 한중 BLEU 0.41)<br data-v-566f8dc4>\n                    한국어 및 중국어 OCR 기술 (한국어 89%, 중국어 94%)</p></div> <div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #2172FF\" data-v-566f8dc4>3가지</span> 버전</h3> <p data-v-566f8dc4>이미지 번역, 문서(워드,한글pdf) 번역, 영상 번역<br data-v-566f8dc4>\n                    이미지 객체 복합 정보 태깅 프로그램<br data-v-566f8dc4>\n                    워드 기반 특허 문서쌍에 대한 자동 정렬<br data-v-566f8dc4>\n                    클라우드 기반 온라인 번역사후교정(MTPE) 플랫폼</p></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Service</h4></div></div> <div class=\"indexpage-2\" data-v-566f8dc4><div class=\"indexpage-2-head\" data-v-566f8dc4><h2 style=\"text-align: center; margin-top : 100px;\" data-v-566f8dc4>다양한 서비스가 필요하다면</h2> <h1 style=\"text-align: center;\" data-v-566f8dc4>DMTLABS <span style=\"color :#512FDB\" data-v-566f8dc4>SERVICES</span></h1> <div class=\"indexpage-2-article\" data-v-566f8dc4><p class=\"article-center-1 floating\" data-v-566f8dc4>클라우드 기반 데이터 구축 및 가공 플랫폼 서비스</p> <p class=\"article-left-1 floating\" data-v-566f8dc4>문서 영역 인식 기반 메타데이터 추출 기술</p> <p class=\"article-right-1 floating\" data-v-566f8dc4>다양한 분야 대화 데이터 구축 및 대화 지식 가공</p> <p class=\"article-center-2 floating\" data-v-566f8dc4>8개 국어 양방향 인공지능 자동 번역 기술 솔루션</p> <p class=\"article-left-2 floating\" data-v-566f8dc4>외국인 행정문서 번역 및 제작 서비스</p> <p class=\"article-right-2 floating\" data-v-566f8dc4>음성 전사 및 영상 자막 번역 및 생성 서비스</p> <p class=\"article-center-3 floating\" data-v-566f8dc4>다국어 대역어 및 용례 검색 시스템</p></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div>")])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"maintemplete"},[_vm._ssrNode("<div class=\"nav-box\" data-v-566f8dc4></div> <img"+(_vm._ssrAttr("src",__webpack_require__(274)))+" class=\"DMT-logo\" data-v-566f8dc4> <div class=\"slider\" data-v-566f8dc4><div class=\"image-box\" data-v-566f8dc4><div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(255)))+" class=\"ETRI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(256)))+" class=\"ATOMI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(257)))+" class=\"KT-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(258)))+" class=\"KISITI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(259)))+" class=\"MARS-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(260)))+" class=\"SALTLUX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(261)))+" class=\"KDX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(262)))+" class=\"NIA-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(255)))+" class=\"ETRI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(256)))+" class=\"ATOMI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(257)))+" class=\"KT-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(258)))+" class=\"KISITI-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(259)))+" class=\"MARS-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(260)))+" class=\"SALTLUX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(261)))+" class=\"KDX-logo\" data-v-566f8dc4></div> <div data-v-566f8dc4><img"+(_vm._ssrAttr("src",__webpack_require__(262)))+" class=\"NIA-logo\" data-v-566f8dc4></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Vision</h4></div></div> <div class=\"slogan-page\" data-v-566f8dc4><div class=\"slogan-1\" data-v-566f8dc4><h1 data-v-566f8dc4>Broad Vision</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>해외 시장 진출 및 확장</li> <li data-v-566f8dc4>광저우 생물의학 지식재산권 거래 회사 업무 협약 체결 예정</li> <li data-v-566f8dc4>2023년도 베트남 하노이, 일본 도쿄 지사 설립 예정</li> <li data-v-566f8dc4>2024년도 유럽 진출 예정</li></ul></div> <div class=\"slogan-2\" data-v-566f8dc4><h1 data-v-566f8dc4>Honest Service</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>지속적인 AI 기술 개발을 통한 사업확장</li> <li data-v-566f8dc4>텍스트,영상,멀티미디어 통합 분석 기술 개발</li> <li data-v-566f8dc4>데이터 실시간 입력,처리되는 기술 개발</li></ul></div> <div class=\"slogan-3\" data-v-566f8dc4><h1 data-v-566f8dc4>Great Value</h1> <ul data-v-566f8dc4><li data-v-566f8dc4>국내 연구소 및 대학 협력을 통한 AI 신기술 확보</li> <li data-v-566f8dc4>중고등학교 AI 기반 영어 독해 교육에 활용</li> <li data-v-566f8dc4>대기업 직원 직무 교육용으로 활용</li> <li data-v-566f8dc4>뉴스 주제, 인물 이해 등에 활용</li></ul></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Strength</h4></div></div> <div class=\"indexpage-1\" data-v-566f8dc4><div class=\"indexpage-1-head\" style=\"margin-top : 100px;\" data-v-566f8dc4><h2 style=\"text-align: center;\" data-v-566f8dc4>전문성 있는 번역이 필요하다면</h2> <h1 style=\"text-align: center;\" data-v-566f8dc4>DMTLABS <span style=\"color :#8B00FF\" data-v-566f8dc4>AI 번역</span></h1></div> <div class=\"indexpage-1-flexbox\" data-v-566f8dc4><div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #512FDB\" data-v-566f8dc4>8개</span> 국어</h3> <p data-v-566f8dc4>한/중/영/일/프/독/스/베 8개 국어 및 분야 자동 번역 기술<br data-v-566f8dc4>\n                    한중/중한 번역 DB 구축<br data-v-566f8dc4>\n                    기술 문서 및 특허 번역 서비스<br data-v-566f8dc4>\n                    고문서 번역 및 처리 서비스<br data-v-566f8dc4></p></div> <div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #23bbb1\" data-v-566f8dc4>93%</span> 정확도</h3> <p data-v-566f8dc4>텍스트 마이닝 분야 PDF 학술 논문 메타데이터 및 전문 추출 기술 분야<br data-v-566f8dc4>\n                    인공지능 기반 일반분야 한영, 한중 자동 번역 기술(한영 BLEU 0.53, 한중 BLEU 0.56)<br data-v-566f8dc4>\n                    인공지능 기반 특허/기술분야 한영, 한중 자동 번역 기술(한영 BLEU 0.33, 한중 BLEU 0.41)<br data-v-566f8dc4>\n                    한국어 및 중국어 OCR 기술 (한국어 89%, 중국어 94%)</p></div> <div class=\"indexpage-1-flexbox-item\" data-v-566f8dc4><h3 data-v-566f8dc4><span style=\"color : #2172FF\" data-v-566f8dc4>3가지</span> 버전</h3> <p data-v-566f8dc4>이미지 번역, 문서(워드,한글pdf) 번역, 영상 번역<br data-v-566f8dc4>\n                    이미지 객체 복합 정보 태깅 프로그램<br data-v-566f8dc4>\n                    워드 기반 특허 문서쌍에 대한 자동 정렬<br data-v-566f8dc4>\n                    클라우드 기반 온라인 번역사후교정(MTPE) 플랫폼</p></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div> <div class=\"title-block\" data-v-566f8dc4><div class=\"title-name\" data-v-566f8dc4><h4 data-v-566f8dc4>Our Service</h4></div></div> <div class=\"indexpage-2\" data-v-566f8dc4><div class=\"indexpage-2-head\" data-v-566f8dc4><h2 style=\"text-align: center; margin-top : 100px;\" data-v-566f8dc4>다양한 서비스가 필요하다면</h2> <h1 style=\"text-align: center;\" data-v-566f8dc4>DMTLABS <span style=\"color :#512FDB\" data-v-566f8dc4>SERVICES</span></h1> <div class=\"indexpage-2-article\" data-v-566f8dc4><p class=\"article-center-1 floating\" data-v-566f8dc4>클라우드 기반 데이터 구축 및 가공 플랫폼 서비스</p> <p class=\"article-left-1 floating\" data-v-566f8dc4>문서 영역 인식 기반 메타데이터 추출 기술</p> <p class=\"article-right-1 floating\" data-v-566f8dc4>다양한 분야 대화 데이터 구축 및 대화 지식 가공</p> <p class=\"article-center-2 floating\" data-v-566f8dc4>8개 국어 양방향 인공지능 자동 번역 기술 솔루션</p> <p class=\"article-left-2 floating\" data-v-566f8dc4>외국인 행정문서 번역 및 제작 서비스</p> <p class=\"article-right-2 floating\" data-v-566f8dc4>음성 전사 및 영상 자막 번역 및 생성 서비스</p> <p class=\"article-center-3 floating\" data-v-566f8dc4>다국어 대역어 및 용례 검색 시스템</p></div></div></div> <div class=\"blank-box\" data-v-566f8dc4></div>")])}
 var staticRenderFns = []
 
 
@@ -845,7 +845,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(328)
+  var style0 = __webpack_require__(324)
 if (style0.__inject__) style0.__inject__(context)
 
 }

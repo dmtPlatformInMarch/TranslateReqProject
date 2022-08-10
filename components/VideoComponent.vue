@@ -1,6 +1,6 @@
 <template>
     <div class="video__box">
-        <video id="myVideo" ref="player" class="video__player" controls preload="auto" :src="url" crossorigin="use-credentials">
+        <video ref="player" class="video__player" controls preload="auto" :src="url" crossorigin="use-credentials">
         </video>
     </div>
 </template>
@@ -54,7 +54,7 @@ export default {
                 track.label = lang;
                 track.src = this.videoTrack;
                 this.video.appendChild(track);
-                this.video.load();
+                this.video.textTracks[0].mode = "showing";
             } else {
                 let rmTrack = document.querySelector("track");
                 rmTrack.parentNode.removeChild(rmTrack);
@@ -65,7 +65,7 @@ export default {
                 track.label = lang;
                 track.src = this.videoTrack;
                 this.video.appendChild(track);
-                this.video.load();
+                this.video.textTracks[0].mode = "showing";
             }
         });
         this.$nuxt.$on('transTracks', (lang) => {
@@ -85,7 +85,7 @@ export default {
                 track.label = lang;
                 track.src = this.videoTrack;
                 this.video.appendChild(track);
-                this.video.load();
+                this.video.textTracks[0].mode = "showing";
             } else {
                 let rmTrack = document.querySelector("track");
                 rmTrack.parentNode.removeChild(rmTrack);
@@ -96,7 +96,7 @@ export default {
                 track.label = lang;
                 track.src = this.videoTrack;
                 this.video.appendChild(track);
-                this.video.load();
+                this.video.textTracks[0].mode = "showing";
             }
         });
     },
