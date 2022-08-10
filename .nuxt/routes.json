@@ -2,120 +2,120 @@
   {
     "name": "admin",
     "path": "/admin",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\index.vue",
     "chunkName": "pages/admin/index",
-    "_name": "_39772c30"
+    "_name": "_c0bf7cb8"
   },
   {
     "name": "apitest",
     "path": "/apitest",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\apitest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\apitest.vue",
     "chunkName": "pages/apitest",
-    "_name": "_ff0b6f12"
+    "_name": "_5e4d8b3b"
   },
   {
     "name": "uitest",
     "path": "/uitest",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\uitest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\uitest.vue",
     "chunkName": "pages/uitest",
-    "_name": "_8a5847aa"
+    "_name": "_7feb30e7"
   },
   {
     "name": "uitest2",
     "path": "/uitest2",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\uitest2.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\uitest2.vue",
     "chunkName": "pages/uitest2",
-    "_name": "_c0815ad2"
+    "_name": "_7d92955b"
   },
   {
     "name": "user",
     "path": "/user",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\user\\\\index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\user\\\\index.vue",
     "chunkName": "pages/user/index",
-    "_name": "_2a4d36f2"
+    "_name": "_d90d1094"
   },
   {
     "name": "admin-mgRequest",
     "path": "/admin/mgRequest",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\mgRequest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgRequest.vue",
     "chunkName": "pages/admin/mgRequest",
-    "_name": "_84d7d7aa"
+    "_name": "_96f4a432"
   },
   {
     "name": "admin-mgUser",
     "path": "/admin/mgUser",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\admin\\\\mgUser.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgUser.vue",
     "chunkName": "pages/admin/mgUser",
-    "_name": "_0bb2be42"
+    "_name": "_6d747eba"
   },
   {
     "name": "text-info",
     "path": "/text/info",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\info.vue",
     "chunkName": "pages/text/info",
-    "_name": "_683c5cc0"
+    "_name": "_50ef2f48"
   },
   {
     "name": "text-reqstate",
     "path": "/text/reqstate",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\reqstate.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\reqstate.vue",
     "chunkName": "pages/text/reqstate",
-    "_name": "_65df6425"
+    "_name": "_7aa43ce1"
   },
   {
     "name": "text-request",
     "path": "/text/request",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\request.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\request.vue",
     "chunkName": "pages/text/request",
-    "_name": "_70ad63e6"
+    "_name": "_d26f245e"
   },
   {
     "name": "text-textmain",
     "path": "/text/textmain",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\text\\\\textmain.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\textmain.vue",
     "chunkName": "pages/text/textmain",
-    "_name": "_63caff50"
+    "_name": "_3a414dd8"
   },
   {
     "name": "user-signup",
     "path": "/user/signup",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\user\\\\signup.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\user\\\\signup.vue",
     "chunkName": "pages/user/signup",
-    "_name": "_51ff57b0"
+    "_name": "_d947a838"
   },
   {
     "name": "video-filetrack",
     "path": "/video/filetrack",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\filetrack.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\filetrack.vue",
     "chunkName": "pages/video/filetrack",
-    "_name": "_9276738e"
+    "_name": "_a4934016"
   },
   {
     "name": "video-info",
     "path": "/video/info",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\info.vue",
     "chunkName": "pages/video/info",
-    "_name": "_21772998"
+    "_name": "_5870abf8"
   },
   {
     "name": "video-realtrack",
     "path": "/video/realtrack",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\video\\\\realtrack.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\realtrack.vue",
     "chunkName": "pages/video/realtrack",
-    "_name": "_0e50e857"
+    "_name": "_05428213"
   },
   {
     "name": "voice-info",
     "path": "/voice/info",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\voice\\\\info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\voice\\\\info.vue",
     "chunkName": "pages/voice/info",
-    "_name": "_02b3ff2b"
+    "_name": "_6be03fef"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\git\\\\TranslateReqProject_front\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_aa198546"
+    "_name": "_77806121"
   }
 ]
