@@ -53,13 +53,14 @@
                     <!--v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn-->
                 </div>
             </div>
+            <h4 v-if = "clickButton == false" >자막 편집 전 언어를 선택해 주세요</h4>
             <v-virtual-scroll class="video__translator__content" bench="15" :items="videoTrack" height="600" item-height="112">
                 <template v-slot:default="{ item, index }">
                     <track-component :start="item.start" :end="item.end" :text="item.text" :trans="transTrack[index]" :idx="index" />
                 </template>
             </v-virtual-scroll>
         </div>
-
+            
         <v-dialog v-model="dialog" width="250">
             <v-card>
                 <v-card-title>
@@ -181,10 +182,11 @@ export default {
             videoTrack: [],
             transTrack: [],
             dialog: false,
+            clickButton : false,
             req_lang: "한국어",
             grant_lang: "중국어(간체)",
             req_code: "ko",
-            grant_code: "zh-CN"
+            grant_code: "zh-CN",
         }
     },
     created() {
@@ -419,6 +421,7 @@ export default {
             this.$nuxt.$emit('trackRefresh');
         },
         bringTrack() {
+            this.clickButton = true;
             this.dialog = !this.dialog;
         },
         onEmptyFile() {
