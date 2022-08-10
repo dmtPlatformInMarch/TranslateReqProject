@@ -46,6 +46,7 @@ export default {
             } else if (lang === "일본어") {
                 srcCode = "ja";
             }
+            console.log("트랙 길이 : ", this.video.textTracks.length);
             if (this.video.textTracks.length === 0) {
                 this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`
                 let track = document.createElement("track");
@@ -57,7 +58,7 @@ export default {
                 this.video.textTracks[0].mode = "showing";
             } else {
                 let rmTrack = document.querySelector("track");
-                rmTrack.parentNode.removeChild(rmTrack);
+                rmTrack?.parentNode.removeChild(rmTrack);
                 this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`
                 let track = document.createElement("track");
                 track.kind = "subtitles";
@@ -88,7 +89,7 @@ export default {
                 this.video.textTracks[0].mode = "showing";
             } else {
                 let rmTrack = document.querySelector("track");
-                rmTrack.parentNode.removeChild(rmTrack);
+                rmTrack?.parentNode.removeChild(rmTrack);
                 this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`
                 let track = document.createElement("track");
                 track.kind = "subtitles";
