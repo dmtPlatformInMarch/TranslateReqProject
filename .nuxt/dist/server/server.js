@@ -1928,7 +1928,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "63120747",
-  "469235b9"
+  "c5ea41b6"
   
 )
 
@@ -9604,7 +9604,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("0eec82a4", content, true, context)
+  add("548bc5c2", content, true, context)
 };
 
 /***/ }),
@@ -9693,7 +9693,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "83d27ff8",
-  "3d1ca880"
+  "6da029a8"
   
 )
 
@@ -9734,7 +9734,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "61cbe2cb",
-  "5cd77a86"
+  "4e038ef2"
   
 )
 
@@ -10768,9 +10768,9 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SignupLayout_vue_vue_type_style_index_0_id_81cb57e0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SignupLayout_vue_vue_type_style_index_0_id_81cb57e0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SignupLayout_vue_vue_type_style_index_0_id_81cb57e0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SignupLayout_vue_vue_type_style_index_0_id_81cb57e0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SignupLayout_vue_vue_type_style_index_0_id_81cb57e0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signupLayout_vue_vue_type_style_index_0_id_e148e7a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signupLayout_vue_vue_type_style_index_0_id_e148e7a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signupLayout_vue_vue_type_style_index_0_id_e148e7a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signupLayout_vue_vue_type_style_index_0_id_e148e7a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signupLayout_vue_vue_type_style_index_0_id_e148e7a0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -10781,7 +10781,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".btn__back[data-v-81cb57e0]{margin:20px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".btn__back[data-v-e148e7a0]{margin:20px}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -12723,39 +12723,39 @@ function shouldScrollToTop(route) {
 
 
 
-const _c0bf7cb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/index */ 1).then(__webpack_require__.bind(null, 386)));
+const _39772c30 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/index */ 1).then(__webpack_require__.bind(null, 386)));
 
-const _5e4d8b3b = () => interopDefault(__webpack_require__.e(/* import() | pages/apitest */ 4).then(__webpack_require__.bind(null, 387)));
+const _ff0b6f12 = () => interopDefault(__webpack_require__.e(/* import() | pages/apitest */ 4).then(__webpack_require__.bind(null, 387)));
 
-const _7feb30e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/uitest */ 10).then(__webpack_require__.bind(null, 388)));
+const _8a5847aa = () => interopDefault(__webpack_require__.e(/* import() | pages/uitest */ 10).then(__webpack_require__.bind(null, 388)));
 
-const _7d92955b = () => interopDefault(__webpack_require__.e(/* import() | pages/uitest2 */ 11).then(__webpack_require__.bind(null, 389)));
+const _c0815ad2 = () => interopDefault(__webpack_require__.e(/* import() | pages/uitest2 */ 11).then(__webpack_require__.bind(null, 389)));
 
-const _d90d1094 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 12).then(__webpack_require__.bind(null, 390)));
+const _2a4d36f2 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 12).then(__webpack_require__.bind(null, 390)));
 
-const _96f4a432 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 2).then(__webpack_require__.bind(null, 391)));
+const _84d7d7aa = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 2).then(__webpack_require__.bind(null, 391)));
 
-const _6d747eba = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 3).then(__webpack_require__.bind(null, 392)));
+const _0bb2be42 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 3).then(__webpack_require__.bind(null, 392)));
 
-const _50ef2f48 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 6).then(__webpack_require__.bind(null, 393)));
+const _683c5cc0 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 6).then(__webpack_require__.bind(null, 393)));
 
-const _7aa43ce1 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/reqstate */ 7).then(__webpack_require__.bind(null, 383)));
+const _65df6425 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/reqstate */ 7).then(__webpack_require__.bind(null, 383)));
 
-const _d26f245e = () => interopDefault(__webpack_require__.e(/* import() | pages/text/request */ 8).then(__webpack_require__.bind(null, 381)));
+const _70ad63e6 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/request */ 8).then(__webpack_require__.bind(null, 381)));
 
-const _3a414dd8 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/textmain */ 9).then(__webpack_require__.bind(null, 384)));
+const _63caff50 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/textmain */ 9).then(__webpack_require__.bind(null, 384)));
 
-const _d947a838 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 13).then(__webpack_require__.bind(null, 385)));
+const _51ff57b0 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 13).then(__webpack_require__.bind(null, 385)));
 
-const _a4934016 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/filetrack */ 14).then(__webpack_require__.bind(null, 382)));
+const _9276738e = () => interopDefault(__webpack_require__.e(/* import() | pages/video/filetrack */ 14).then(__webpack_require__.bind(null, 382)));
 
-const _5870abf8 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 15).then(__webpack_require__.bind(null, 394)));
+const _21772998 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 15).then(__webpack_require__.bind(null, 394)));
 
-const _05428213 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/realtrack */ 16).then(__webpack_require__.bind(null, 395)));
+const _0e50e857 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/realtrack */ 16).then(__webpack_require__.bind(null, 395)));
 
-const _6be03fef = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 17).then(__webpack_require__.bind(null, 396)));
+const _02b3ff2b = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 17).then(__webpack_require__.bind(null, 396)));
 
-const _77806121 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 5).then(__webpack_require__.bind(null, 397)));
+const _aa198546 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 5).then(__webpack_require__.bind(null, 397)));
 
 const emptyFn = () => {};
 
@@ -12768,71 +12768,71 @@ const routerOptions = {
   scrollBehavior: router_scrollBehavior,
   routes: [{
     path: "/admin",
-    component: _c0bf7cb8,
+    component: _39772c30,
     name: "admin"
   }, {
     path: "/apitest",
-    component: _5e4d8b3b,
+    component: _ff0b6f12,
     name: "apitest"
   }, {
     path: "/uitest",
-    component: _7feb30e7,
+    component: _8a5847aa,
     name: "uitest"
   }, {
     path: "/uitest2",
-    component: _7d92955b,
+    component: _c0815ad2,
     name: "uitest2"
   }, {
     path: "/user",
-    component: _d90d1094,
+    component: _2a4d36f2,
     name: "user"
   }, {
     path: "/admin/mgRequest",
-    component: _96f4a432,
+    component: _84d7d7aa,
     name: "admin-mgRequest"
   }, {
     path: "/admin/mgUser",
-    component: _6d747eba,
+    component: _0bb2be42,
     name: "admin-mgUser"
   }, {
     path: "/text/info",
-    component: _50ef2f48,
+    component: _683c5cc0,
     name: "text-info"
   }, {
     path: "/text/reqstate",
-    component: _7aa43ce1,
+    component: _65df6425,
     name: "text-reqstate"
   }, {
     path: "/text/request",
-    component: _d26f245e,
+    component: _70ad63e6,
     name: "text-request"
   }, {
     path: "/text/textmain",
-    component: _3a414dd8,
+    component: _63caff50,
     name: "text-textmain"
   }, {
     path: "/user/signup",
-    component: _d947a838,
+    component: _51ff57b0,
     name: "user-signup"
   }, {
     path: "/video/filetrack",
-    component: _a4934016,
+    component: _9276738e,
     name: "video-filetrack"
   }, {
     path: "/video/info",
-    component: _5870abf8,
+    component: _21772998,
     name: "video-info"
   }, {
     path: "/video/realtrack",
-    component: _05428213,
+    component: _0e50e857,
     name: "video-realtrack"
   }, {
     path: "/voice/info",
-    component: _6be03fef,
+    component: _02b3ff2b,
     name: "voice-info"
   }, {
     path: "/",
-    component: _77806121,
+    component: _aa198546,
     name: "index"
   }],
   fallback: false
@@ -13030,7 +13030,7 @@ var nuxt_error_component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   null,
-  "df2920f2"
+  "adec261a"
   
 )
 
@@ -13204,7 +13204,7 @@ var loading_component = Object(componentNormalizer["a" /* default */])(
   false,
   loading_injectStyles,
   null,
-  "4e6759b8"
+  "fa845a68"
   
 )
 
@@ -13840,7 +13840,7 @@ var VToolbar = __webpack_require__(15);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/index.js
 var components_VToolbar = __webpack_require__(20);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./layouts/AdminLayout.vue?vue&type=template&id=396045b6&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./layouts/adminLayout.vue?vue&type=template&id=85989576&scoped=true&
 
 
 
@@ -13856,18 +13856,18 @@ var components_VToolbar = __webpack_require__(20);
 
 
 
-var AdminLayoutvue_type_template_id_396045b6_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VApp_VApp,[_c(VToolbar["a" /* default */],{staticStyle:{"flex":"initial","width":"100%"},attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_c('nuxt-link',{attrs:{"to":"/admin"}},[_c(VAvatar["a" /* default */],{attrs:{"height":"80px","width":"200px","tile":""}},[_c('img',{attrs:{"src":_vm.logo}})])],1)],1),_vm._v(" "),_c(VSpacer["a" /* default */])],1),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","flex-direction":"row","height":"100%"}},[_c(VNavigationDrawer_VNavigationDrawer,{attrs:{"permanent":"","expand-on-hover":"","color":"#013183","dark":""}},[_c(VList["a" /* default */],{attrs:{"rounded":"","dense":""}},[_c(VListItem["a" /* default */],{staticStyle:{"padding":"0px 8px"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-account")])],1),_vm._v(" "),_c(components_VList["a" /* VListItemContent */],[(_vm.loginState != null)?_c(components_VList["c" /* VListItemTitle */],{staticClass:"text-h6"},[_vm._v(_vm._s(_vm.loginState.nickname)+" 님")]):_vm._e(),_vm._v(" "),_c(components_VList["b" /* VListItemSubtitle */],[_vm._v("[관리자 계정] 접속중")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"depressed":"","color":"#06d183"},on:{"click":_vm.onLogout}},[_vm._v("로그아웃")])],1)],1)],1),_vm._v(" "),_c(VList["a" /* default */],{staticStyle:{"padding":"0px 8px"},attrs:{"nav":"","dense":""}},[_c(VListItem["a" /* default */],{attrs:{"link":"","to":"/admin/mgUser"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-clipboard-edit")])],1),_vm._v(" "),_c(components_VList["c" /* VListItemTitle */],[_vm._v("유저관리")])],1),_vm._v(" "),_c(VListItem["a" /* default */],{attrs:{"link":"","to":"/admin/mgRequest"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-clipboard-search")])],1),_vm._v(" "),_c(components_VList["c" /* VListItemTitle */],[_vm._v("의뢰 목록 확인")])],1)],1)],1),_vm._v(" "),_c('nuxt')],1),_vm._v(" "),_c('snack-bar')],1)}
-var AdminLayoutvue_type_template_id_396045b6_scoped_true_staticRenderFns = []
+var adminLayoutvue_type_template_id_85989576_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VApp_VApp,[_c(VToolbar["a" /* default */],{staticStyle:{"flex":"initial","width":"100%"},attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_c('nuxt-link',{attrs:{"to":"/admin"}},[_c(VAvatar["a" /* default */],{attrs:{"height":"80px","width":"200px","tile":""}},[_c('img',{attrs:{"src":_vm.logo}})])],1)],1),_vm._v(" "),_c(VSpacer["a" /* default */])],1),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","flex-direction":"row","height":"100%"}},[_c(VNavigationDrawer_VNavigationDrawer,{attrs:{"permanent":"","expand-on-hover":"","color":"#013183","dark":""}},[_c(VList["a" /* default */],{attrs:{"rounded":"","dense":""}},[_c(VListItem["a" /* default */],{staticStyle:{"padding":"0px 8px"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-account")])],1),_vm._v(" "),_c(components_VList["a" /* VListItemContent */],[(_vm.loginState != null)?_c(components_VList["c" /* VListItemTitle */],{staticClass:"text-h6"},[_vm._v(_vm._s(_vm.loginState.nickname)+" 님")]):_vm._e(),_vm._v(" "),_c(components_VList["b" /* VListItemSubtitle */],[_vm._v("[관리자 계정] 접속중")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"depressed":"","color":"#06d183"},on:{"click":_vm.onLogout}},[_vm._v("로그아웃")])],1)],1)],1),_vm._v(" "),_c(VList["a" /* default */],{staticStyle:{"padding":"0px 8px"},attrs:{"nav":"","dense":""}},[_c(VListItem["a" /* default */],{attrs:{"link":"","to":"/admin/mgUser"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-clipboard-edit")])],1),_vm._v(" "),_c(components_VList["c" /* VListItemTitle */],[_vm._v("유저관리")])],1),_vm._v(" "),_c(VListItem["a" /* default */],{attrs:{"link":"","to":"/admin/mgRequest"}},[_c(VListItemIcon["a" /* default */],[_c(VIcon["a" /* default */],[_vm._v("mdi-clipboard-search")])],1),_vm._v(" "),_c(components_VList["c" /* VListItemTitle */],[_vm._v("의뢰 목록 확인")])],1)],1)],1),_vm._v(" "),_c('nuxt')],1),_vm._v(" "),_c('snack-bar')],1)}
+var adminLayoutvue_type_template_id_85989576_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./layouts/AdminLayout.vue?vue&type=template&id=396045b6&scoped=true&
+// CONCATENATED MODULE: ./layouts/adminLayout.vue?vue&type=template&id=85989576&scoped=true&
 
 // EXTERNAL MODULE: ./components/SnackBar.vue + 5 modules
 var SnackBar = __webpack_require__(11);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/AdminLayout.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/adminLayout.vue?vue&type=script&lang=js&
 
-/* harmony default export */ var AdminLayoutvue_type_script_lang_js_ = ({
+/* harmony default export */ var adminLayoutvue_type_script_lang_js_ = ({
   name: 'AdminLayout',
   components: {
     SnackBar: SnackBar["a" /* default */]
@@ -13911,31 +13911,31 @@ var SnackBar = __webpack_require__(11);
 
   }
 });
-// CONCATENATED MODULE: ./layouts/AdminLayout.vue?vue&type=script&lang=js&
- /* harmony default export */ var layouts_AdminLayoutvue_type_script_lang_js_ = (AdminLayoutvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./layouts/AdminLayout.vue
+// CONCATENATED MODULE: ./layouts/adminLayout.vue?vue&type=script&lang=js&
+ /* harmony default export */ var layouts_adminLayoutvue_type_script_lang_js_ = (adminLayoutvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./layouts/adminLayout.vue
 
 
 
-function AdminLayout_injectStyles (context) {
+function adminLayout_injectStyles (context) {
   
   
 }
 
 /* normalize component */
 
-var AdminLayout_component = Object(componentNormalizer["a" /* default */])(
-  layouts_AdminLayoutvue_type_script_lang_js_,
-  AdminLayoutvue_type_template_id_396045b6_scoped_true_render,
-  AdminLayoutvue_type_template_id_396045b6_scoped_true_staticRenderFns,
+var adminLayout_component = Object(componentNormalizer["a" /* default */])(
+  layouts_adminLayoutvue_type_script_lang_js_,
+  adminLayoutvue_type_template_id_85989576_scoped_true_render,
+  adminLayoutvue_type_template_id_85989576_scoped_true_staticRenderFns,
   false,
-  AdminLayout_injectStyles,
-  "396045b6",
-  "78b5af94"
+  adminLayout_injectStyles,
+  "85989576",
+  "0a9ba120"
   
 )
 
-/* harmony default export */ var AdminLayout = (AdminLayout_component.exports);
+/* harmony default export */ var adminLayout = (adminLayout_component.exports);
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VSpeedDial/VSpeedDial.sass
 var VSpeedDial = __webpack_require__(159);
 
@@ -14749,7 +14749,7 @@ var defaultToolbar_component = Object(componentNormalizer["a" /* default */])(
   false,
   defaultToolbar_injectStyles,
   "64cf6e2c",
-  "57ae29a4"
+  "824058cc"
   
 )
 
@@ -14925,7 +14925,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
   false,
   default_injectStyles,
   "145487ff",
-  "559a7fc8"
+  "861e00f0"
   
 )
 
@@ -15027,7 +15027,7 @@ var ScrolltopComponent_component = Object(componentNormalizer["a" /* default */]
   false,
   ScrolltopComponent_injectStyles,
   "521eaf48",
-  "73d60849"
+  "426a4a96"
   
 )
 
@@ -15191,12 +15191,12 @@ var RTtrackLayout_component = Object(componentNormalizer["a" /* default */])(
   false,
   RTtrackLayout_injectStyles,
   "02cc7c9c",
-  "3285ff6e"
+  "650c044c"
   
 )
 
 /* harmony default export */ var RTtrackLayout = (RTtrackLayout_component.exports);
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./layouts/SignupLayout.vue?vue&type=template&id=81cb57e0&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./layouts/signupLayout.vue?vue&type=template&id=e148e7a0&scoped=true&
 
 
 
@@ -15209,14 +15209,14 @@ var RTtrackLayout_component = Object(componentNormalizer["a" /* default */])(
 
 
 
-var SignupLayoutvue_type_template_id_81cb57e0_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VApp_VApp,[_c(VToolbar["a" /* default */],{staticStyle:{"flex":"initial","width":"100%"},attrs:{"elevation":"0"}},[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(components_VToolbar["a" /* VToolbarItems */],[_c(VMenu["a" /* default */],{attrs:{"offset-y":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
+var signupLayoutvue_type_template_id_e148e7a0_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VApp_VApp,[_c(VToolbar["a" /* default */],{staticStyle:{"flex":"initial","width":"100%"},attrs:{"elevation":"0"}},[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(components_VToolbar["a" /* VToolbarItems */],[_c(VMenu["a" /* default */],{attrs:{"offset-y":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
 var on = ref.on;
 var attrs = ref.attrs;
 return [_c(VBtn["a" /* default */],_vm._g(_vm._b({attrs:{"tile":"","icon":""}},'v-btn',attrs,false),on),[_c(VIcon["a" /* default */],[_vm._v("mdi-translate")])],1)]}}])},[_vm._v(" "),_c(VList["a" /* default */],[_c(VListItemGroup["a" /* default */],{attrs:{"mandatory":""},model:{value:(_vm.language),callback:function ($$v) {_vm.language=$$v},expression:"language"}},[_c(VListItem["a" /* default */],{attrs:{"value":"한국어"}},[_c(components_VList["c" /* VListItemTitle */],{staticClass:"text-center",attrs:{"value":"한국어"}},[_vm._v(" 한국어 ")])],1),_vm._v(" "),_c(VListItem["a" /* default */],{attrs:{"value":"영어"}},[_c(components_VList["c" /* VListItemTitle */],{staticClass:"text-center",attrs:{"value":"영어"}},[_vm._v(" English ")])],1)],1)],1)],1)],1)],1),_vm._v(" "),_c('h1',{staticClass:"text-center"},[_vm._v("\n    "+_vm._s(_vm.language === "한국어" ? "회원 가입" : "SignUp")+"\n  ")]),_vm._v(" "),_c('div',{staticClass:"text-center"},[_c('nuxt')],1),_vm._v(" "),_c('div',{staticClass:"btn__back text-center"},[_c(VBtn["a" /* default */],{attrs:{"to":"/text/textmain","color":"primary"}},[_vm._v(_vm._s(_vm.language === "한국어" ? "돌아가기" : "Back"))])],1),_vm._v(" "),_c('snack-bar'),_vm._v(" "),_c('bottom-component')],1)}
-var SignupLayoutvue_type_template_id_81cb57e0_scoped_true_staticRenderFns = []
+var signupLayoutvue_type_template_id_e148e7a0_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./layouts/SignupLayout.vue?vue&type=template&id=81cb57e0&scoped=true&
+// CONCATENATED MODULE: ./layouts/signupLayout.vue?vue&type=template&id=e148e7a0&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VBreadcrumbs/VBreadcrumbs.sass
 var VBreadcrumbs = __webpack_require__(176);
@@ -15475,15 +15475,15 @@ var BottomComponent_component = Object(componentNormalizer["a" /* default */])(
   false,
   BottomComponent_injectStyles,
   "99f1c6e8",
-  "5ae0246e"
+  "71f36cfc"
   
 )
 
 /* harmony default export */ var BottomComponent = (BottomComponent_component.exports);
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/SignupLayout.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/signupLayout.vue?vue&type=script&lang=js&
 
 
-/* harmony default export */ var SignupLayoutvue_type_script_lang_js_ = ({
+/* harmony default export */ var signupLayoutvue_type_script_lang_js_ = ({
   name: 'SignupLayout',
   components: {
     SnackBar: SnackBar["a" /* default */],
@@ -15502,13 +15502,13 @@ var BottomComponent_component = Object(componentNormalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./layouts/SignupLayout.vue?vue&type=script&lang=js&
- /* harmony default export */ var layouts_SignupLayoutvue_type_script_lang_js_ = (SignupLayoutvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./layouts/SignupLayout.vue
+// CONCATENATED MODULE: ./layouts/signupLayout.vue?vue&type=script&lang=js&
+ /* harmony default export */ var layouts_signupLayoutvue_type_script_lang_js_ = (signupLayoutvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./layouts/signupLayout.vue
 
 
 
-function SignupLayout_injectStyles (context) {
+function signupLayout_injectStyles (context) {
   
   var style0 = __webpack_require__(189)
 if (style0.__inject__) style0.__inject__(context)
@@ -15517,18 +15517,18 @@ if (style0.__inject__) style0.__inject__(context)
 
 /* normalize component */
 
-var SignupLayout_component = Object(componentNormalizer["a" /* default */])(
-  layouts_SignupLayoutvue_type_script_lang_js_,
-  SignupLayoutvue_type_template_id_81cb57e0_scoped_true_render,
-  SignupLayoutvue_type_template_id_81cb57e0_scoped_true_staticRenderFns,
+var signupLayout_component = Object(componentNormalizer["a" /* default */])(
+  layouts_signupLayoutvue_type_script_lang_js_,
+  signupLayoutvue_type_template_id_e148e7a0_scoped_true_render,
+  signupLayoutvue_type_template_id_e148e7a0_scoped_true_staticRenderFns,
   false,
-  SignupLayout_injectStyles,
-  "81cb57e0",
-  "b55f8392"
+  signupLayout_injectStyles,
+  "e148e7a0",
+  "50287e2b"
   
 )
 
-/* harmony default export */ var SignupLayout = (SignupLayout_component.exports);
+/* harmony default export */ var signupLayout = (signupLayout_component.exports);
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./layouts/TestLayout.vue?vue&type=template&id=129b6206&scoped=true&
 
 
@@ -15594,7 +15594,7 @@ var TestLayout_component = Object(componentNormalizer["a" /* default */])(
   false,
   TestLayout_injectStyles,
   "129b6206",
-  "6550ec71"
+  "ccb134f6"
   
 )
 
@@ -15766,7 +15766,7 @@ var LoginForm_component = Object(componentNormalizer["a" /* default */])(
   false,
   LoginForm_injectStyles,
   "737feb62",
-  "edb3baae"
+  "01c2a6bd"
   
 )
 
@@ -15892,7 +15892,7 @@ var TextLayout_component = Object(componentNormalizer["a" /* default */])(
   false,
   TextLayout_injectStyles,
   "70d94a5c",
-  "e86db168"
+  "7fc0bf40"
   
 )
 
@@ -16068,7 +16068,7 @@ var VideoLayout_component = Object(componentNormalizer["a" /* default */])(
   false,
   VideoLayout_injectStyles,
   "b63afb12",
-  "548d39c0"
+  "a9f439a8"
   
 )
 
@@ -16088,10 +16088,10 @@ var VideoLayout_component = Object(componentNormalizer["a" /* default */])(
 
 
 const layouts = {
-  "_AdminLayout": sanitizeComponent(AdminLayout),
+  "_adminLayout": sanitizeComponent(adminLayout),
   "_default": sanitizeComponent(layouts_default),
   "_RTtrackLayout": sanitizeComponent(RTtrackLayout),
-  "_SignupLayout": sanitizeComponent(SignupLayout),
+  "_signupLayout": sanitizeComponent(signupLayout),
   "_TestLayout": sanitizeComponent(TestLayout),
   "_TextLayout": sanitizeComponent(TextLayout),
   "_VideoLayout": sanitizeComponent(VideoLayout)
