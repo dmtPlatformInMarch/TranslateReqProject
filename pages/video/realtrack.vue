@@ -37,14 +37,14 @@
                 <!-- <v-spacer /> -->
                 
                 <client-only>
-                    <v-select class="lang__select" v-model="req_lang" :items="languages" :disabled="!this.readyToTrack" />
+                    <v-select class="lang__select" v-model="req_lang" :items="languages"/>
                 </client-only>
                 <v-spacer />
                 <h3> mode : </h3>
                 <v-select class = "button__select__mode" v-model="mode" :items="modes" filled dense hide-details hide-spin-buttons :disabled="readToVideo" />
                 <v-spacer />
                 <client-only>
-                    <v-select class="lang__select" v-model="grant_lang" :items="languages" :disabled="!this.readyToTrack" />
+                    <v-select class="lang__select" v-model="grant_lang" :items="languages"/>
                 </client-only>
                 <v-spacer />
                 <div class="video__translator__btngroup">

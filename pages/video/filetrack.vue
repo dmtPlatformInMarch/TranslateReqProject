@@ -31,7 +31,7 @@
         </div>
         <div class="video__translator">
             <div class="video__translator__title">
-                <h1>자막</h1>
+                <h1>자막</h1>   
                 <v-spacer />
                 <client-only>
                     <v-select class="lang__select" v-model="req_lang" :items="languages" />
