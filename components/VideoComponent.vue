@@ -46,7 +46,6 @@ export default {
             } else if (lang === "일본어") {
                 srcCode = "ja";
             }
-            console.log("트랙 길이 : ", this.video.textTracks.length);
             if (this.video.textTracks.length === 0) {
                 this.videoTrack = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(this.$store.state.videoes.fileName)}.vtt`
                 let track = document.createElement("track");

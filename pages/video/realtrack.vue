@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div>
-                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="applyTrack">자막보기</v-btn>
+                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="(!this.readToVideo || this.mode ==='srt')" @click="applyTrack">자막보기</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
             </div>
@@ -359,13 +359,23 @@ export default {
                     ext: "vtt"
                 });
                 this.$nuxt.$loading.finish();
-                this.$nuxt.$emit('transTracks', this.grant_lang);
+                if (this.mode === 'vtt') this.$nuxt.$emit('transTracks', this.grant_lang);
             } catch (err) {
                 console.log(err);
             }
         },
-        applyTrack() {
-            this.$nuxt.$emit('newTracks', this.req_lang);
+        async applyTrack() {
+            try {
+                this.$nuxt.$loading.start();
+                await this.$store.dispatch('videoes/textToTrack', {
+                    track: this.track,
+                    ext: "vtt"
+                });
+                this.$nuxt.$loading.finish();
+                this.$nuxt.$emit('newTracks', this.req_lang);
+            } catch (err) {
+                console.log(err);
+            }
         },
         onEmptyFile() {
             this.readToVideo = false;
