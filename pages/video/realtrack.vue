@@ -61,6 +61,7 @@
                 </div>
             </div>
             <div>
+                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="applyTrack">자막보기</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
             </div>
@@ -362,6 +363,9 @@ export default {
             } catch (err) {
                 console.log(err);
             }
+        },
+        applyTrack() {
+            this.$nuxt.$emit('newTracks', this.req_lang);
         },
         onEmptyFile() {
             this.readToVideo = false;
