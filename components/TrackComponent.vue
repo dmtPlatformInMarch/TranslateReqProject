@@ -92,6 +92,14 @@
 </style>
 
 <script lang="js">
+/*
+*   [props]
+*   idx     :   자막의 아이디, 순서, 인덱스
+*   start   :   자막의 시작 시간
+*   end     :   자막의 종료 시간
+*   text    :   자막
+*   trans   :   번역된 자막
+*/
 export default {
     props: {
         idx: {
@@ -119,7 +127,7 @@ export default {
         return {
             editTime: true,
             timeRule: [
-                value => (/\d\d:\d\d:\d\d[,.]\d\d\d --> \d\d:\d\d:\d\d[,.]\d\d\d/).test(value) || '형식이 맞지 않습니다.'
+                value => (/(((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d) --> (((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d)/).test(value) || '형식이 맞지 않습니다.'
             ],
         }
     },

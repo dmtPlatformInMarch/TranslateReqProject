@@ -38,8 +38,6 @@
   display: flex;
   align-items: center;
   height: 10% !important;
-  opacity: 0.7;
-  
 }
 .main__toolbar >>> .v-toolbar__content {
   width: 100%;

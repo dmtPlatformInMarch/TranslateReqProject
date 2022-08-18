@@ -1,0 +1,36 @@
+<template>
+    <v-app>
+        <client-only>
+            <default-toolbar />
+        </client-only>
+        <div class="main">
+            <nuxt />
+        </div>
+    </v-app>
+</template>
+
+<style scoped>
+.main {
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    top: 5%;
+}
+</style>
+
+<script>
+import defaultToolbar from "../components/defaultToolbar.vue";
+import SnackBar from "~/components/SnackBar";
+
+export default {
+    components: {
+        defaultToolbar,
+        SnackBar
+    },
+    data() {
+        return {
+
+        }
+    },
+}
+</script>

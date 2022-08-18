@@ -105,10 +105,21 @@ export const actions = {
     }, 500),
     async postVideo({ state, commit }, payload) {
         try {
+            this.$manage.startLoading();
+            this.$store.commit('manager/setUploadLoading', percentageCompleted);
             const recognition = await this.$axios.post('/video/recognition', {
                 "fileName": state.fileName,
                 "fileURL": state.fileURL,
-                "ext": payload
+                "ext": payload.mode
+            },{
+                onUploadProgress: (progressEvent) => {
+                    let percentage = (progressEvent.loaded * 100) / progressEvent.total;
+                    console.log(progressEvent);
+                    console.log(progressEvent.loaded + " / " + progressEvent.total);
+                    let percentageCompleted = Math.round(percentage);
+                    console.log(percentageCompleted);
+                    
+                },
             });
             if (recognition.status === 200) {
                 //console.log(recognition.data);

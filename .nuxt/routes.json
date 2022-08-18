@@ -105,6 +105,13 @@
     "_name": "_05428213"
   },
   {
+    "name": "video-service",
+    "path": "/video/service",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\service.vue",
+    "chunkName": "pages/video/service",
+    "_name": "_17c2f44a"
+  },
+  {
     "name": "voice-info",
     "path": "/voice/info",
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\voice\\\\info.vue",

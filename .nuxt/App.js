@@ -10,12 +10,13 @@ import '..\\assets\\scss\\common.scss'
 import _98f1ccfa from '..\\layouts\\AdminLayout.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
 import _f8703ec6 from '..\\layouts\\RTtrackLayout.vue'
+import _013155e9 from '..\\layouts\\ServiceLayout.vue'
 import _7e53c578 from '..\\layouts\\SignupLayout.vue'
 import _14693a1c from '..\\layouts\\TestLayout.vue'
 import _059d7966 from '..\\layouts\\TextLayout.vue'
 import _0eb299af from '..\\layouts\\VideoLayout.vue'
 
-const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_RTtrackLayout": sanitizeComponent(_f8703ec6),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966),"_VideoLayout": sanitizeComponent(_0eb299af) }
+const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_RTtrackLayout": sanitizeComponent(_f8703ec6),"_ServiceLayout": sanitizeComponent(_013155e9),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966),"_VideoLayout": sanitizeComponent(_0eb299af) }
 
 export default {
   render (h, props) {

@@ -215,9 +215,11 @@ export default {
         this.$nuxt.$on('onTrackVideoEvent', async (filename) => {
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
             console.time("Recognition Time");
-            this.$nuxt.$loading.start();
-            const trackResponse = await this.$store.dispatch('videoes/postVideo', this.mode);
-            this.$nuxt.$loading.finish();
+            // this.$nuxt.$loading.start();
+            const trackResponse = await this.$store.dispatch('videoes/postVideo', {
+                mode: this.mode
+            });
+            // this.$nuxt.$loading.finish();
             console.timeEnd("Recognition Time");
             this.track = trackResponse.track;
             this.trackArray = trackResponse.segment;
@@ -295,6 +297,7 @@ export default {
                         onUploadProgress: (progressEvent) => {
                             let percentage = (progressEvent.loaded * 100) / progressEvent.total;
                             let percentageCompleted = Math.round(percentage);
+                            console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
                             this.$manage.startLoading();
                             this.$store.commit('manager/setUploadLoading', percentageCompleted);
                         }
@@ -306,7 +309,9 @@ export default {
                             async () => {
                                 console.time("Recognition Time");
                                 this.$nuxt.$loading.start();
-                                const trackResponse = await this.$store.dispatch('videoes/postVideo', this.mode);
+                                const trackResponse = await this.$store.dispatch('videoes/postVideo', {
+                                    mode: this.mode
+                                });
                                 this.$nuxt.$loading.finish();
                                 console.timeEnd("Recognition Time");
                                 this.track = trackResponse.track;
