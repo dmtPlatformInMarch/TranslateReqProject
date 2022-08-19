@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div>
-                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="(!this.readToVideo || this.mode ==='srt')" @click="applyTrack">자막보기</v-btn>
+                <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="(!this.readToVideo || this.mode ==='srt')" @click="applyTrack">원본자막</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="downloadSRT">다운로드</v-btn>
                 <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="translation">번역하기</v-btn>
             </div>
@@ -215,11 +215,11 @@ export default {
         this.$nuxt.$on('onTrackVideoEvent', async (filename) => {
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
             console.time("Recognition Time");
-            // this.$nuxt.$loading.start();
+            this.$nuxt.$loading.start();
             const trackResponse = await this.$store.dispatch('videoes/postVideo', {
                 mode: this.mode
             });
-            // this.$nuxt.$loading.finish();
+            this.$nuxt.$loading.finish();
             console.timeEnd("Recognition Time");
             this.track = trackResponse.track;
             this.trackArray = trackResponse.segment;
@@ -323,7 +323,7 @@ export default {
                             }
                         );
                     } else {
-                        this.$menage.showMessage
+                        this.$menage.showMessage({ message: "영상 업로드에 실패했습니다.\n관리자에게 문의하세요.", color: "error" })
                         // onError!!
                         console.log("Upload Error");
                         return;

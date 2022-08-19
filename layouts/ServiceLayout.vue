@@ -6,6 +6,7 @@
         <div class="main">
             <nuxt />
         </div>
+        <scroll-top />
     </v-app>
 </template>
 
@@ -20,11 +21,13 @@
 
 <script>
 import defaultToolbar from "../components/defaultToolbar.vue";
+import ScrollTop from "../components/ScrolltopComponent.vue";
 import SnackBar from "~/components/SnackBar";
 
 export default {
     components: {
         defaultToolbar,
+        ScrollTop,
         SnackBar
     },
     data() {

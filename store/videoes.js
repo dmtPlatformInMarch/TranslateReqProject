@@ -68,8 +68,10 @@ export const actions = {
     },
     async setURL({ state, commit }) {
         try {
-            await commit('setFileExt', state.file.name.substring(state.file.name.lastIndexOf('.') + 1));
-            await commit('setFileName', state.file.name.substring(0, state.file.name.lastIndexOf('.')));
+            if (state.fileExt === '' || state.fileName === '') {
+                await commit('setFileExt', state.file.name.substring(state.file.name.lastIndexOf('.') + 1));
+                await commit('setFileName', state.file.name.substring(0, state.file.name.lastIndexOf('.')));
+            }
             const url = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(state.file.name)}`;
             const track = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(state.fileName)}.vtt`;
             await commit('setFileURL', url);
@@ -105,30 +107,19 @@ export const actions = {
     }, 500),
     async postVideo({ state, commit }, payload) {
         try {
-            this.$manage.startLoading();
-            this.$store.commit('manager/setUploadLoading', percentageCompleted);
             const recognition = await this.$axios.post('/video/recognition', {
                 "fileName": state.fileName,
                 "fileURL": state.fileURL,
-                "ext": payload.mode
-            },{
-                onUploadProgress: (progressEvent) => {
-                    let percentage = (progressEvent.loaded * 100) / progressEvent.total;
-                    console.log(progressEvent);
-                    console.log(progressEvent.loaded + " / " + progressEvent.total);
-                    let percentageCompleted = Math.round(percentage);
-                    console.log(percentageCompleted);
-                    
-                },
+                "ext": payload ? payload.mode : 'vtt'
             });
+
             if (recognition.status === 200) {
-                //console.log(recognition.data);
                 return recognition.data;
             } else {
                 console.log("비디오 인식 실패");
             }
         } catch (err) {
-
+            console.log(err);
         }
     },
     async textToTrack({ state, commit }, payload) {

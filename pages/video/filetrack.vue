@@ -1,8 +1,5 @@
 <template>
     <div ref="videobox" class="video__box">
-        <div>
-            <v-file-input ref="fileupload" label="업로드 영상" @change="onChange($event)" />
-        </div>
         <div class="video__player">
             <v-row class="video__player__grid" no-gutters>
                 <v-col cols="8" class="video__player__box">
@@ -261,53 +258,6 @@ export default {
         timeTransSRT(time) {
             const srtTime = time.replace('.', ',');
             return srtTime;
-        },
-        async onChange(e) {
-            const fileFormData = new FormData();
-            if (e != null) {
-                try {
-                    const ext = e.name.substring(e.name.lastIndexOf('.') + 1);
-                    const name = e.name.substring(0, e.name.lastIndexOf('.'));
-                    this.$store.commit('videoes/setFileName', name);
-                    fileFormData.append('fileKey', e);
-                    this.$nuxt.$loading.start();
-                    const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
-                    this.$nuxt.$loading.finish();
-
-                    const response = await axios({
-                        method: 'put',
-                        url: preSignedUrl,
-                        data: e,
-                        headers: {
-                            'Content-Type': this.extToContentType(ext),
-                        },
-                        onUploadProgress: (progressEvent) => {
-                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
-                            let percentageCompleted = Math.round(percentage);
-                            this.$manage.startLoading();
-                            this.$store.commit('manager/setUploadLoading', percentageCompleted);
-                        }
-                    });
-                    
-                    if (response.status === 200) {
-                        this.$store.dispatch('videoes/setURL').then(
-                            () => { 
-                                this.readToVideo = true;
-                                this.$store.dispatch('videoes/getFiles');
-                            }
-                        );
-                        console.log("Upload Success");
-                    } else {
-                        // onError!!
-                        console.log("Upload Error");
-                        return;
-                    }
-                } catch (err) {
-                    console.log(err);
-                }
-            } else {
-                console.log("e is null");
-            }
         },
         async getTrack() {
             if (this.videoTrack != []) this.videoTrack = [];
