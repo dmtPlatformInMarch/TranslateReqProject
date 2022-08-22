@@ -198,7 +198,7 @@
     justify-content: center;
 }
 .arrow {
-    animation: ;
+    
 }
 .arrow:nth-child(1) {
     color: red;
