@@ -310,13 +310,13 @@ export default {
                     if (response.status === 200) {
                         this.$store.dispatch('videoes/setURL').then(
                             async () => {
-                                console.time("Recognition Time");
+                                //console.time("Recognition Time");
                                 this.$nuxt.$loading.start();
                                 const trackResponse = await this.$store.dispatch('videoes/postVideo', {
                                     mode: this.mode
                                 });
                                 this.$nuxt.$loading.finish();
-                                console.timeEnd("Recognition Time");
+                                //console.timeEnd("Recognition Time");
                                 this.track = trackResponse.track;
                                 this.trackArray = trackResponse.segment;
                                 this.timeLine = trackResponse.timeline;
