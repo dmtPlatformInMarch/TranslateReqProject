@@ -14,6 +14,10 @@ export const state = () => ({
         text: ''
     },
     translateText: '',
+
+
+    viewLoadingBar : true,
+    trackLength : 0,
 });
 
 export const mutations = {
@@ -40,6 +44,13 @@ export const mutations = {
     },
     setTranslate(state, payload) {
         state.translateText = payload;
+    },
+    openLoadingBar(state,payload){
+        state.viewLoadingBar = false;
+        state.trackLength = payload;
+    },
+    closeLoadingBar(state,payload){
+        state.viewLoadingBar = true;
     }
 }
 

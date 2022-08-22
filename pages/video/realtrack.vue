@@ -72,6 +72,7 @@
         </div>
         <snack-bar />
         <loading-linear />
+        <custom-loading/>
     </div>
 </template>
 
@@ -183,6 +184,7 @@
 import VideoComponent from '../../components/VideoComponent.vue';
 import SnackBar from '../../components/SnackBar.vue';
 import LoadingLinear from '../../components/loadingLinear.vue'
+import CustomLoading from '../../components/customloading.vue'
 import axios from 'axios';
 
 
@@ -192,7 +194,8 @@ export default {
     components: {
         VideoComponent,
         SnackBar,
-        LoadingLinear
+        LoadingLinear,
+        CustomLoading
     },
     data() {
         return {
@@ -214,13 +217,13 @@ export default {
     created() {
         this.$nuxt.$on('onTrackVideoEvent', async (filename) => {
             this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
-            console.time("Recognition Time");
+            //console.time("Recognition Time");
             this.$nuxt.$loading.start();
             const trackResponse = await this.$store.dispatch('videoes/postVideo', {
                 mode: this.mode
             });
             this.$nuxt.$loading.finish();
-            console.timeEnd("Recognition Time");
+            // console.timeEnd("Recognition Time");
             this.track = trackResponse.track;
             this.trackArray = trackResponse.segment;
             this.timeLine = trackResponse.timeline;
@@ -350,7 +353,8 @@ export default {
         },
         async translation() {
             try {
-                this.$nuxt.$loading.start();
+
+                this.$switch.openLoadingBar(this.track.length);
                 const transResponse = await this.$store.dispatch('videoes/textToTrans', {
                     from: this.req_code,
                     to: this.grant_code,
@@ -363,7 +367,8 @@ export default {
                     track: this.transTrack,
                     ext: "vtt"
                 });
-                this.$nuxt.$loading.finish();
+
+                this.$switch.closeLoadingBar();
                 if (this.mode === 'vtt') this.$nuxt.$emit('transTracks', this.grant_lang);
             } catch (err) {
                 console.log(err);
