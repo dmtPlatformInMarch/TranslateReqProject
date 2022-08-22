@@ -171,7 +171,7 @@ function VGrid(name) {
 
 /***/ }),
 
-/***/ 402:
+/***/ 406:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -194,10 +194,10 @@ var VContainer = __webpack_require__(246);
 var VDialog = __webpack_require__(235);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(72);
+var VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VList.js
-var VList = __webpack_require__(71);
+var VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
 var VListItem = __webpack_require__(45);
@@ -300,7 +300,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "33cdd05c",
-  "716a0fe8"
+  "08bd1dc0"
   
 )
 

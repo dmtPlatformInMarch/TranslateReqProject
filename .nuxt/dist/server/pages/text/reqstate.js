@@ -495,10 +495,10 @@ var VExpansionPanelContent = __webpack_require__(309);
 var VExpansionPanelHeader = __webpack_require__(308);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(72);
+var VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VList.js
-var VList = __webpack_require__(71);
+var VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
 var VListItem = __webpack_require__(45);
@@ -853,7 +853,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "fa0a16ec",
-  "cb969e00"
+  "f628cd28"
   
 )
 
@@ -1228,7 +1228,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__[/* default *
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(345);
+var content = __webpack_require__(346);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1246,7 +1246,7 @@ module.exports.__inject__ = function (context) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(347);
+var content = __webpack_require__(348);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1258,7 +1258,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 344:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1270,7 +1270,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 345:
+/***/ 346:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1284,7 +1284,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 346:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1296,7 +1296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 347:
+/***/ 348:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1310,7 +1310,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 393:
+/***/ 396:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1333,13 +1333,13 @@ var VContainer = __webpack_require__(246);
 var VExpansionPanels = __webpack_require__(306);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VList.js
-var VList = __webpack_require__(71);
+var VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
 var VListItem = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemGroup.js
-var VListItemGroup = __webpack_require__(74);
+var VListItemGroup = __webpack_require__(75);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/index.js + 2 modules
 var components_VList = __webpack_require__(2);
@@ -1376,7 +1376,7 @@ var TransDashBoard = __webpack_require__(297);
 var VChip = __webpack_require__(241);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(72);
+var VIcon = __webpack_require__(73);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/TransHistoryBoard.vue?vue&type=template&id=663948c6&scoped=true&
 
@@ -1499,7 +1499,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(344)
+  var style0 = __webpack_require__(345)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -1513,7 +1513,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "663948c6",
-  "6ea16454"
+  "783f042c"
   
 )
 
@@ -1577,7 +1577,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 function reqstate_injectStyles (context) {
   
-  var style0 = __webpack_require__(346)
+  var style0 = __webpack_require__(347)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -1591,7 +1591,7 @@ var reqstate_component = Object(componentNormalizer["a" /* default */])(
   false,
   reqstate_injectStyles,
   "a076615e",
-  "539a7d98"
+  "abd9b1f8"
   
 )
 

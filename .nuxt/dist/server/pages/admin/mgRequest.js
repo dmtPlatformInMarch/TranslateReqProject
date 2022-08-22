@@ -495,10 +495,10 @@ var VExpansionPanelContent = __webpack_require__(309);
 var VExpansionPanelHeader = __webpack_require__(308);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(72);
+var VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VList.js
-var VList = __webpack_require__(71);
+var VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
 var VListItem = __webpack_require__(45);
@@ -853,7 +853,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "fa0a16ec",
-  "cb969e00"
+  "f628cd28"
   
 )
 
@@ -1228,7 +1228,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__[/* default *
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(341);
+var content = __webpack_require__(342);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1240,7 +1240,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 340:
+/***/ 341:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1252,7 +1252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 341:
+/***/ 342:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1266,7 +1266,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 401:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1363,7 +1363,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(340)
+  var style0 = __webpack_require__(341)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -1377,7 +1377,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "3e69f442",
-  "5590d1de"
+  "1ef65f6c"
   
 )
 

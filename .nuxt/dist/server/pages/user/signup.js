@@ -177,7 +177,7 @@ function VGrid(name) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(374);
+var content = __webpack_require__(375);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -189,13 +189,13 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 369:
+/***/ 370:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(370);
+var content = __webpack_require__(371);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -203,7 +203,7 @@ __webpack_require__(6).default("12a190a6", content, true)
 
 /***/ }),
 
-/***/ 370:
+/***/ 371:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -217,13 +217,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 371:
+/***/ 372:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(372);
+var content = __webpack_require__(373);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -231,7 +231,7 @@ __webpack_require__(6).default("2e2bc7da", content, true)
 
 /***/ }),
 
-/***/ 372:
+/***/ 373:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -245,7 +245,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 373:
+/***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -257,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 374:
+/***/ 375:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -271,7 +271,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 395:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -288,10 +288,10 @@ var VCard = __webpack_require__(76);
 var components_VCard = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCheckbox/VCheckbox.sass
-var VCheckbox = __webpack_require__(369);
+var VCheckbox = __webpack_require__(370);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/styles/components/_selection-controls.sass
-var _selection_controls = __webpack_require__(371);
+var _selection_controls = __webpack_require__(372);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(19);
@@ -881,7 +881,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(373)
+  var style0 = __webpack_require__(374)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -895,7 +895,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "00ec9f43",
-  "ed59a142"
+  "7a7f43cb"
   
 )
 

@@ -518,7 +518,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(343);
+var content = __webpack_require__(344);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -530,7 +530,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 323:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -696,7 +696,7 @@ const baseMixins = Object(mixins["a" /* default */])(translatable);
 
 /***/ }),
 
-/***/ 342:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -708,7 +708,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 343:
+/***/ 344:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -722,7 +722,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 403:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -742,7 +742,7 @@ var VContainer = __webpack_require__(246);
 var VDivider = __webpack_require__(221);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VParallax/VParallax.js + 1 modules
-var VParallax = __webpack_require__(323);
+var VParallax = __webpack_require__(324);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
 var VRow = __webpack_require__(266);
@@ -877,7 +877,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(342)
+  var style0 = __webpack_require__(343)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -891,7 +891,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "411e82b0",
-  "659cc6da"
+  "96204802"
   
 )
 

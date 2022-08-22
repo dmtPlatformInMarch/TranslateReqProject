@@ -12,6 +12,14 @@ export default ({ app, store }, inject) => {
         },
         endLoading() {
             store.commit('manager/endLoading');
+        },
+    })
+    inject('switch',{
+        openLoadingBar(data){
+            store.commit('manager/openLoadingBar',data);
+        },
+        closeLoadingBar(){
+            store.commit('manager/closeLoadingBar');
         }
     })
 }

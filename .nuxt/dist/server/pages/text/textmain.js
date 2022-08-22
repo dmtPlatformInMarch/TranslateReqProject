@@ -787,7 +787,7 @@ var external_vue_ = __webpack_require__(1);
 var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(72);
+var VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
 var colorable = __webpack_require__(9);
@@ -900,13 +900,13 @@ var VSubheader = __webpack_require__(247);
 var VListItem = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemAction.js
-var VListItemAction = __webpack_require__(73);
+var VListItemAction = __webpack_require__(74);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/index.js + 2 modules
 var VList = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VList.js
-var VList_VList = __webpack_require__(71);
+var VList_VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(3);
@@ -2327,7 +2327,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(368);
+var content = __webpack_require__(369);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2339,7 +2339,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 348:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2396,13 +2396,13 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 363:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(364);
+var content = __webpack_require__(365);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2410,7 +2410,7 @@ __webpack_require__(6).default("2d62e390", content, true)
 
 /***/ }),
 
-/***/ 364:
+/***/ 365:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2424,13 +2424,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 365:
+/***/ 366:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(366);
+var content = __webpack_require__(367);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -2438,7 +2438,7 @@ __webpack_require__(6).default("0d135400", content, true)
 
 /***/ }),
 
-/***/ 366:
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2452,7 +2452,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 367:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2464,7 +2464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 368:
+/***/ 369:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2478,7 +2478,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 394:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2489,13 +2489,13 @@ __webpack_require__.r(__webpack_exports__);
 var VBtn = __webpack_require__(224);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.js
-var VBtnToggle = __webpack_require__(348);
+var VBtnToggle = __webpack_require__(349);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCarousel/VCarousel.sass
-var VCarousel = __webpack_require__(363);
+var VCarousel = __webpack_require__(364);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VWindow/VWindow.sass
-var VWindow = __webpack_require__(365);
+var VWindow = __webpack_require__(366);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/touch/index.js
 var touch = __webpack_require__(85);
@@ -3228,7 +3228,7 @@ var VContainer = __webpack_require__(246);
 var VFileInput = __webpack_require__(284);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon_VIcon = __webpack_require__(72);
+var VIcon_VIcon = __webpack_require__(73);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VGrid/_grid.sass
 var _grid = __webpack_require__(109);
@@ -3472,7 +3472,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(367)
+  var style0 = __webpack_require__(368)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -3486,7 +3486,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "2dfc2cb4",
-  "8854cc6a"
+  "124e4337"
   
 )
 
