@@ -9,12 +9,124 @@
             </div>
             <!--영상 미선택 시-->
             <div class="video__player" v-else>
-                <v-btn rounded @click="uploadVideo">
-                    <v-icon>
-                        mdi-plus
-                    </v-icon>
-                    새로만들기
-                </v-btn>
+                <v-dialog v-model="dialog" width="60vw">
+                    <template v-slot:activator="{ attrs }">
+                        <v-btn rounded v-bind="attrs" @click="uploadVideo">
+                            <v-icon>
+                                mdi-plus
+                            </v-icon>
+                            새로 만들기
+                        </v-btn>
+                    </template>
+
+                    <v-card>
+                        <div class="dialog__box">
+                            <div class="dialog__box__setting">
+                                <div class="setting__select__box">
+                                    <v-img class="img" src="https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo.png" />
+                                </div>
+                                <div class="setting__select__box" v-if="beforeSelect">
+                                    <div class="select__box">
+                                        <div >
+                                            <v-toolbar class="header__class" elevation="0">
+                                                <v-toolbar-title class="font-weight-bold">
+                                                    영상의 원본 언어
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <div class="overflow-y-auto list__wrapper">
+                                                <v-list>
+                                                    <v-list-item-group v-model="req" mandatory>
+                                                        <v-list-item v-for="(item, index) in languages" :key="index" active-class="list__select">
+                                                            <v-list-item-title>
+                                                                {{ item }}
+                                                            </v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list-item-group>
+                                                </v-list>
+                                            </div>
+                                        </div>
+                                        <v-icon>
+                                            mdi-arrow-right
+                                        </v-icon>
+                                        <div>
+                                            <v-toolbar class="header__class" elevation="0">
+                                                <v-toolbar-title class="font-weight-bold">
+                                                    번역하고 싶은 언어
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <div class="overflow-y-auto list__wrapper">
+                                                <v-list>
+                                                    <v-list-item-group v-model="grant" mandatory>
+                                                        <v-list-item v-for="(item, index) in languages" :key="index" active-class="list__select">
+                                                            <v-list-item-title>
+                                                                {{ item }}
+                                                            </v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list-item-group>
+                                                </v-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="action__box">
+                                        <v-btn block rounded color="#013183" dark @click="onTaskStart">
+                                            번역하기
+                                        </v-btn>
+                                    </div>
+                                </div>
+                                <div class="dialog__box__process" v-else>
+                                    <div class="process__stepper">
+                                        <div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="primary" :disabled="step != 1" @click="step = 2">
+                                                파일 전송
+                                            </v-btn>
+                                        </div>
+                                        <transition v-if="step === 1">
+                                            <div class="arrow__wrapper" >
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                            </div>
+                                        </transition>
+                                        <div v-else class="arrow__wrapper">
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                        </div>
+                                        <div div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="warning" :disabled="step != 2" @click="step = 3">
+                                                영상 인식
+                                            </v-btn>
+                                        </div>
+                                        <transition v-if="step === 2">
+                                            <div class="arrow__wrapper">
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                            </div>
+                                        </transition>
+                                        <div v-else class="arrow__wrapper">
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                        </div>
+                                        <div div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="success" :disabled="step != 3" @click="step = 1">
+                                                자막 번역
+                                            </v-btn>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dialog__box__loading">
+                                <v-progress-linear v-model="loading" color="#013183" height="25px">
+                                    <template v-slot:default="{ value }">
+                                        <strong>{{ Math.ceil(value) }}%</strong>
+                                    </template>
+                                </v-progress-linear>
+                            </div>
+                        </div>
+                    </v-card>
+                </v-dialog>
             </div>
             <div class="video__action">
                 <v-btn class="video__action__btn" rounded color="#013183" dark @click="newVideo">
@@ -174,7 +286,120 @@
     align-items: center;
     justify-content: center;
 }
+.dialog__card {
+    width: 75vw;
+}
+.dialog__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 50vh;
+    padding: 25px;
+}
+.dialog__box__setting {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
 
+.setting__select__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+.dialog__box__process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.dialog__box__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+.select__box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 90%;
+    padding: 25px;
+}
+.action__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 10%;
+    padding: 25px;
+}
+.list__wrapper {
+    width: 100%;
+    height: 80%;
+}
+.header__class {
+    border-bottom: 3px solid green;
+}
+.list__select {
+  border: solid #013183 !important;
+  color: #013183 !important;
+}
+.process__stepper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.stepper {
+    width: 50%;
+    padding: 5%;
+}
+.stepper__btn {
+    border: 3px solid #013183;
+}
+.arrow__wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.arrow {
+    color: #2172FF;
+    animation: arrowAnimation 1.5s infinite ease;
+    animation-fill-mode: both;
+}
+.arrow:nth-child(1) {
+    animation-delay: 0.75s
+}
+.arrow:nth-child(2) {
+    animation-delay: 1s;
+}
+.arrow:nth-child(3) {
+    animation-delay: 1.25s;
+}
+
+@keyframes arrowAnimation {
+    0% {
+        color: white;
+    }
+    100% {
+        color: #2172FF;
+    }
+}
 </style>
 
 <script lang="js">
@@ -210,12 +435,19 @@ export default {
             readyToTrack: false,
             dialog: false,
             // 데이터 변수
+            file: {},
             fullTrack: [],
             timeLine: [],
             originalTrack: [],
             transTrack: [],
             track: "",
             transtrack: "",
+            loading: 0,
+            dialog: false,
+            beforeSelect: true,
+            req: 0,
+            grant: 2,
+            step: 1,
         }
     },
     mounted() {
@@ -223,18 +455,20 @@ export default {
         this.virtualHeight = this.$refs.trackBox.offsetHeight;
     },
     computed: {
-        templist() {
-            let arr = [];
-            for (let i = 0; i < 1000; i++) {
-                arr[i] = i + 1;
-            }
-            return arr;
-        },
         videoList() {
             return this.$store.state.videoes.files;
         },
         videoURL() {
             return this.$store.state.videoes.fileURL;
+        },
+        languages() {
+            return this.$LANGUAGES_KO;
+        },
+        req_lang() {
+            return this.languages[this.req];
+        },
+        grant_lang() {
+            return this.languages[this.grant]
         }
     },
     methods: {
@@ -255,6 +489,9 @@ export default {
                     return 'application/oct-stream';
             }
         },
+        loadingLogic() {
+            
+        },
         sliceName(str) {
             return str.substring(str.lastIndexOf('/') + 1);
         },
@@ -266,74 +503,77 @@ export default {
             this.fullTrack = result;
         },
         async onChange(event) {
-            this.originalTrack = "";
-            this.transTrack = "";
-            if (event != null && event.target.files.length != 0) {    
-                // 파일 전처리
-                const file = event.target.files[0];
-                const filename = file.name;
-                const fileFormData = new FormData();
-                const name = filename.substring(0, filename.lastIndexOf('.'));
-                const ext = filename.substring(filename.lastIndexOf('.') + 1);
-                this.$store.commit('videoes/setFileName', name);
-                this.$store.commit('videoes/setFileExt', ext);
-                fileFormData.append('fileKey', file);
-
-                try {
-                    // Signed URL 발급
-                    this.$nuxt.$loading.start();
-                    const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
-                    this.$nuxt.$loading.finish();
-
-                    // Signed URL을 통한 업로드
-                    this.$nuxt.$loading.start();
-                    const response = await axios.put(preSignedUrl, file, {
-                        headers: {
-                            'Content-Type': this.extToContentType(ext),
-                        },
-                        onUploadProgress: (progressEvent) => {
-                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
-                            let percentageCompleted = Math.round(percentage);
-                            console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
-                        }
-                    });
-                    this.$nuxt.$loading.finish();
-
-                    this.readToVideo = true;
-
-                    // 영상 인식
-                    if (response.status === 200) {
-                        this.$store.dispatch('videoes/setURL')
-                        .then(
-                            async () => {
-                                console.time("Recognition Time");
-                                this.$nuxt.$loading.start();
-                                const trackResponse = await this.$store.dispatch('videoes/postVideo');
-                                this.$nuxt.$loading.finish();
-                                console.timeEnd("Recognition Time");
-                                this.track = trackResponse.track;
-                                this.originalTrack = trackResponse.segment;
-                                this.timeLine = trackResponse.timeline;
-                                console.log("Merge");
-                                this.trackMerge();
-                                this.$store.dispatch('videoes/getFiles');
-                                this.readyToTrack = true;
-                            }
-                        );
-                    } else {
-                        this.$menage.showMessage({ 
-                            message: "영상 업로드에 실패했습니다.\n관리자에게 문의하세요.", 
-                            color: "error" 
-                        });
-                    }
-                } catch(err) {
-                    this.$nuxt.$loading.finish();
-                    console.log(err);
-                }
+            if (event != null && event.target.files.length != 0) {
+                await this.file = event.target.files[0];
+                this.dialog = true;
             } else {
                 console.log("e is null");
             }
         },
+        async onTaskStart() {
+            this.originalTrack = "";
+            this.transTrack = "";    
+            // 파일 전처리
+            const filename = this.file.name;
+            const fileFormData = new FormData();
+            const name = filename.substring(0, filename.lastIndexOf('.'));
+            const ext = filename.substring(filename.lastIndexOf('.') + 1);
+            this.$store.commit('videoes/setFileName', name);
+            this.$store.commit('videoes/setFileExt', ext);
+            fileFormData.append('fileKey', this.file);
+
+            try {
+                // Signed URL 발급
+                this.$nuxt.$loading.start();
+                const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
+                this.$nuxt.$loading.finish();
+
+                // Signed URL을 통한 업로드
+                this.$nuxt.$loading.start();
+                const response = await axios.put(preSignedUrl, this.file, {
+                    headers: {
+                        'Content-Type': this.extToContentType(ext),
+                    },
+                    onUploadProgress: (progressEvent) => {
+                        let percentage = (progressEvent.loaded * 100) / progressEvent.total;
+                        let percentageCompleted = Math.round(percentage);
+                        console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
+                    }
+                });
+                this.$nuxt.$loading.finish();
+
+                this.readToVideo = true;
+
+                // 영상 인식
+                if (response.status === 200) {
+                    this.$store.dispatch('videoes/setURL')
+                    .then(
+                        async () => {
+                            console.time("Recognition Time");
+                            this.$nuxt.$loading.start();
+                            const trackResponse = await this.$store.dispatch('videoes/postVideo');
+                            this.$nuxt.$loading.finish();
+                            console.timeEnd("Recognition Time");
+                            this.track = trackResponse.track;
+                            this.originalTrack = trackResponse.segment;
+                            this.timeLine = trackResponse.timeline;
+                            console.log("Merge");
+                            this.trackMerge();
+                            this.$store.dispatch('videoes/getFiles');
+                            this.readyToTrack = true;
+                        }
+                    );
+                } else {
+                    this.$menage.showMessage({ 
+                        message: "영상 업로드에 실패했습니다.\n관리자에게 문의하세요.", 
+                        color: "error" 
+                    });
+                }
+            } catch(err) {
+                this.$nuxt.$loading.finish();
+                console.log(err);
+            }
+        }
         newVideo() {
             this.readToVideo = false;
             this.readyToTrack = false;
