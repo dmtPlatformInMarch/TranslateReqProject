@@ -13207,18 +13207,17 @@ var VOverlay = __webpack_require__(69);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VProgressCircular/VProgressCircular.js
 var VProgressCircular = __webpack_require__(70);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/loading.vue?vue&type=template&id=160915bb&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/loading.vue?vue&type=template&id=7a8c1077&
 
 
 
-var loadingvue_type_template_id_160915bb_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VOverlay["a" /* default */],{attrs:{"value":_vm.loading,"z-index":"10000"}},[_c(VProgressCircular["a" /* default */],{attrs:{"indeterminate":"","size":"64","color":"primary"}})],1)}
-var loadingvue_type_template_id_160915bb_staticRenderFns = []
+var loadingvue_type_template_id_7a8c1077_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VOverlay["a" /* default */],{attrs:{"value":_vm.loading,"z-index":"10000"}},[_c(VProgressCircular["a" /* default */],{attrs:{"indeterminate":"","size":"64","color":"primary"}})],1)}
+var loadingvue_type_template_id_7a8c1077_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/loading.vue?vue&type=template&id=160915bb&
+// CONCATENATED MODULE: ./components/loading.vue?vue&type=template&id=7a8c1077&
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./components/loading.vue?vue&type=script&lang=js&
-//
 //
 //
 //
@@ -13261,8 +13260,8 @@ function loading_injectStyles (context) {
 
 var loading_component = Object(componentNormalizer["a" /* default */])(
   components_loadingvue_type_script_lang_js_,
-  loadingvue_type_template_id_160915bb_render,
-  loadingvue_type_template_id_160915bb_staticRenderFns,
+  loadingvue_type_template_id_7a8c1077_render,
+  loadingvue_type_template_id_7a8c1077_staticRenderFns,
   false,
   loading_injectStyles,
   null,
