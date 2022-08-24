@@ -77,7 +77,7 @@
                                     <div class="process__stepper">
                                         <div class="stepper">
                                             <v-btn class="stepper__btn" block rounded color="primary" :disabled="step != 1" @click="step = 2">
-                                                파일 전송
+                                                영상 업로드
                                             </v-btn>
                                         </div>
                                         <transition v-if="step === 1">
@@ -471,6 +471,9 @@ export default {
             return this.languages[this.grant]
         }
     },
+    watch: {
+        // 여기서 로딩바 관측하여 단계를 넘김.
+    },
     methods: {
         uploadVideo() {
             this.$refs.upload.click();
@@ -489,8 +492,25 @@ export default {
                     return 'application/oct-stream';
             }
         },
-        loadingLogic() {
-            
+        loadingLogic(step) {
+            switch(step) {
+                case 1:
+                    // 영상 업로드
+                    
+                    break;
+                case 2:
+                    // 영상 인식
+
+                    break;
+                case 3:
+                    // 자막 번역
+
+                    break;
+                default:
+                    // 종료 트리거를 받는다면
+                    this.loading = this.step * 33;
+                    this.step++;
+            }
         },
         sliceName(str) {
             return str.substring(str.lastIndexOf('/') + 1);
@@ -503,16 +523,20 @@ export default {
             this.fullTrack = result;
         },
         async onChange(event) {
-            if (event != null && event.target.files.length != 0) {
-                await this.file = event.target.files[0];
-                this.dialog = true;
-            } else {
-                console.log("e is null");
+            try {
+                if (event != null && event.target.files.length != 0) {
+                    this.file = event.target.files[0];
+                    this.dialog = true;
+                } else {
+                    console.log("e is null");
+                }
+            } catch (err) {
+                console.log(err);
             }
         },
         async onTaskStart() {
             this.originalTrack = "";
-            this.transTrack = "";    
+            this.transTrack = "";
             // 파일 전처리
             const filename = this.file.name;
             const fileFormData = new FormData();
@@ -524,12 +548,9 @@ export default {
 
             try {
                 // Signed URL 발급
-                this.$nuxt.$loading.start();
                 const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
-                this.$nuxt.$loading.finish();
 
                 // Signed URL을 통한 업로드
-                this.$nuxt.$loading.start();
                 const response = await axios.put(preSignedUrl, this.file, {
                     headers: {
                         'Content-Type': this.extToContentType(ext),
@@ -540,7 +561,6 @@ export default {
                         console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
                     }
                 });
-                this.$nuxt.$loading.finish();
 
                 this.readToVideo = true;
 
@@ -573,7 +593,7 @@ export default {
                 this.$nuxt.$loading.finish();
                 console.log(err);
             }
-        }
+        },
         newVideo() {
             this.readToVideo = false;
             this.readyToTrack = false;

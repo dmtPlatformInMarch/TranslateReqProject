@@ -1,8 +1,8 @@
 <template class="main">
     <div class="wrapper">
         <v-dialog v-model="dialog" width="60vw">
-            <template v-slot:activator="{ attrs }">
-                <v-btn rounded v-bind="attrs">
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn rounded v-bind="attrs" v-on="on">
                     <v-icon>
                         mdi-plus
                     </v-icon>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="action__box">
-                                <v-btn block rounded color="#013183" dark @click="timerOn">
+                                <v-btn block rounded color="#013183" dark @click="triggerStart">
                                     번역하기
                                 </v-btn>
                             </div>
@@ -282,7 +282,7 @@ export default {
         }
     },
     watch: {
-        loading(value) {
+        /*loading(value) {
             if (value >= 100) {
                 this.beforeSelect = true;
             }
@@ -292,26 +292,59 @@ export default {
             if (value >= 60 && value < 100) {
                 this.step = 3;
             }
-        }
+        }*/
     },
     methods: {
+        loadingLogic(step) {
+            switch(step) {
+                case 1:
+                    // 영상 업로드
+                    this.timerOn();
+                    break;
+                case 2:
+                    // 영상 인식
+                    this.timerOn();
+                    break;
+                case 3:
+                    // 자막 번역
+                    this.timerOn();
+                    break;
+                default:
+                    // 종료 트리거를 받는다면
+                    this.loading = this.step * 33;
+                    this.step++;
+            }
+        },
         timerOn() {
             this.beforeSelect = false;
             const interval = setInterval(() => {
-                if (this.loading < 100 && this.dialog === true) {
-                    this.loading += 5;
+                if (this.loading < this.step*33 && this.dialog === true) {
+                    this.loading += 1;
                 } else {
                     clearInterval(interval);
-                    this.dialog = false;
-                    this.loading = 0;
                 }
-            }, 500);
+            }, 100);
+        },
+        async triggerStart() {
+            this.loadingLogic(this.step);
+            setTimeout(() => {
+                console.log("step 넘어감");
+                this.loadingLogic("넘겨");
+                this.loadingLogic(this.step);
+            }, 1000);
+            setTimeout(() => {
+                console.log("step 넘어감");
+                this.loadingLogic("넘겨");
+                this.loadingLogic(this.step);
+            }, 2000);
+            setTimeout(() => {
+                this.loading = 100;
+            }, 3000);
         },
         close() {
             this.dialog = false;
             this.loading = 0;
         },
-
     },
 }
 </script>
