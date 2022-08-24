@@ -54,12 +54,12 @@ export default {
       estimateTime : 0,
       percentView : 0,
       trackLength : 0,
+      timer : {},
     }
   },
 
 
   created(){
-    console.log("로딩바 생성");
      this.$store.subscribe((mutation, state) => {
             if (mutation.type === 'manager/openLoadingBar') {
                 this.loading = this.$store.state.manager.viewLoadingBar;
@@ -68,6 +68,7 @@ export default {
             } 
             if (mutation.type === 'manager/closeLoadingBar') {
                 this.loading = true;
+                clearInterval(this.timer)
             }
     })
   },
@@ -80,17 +81,15 @@ export default {
         this.percentView = 0;
         // 계산속도 파라미터로 변경
         const parameter = 15;
-        let transByPercent = Math.ceil(100/(this.trackLength/parameter));
-        
+        let transByPercent =Math.ceil(100/(this.trackLength/parameter));
         var timer=setInterval(()=>{    
             if(this.percentView >= 90){
-                clearTimeout(timer)
+                
                 this.percentView = 99;                
             }else{
                 this.percentView += transByPercent;
-                console.log("percentVlew = " + this.percentView);
             }
-        },1000)
+        },this.trackLength/10)
     }
         },
   

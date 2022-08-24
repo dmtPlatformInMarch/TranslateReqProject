@@ -5,7 +5,6 @@
 </template>
 
 <style scope>
-
 </style>
 
 <script>
@@ -25,4 +24,3 @@ export default {
     }
 }
 </script>
-

@@ -72,7 +72,7 @@
         </div>
         <snack-bar />
         <loading-linear />
-        <custom-loading/>
+        <loading-custom/>
     </div>
 </template>
 
@@ -184,7 +184,7 @@
 import VideoComponent from '../../components/VideoComponent.vue';
 import SnackBar from '../../components/SnackBar.vue';
 import LoadingLinear from '../../components/loadingLinear.vue'
-import CustomLoading from '../../components/customloading.vue'
+import LoadingCustom from '../../components/LoadingCustom.vue'
 import axios from 'axios';
 
 
@@ -195,7 +195,7 @@ export default {
         VideoComponent,
         SnackBar,
         LoadingLinear,
-        CustomLoading
+        LoadingCustom
     },
     data() {
         return {
@@ -353,8 +353,9 @@ export default {
         },
         async translation() {
             try {
+                
+                this.$switch.openLoadingBar(this.track.length,"영상번역");
 
-                this.$switch.openLoadingBar(this.track.length);
                 const transResponse = await this.$store.dispatch('videoes/textToTrans', {
                     from: this.req_code,
                     to: this.grant_code,
@@ -368,7 +369,9 @@ export default {
                     ext: "vtt"
                 });
 
+
                 this.$switch.closeLoadingBar();
+                
                 if (this.mode === 'vtt') this.$nuxt.$emit('transTracks', this.grant_lang);
             } catch (err) {
                 console.log(err);
