@@ -68,12 +68,18 @@ export const actions = {
     },
     async setURL({ state, commit }) {
         try {
-            if (state.fileExt === '' || state.fileName === '') {
+            let url;
+            let track;
+            if (state.file != undefined || state.fileExt === '' || state.fileName === '') {
                 await commit('setFileExt', state.file.name.substring(state.file.name.lastIndexOf('.') + 1));
                 await commit('setFileName', state.file.name.substring(0, state.file.name.lastIndexOf('.')));
+                url = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(state.file.name)}`;
+                track = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(state.fileName)}.vtt`;
+            } else {
+                url = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(state.fileName)}.${state.fileExt}`;
+                track = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(state.fileName)}.vtt`;
             }
-            const url = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(state.file.name)}`;
-            const track = `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/tracks/${encodeURI(state.fileName)}.vtt`;
+            
             await commit('setFileURL', url);
             await commit('setTrackURL', track);
         } catch (err) {

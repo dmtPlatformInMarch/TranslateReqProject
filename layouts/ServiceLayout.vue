@@ -25,6 +25,7 @@ import ScrollTop from "../components/ScrolltopComponent.vue";
 import SnackBar from "~/components/SnackBar";
 
 export default {
+    name: 'ServiceLayout',
     components: {
         defaultToolbar,
         ScrollTop,

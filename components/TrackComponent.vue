@@ -1,59 +1,94 @@
 <template>
-    <div class="track__wrapper">
-        <div class="track__time">
-            <v-text-field
-                ref="inputTime"
-                class="input__time"
-                :value="start + ' --> ' + end"
-                outlined
-                dense
-                hide-details="auto"
-                :readonly="editTime"
-                @input="changeTime($event)"
-                :rules="timeRule"
-            />
-            <div class="edit__time">
-                <v-btn icon @click="timeEdit">
-                    <v-icon>
-                        mdi-timer-edit
-                    </v-icon>
-                </v-btn>
+    <div class="track__style">
+        <div class="track__wrapper">
+            <div class="track__time">
+                <v-text-field
+                    ref="inputTime"
+                    class="input__time"
+                    :value="start + ' --> ' + end"
+                    outlined
+                    dense
+                    hide-details="auto"
+                    :readonly="editTime"
+                    @change="changeTime($event)"
+                    :rules="timeRule"
+                />
+                <div class="edit__time">
+                    <v-btn icon @click="timeEdit">
+                        <v-icon>
+                            mdi-timer-edit
+                        </v-icon>
+                    </v-btn>
+                </div>
             </div>
+            <div class="track__text">
+                <v-textarea
+                    :value="segmentText"
+                    outlined
+                    dense
+                    rows="3"
+                    row-height="20"
+                    hide-details
+                    @input="changeText($event)"
+                    @focusin="timeSet"
+                />
+            </div>
+            <div class="track__trans__text">
+                <v-textarea
+                    :value="segmentTrans"
+                    outlined
+                    dense
+                    rows="3"
+                    row-height="20"
+                    hide-details
+                    @input="changeTrans($event)"
+                    @focusin="timeSet"
+                />
+            </div>
+            <v-btn icon @click="deleteItem">
+                <v-icon>
+                    mdi-close
+                </v-icon>
+            </v-btn>
         </div>
-        <div class="track__text">
-            <v-textarea
-                :value="segmentText"
-                outlined
-                dense
-                rows="3"
-                row-height="20"
-                hide-details
-                @input="changeText($event)"
-            />
-        </div>
-        <div class="track__trans__text">
-            <v-textarea
-                :value="segmentTrans"
-                outlined
-                dense
-                rows="3"
-                row-height="20"
-                hide-details
-                @input="changeTrans($event)"
-            />
+        <div class="add__btn">
+            <v-btn class="add__btn__style" block rounded elevation="0" @click="addItem">
+                <v-icon>
+                    mdi-plus
+                </v-icon>
+            </v-btn>
         </div>
     </div>
 </template>
 
 <style scoped>
-.track__wrapper {
-    height: 128px;
+.track__style {
+    height: 156px;
     display: flex;
     border: 1px solid grey;
     margin: 5px;
     padding: 0 10px;
-    flex-basis: 4rem;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.add__btn {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    margin: 5px 0;
+}
+.add__btn__style {
+    display: flex;
+    height: 100% !important;
+    background-color: white !important;
+}
+.track__wrapper {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .track__time {
     display: flex;
@@ -167,6 +202,15 @@ export default {
         timeEdit() {
             this.editTime = !this.editTime
             if (!this.editTime) this.$refs.inputTime.focus();
+        },
+        timeSet() {
+            this.$nuxt.$emit('timeSet', this.idx);
+        },
+        addItem() {
+            this.$nuxt.$emit('addItem', this.idx);
+        },
+        deleteItem() {
+            this.$nuxt.$emit('deleteItem', this.idx);
         }
     }
 }
