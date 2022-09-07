@@ -2,134 +2,134 @@
   {
     "name": "admin",
     "path": "/admin",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/admin/index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\index.vue",
     "chunkName": "pages/admin/index",
-    "_name": "_7d889866"
+    "_name": "_c0bf7cb8"
   },
   {
     "name": "apitest",
     "path": "/apitest",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/apitest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\apitest.vue",
     "chunkName": "pages/apitest",
-    "_name": "_00752100"
+    "_name": "_5e4d8b3b"
   },
   {
     "name": "PdfTest",
     "path": "/PdfTest",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/PdfTest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\PdfTest.vue",
     "chunkName": "pages/PdfTest",
-    "_name": "_1e3de850"
+    "_name": "_4eb97613"
   },
   {
     "name": "uitest",
     "path": "/uitest",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/uitest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\uitest.vue",
     "chunkName": "pages/uitest",
-    "_name": "_09474e82"
+    "_name": "_7feb30e7"
   },
   {
     "name": "uitest2",
     "path": "/uitest2",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/uitest2.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\uitest2.vue",
     "chunkName": "pages/uitest2",
-    "_name": "_1fba2b20"
+    "_name": "_7d92955b"
   },
   {
     "name": "user",
     "path": "/user",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/user/index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\user\\\\index.vue",
     "chunkName": "pages/user/index",
-    "_name": "_9e2ff62c"
+    "_name": "_d90d1094"
   },
   {
     "name": "admin-mgRequest",
     "path": "/admin/mgRequest",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/admin/mgRequest.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgRequest.vue",
     "chunkName": "pages/admin/mgRequest",
-    "_name": "_2500d3a9"
+    "_name": "_96f4a432"
   },
   {
     "name": "admin-mgUser",
     "path": "/admin/mgUser",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/admin/mgUser.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgUser.vue",
     "chunkName": "pages/admin/mgUser",
-    "_name": "_af2f7bbe"
+    "_name": "_6d747eba"
   },
   {
     "name": "text-info",
     "path": "/text/info",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/text/info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\info.vue",
     "chunkName": "pages/text/info",
-    "_name": "_c6ca1ab8"
+    "_name": "_50ef2f48"
   },
   {
     "name": "text-reqstate",
     "path": "/text/reqstate",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/text/reqstate.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\reqstate.vue",
     "chunkName": "pages/text/reqstate",
-    "_name": "_03586329"
+    "_name": "_7aa43ce1"
   },
   {
     "name": "text-request",
     "path": "/text/request",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/text/request.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\request.vue",
     "chunkName": "pages/text/request",
-    "_name": "_1f525e89"
+    "_name": "_d26f245e"
   },
   {
     "name": "text-textmain",
     "path": "/text/textmain",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/text/textmain.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\text\\\\textmain.vue",
     "chunkName": "pages/text/textmain",
-    "_name": "_6b937f5c"
+    "_name": "_3a414dd8"
   },
   {
     "name": "user-signup",
     "path": "/user/signup",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/user/signup.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\user\\\\signup.vue",
     "chunkName": "pages/user/signup",
-    "_name": "_23bf4530"
+    "_name": "_d947a838"
   },
   {
     "name": "video-filetrack",
     "path": "/video/filetrack",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/video/filetrack.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\filetrack.vue",
     "chunkName": "pages/video/filetrack",
-    "_name": "_173c288f"
+    "_name": "_a4934016"
   },
   {
     "name": "video-info",
     "path": "/video/info",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/video/info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\info.vue",
     "chunkName": "pages/video/info",
-    "_name": "_30026b1e"
+    "_name": "_5870abf8"
   },
   {
     "name": "video-realtrack",
     "path": "/video/realtrack",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/video/realtrack.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\realtrack.vue",
     "chunkName": "pages/video/realtrack",
-    "_name": "_6ec84aad"
+    "_name": "_05428213"
   },
   {
     "name": "video-service",
     "path": "/video/service",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/video/service.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\service.vue",
     "chunkName": "pages/video/service",
-    "_name": "_045ca616"
+    "_name": "_17c2f44a"
   },
   {
     "name": "voice-info",
     "path": "/voice/info",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/voice/info.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\voice\\\\info.vue",
     "chunkName": "pages/voice/info",
-    "_name": "_38e4fc47"
+    "_name": "_6be03fef"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/Hantae/Desktop/DMTLABS/TranslateReqProject_front/pages/index.vue",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_73aca426"
+    "_name": "_77806121"
   }
 ]

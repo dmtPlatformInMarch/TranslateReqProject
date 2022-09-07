@@ -94,11 +94,7 @@ function VGrid(name) {
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 249:
-=======
-/***/ 255:
->>>>>>> 2b3ef026757e8a4e394c6fd96acd5963b72d7c2d
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -175,11 +171,7 @@ function VGrid(name) {
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 405:
-=======
-/***/ 410:
->>>>>>> 2b3ef026757e8a4e394c6fd96acd5963b72d7c2d
+/***/ 411:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -193,11 +185,7 @@ var VCard = __webpack_require__(76);
 var components_VCard = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
-<<<<<<< HEAD
-var VContainer = __webpack_require__(249);
-=======
-var VContainer = __webpack_require__(255);
->>>>>>> 2b3ef026757e8a4e394c6fd96acd5963b72d7c2d
+var VContainer = __webpack_require__(256);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
 var VForm = __webpack_require__(237);
@@ -323,7 +311,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "7929260a",
-  "3e3e0a91"
+  "d9b2ce4a"
   
 )
 
