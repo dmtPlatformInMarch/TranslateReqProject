@@ -624,11 +624,11 @@
                   </div>
                   <h1 class="title">번역 견적서</h1>
                   <section class="pdf-table">
-                    <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 560px">
                       <colgroup>
-                        <col style="width: 79px" />
-                        <col style="width: 164px" />
-                        <col style="width: 307px" />
+                        <col style="width: 80px" />
+                        <col style="width: 160px" />
+                        <col style="width: 320px" />
                       </colgroup>
                       <thead>
                         <tr>
@@ -657,11 +657,11 @@
                   </section>
 
                   <section class="pdf-table">
-                    <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 560px">
                       <colgroup>
-                        <col style="width: 79px" />
-                        <col style="width: 164px" />
-                        <col style="width: 307px" />
+                        <col style="width: 80px" />
+                        <col style="width: 160px" />
+                        <col style="width: 320px" />
                       </colgroup>
                       <thead>
                         <tr>
@@ -690,12 +690,12 @@
                   </section>
 
                   <section class="pdf-table">
-                    <table class="tg" style="undefined;table-layout: fixed; width: 641px">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 560px">
                       <colgroup>
-                        <col style="width: 185px" />
-                        <col style="width: 96px" />
-                        <col style="width: 286px" />
-                        <col style="width: 74px" />
+                        <col style="width: 150px" />
+                        <col style="width: 100px" />
+                        <col style="width: 150px" />
+                        <col style="width: 60px" />
                       </colgroup>
                       <thead>
                         <tr>
@@ -736,6 +736,14 @@
                           >{{languages[this.languages.indexOf(this.req_lang[3])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[3])]}}</td>
                           <td class="tg-c3ow">{{req_field[3]}}</td>
                           <td class="tg-c3ow">{{price[3]}} 원</td>
+                          <td class="tg-c3ow"></td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="tg-c3ow"
+                          >{{languages[this.languages.indexOf(this.req_lang[4])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[4])]}}</td>
+                          <td class="tg-c3ow">{{req_field[4]}}</td>
+                          <td class="tg-c3ow">{{price[4]}} 원</td>
                           <td class="tg-c3ow"></td>
                         </tr>
                         <tr>
