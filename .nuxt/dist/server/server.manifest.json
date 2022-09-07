@@ -1,6 +1,7 @@
 {
   "entry": "server.js",
   "files": {
+    "pages/PdfTest.js": "pages/PdfTest.js",
     "pages/admin/index.js": "pages/admin/index.js",
     "pages/admin/mgRequest.js": "pages/admin/mgRequest.js",
     "pages/admin/mgUser.js": "pages/admin/mgUser.js",
@@ -22,6 +23,7 @@
     "server.js": "server.js"
   },
   "maps": {
+    "pages/PdfTest.js": "pages/PdfTest.js.map",
     "pages/admin/index.js": "pages/admin/index.js.map",
     "pages/admin/mgRequest.js": "pages/admin/mgRequest.js.map",
     "pages/admin/mgUser.js": "pages/admin/mgUser.js.map",

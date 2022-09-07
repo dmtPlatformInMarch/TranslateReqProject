@@ -13,12 +13,13 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_30241eb6 from 'nuxt_plugin_plugin_30241eb6' // Source: .\\vuetify\\plugin.js (mode: 'all')
-import nuxt_plugin_axios_77d68f21 from 'nuxt_plugin_axios_77d68f21' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_moment_dcb232d2 from 'nuxt_plugin_moment_dcb232d2' // Source: .\\moment.js (mode: 'all')
-import nuxt_plugin_manage_53944fbc from 'nuxt_plugin_manage_53944fbc' // Source: ..\\plugins\\manage.js (mode: 'client')
-import nuxt_plugin_constants_5d260cbe from 'nuxt_plugin_constants_5d260cbe' // Source: ..\\plugins\\constants.js (mode: 'client')
-import nuxt_plugin_gtag_0a2cb1e4 from 'nuxt_plugin_gtag_0a2cb1e4' // Source: ..\\plugins\\gtag.js (mode: 'client')
+import nuxt_plugin_plugin_4bbabae8 from 'nuxt_plugin_plugin_4bbabae8' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_axios_3dba42b8 from 'nuxt_plugin_axios_3dba42b8' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_moment_ef8cb440 from 'nuxt_plugin_moment_ef8cb440' // Source: ./moment.js (mode: 'all')
+import nuxt_plugin_manage_53944fbc from 'nuxt_plugin_manage_53944fbc' // Source: ../plugins/manage.js (mode: 'client')
+import nuxt_plugin_constants_5d260cbe from 'nuxt_plugin_constants_5d260cbe' // Source: ../plugins/constants.js (mode: 'client')
+import nuxt_plugin_gtag_0a2cb1e4 from 'nuxt_plugin_gtag_0a2cb1e4' // Source: ../plugins/gtag.js (mode: 'client')
+import nuxt_plugin_vuehtml2pdf_796dc3f4 from 'nuxt_plugin_vuehtml2pdf_796dc3f4' // Source: ../plugins/vue-html2pdf (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -215,16 +216,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_30241eb6 === 'function') {
-    await nuxt_plugin_plugin_30241eb6(app.context, inject)
+  if (typeof nuxt_plugin_plugin_4bbabae8 === 'function') {
+    await nuxt_plugin_plugin_4bbabae8(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_77d68f21 === 'function') {
-    await nuxt_plugin_axios_77d68f21(app.context, inject)
+  if (typeof nuxt_plugin_axios_3dba42b8 === 'function') {
+    await nuxt_plugin_axios_3dba42b8(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_moment_dcb232d2 === 'function') {
-    await nuxt_plugin_moment_dcb232d2(app.context, inject)
+  if (typeof nuxt_plugin_moment_ef8cb440 === 'function') {
+    await nuxt_plugin_moment_ef8cb440(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_manage_53944fbc === 'function') {
@@ -237,6 +238,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_gtag_0a2cb1e4 === 'function') {
     await nuxt_plugin_gtag_0a2cb1e4(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vuehtml2pdf_796dc3f4 === 'function') {
+    await nuxt_plugin_vuehtml2pdf_796dc3f4(app.context, inject)
   }
 
   // Lock enablePreview in context

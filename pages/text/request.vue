@@ -1,14 +1,21 @@
 <template>
   <v-container>
+    <div style="margin-top : 5%"></div>
     <!--선택 토글-->
     <v-col>
-      <v-btn-toggle ref="toggle" v-model="sels" class="toggle_group" mandatory color="primary" style="width: 100%" @change="loginCheck">
-        <v-btn width="50%" style="margin: 0; padding: 0">
-          {{ language === "한국어" ? "견적" : "Estimate" }}
-        </v-btn>
-        <v-btn width="50%" style="margin: 0; padding: 0">
-          {{ language === "한국어" ? "의뢰" : "Request" }}
-        </v-btn>
+      <v-btn-toggle
+        ref="toggle"
+        v-model="sels"
+        class="toggle_group"
+        mandatory
+        color="primary"
+        style="width: 100%"
+      >
+        <v-btn
+          width="50%"
+          style="margin: 0; padding: 0"
+        >{{ language === "한국어" ? "견적" : "Estimate" }}</v-btn>
+        <v-btn width="50%" style="margin: 0; padding: 0">{{ language === "한국어" ? "의뢰" : "Request" }}</v-btn>
       </v-btn-toggle>
     </v-col>
 
@@ -19,7 +26,7 @@
         <v-row>
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold"> 원본 언어 </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold">원본 언어</v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage1" mandatory>
@@ -35,11 +42,15 @@
           </div>
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold"> 번역 언어 </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold">번역 언어</v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']" :key="i" active-class="list_select">
+                <v-list-item
+                  v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -48,7 +59,7 @@
 
           <v-col>
             <v-toolbar class="toolbar_class" elevation="0">
-              <v-toolbar-title class="font-weight-bold"> 요청 분야 </v-toolbar-title>
+              <v-toolbar-title class="font-weight-bold">요청 분야</v-toolbar-title>
             </v-toolbar>
             <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectField" mandatory>
@@ -85,7 +96,11 @@
             </v-toolbar>
             <v-list class="overflow-y-auto" height="300">
               <v-list-item-group v-model="selectLanguage2" mandatory>
-                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']" :key="i" active-class="list_select">
+                <v-list-item
+                  v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']"
+                  :key="i"
+                  active-class="list_select"
+                >
                   <v-list-item-title>{{ lang }}</v-list-item-title>
                 </v-list-item>
               </v-list-item-group>
@@ -115,11 +130,18 @@
         <v-card-title class="text-h4">
           글자수
           <v-spacer />
-          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="글자" reverse dense />
+          <v-text-field
+            v-model="wordCount"
+            type="number"
+            hide-spin-buttons
+            prefix="글자"
+            reverse
+            dense
+          />
         </v-card-title>
         <v-card-subtitle class="text-caption">
-          중국어/일본어 = 1글자 당 <br />
-          그 외 = 1단어 당
+          중국어/일본어 = 1글자 당
+          <br />그 외 = 1단어 당
         </v-card-subtitle>
         <v-spacer />
       </v-card>
@@ -128,11 +150,18 @@
         <v-card-title class="text-h4">
           Words(Characters)
           <v-spacer />
-          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="words" reverse dense />
+          <v-text-field
+            v-model="wordCount"
+            type="number"
+            hide-spin-buttons
+            prefix="words"
+            reverse
+            dense
+          />
         </v-card-title>
         <v-card-subtitle class="text-caption">
-          Chinese/Japanese = per letter <br />
-          Other = per word
+          Chinese/Japanese = per letter
+          <br />Other = per word
         </v-card-subtitle>
         <v-spacer />
       </v-card>
@@ -152,8 +181,8 @@
         </v-card-title>
         <v-card-title class="text-caption">
           <div>
-            단위 가격(Unit Cost) * 글자 수(Words) <br />
-            단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)
+            단위 가격(Unit Cost) * 글자 수(Words)
+            <br />단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)
           </div>
           <v-spacer />
           단위 가격(Unit Cost) :
@@ -207,13 +236,20 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
           />
-          <v-text-field 
-            v-model="second_phone" 
-            type="tel" 
-            label="전화" 
-            prepend-inner-icon="mdi-deskphone" 
+          <v-text-field
+            v-model="second_phone"
+            type="tel"
+            label="전화"
+            prepend-inner-icon="mdi-deskphone"
           />
-          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
+          <v-menu
+            ref="menu"
+            v-model="menu"
+            :close-on-content-click="false"
+            :return-value.sync="date"
+            offset-y
+            min-width="auto"
+          >
             <template #activator="{ on, attrs }">
               <v-text-field
                 v-model="date"
@@ -263,7 +299,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[0]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[0]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -310,7 +354,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[1]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[1]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -356,7 +408,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[2]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[2]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -402,7 +462,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[3]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[3]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -448,14 +516,14 @@
                 />
               </div>
               <div>
-                <v-select 
-                  v-model="req_field[4]" 
-                  class="selector" 
-                  :items="field" 
-                  label="요청분야" 
-                  prepend-icon="mdi-shape" 
-                  outlined 
-                  dense 
+                <v-select
+                  v-model="req_field[4]"
+                  class="selector"
+                  :items="field"
+                  label="요청분야"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
                 />
               </div>
               <div>
@@ -496,13 +564,13 @@
               outlined
               dense
             />
-            <v-select 
-              v-model="req_field[0]" 
-              :items="field" 
-              label="요청분야" 
-              prepend-icon="mdi-shape" 
-              outlined 
-              dense 
+            <v-select
+              v-model="req_field[0]"
+              :items="field"
+              label="요청분야"
+              prepend-icon="mdi-shape"
+              outlined
+              dense
             />
             <v-file-input
               v-model.lazy="file[0]"
@@ -529,13 +597,185 @@
             @input="onChangeTextarea"
           />
 
+          <client-only>
+            <vue-html2pdf
+              :show-layout="false"
+              :float-layout="true"
+              :enable-download="false"
+              :preview-modal="false"
+              filename="번역 의뢰 견적서"
+              :paginate-elements-by-height="1100"
+              :pdf-quality="2"
+              pdf-format="a4"
+              pdf-orientation="portrait"
+              pdf-content-width="800px"
+              :manual-pagination="false"
+              @progress="onProgress($event)"
+              @startPagination="startPagination()"
+              @hasPaginated="hasPaginated()"
+              @beforeDownload="beforeDownload($event)"
+              @hasDownloaded="hasDownloaded($event)"
+              ref="html2Pdf"
+            >
+              <section slot="pdf-content">
+                <div class="outer-pdf">
+                  <div class="water-mark">
+                    <span>DMTLABS</span>
+                  </div>
+                  <h1 class="title">번역 견적서</h1>
+                  <section class="pdf-table">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+                      <colgroup>
+                        <col style="width: 79px" />
+                        <col style="width: 164px" />
+                        <col style="width: 307px" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <td class="tg-z0uw" rowspan="4">수임자</td>
+                          <td class="tg-c3ow">대표</td>
+                          <td class="tg-c3ow">김 운</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">회사</td>
+                          <td class="tg-c3ow">DMTLABS</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">주소</td>
+                          <td class="tg-c3ow">
+                            <span
+                              style="font-weight:400;font-style:normal"
+                            >(04386) 서울시 용산구 한강대로40길 18 404호 대한민국 (한강로2가 144-2 다이빌딩)</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">연락처</td>
+                          <td class="tg-c3ow">02-794-5333</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </section>
+
+                  <section class="pdf-table">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 550px">
+                      <colgroup>
+                        <col style="width: 79px" />
+                        <col style="width: 164px" />
+                        <col style="width: 307px" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <td class="tg-z0uw" rowspan="4">의뢰자</td>
+                          <td class="tg-c3ow">성 함</td>
+                          <td class="tg-c3ow">{{name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">회사</td>
+                          <td class="tg-c3ow">{{company}}</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">연락처</td>
+                          <td class="tg-c3ow">
+                            <span
+                              style="font-weight:400;font-style:normal"
+                            >{{phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="tg-c3ow">요청 날짜</td>
+                          <td class="tg-c3ow">{{date}}</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </section>
+
+                  <section class="pdf-table">
+                    <table class="tg" style="undefined;table-layout: fixed; width: 641px">
+                      <colgroup>
+                        <col style="width: 185px" />
+                        <col style="width: 96px" />
+                        <col style="width: 286px" />
+                        <col style="width: 74px" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th class="tg-c3ow">번역 정보</th>
+                          <th class="tg-c3ow">번역 분야</th>
+                          <th class="tg-c3ow">가격</th>
+                          <th class="tg-c3ow">기타</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td
+                            class="tg-c3ow"
+                          >{{languages[this.languages.indexOf(this.req_lang[0])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[0])]}}</td>
+                          <td class="tg-c3ow">{{req_field[0]}}</td>
+                          <td class="tg-c3ow">{{price[0]}} 원</td>
+                          <td class="tg-c3ow"></td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="tg-c3ow"
+                          >{{languages[this.languages.indexOf(this.req_lang[1])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[1])]}}</td>
+                          <td class="tg-c3ow">{{req_field[1]}}</td>
+                          <td class="tg-c3ow">{{price[1]}} 원</td>
+                          <td class="tg-c3ow"></td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="tg-c3ow"
+                          >{{languages[this.languages.indexOf(this.req_lang[2])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[2])]}}</td>
+                          <td class="tg-c3ow">{{req_field[2]}}</td>
+                          <td class="tg-c3ow">{{price[2]}} 원</td>
+                          <td class="tg-c3ow"></td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="tg-c3ow"
+                          >{{languages[this.languages.indexOf(this.req_lang[3])]}} -&gt; {{languages[this.languages.indexOf(this.grant_lang[3])]}}</td>
+                          <td class="tg-c3ow">{{req_field[3]}}</td>
+                          <td class="tg-c3ow">{{price[3]}} 원</td>
+                          <td class="tg-c3ow"></td>
+                        </tr>
+                        <tr>
+                          <td class="tg-ngei" colspan="2">총 합계</td>
+                          <td
+                            class="tg-ngei"
+                            colspan="2"
+                          >{{price[0] + price[1] + price[2] + price[3] + price[4]}} 원</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                </div>
+              </section>
+            </vue-html2pdf>
+          </client-only>
+
           <div class="request__btn">
             <v-spacer class="spacer" />
-            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
+            <v-btn
+              v-if="checkSendFile"
+              depressed
+              color="#0d6efd"
+              dark
+              large
+              style="margin: 10px"
+              @click="generatePdf()"
+            >
               견적서 발급
               <v-icon right>mdi-file-download</v-icon>
             </v-btn>
-            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
+            <v-btn
+              depressed
+              color="success"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+              @click="dialog = true"
+            >
               번역 의뢰
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
@@ -557,7 +797,7 @@
 
       <!--영어 필드-->
       <v-container v-else-if="language === '영어'">
-        <v-form ref="form" v-model="valid" @submit.prevent="">
+        <v-form ref="form" v-model="valid" @submit.prevent>
           <v-text-field
             v-model="name"
             type="text"
@@ -586,13 +826,20 @@
             prepend-inner-icon="mdi-office-building"
             :rules="[(v) => !!v || 'Please enter name of your company.']"
           />
-          <v-text-field 
-            v-model="second_phone" 
-            type="tel" 
-            label="Tel" 
-            prepend-inner-icon="mdi-deskphone" 
+          <v-text-field
+            v-model="second_phone"
+            type="tel"
+            label="Tel"
+            prepend-inner-icon="mdi-deskphone"
           />
-          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
+          <v-menu
+            ref="menu"
+            v-model="menu"
+            :close-on-content-click="false"
+            :return-value.sync="date"
+            offset-y
+            min-width="auto"
+          >
             <template #activator="{ on, attrs }">
               <v-text-field
                 v-model="date"
@@ -642,7 +889,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[0]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[0]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -651,7 +906,6 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  
                   dense
                   :rules="[(v) => !!v || 'Please attach the File.']"
                   @change="onChangeFile(0, $event)"
@@ -686,7 +940,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[1]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[1]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -695,7 +957,6 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  
                   dense
                   @change="onChangeFile(1, $event)"
                   @click:clear="onClearFile(1)"
@@ -729,7 +990,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[2]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[2]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -738,7 +1007,6 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  
                   dense
                   @change="onChangeFile(2, $event)"
                   @click:clear="onClearFile(2)"
@@ -772,7 +1040,15 @@
                 />
               </div>
               <div>
-                <v-select v-model="req_field[3]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+                <v-select
+                  v-model="req_field[3]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
+                />
               </div>
               <div>
                 <v-file-input
@@ -781,7 +1057,6 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  
                   dense
                   @change="onChangeFile(3, $event)"
                   @click:clear="onClearFile(3)"
@@ -815,14 +1090,14 @@
                 />
               </div>
               <div>
-                <v-select 
-                  v-model="req_field[4]" 
-                  class="selector" 
-                  :items="e_field" 
-                  label="Request field" 
-                  prepend-icon="mdi-shape" 
-                  outlined 
-                  dense 
+                <v-select
+                  v-model="req_field[4]"
+                  class="selector"
+                  :items="e_field"
+                  label="Request field"
+                  prepend-icon="mdi-shape"
+                  outlined
+                  dense
                 />
               </div>
               <div>
@@ -832,7 +1107,6 @@
                   prepend-icon="mdi-content-save"
                   label="File"
                   small-chips
-                  
                   dense
                   @change="onChangeFile(4, $event)"
                   @click:clear="onClearFile(4)"
@@ -864,14 +1138,30 @@
             :hide-details="hideDetails"
             @input="onChangeTextarea"
           />
-
+      
           <div class="request__btn">
             <v-spacer class="spacer" />
-            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
-              Issuing Quotation
+            <v-btn
+              v-if="checkSendFile"
+              depressed
+              color="#0d6efd"
+              dark
+              large
+              style="margin: 10px"
+              @click="generatePdf()"
+            >
+              issuance of quotation
               <v-icon right>mdi-file-download</v-icon>
             </v-btn>
-            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
+            <v-btn
+              depressed
+              color="success"
+              :disabled="!loginState"
+              dark
+              large
+              style="margin: 10px"
+              @click="dialog = true"
+            >
               Translation request
               <v-icon right>mdi-file-edit</v-icon>
             </v-btn>
@@ -914,15 +1204,98 @@
   border: 1px solid #013183 !important;
 }
 .request__btn {
-  display: flex; 
-  align-items: center; 
-  justify-content: flex-start; 
-  margin: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
   padding: 10px 0;
 }
 .request__mobile {
   display: none;
   flex-direction: column;
+}
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.tg td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tg .tg-34fe {
+  background-color: #c0c0c0;
+  border-color: inherit;
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-baqh {
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-c3ow {
+  border-color: inherit;
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-6qw1 {
+  background-color: #c0c0c0;
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-ngei {
+  background-color: #ffcb2f;
+  border-color: inherit;
+  text-align: center;
+  vertical-align: top;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pdf-table {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.water-mark {
+  position: absolute;
+  z-index: 0;
+  top: 450px;
+  left: 350px;
+}
+
+.water-mark > span {
+  font-size: 50px;
+  font-weight: 800;
+  color: blue;
+  opacity: 0.3;
+  transform: rotate(45deg);
+}
+
+.outer-pdf {
+  padding-top: 50px;
 }
 
 @media screen and (max-width: 900px) {
@@ -938,7 +1311,7 @@
 @media screen and (max-width: 500px) {
   .request__btn {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     width: 100%;
   }
@@ -957,9 +1330,7 @@
 
 <script lang="js">
 import { mapState } from 'vuex';
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts.js";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import PdfContent from '@/components/PdfContent'
 
 export default {
   layout: 'TextLayout',
@@ -991,10 +1362,12 @@ export default {
     dollar: false,
     wordCount: '',
     acceptFiles: '.txt,.pdf,.docx',
+    checkSendFile : false,
   }),
   asyncData({ store }) {
     store.commit('requests/setExcost', 0);
   },
+
   computed: {
     loginState() {
         return this.$store.state.users.loginState;
@@ -1062,111 +1435,44 @@ export default {
       deep: true,
     },
   },
+  components : {
+    PdfContent
+  },
+
   methods: {
-    pdfTest: function() {
-        var documentDefinition = {
-            // 워터마크
-            watermark: {
-                text: 'DMTLABS',
-                color: 'blue',
-                opacity: 0.2,
-                bold: true,
-                fontSize: 40,
-                angle: 30
-            },
-            content: [
-                // 제목
-                {
-                    text: '\n' + 'DMTLABS Translation Request Estimate' + '\n\n',
-                    style: 'style_header'
-                },
-                // 공급자 테이블
-                {
-                    style: 'style_table',
-                    table: {
-                        widths: ['auto', 100, '*', '*'],
-                        body: [
-                            [ {text:'Provider', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Representative'}, {text: 'KIM-UN', colSpan:2}, '' ],
-                            [ '', {text: 'Trade'}, {text: 'DMTLABS', colSpan: 2}, '' ],
-                            [ '', {text: 'Address'}, {text: '(04386) Room 404, Hangang-daero 40-gil 18, Yongsan-gu, Seoul, Republic of Korea (144-2 Dai Building, Hangang-ro 2-ga)', colSpan: 2}, '' ],
-                            [ '', {text: 'Contact'}, {text: '02-794-5333', colSpan: 2}, '' ],
-                        ]
-                    }
-                },
-                // 의뢰자 테이블
-                {
-                    style: 'style_table',
-                    table: {
-                        widths: ['auto', 100, '*', '*'],
-                        body: [
-                            [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
-                            [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
-                            [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
-                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSpan: 2}, '' ],
-                        ]
-                    }
-                },
-                // 의뢰 내역 테이블
-                {
-                    style: 'style_table',
-                    table: {
-                        heights: 20,
-                        widths: ['auto', '*', '*', '*', 'auto'],
-                        headerRows: 2,
-                        body: [
-                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: (this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4]) + ' Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
-                            [ {text: 'Translation Info', colSpan: 2, fillColor: '#dedede'}, '', {text: 'Price', colSpan: 2, fillColor: '#dedede'}, '', {text: 'etc', fillColor: '#dedede'} ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[0])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[0])]}`, colSpan: 2}, '', {text: `${this.price[0]} Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[1])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[1])]}`, colSpan: 2}, '', {text: `${this.price[1]} Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[2])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[2])]}`, colSpan: 2}, '', {text: `${this.price[2]} Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[3])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[3])]}`, colSpan: 2}, '', {text: `${this.price[3]} Won`, colSpan: 2}, '', '' ],
-                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[4])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[4])]}`, colSpan: 2}, '', {text: `${this.price[4]} Won`, colSpan: 2}, '', '' ],
-                        ]
-                    }
-                }
-            ],
-            // 페이지 번호 삽입
-            footer: function (currentPage, pageCount) {
-                return {
-                    margin: 10,
-                    columns: [{
-                        fontSize: 9,
-                        text: {
-                            text: '' + currentPage.toString()
-                        }
-                    },
-                    ],
-                    alignment: 'center'
-                }
-            },
-            // 커스텀 스타일 세트 그룹 정의
-            styles: {
-                style_header: {
-                    fontSize: 24,
-                    bold: true,
-                    margin: [0, 0, 0, 0],
-                    alignment: 'center',
-                },
-                style_test: {
-                    fontSize: 18,
-                    bold: true,
-                    margin: [0, 0, 0, 0],
-                    alignment: 'center'
-                },
-                style_table: {
-                    margin: [0, 5, 0, 15],
-                    alignment: 'center',
-                    fontSize: 12,
-                }
-            },
-            // 페이지 용지 사이즈
-            pageSize: 'A4',
-            // 페이지 방향 (세로=portrait / 가로=landscape)
-            pageOrientation: 'portrait',
-        };
-        var pdf_name = '번역 의뢰 견적서.pdf';
-        pdfMake.createPdf(documentDefinition).download(pdf_name);
-        //pdfMake.createPdf(documentDefinition).open();
+    generatePdf(){
+      console.log("Pdf 파일 로딩");
+      this.$refs.html2Pdf.generatePdf();
+    },
+
+    onProgress(x) {
+      console.log(x);
+    },
+
+    hasGenerated(x) {
+      console.log(x);
+    },
+    hasDownloaded() {},
+    startPagination() {},
+    hasPaginated() {},
+
+    async beforeDownload({ html2pdf, options, pdfContent }) {
+      await html2pdf()
+        .set(options)
+        .from(pdfContent)
+        .toPdf()
+        .get("pdf")
+        .then(pdf => {
+          this.calcCost();
+          const totalPages = pdf.internal.getNumberOfPages();
+          for (let i = 1; i <= totalPages; i++) {
+            pdf.setPage(i);
+            pdf.setFontSize(10);
+            pdf.setTextColor(150);
+            pdf.text("Page " + i + " of " + totalPages, pdf.internal.pageSize.getWidth() * 0.45, pdf.internal.pageSize.getHeight() - 0.3);
+          }
+        })
+        .save();
     },
     async onSubmitForm() {
         try {
@@ -1185,20 +1491,7 @@ export default {
                     trans_state: '번역 준비중',
                     fileInfo: this.$store.state.requests.fileInfo,
                 });
-                /*console.log(
-                    `name: ${this.name}\n`,
-                    `phone: ${this.phone}\n`,
-                    `email: ${this.email}\n`,
-                    `company: ${this.company}\n`,
-                    `second_phone: ${this.second_phone}\n`,
-                    `date: ${this.date}\n`,
-                    `field: ${this.req_field}\n`,
-                    `req_lang: ${this.req_lang}\n`,
-                    `grant_lang: ${this.grant_lang}\n`,
-                    `options: ${this.options}\n`,
-                    `trans_state: ${'번역 준비중'}\n`,
-                    `fileInfo: ${this.$store.state.requests.fileInfo}\n`,
-                );*/
+               
                 if (submitResponse.statusText === 'OK') {
                   this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
                   console.log('의뢰');
@@ -1221,8 +1514,10 @@ export default {
         this.hideDetails = true;
     },
     async onChangeFile(index, e) {
+      console.log("1")
         const fileFormData = new FormData();
         if (e != null) {
+          console.log("2")
           if (e.length === 0) {
             e = null;
             return;
@@ -1247,16 +1542,21 @@ export default {
             }
           });
           try {
+            console.log("3")
             this.$nuxt.$loading.start();
             await this.$store.dispatch('requests/uploadFile', { index: index, file: fileFormData });
             const res = await this.$store.dispatch('requests/extracting', { lang: this.req_lang[index], file: fileFormData, unitcost: this.unit_price[index] });
+            console.log("test" + res)
             if (res != undefined) {
+              console.log("4")
               this.$store.dispatch('requests/setFileInfo', { index: index, info: res });
               this.price[index] = this.$store.state.requests.fileInfo[index].cost;
+              this.checkSendFile = true;
             } else {
-              
+              console.log("5")
             }
             this.$nuxt.$loading.finish();
+            console.log("6")
           } catch(err) {
             console.log(err);
           }
@@ -1265,6 +1565,7 @@ export default {
         }
     },
     onClearFile(index) {
+      this.checkSendFile = false;
         this.$store.dispatch('requests/removeFile', index);
     },
     commas(value) {

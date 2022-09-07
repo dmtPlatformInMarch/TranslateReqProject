@@ -8,19 +8,19 @@ const VUEX_PROPERTIES = ['state', 'getters', 'actions', 'mutations']
 let store = {};
 
 (function updateModules () {
-  store = normalizeRoot(require('..\\store\\index.js'), 'store/index.js')
+  store = normalizeRoot(require('../store/index.js'), 'store/index.js')
 
   // If store is an exported method = classic mode (deprecated)
 
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('..\\store\\admin.js'), 'admin.js')
-  resolveStoreModules(require('..\\store\\manager.js'), 'manager.js')
-  resolveStoreModules(require('..\\store\\requests.js'), 'requests.js')
-  resolveStoreModules(require('..\\store\\test.js'), 'test.js')
-  resolveStoreModules(require('..\\store\\users.js'), 'users.js')
-  resolveStoreModules(require('..\\store\\videoes.js'), 'videoes.js')
+  resolveStoreModules(require('../store/admin.js'), 'admin.js')
+  resolveStoreModules(require('../store/manager.js'), 'manager.js')
+  resolveStoreModules(require('../store/requests.js'), 'requests.js')
+  resolveStoreModules(require('../store/test.js'), 'test.js')
+  resolveStoreModules(require('../store/users.js'), 'users.js')
+  resolveStoreModules(require('../store/videoes.js'), 'videoes.js')
 
   // If the environment supports hot reloading...
 })()

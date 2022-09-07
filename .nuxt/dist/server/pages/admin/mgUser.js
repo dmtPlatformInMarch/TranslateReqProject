@@ -1,4 +1,4 @@
-exports.ids = [3];
+exports.ids = [4];
 exports.modules = {
 
 /***/ 237:
@@ -94,7 +94,7 @@ function VGrid(name) {
 
 /***/ }),
 
-/***/ 246:
+/***/ 255:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,7 +171,7 @@ function VGrid(name) {
 
 /***/ }),
 
-/***/ 406:
+/***/ 412:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,7 +188,7 @@ var VCard = __webpack_require__(76);
 var components_VCard = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
-var VContainer = __webpack_require__(246);
+var VContainer = __webpack_require__(255);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js
 var VDialog = __webpack_require__(235);
@@ -300,7 +300,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "33cdd05c",
-  "716a0fe8"
+  "38537a08"
   
 )
 

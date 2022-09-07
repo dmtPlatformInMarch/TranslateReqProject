@@ -1,720 +1,1298 @@
 <template>
+  <v-container>
+    <!--선택 토글-->
+    <div style = "margin-top : 100px"></div>
 
-    <div class="maintemplete">
-        
-        <div class="nav-box"></div>
+    <v-col>
+      <v-btn-toggle ref="toggle" v-model="sels" class="toggle_group" mandatory color="primary" style="width: 100%">
+        <v-btn width="50%" style="margin: 0; padding: 0">
+          {{ language === "한국어" ? "견적" : "Estimate" }}
+        </v-btn>
+        <v-btn width="50%" style="margin: 0; padding: 0">
+          {{ language === "한국어" ? "의뢰" : "Request" }}
+        </v-btn>
+      </v-btn-toggle>
+    </v-col>
 
+    <!--견적 페이지-->
+    <v-card v-if="sels === 0" outlined elevation="10">
+      <!--한국어 필드-->
+      <v-container v-if="language === '한국어'">
+        <v-row>
+          <v-col>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold"> 원본 언어 </v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectLanguage1" mandatory>
+                <v-list-item v-for="(lang, i) in languages" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
 
-    <img class = "DMT-logo" :src="require('@/assets/logo3.png')">
+          <div class="d-flex align-center justify-center">
+            <v-icon>mdi-arrow-right-bold</v-icon>
+          </div>
+          <v-col>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold"> 번역 언어 </v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectLanguage2" mandatory>
+                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? languages : ['한국어']" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
 
-    <div class="slider">
-        <div class="image-box">
-            <div><img class = "ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>
-            <div><img class = "ATOMI-logo" :src="require('@/assets/atomi-logo.png')"></div>
-            <div><img class = "KT-logo" :src="require('@/assets/kt-logo.png')"></div>
-            <div><img class = "KISITI-logo" :src="require('@/assets/kisiti-logo.png')"></div>
-            <div><img class = "MARS-logo" :src="require('@/assets/mars-logo.png')"></div>
-            <div><img class = "SALTLUX-logo" :src="require('@/assets/saltlux-logo.png')"></div>
-            <div><img class = "KDX-logo" :src="require('@/assets/kdx-logo.png')"></div>
-            <div><img class = "NIA-logo" :src="require('@/assets/nia-logo.png')"></div>
-            <!--   clone     -->
-            <div><img class = "ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>
-            <div><img class = "ATOMI-logo" :src="require('@/assets/atomi-logo.png')"></div>
-            <div><img class = "KT-logo" :src="require('@/assets/kt-logo.png')"></div>
-            <div><img class = "KISITI-logo" :src="require('@/assets/kisiti-logo.png')"></div>
-            <div><img class = "MARS-logo" :src="require('@/assets/mars-logo.png')"></div>
-            <div><img class = "SALTLUX-logo" :src="require('@/assets/saltlux-logo.png')"></div>
-            <div><img class = "KDX-logo" :src="require('@/assets/kdx-logo.png')"></div>
-            <div><img class = "NIA-logo" :src="require('@/assets/nia-logo.png')"></div>
-    </div>
-        </div>
-        
-        <div class="blank-box"></div>
-        
-        <div class="title-block">
-            <div class="title-name">
-                <h4>Our Vision</h4>
+          <v-col>
+            <v-toolbar class="toolbar_class" elevation="0">
+              <v-toolbar-title class="font-weight-bold"> 요청 분야 </v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectField" mandatory>
+                <v-list-item v-for="(f, i) in field" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ f }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+        </v-row>
+      </v-container>
+      <!--영어 필드-->
+      <v-container v-else-if="language === '영어'">
+        <v-row>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Original Language</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectLanguage1" mandatory>
+                <v-list-item v-for="(lang, i) in e_languages" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <div class="d-flex align-center justify-center">
+            <v-icon>mdi-arrow-right-bold</v-icon>
+          </div>
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Translate Language</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectLanguage2" mandatory>
+                <v-list-item v-for="(lang, i) in selectLanguage1 == 0 ? e_languages : ['Korean']" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ lang }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+
+          <v-col>
+            <v-toolbar color="primary">
+              <v-toolbar-title>Request Field</v-toolbar-title>
+            </v-toolbar>
+            <v-list class="overflow-y-auto" height="300">
+              <v-list-item-group v-model="selectField" mandatory>
+                <v-list-item v-for="(f, i) in e_field" :key="i" active-class="list_select">
+                  <v-list-item-title>{{ f }}</v-list-item-title>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-col>
+        </v-row>
+      </v-container>
+
+      <v-divider />
+
+      <!--글자수 입력 필드-->
+      <!--한글-->
+      <v-card v-if="language === '한국어'">
+        <v-card-title class="text-h4">
+          글자수
+          <v-spacer />
+          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="글자" reverse dense />
+        </v-card-title>
+        <v-card-subtitle class="text-caption">
+          중국어/일본어 = 1글자 당 <br />
+          그 외 = 1단어 당
+        </v-card-subtitle>
+        <v-spacer />
+      </v-card>
+      <!--영어-->
+      <v-card v-else-if="language === '영어'">
+        <v-card-title class="text-h4">
+          Words(Characters)
+          <v-spacer />
+          <v-text-field v-model="wordCount" type="number" hide-spin-buttons prefix="words" reverse dense />
+        </v-card-title>
+        <v-card-subtitle class="text-caption">
+          Chinese/Japanese = per letter <br />
+          Other = per word
+        </v-card-subtitle>
+        <v-spacer />
+      </v-card>
+
+      <v-divider />
+
+      <!--전체 가격 필드-->
+      <v-card>
+        <v-card-title class="text-h4">
+          <v-btn v-model="dollar" icon @click="dollar = !dollar">
+            <v-icon v-if="dollar">mdi-currency-usd</v-icon>
+            <v-icon v-else>mdi-currency-krw</v-icon>
+          </v-btn>
+          <v-spacer />
+          {{ commas(dollar ? totalPrice : (totalPrice / exRate).toFixed(3)) * wordCount }}
+          {{ dollar ? "원" : "$" }}
+        </v-card-title>
+        <v-card-title class="text-caption">
+          <div>
+            단위 가격(Unit Cost) * 글자 수(Words) <br />
+            단위 가격(Unit Cost) = 언어 종류(Language type) * 분야(Field)
+          </div>
+          <v-spacer />
+          단위 가격(Unit Cost) :
+          {{ commas(dollar ? totalPrice : (totalPrice / exRate).toFixed(3)) }}
+          {{ dollar ? "원" : "$" }}
+        </v-card-title>
+        <v-divider />
+      </v-card>
+      <v-card-title v-if="language === '한국어'">
+        <v-spacer />
+        <v-subheader v-text="'※본 견적은 정확하지 않을 수 있으며, 파일 내의 이미지 유무와 관련하여 추가 요금이 부과될 수 있습니다.'" />
+      </v-card-title>
+      <v-card-title v-else-if="language === '영어'">
+        <v-spacer />
+        <v-subheader
+          v-text="'※This estimate may not be accurate and there may be an additional charge for the presence or absence of images in the file.'"
+        />
+      </v-card-title>
+    </v-card>
+
+    <!--의뢰 페이지-->
+    <v-card v-else-if="sels === 1" outlined elevation="10">
+      <!--한국어 필드-->
+      <v-container v-if="language === '한국어'">
+        <v-form ref="form" v-model="valid" @submit.prevent>
+          <v-text-field
+            v-model="name"
+            type="text"
+            label="*성명"
+            prepend-inner-icon="mdi-account"
+            :rules="[(v) => !!v || '이름을 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="phone"
+            type="tel"
+            label="*휴대전화"
+            prepend-inner-icon="mdi-cellphone"
+            :rules="[(v) => !!v || '전화번호를 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="email"
+            type="email"
+            label="*이메일"
+            prepend-inner-icon="mdi-email"
+            :rules="[(v) => !!v || '이메일을 입력하셔야 합니다.']"
+          />
+          <v-text-field
+            v-model="company"
+            type="text"
+            label="*회사명"
+            prepend-inner-icon="mdi-office-building"
+            :rules="[(v) => !!v || '회사이름이나 소속명을 입력해주세요.']"
+          />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="전화" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
+          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
+            <template #activator="{ on, attrs }">
+              <v-text-field
+                v-model="date"
+                prepend-inner-icon="mdi-calendar"
+                v-bind="attrs"
+                readonly
+                label="*희망 납품일"
+                :rules="[(v) => !!v || '희망 납품일을 입력해주세요.']"
+                v-on="on"
+              />
+            </template>
+            <v-date-picker v-model="date" no-title scrollable>
+              <v-spacer />
+              <v-btn text @click="menu = false">Cancel</v-btn>
+              <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
+            </v-date-picker>
+          </v-menu>
+
+          <v-banner shaped>의뢰할 내용</v-banner>
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[0]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || '번역될 언어를 선택하세요.']"
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[0]"
+                  class="selector"
+                  :items="req_lang[0] === '한국어' ? languages : ['한국어']"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || '번역할 언어를 선택하세요.']"
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[0]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  ref="file0"
+                  v-model="file[0]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :rules="[(v) => !!v || '번역 파일을 첨부해주세요.']"
+                  :accept="acceptFiles"
+                  :disabled="req_lang[0] === ''"
+                  @change="onChangeFile(0, $event)"
+                  @click:clear="onClearFile(0)"
+                />
+              </div>
             </div>
-        </div>
-        
-        <!-- 1페이지 슬로건 -->
-        <div class="slogan-page">
-            <div class="slogan-1">
-                <h1>Broad Vision</h1>
-                    <ul>
-                        <li>해외 시장 진출 및 확장</li>
-                        <li>광저우 생물의학 지식재산권 거래 회사 업무 협약 체결 예정</li>
-                        <li>2023년도 베트남 하노이, 일본 도쿄 지사 설립 예정</li>
-                        <li>2024년도 유럽 진출 예정</li>
-                    </ul>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[1]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[1]"
+                  class="selector"
+                  :items="req_lang[1] === '한국어' ? languages : ['한국어']"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[1]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  ref="file1"
+                  v-model.lazy="file[1]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[1] === ''"
+                  @change="onChangeFile(1, $event)"
+                  @click:clear="onClearFile(1)"
+                />
+              </div>
             </div>
-
-            <div class="slogan-2">
-                <h1>Honest Service</h1>
-                    <ul>
-                        <li>지속적인 AI 기술 개발을 통한 사업확장</li>
-                        <li>텍스트,영상,멀티미디어 통합 분석 기술 개발</li>
-                        <li>데이터 실시간 입력,처리되는 기술 개발</li>
-                    </ul>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[2]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[2]"
+                  class="selector"
+                  :items="req_lang[2] === '한국어' ? languages : ['한국어']"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[2]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  ref="file2"
+                  v-model.lazy="file[2]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[2] === ''"
+                  @change="onChangeFile(2, $event)"
+                  @click:clear="onClearFile(2)"
+                />
+              </div>
             </div>
-
-            <div class="slogan-3">
-                <h1>Great Value</h1>
-                    <ul>
-                        <li>국내 연구소 및 대학 협력을 통한 AI 신기술 확보</li>
-                        <li>중고등학교 AI 기반 영어 독해 교육에 활용</li>
-                        <li>대기업 직원 직무 교육용으로 활용</li>
-                        <li>뉴스 주제, 인물 이해 등에 활용</li>
-                    </ul>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[3]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[3]"
+                  class="selector"
+                  :items="req_lang[3] === '한국어' ? languages : ['한국어']"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[3]" class="selector" :items="field" label="요청분야" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  ref="file3"
+                  v-model.lazy="file[3]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[3] === ''"
+                  @change="onChangeFile(3, $event)"
+                  @click:clear="onClearFile(3)"
+                />
+              </div>
             </div>
-        </div>
-
-    <!-- 빈칸 -->
-    <div class="blank-box"></div>
-        
-        <div class="title-block">
-            <div class="title-name">
-                <h4>Our Strength</h4>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[4]"
+                  class="selector"
+                  :items="languages"
+                  label="번역이 필요한 언어"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[4]"
+                  class="selector"
+                  :items="req_lang[4] === '한국어' ? languages : ['한국어']"
+                  label="번역할 언어"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="field" 
+                  label="요청분야" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
+              </div>
+              <div>
+                <v-file-input
+                  ref="file4"
+                  v-model.lazy="file[4]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="파일 첨부"
+                  small-chips
+                  multiple
+                  dense
+                  :accept="acceptFiles"
+                  :disabled="req_lang[4] === ''"
+                  @change="onChangeFile(4, $event)"
+                  @click:clear="onClearFile(4)"
+                />
+              </div>
             </div>
-        </div>
+          </div>
 
+          <div class="request__mobile">
+            <v-select
+              v-model="req_lang[0]"
+              :items="languages"
+              label="번역이 필요한 언어"
+              prepend-icon="mdi-book-sync"
+              hide-details
+              outlined
+              dense
+            />
+            <v-icon>mdi-arrow-down-bold</v-icon>
+            <v-select
+              v-model="grant_lang[0]"
+              :items="req_lang[0] === '한국어' ? languages : ['한국어']"
+              label="번역할 언어"
+              prepend-icon="mdi-book-check"
+              outlined
+              dense
+            />
+            <v-select 
+              v-model="req_field[0]" 
+              :items="field" 
+              label="요청분야" 
+              prepend-icon="mdi-shape" 
+              outlined 
+              dense 
+            />
+            <v-file-input
+              v-model.lazy="file[0]"
+              prepend-icon="mdi-content-save"
+              label="파일 첨부"
+              multiple
+              small-chips
+              dense
+              :disabled="req_lang[0] === ''"
+              :accept="acceptFiles"
+              @change="onChangeFile(0, $event)"
+              @click:clear="onClearFile(0)"
+            />
+          </div>
 
-        <!-- 2페이지 상세페이지 -->
-        <div class="indexpage-1">
-            <div class="indexpage-1-head" style="margin-top : 100px;">
-                <h2 style = "text-align: center;">전문성 있는 번역이 필요하다면</h2>
-                <h1 style = "text-align: center;">DMTLABS <span style = "color :#8B00FF" >AI 번역</span></h1>
+          <v-textarea
+            v-model="options"
+            outlined
+            auto-grow
+            clearable
+            label="특이사항"
+            prepend-inner-icon="mdi-star-cog"
+            :hide-details="hideDetails"
+            @input="onChangeTextarea"
+          />
+
+          <div class="request__btn">
+            <v-spacer class="spacer" />
+            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
+              견적서 발급
+              <v-icon right>mdi-file-download</v-icon>
+            </v-btn>
+            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
+              번역 의뢰
+              <v-icon right>mdi-file-edit</v-icon>
+            </v-btn>
+
+            <v-dialog v-model="dialog" persistent max-width="300">
+              <v-card>
+                <v-card-title class="text-h5">의뢰 내용 확인</v-card-title>
+                <v-card-text>해당 의뢰 내용으로 제출하시겠습니까?</v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text @click="dialog = false">취소</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">확인</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-form>
+      </v-container>
+
+      <!--영어 필드-->
+      <v-container v-else-if="language === '영어'">
+        <v-form ref="form" v-model="valid" @submit.prevent="">
+          <v-text-field
+            v-model="name"
+            type="text"
+            label="*Name"
+            prepend-inner-icon="mdi-account"
+            :rules="[(v) => !!v || 'You have to enter your name.']"
+          />
+          <v-text-field
+            v-model="phone"
+            type="tel"
+            label="*Phone Number"
+            prepend-inner-icon="mdi-cellphone"
+            :rules="[(v) => !!v || 'You have to enter your phone number.']"
+          />
+          <v-text-field
+            v-model="email"
+            type="email"
+            label="*Email"
+            prepend-inner-icon="mdi-email"
+            :rules="[(v) => !!v || 'You have to enter an email.']"
+          />
+          <v-text-field
+            v-model="company"
+            type="text"
+            label="*Company"
+            prepend-inner-icon="mdi-office-building"
+            :rules="[(v) => !!v || 'Please enter name of your company.']"
+          />
+          <v-text-field 
+            v-model="second_phone" 
+            type="tel" 
+            label="Tel" 
+            prepend-inner-icon="mdi-deskphone" 
+          />
+          <v-menu ref="menu" v-model="menu" :close-on-content-click="false" :return-value.sync="date" offset-y min-width="auto">
+            <template #activator="{ on, attrs }">
+              <v-text-field
+                v-model="date"
+                prepend-inner-icon="mdi-calendar"
+                v-bind="attrs"
+                readonly
+                label="*Desired date"
+                :rules="[(v) => !!v || 'Please enter the desired date.']"
+                v-on="on"
+              />
+            </template>
+            <v-date-picker v-model="date" no-title scrollable>
+              <v-spacer />
+              <v-btn text @click="menu = false">Cancel</v-btn>
+              <v-btn text @click="$refs.menu.save(date)">OK</v-btn>
+            </v-date-picker>
+          </v-menu>
+
+          <v-banner shaped>The Request</v-banner>
+          <div class="request__wrapper">
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[0]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || 'Choose the language to be translated.']"
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[0]"
+                  class="selector"
+                  :items="req_lang[0] === 'Korean' ? e_languages : ['Korean']"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                  :rules="[(v) => !!v || 'Choose a language to translate.']"
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[0]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[0]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  
+                  dense
+                  :rules="[(v) => !!v || 'Please attach the File.']"
+                  @change="onChangeFile(0, $event)"
+                  @click:clear="onClearFile(0)"
+                />
+              </div>
             </div>
-
-            <div class="indexpage-1-flexbox">
-                <div class="indexpage-1-flexbox-item">
-                    <h3><span style="color : #512FDB">8개</span> 국어</h3>
-                    <p>한/중/영/일/프/독/스/베 8개 국어 및 분야 자동 번역 기술<br>
-                        한중/중한 번역 DB 구축<br>
-                        기술 문서 및 특허 번역 서비스<br>
-                        고문서 번역 및 처리 서비스<br>
-                    </p>
-                </div>
-
-
-                <div class="indexpage-1-flexbox-item">
-                    <h3><span style="color : #23bbb1">93%</span> 정확도</h3>
-                    <p>텍스트 마이닝 분야 PDF 학술 논문 메타데이터 및 전문 추출 기술 분야<br>
-                        인공지능 기반 일반분야 한영, 한중 자동 번역 기술(한영 BLEU 0.53, 한중 BLEU 0.56)<br>
-                        인공지능 기반 특허/기술분야 한영, 한중 자동 번역 기술(한영 BLEU 0.33, 한중 BLEU 0.41)<br>
-                        한국어 및 중국어 OCR 기술 (한국어 89%, 중국어 94%)</p>
-                </div>
-
-                <div class="indexpage-1-flexbox-item">
-                    <h3><span style="color : #2172FF">3가지</span> 버전</h3>
-                    <p>이미지 번역, 문서(워드,한글pdf) 번역, 영상 번역<br/>
-                        이미지 객체 복합 정보 태깅 프로그램<br/>
-                        워드 기반 특허 문서쌍에 대한 자동 정렬<br/>
-                        클라우드 기반 온라인 번역사후교정(MTPE) 플랫폼</p>
-                </div>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[1]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[1]"
+                  class="selector"
+                  :items="req_lang[1] === 'Korean' ? e_languages : ['Korean']"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[1]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[1]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  
+                  dense
+                  @change="onChangeFile(1, $event)"
+                  @click:clear="onClearFile(1)"
+                />
+              </div>
             </div>
-        </div>
-
-
-    <!-- 디자인 css 추가하기  -->
-
-
-    <div class="blank-box"></div>
-
-
-     <div class="title-block">
-        <div class="title-name">
-            <h4>Our Service</h4>
-        </div>
-    </div>    
-
-        <div class="indexpage-2">
-            <div class="indexpage-2-head" >
-                <h2 style = "text-align: center; margin-top : 100px;">다양한 서비스가 필요하다면</h2>
-                <h1 style = "text-align: center;">DMTLABS <span style = "color :#512FDB" >SERVICES</span></h1>
-                
-                <!-- 사진 애니매이션 추가 -->
-                
-                <div class="indexpage-2-article">
-                    <p class = "article-center-1 floating">클라우드 기반 데이터 구축 및 가공 플랫폼 서비스</p>
-                    <p class = "article-left-1 floating">문서 영역 인식 기반 메타데이터 추출 기술</p>
-                    <p class = "article-right-1 floating">다양한 분야 대화 데이터 구축 및 대화 지식 가공</p>
-                    <p class = "article-center-2 floating">8개 국어 양방향 인공지능 자동 번역 기술 솔루션</p>
-                    <p class = "article-left-2 floating">외국인 행정문서 번역 및 제작 서비스</p>
-                    <p class = "article-right-2 floating">음성 전사 및 영상 자막 번역 및 생성 서비스</p>
-                    <p class = "article-center-3 floating">다국어 대역어 및 용례 검색 시스템</p>
-                </div>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[2]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[2]"
+                  class="selector"
+                  :items="req_lang[2] === 'Korean' ? e_languages : ['Korean']"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[2]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[2]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  
+                  dense
+                  @change="onChangeFile(2, $event)"
+                  @click:clear="onClearFile(2)"
+                />
+              </div>
             </div>
-        </div>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[3]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[3]"
+                  class="selector"
+                  :items="req_lang[3] === 'Korean' ? e_languages : ['Korean']"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select v-model="req_field[3]" class="selector" :items="e_field" label="Request field" prepend-icon="mdi-shape" outlined dense />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[3]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  
+                  dense
+                  @change="onChangeFile(3, $event)"
+                  @click:clear="onClearFile(3)"
+                />
+              </div>
+            </div>
+            <div class="request__content" style="display: flex; justify-content: space-between">
+              <div>
+                <v-select
+                  v-model="req_lang[4]"
+                  class="selector"
+                  :items="e_languages"
+                  label="Need translation"
+                  prepend-icon="mdi-book-sync"
+                  outlined
+                  dense
+                />
+              </div>
+              <div style="text-align: center">
+                <v-icon>mdi-arrow-right-bold</v-icon>
+              </div>
+              <div>
+                <v-select
+                  v-model="grant_lang[4]"
+                  class="selector"
+                  :items="req_lang[4] === 'Korean' ? e_languages : ['Korean']"
+                  label="To translate"
+                  prepend-icon="mdi-book-check"
+                  outlined
+                  dense
+                />
+              </div>
+              <div>
+                <v-select 
+                  v-model="req_field[4]" 
+                  class="selector" 
+                  :items="e_field" 
+                  label="Request field" 
+                  prepend-icon="mdi-shape" 
+                  outlined 
+                  dense 
+                />
+              </div>
+              <div>
+                <v-file-input
+                  v-model="file[4]"
+                  class="file_selector"
+                  prepend-icon="mdi-content-save"
+                  label="File"
+                  small-chips
+                  
+                  dense
+                  @change="onChangeFile(4, $event)"
+                  @click:clear="onClearFile(4)"
+                />
+              </div>
+            </div>
+          </div>
 
-        <div class="blank-box"></div>
+          <div class="request__mobile">
+            <div>
+              <v-select
+                v-model="req_lang[0]"
+                :items="e_languages"
+                label="Need Translation"
+                prepend-icon="mdi-book-sync"
+                outlined
+                dense
+              />
+            </div>
+          </div>
 
+          <v-textarea
+            v-model="options"
+            outlined
+            auto-grow
+            clearable
+            label="Special Order"
+            prepend-inner-icon="mdi-star-cog"
+            :hide-details="hideDetails"
+            @input="onChangeTextarea"
+          />
 
-    </div>
+          <div class="request__btn">
+            <v-spacer class="spacer" />
+            <v-btn depressed color="#0d6efd" dark large style="margin: 10px" @click="pdfTest">
+              Issuing Quotation
+              <v-icon right>mdi-file-download</v-icon>
+            </v-btn>
+            <v-btn depressed color="success" :disabled="!loginState" dark large style="margin: 10px" @click="dialog = true">
+              Translation request
+              <v-icon right>mdi-file-edit</v-icon>
+            </v-btn>
 
+            <v-dialog v-model="dialog" persistent max-width="300">
+              <v-card>
+                <v-card-title class="text-h5">Check the request</v-card-title>
+                <v-card-text>Would you like to submit the request?</v-card-text>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn text @click="dialog = false">Cancel</v-btn>
+                  <v-btn color="success" text type="submit" @click="onSubmitForm">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-form>
+      </v-container>
+    </v-card>
+  </v-container>
 </template>
 
 <style scoped>
-    .maintemplete{
-      background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-
-
-    div {
-        box-sizing: border-box;
-    }
-
-    ul {
-        list-style-type: none;
-    }
-
-    .nav-box{
-        position: fixed;
-        width: 100vw;
-        height : 70px;
-        background-image: linear-gradient(to right, #434343 0%, black 100%);    
-        }
-
-    
-
-    .control-button-1{
-        left : 90%;
-        top : 20%;
-        position: sticky;
-    
-        text-align: center;
-        line-height: 100px;
-        color : white;
-        width : 100px;
-        height: 100px;
-        background-color: #512FDB;
-        border-radius: 10px;
-        opacity:0.7; /* 80% 불투명도 */
-        
-    }
-    .control-button-2{
-        left : 90%;
-        top : 30%;
-        position: sticky;
-    
-        text-align: center;
-        line-height: 100px;
-        color : white;
-        width : 100px;
-        height: 100px;
-        background-color: #2172FF;
-        border-radius: 10px;
-        opacity:0.7; /* 80% 불투명도 */
-    }
-
-    .control-button-3{
-        left : 90%;
-        top : 40%;
-        position: sticky;
-    
-        text-align: center;
-        line-height: 100px;
-        color : white;
-        width : 100px;
-        height: 100px;
-        background-color: #23bbb1;
-        border-radius: 10px;
-        opacity:0.7; /* 80% 불투명도 */
-    }
-
-
-    .title-block{
-        text-align: center;
-    }
-
-    .title-name{
-        display: inline-block;
-        font-size : 40px;
-        margin : auto;
-        border-bottom: black 4px solid;
-    }
-
-    .title-logo{
-        text-align: center;
-    }
-
-    .DMT-logo{
-        display: block;
-        width : 600px;
-        margin : auto;
-        margin-top : 100px;
-        
-    }
-
-
-    .slider {
-        overflow:hidden;
-        position:relative;
-        top : 25px;
-        width:100vw;  /*이미지 보여지는 뷰 부분 */
-        height:200px;
-        z-index: 0;
-    }
-        .image-box {
-        width:5280px;  /*원본+클론의 총 합*/
-        height:100%;
-        display:flex;
-        flex-wrap:nowrap;
-        animation: bannermove 15s linear infinite;
-        }
-        @keyframes bannermove {
-        0% {
-            transform: translate(0, 0);
-        }
-        100% {
-            transform: translate(-50%, 0);
-        }
-        }
-
-    
-    .ETRI-logo{
-        margin-left : 60px;
-        width : 200px;
-        height: 100px;
-    }
-
-    .ATOMI-logo{
-        margin-left : 70px;
-        margin-right : 60px;
-        width: 200px;
-        height: 100px;
-    }
-
-    .KISITI-logo{
-        margin-left : 60px;
-        margin-right : 60px;
-        width: 200px;
-    }
-
-    .KT-logo{
-        margin-left : 60px;
-        margin-right : 60px;
-        width : 75px;
-        height: 75px;
-    }
-
-     .KDX-logo{
-        margin-top : 20px;
-        margin-left : 30px;
-        margin-right : 60px;
-        width : 200px;
-        height: 100px;
-    }
-
-     .MARS-logo{
-        margin-left : 60px;
-        margin-right : 20px;
-        width :150px;
-        height: 150px;
-    }
-
-     .SALTLUX-logo{
-        margin-left : 60px;
-        margin-right : 60px;
-        width : 350px;
-        height: 100px;
-    }
-
-    .NIA-logo{
-        width : 300px;
-        height: 150px;
-    }
-
-    .blank-box{
-        height : 200px;
-    }
-
-    .slogan-page{
-        font-size : 20px;
-        margin-top : 100px;
-    }
-
-    .slogan-1 {
-        margin-left :400px;
-        margin-bottom : 50px;
-    }
-
-    .slogan-2 {
-        margin-left :800px;
-        margin-bottom : 50px;
-
-    }
-
-    .slogan-3 {
-        margin-left :1200px;
-        margin-bottom : 50px;
-    }
-
-    .slogan-1::first-letter {
-        color : #8B00FF;
-    }
-
-    .slogan-2::first-letter {
-        color : #23bbb1;
-    }
-
-    .slogan-3::first-letter {
-        color : #2172FF;
-    }
-
-    .indexpage-1-flexbox{
-        display : flex;
-        justify-content: space-around;
-
-        margin: 50px;
-    }
-
-    .indexpage-1-flexbox-item h3{
-        font-size : 40px;
-        text-align: center;
-        margin-bottom : 10px;
-    }
-
-
-    .indexpage-2-article{
-        margin-bottom: 100px;
-        margin-top : 100px;
-    }
-
-     .indexpage-2-article p{
-        font-size: 20px;
-     }
-
-     .article-center-1{
-        margin-left : 300px;
-     }
-
-
-     .article-left-1{
-        margin-left : 1200px;
-
-     }
-      .article-right-1{
-        text-align: center;
-
-    }
-
-    .article-center-2{
-        margin-left : 200px;
-
-     }
-
-     .article-left-2{
-        margin-left : 1300px;
-
-     }
-      .article-right-2{
-        margin-left : 500px;
-
-    }
-
-    .article-center-3{
-        margin-left : 1000px;
-
-     }
-
-    .Business-areas {
-        display : flex;
-        justify-content: space-between;
-
-        margin-top : 100px;
-        margin-left: 250px;
-        margin-right: 200px;
-
-        text-align: center;
-    }
-
-    .Business-areas ui {
-        text-align: left;
-        visibility: hidden;
-    }
-
-    .Business-areas h2:hover + ui{
-         visibility: visible;        
-         
-    }
-
-    .voice-area{
-        margin-top: 100px;
-         
-    }
-
-    .talking-area{
-        margin-top : 100px;
-    }
-
-        /*
-    ==============================================
-    floating
-    ==============================================
-    */
-
-    .floating{
-        animation-name: floating;
-        -webkit-animation-name: floating;
-
-        animation-duration: 2s;	
-        -webkit-animation-duration: 1.5s;
-
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    @keyframes floating {
-        0% {
-            transform: translateY(0%);	
-        }
-        50% {
-            transform: translateY(30%);	
-        }	
-        100% {
-            transform: translateY(0%);
-        }			
-    }
-
-    @-webkit-keyframes floating {
-        0% {
-            -webkit-transform: translateY(0%);	
-        }
-        50% {
-            -webkit-transform: translateY(30%);	
-        }	
-        100% {
-            -webkit-transform: translateY(0%);
-        }			
-    }
-
-    @media screen and (max-width: 900px){
-         .blank-box{
-            height : 100px;
-        }
-
-        .DMT-logo {
-            width : 400px;
-            height : 200px;
-        }
-
-        .slogan-page{
-            text-align: center;
-            display : flex;
-            flex-direction: column;
-            font-size : 20px;
-            margin-top : 50px;
-        }
-
-        .slogan-page li{
-            font-size : 20px;
-            text-align: center;
-        }
-
-        .slogan-1 {
-            margin: auto;
-            margin-bottom: 20px;
-        }
-
-        .slogan-2 {
-            margin: auto;
-            margin-bottom: 20px;
-        }
-
-        .slogan-3 {
-            margin: auto;
-            margin-bottom: 20px;
-        }
-
-        .indexpage-1-flexbox{
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .indexpage-2-article{
-            display: flex;
-            flex-direction: column;
-        }
-
-     .indexpage-2-article p{
-        font-size: 30px;
-        margin : auto;
-        margin-top : 10px;
-        
-        }
-
-    .Business-areas {
-        flex-direction: column;
-        margin : 0;
-        text-align: center;
-    }
-
-    }
-
-    @media screen and (max-width: 500px)
-    {
-        .blank-box{
-            height : 100px;
-        }
-
-        .DMT-logo {
-            width : 400px;
-            height : 200px;
-        }
-
-        .slogan-page{
-            text-align: center;
-            display : flex;
-            flex-direction: column;
-            font-size : 20px;
-            margin-top : 50px;
-        }
-
-        .slogan-page li{
-            font-size : 20px;
-            text-align: center;
-        }
-
-        .slogan-1 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .slogan-2 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .slogan-3 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .indexpage-1-flexbox{
-            flex-direction: column;
-        }
-        
-        .indexpage-2-article{
-            display: flex;
-            flex-direction: column;
-        }
-
-     .indexpage-2-article p{
-        font-size: 15px;
-        margin : auto;
-        margin-top : 10px;
-        }
-
-    .Business-areas {
-        flex-direction: column;
-        margin : 0;
-        text-align: center;
-    }
-
-    }
-
-    @media screen and (max-width: 361px){
-        
-        .blank-box{
-            height : 100px;
-        }
-
-        .DMT-logo {
-            width : 400px;
-            height : 200px;
-        }
-
-        .slider {
-            overflow:hidden;
-            position:relative;
-            top : 25px;
-            width:100vw;  /*이미지 보여지는 뷰 부분 */
-            height:150px;
-            z-index: 0;
-        }
-
-        .image-box {
-            width:5280px;  /*원본+클론의 총 합*/
-            height:100%;
-            display:flex;
-            flex-wrap:nowrap;
-            animation: bannermove 15s linear infinite;
-            }
-            @keyframes bannermove {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(-50%, 0);
-            }
-        }
-            
-        .slogan-page{
-            text-align: center;
-            display : flex;
-            flex-direction: column;
-            font-size : 20px;
-            margin-top : 50px;
-        }
-
-        .slogan-page li{
-            font-size : 20px;
-            text-align: center;
-        }
-
-        .slogan-1 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .slogan-2 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .slogan-3 {
-            margin: auto;
-            margin-bottom: 10px;
-        }
-
-        .indexpage-1-flexbox{
-            flex-direction: column;
-        }
-        
-        .indexpage-2-article{
-            display: flex;
-            flex-direction: column;
-        }
-
-        .indexpage-2-article p{
-            font-size: 15px;
-            margin : auto;
-            margin-top : 10px;
-            }
-
-        .Business-areas {
-            flex-direction: column;
-            margin : 0;
-            text-align: center;
-        }
-    }
-
-</style>
-<script>
-
-    
-export default {
-    layout : 'default',
-    data() {
-        return{
-        }
-    }    
+.selector {
+  min-width: 200px;
+  max-width: 200px;
+}
+.file_selector {
+  min-width: 200px;
+  max-width: 200px;
+}
+.toolbar_class {
+  border-bottom: 3px solid green;
+}
+.list_select {
+  border: solid #013183 !important;
+  color: #013183 !important;
+}
+.toggle_group {
+  border: 1px solid #013183 !important;
+}
+.request__btn {
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  margin: auto; 
+  padding: 10px 0;
+}
+.request__mobile {
+  display: none;
+  flex-direction: column;
 }
 
+@media screen and (max-width: 900px) {
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
+@media screen and (max-width: 500px) {
+  .request__btn {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+  }
+  .spacer {
+    display: none;
+  }
+  .request__wrapper {
+    display: none;
+  }
+  .request__mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>
 
+<script lang="js">
+import { mapState } from 'vuex';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-</script>
-
+export default {
+  layout: 'TextLayout',
+  data: () => ({
+    hideDetails: true,
+    valid: false,
+    menu: false,
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    second_phone: '',
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    req_field: ['', '', '', '', ''],
+    req_lang: ['', '', '', '', ''],
+    grant_lang: ['', '', '', '', ''],
+    price: [ 0, 0, 0, 0, 0 ],
+    unit_price: [0, 0, 0, 0, 0],
+    file: [],
+    options: '',
+    dialog: false,
+    sels: 0,
+    selectLanguage1: 0,
+    selectLanguage2: 0,
+    selectField: 0,
+    e_selectLanguage1: 0,
+    e_selectLanguage2: 0,
+    e_selectField: 0,
+    dollar: false,
+    wordCount: '',
+    acceptFiles: '.txt,.pdf,.docx',
+  }),
+  asyncData({ store }) {
+    store.commit('requests/setExcost', 0);
+  },
+  computed: {
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
+    language() {
+      return this.$store.state.manager.language;
+    },
+    languages() {
+      return this.$LANGUAGES_KO;
+    },
+    e_languages() {
+      return this.$LANGUAGES_EN;
+    },
+    field() {
+      return this.$FIELDS_KO;
+    },
+    e_field() {
+      return this.$FIELDS_EN;
+    },
+    totalPrice() {
+      return this.$store.state.requests.ex_cost;
+    },
+    exRate() {
+      return this.$DOLLAR;
+    },
+  },
+  watch: {
+    selectLanguage1() {
+      this.calcCost();
+    },
+    selectLanguage2() {
+      this.calcCost();
+    },
+    selectField() {
+      this.calcCost();
+    },
+    req_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    grant_lang: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+    req_field: {
+      handler() {
+        for(let i = 0; i < this.req_lang.length; i++) {
+          if (this.req_lang[i] === '' || this.grant_lang[i] === '' || this.req_field[i] === '')
+            continue;
+          this.unit_price[i] = this.requestCost(this.req_lang[i], this.grant_lang[i], this.req_field[i]);
+        }
+      },
+      deep: true,
+    },
+  },
+  methods: {
+    pdfTest: function() {
+        var documentDefinition = {
+            // 워터마크
+            watermark: {
+                text: 'DMTLABS',
+                color: 'blue',
+                opacity: 0.2,
+                bold: true,
+                fontSize: 40,
+                angle: 30
+            },
+            content: [
+                // 제목
+                {
+                    text: '\n' + 'DMTLABS Translation Request Estimate' + '\n\n',
+                    style: 'style_header'
+                },
+                // 공급자 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        widths: ['auto', 100, '*', '*'],
+                        body: [
+                            [ {text:'Provider', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Representative'}, {text: 'KIM-UN', colSpan:2}, '' ],
+                            [ '', {text: 'Trade'}, {text: 'DMTLABS', colSpan: 2}, '' ],
+                            [ '', {text: 'Address'}, {text: '(04386) Room 404, Hangang-daero 40-gil 18, Yongsan-gu, Seoul, Republic of Korea (144-2 Dai Building, Hangang-ro 2-ga)', colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: '02-794-5333', colSpan: 2}, '' ],
+                        ]
+                    }
+                },
+                // 의뢰자 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        widths: ['auto', 100, '*', '*'],
+                        body: [
+                            [ {text:'Consumer', rowSpan: 4, fillColor: '#bdcce3'}, {text: 'Client'}, {text: `${this.name}`, colSpan:2}, '' ],
+                            [ '', {text: 'Requester'}, {text: `${this.company}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Contact'}, {text: `${this.phone.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3")}`, colSpan: 2}, '' ],
+                            [ '', {text: 'Requested Date'}, {text: `${this.date}`, colSpan: 2}, '' ],
+                        ]
+                    }
+                },
+                // 의뢰 내역 테이블
+                {
+                    style: 'style_table',
+                    table: {
+                        heights: 20,
+                        widths: ['auto', '*', '*', '*', 'auto'],
+                        headerRows: 2,
+                        body: [
+                            [ {text: 'Total', colSpan: 2, fillColor: '#f49d80'}, '', {text: (this.price[0] + this.price[1] + this.price[2] + this.price[3] + this.price[4]) + ' Won', colSpan: 3, fillColor: '#f49d80'}, '', '' ], 
+                            [ {text: 'Translation Info', colSpan: 2, fillColor: '#dedede'}, '', {text: 'Price', colSpan: 2, fillColor: '#dedede'}, '', {text: 'etc', fillColor: '#dedede'} ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[0])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[0])]}`, colSpan: 2}, '', {text: `${this.price[0]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[1])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[1])]}`, colSpan: 2}, '', {text: `${this.price[1]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[2])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[2])]}`, colSpan: 2}, '', {text: `${this.price[2]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[3])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[3])]}`, colSpan: 2}, '', {text: `${this.price[3]} Won`, colSpan: 2}, '', '' ],
+                            [ {text: `${this.e_languages[this.languages.indexOf(this.req_lang[4])]} -> ${this.e_languages[this.languages.indexOf(this.grant_lang[4])]}`, colSpan: 2}, '', {text: `${this.price[4]} Won`, colSpan: 2}, '', '' ],
+                        ]
+                    }
+                }
+            ],
+            // 페이지 번호 삽입
+            footer: function (currentPage, pageCount) {
+                return {
+                    margin: 10,
+                    columns: [{
+                        fontSize: 9,
+                        text: {
+                            text: '' + currentPage.toString()
+                        }
+                    },
+                    ],
+                    alignment: 'center'
+                }
+            },
+            // 커스텀 스타일 세트 그룹 정의
+            styles: {
+                style_header: {
+                    fontSize: 24,
+                    bold: true,
+                    margin: [0, 0, 0, 0],
+                    alignment: 'center',
+                },
+                style_test: {
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 0, 0, 0],
+                    alignment: 'center'
+                },
+                style_table: {
+                    margin: [0, 5, 0, 15],
+                    alignment: 'center',
+                    fontSize: 12,
+                }
+            },
+            // 페이지 용지 사이즈
+            pageSize: 'A4',
+            // 페이지 방향 (세로=portrait / 가로=landscape)
+            pageOrientation: 'portrait',
+        };
+        var pdf_name = '번역 의뢰 견적서.pdf';
+        pdfMake.createPdf(documentDefinition).download(pdf_name);
+        //pdfMake.createPdf(documentDefinition).open();
+    },
+    async onSubmitForm() {
+        try {
+            if (this.$refs.form.validate()) {
+                const submitResponse = await this.$store.dispatch('requests/onRequest', {
+                    name: this.name,
+                    phone: this.phone,
+                    email: this.email,
+                    company: this.company,
+                    second_phone: this.second_phone,
+                    date: this.date,
+                    field: this.req_field,
+                    req_lang: this.req_lang,
+                    grant_lang: this.grant_lang,
+                    options: this.options,
+                    trans_state: '번역 준비중',
+                    fileInfo: this.$store.state.requests.fileInfo,
+                });
+                /*console.log(
+                    `name: ${this.name}\n`,
+                    `phone: ${this.phone}\n`,
+                    `email: ${this.email}\n`,
+                    `company: ${this.company}\n`,
+                    `second_phone: ${this.second_phone}\n`,
+                    `date: ${this.date}\n`,
+                    `field: ${this.req_field}\n`,
+                    `req_lang: ${this.req_lang}\n`,
+                    `grant_lang: ${this.grant_lang}\n`,
+                    `options: ${this.options}\n`,
+                    `trans_state: ${'번역 준비중'}\n`,
+                    `fileInfo: ${this.$store.state.requests.fileInfo}\n`,
+                );*/
+                if (submitResponse.statusText === 'OK') {
+                  this.$manage.showMessage({ message: '의뢰 성공', color: 'green lighten-2' });
+                  console.log('의뢰');
+                  this.$router.push({ path: '/text/textmain'});
+                }
+                else {
+                  this.$manage.showMessage({ message: '의뢰 실패', color: 'indigo lighten-2' });
+                  this.$store.dispatch('requests/cancelRequest', submitResponse.data.id);
+                  console.log('의뢰 실패');
+                }
+                this.dialog = false;
+            }
+        } catch (error) {
+            // 오류처리
+            this.$manage.showMessage({ message: '의뢰 실패', color: 'red lighten-2' });
+            console.error(error);
+        }
+    },
+    onChangeTextarea() {
+        this.hideDetails = true;
+    },
+    async onChangeFile(index, e) {
+        const fileFormData = new FormData();
+        if (e != null) {
+          if (e.length === 0) {
+            e = null;
+            return;
+          }
+          [].forEach.call(e, (f) => {
+            if (
+              f.type === 'application/pdf'  ||  // .pdf
+              f.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || // .xlsx
+              f.type === 'text/plain' ||  // .txt
+              f.type === 'application/haansofthwp' || // .hwp
+              f.name.substring(f.name.lastIndexOf(".") + 1) === 'pptx' // .pptx
+            ) {
+              fileFormData.append('fileKey', f);
+            }
+            else {
+              this.$manage.showMessage({ 
+                message: `지원하지 않는 형식의 파일이 존재합니다. 해당 파일 형식 : [.${f.type === '' ? f.name.substring(f.name.lastIndexOf(".") + 1) : f.type}]`,
+                color : 'orange darken-1' 
+              });
+              this.file[index] = null;
+              e = null;
+            }
+          });
+          try {
+            this.$nuxt.$loading.start();
+            await this.$store.dispatch('requests/uploadFile', { index: index, file: fileFormData });
+            const res = await this.$store.dispatch('requests/extracting', { lang: this.req_lang[index], file: fileFormData, unitcost: this.unit_price[index] });
+            if (res != undefined) {
+              this.$store.dispatch('requests/setFileInfo', { index: index, info: res });
+              this.price[index] = this.$store.state.requests.fileInfo[index].cost;
+            } else {
+              
+            }
+            this.$nuxt.$loading.finish();
+          } catch(err) {
+            console.log(err);
+          }
+        } else {
+            console.log("e is null!!!");
+        }
+    },
+    onClearFile(index) {
+        this.$store.dispatch('requests/removeFile', index);
+    },
+    commas(value) {
+      if (typeof(value) === 'number')
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      else {
+        return value;
+      }
+    },
+    loginCheck() {
+      if (!this.loginState) {
+        this.$refs.toggle._data.internalLazyValue = 0;
+        this.sels = 0;
+        this.$manage.showMessage({ message: '로그인이 필요한 작업입니다.', color: 'red'});
+      }
+    },
+    calcCost() {
+      if (this.language === '한국어')
+        this.$CALC_COST(this.languages[this.selectLanguage1], this.languages[this.selectLanguage2], this.field[this.selectField]);
+      else 
+        this.$CALC_COST(this.e_languages[this.selectLanguage1], this.e_languages[this.selectLanguage2], this.e_field[this.selectField]);
+    },
+    requestCost(selLang1, selLang2, selField) {
+      this.$CALC_COST(selLang1, selLang2, selField);
+      return this.$store.state.requests.ex_cost;
+    },
+  }
+}
 </script>
