@@ -1,64 +1,299 @@
 <template>
-    <div ref="videobox" class="video__box">
-        <div class="video__player">
-            <v-row class="video__player__grid" no-gutters>
-                <v-col cols="8" class="video__player__box">
-                    <div v-if="this.readToVideo != false" class="video">
-                        <video-component :url="this.fileURL" />
-                    </div>
-                    <div v-else>
-                        작업 파일에서 선택하세요
-                    </div>
-                </v-col>
-                <v-col class="video__player__meta">
-                    <v-btn class="video__player__metabtn" color="warning" elevation="0" block :disabled="!this.readToVideo" @click="onEmptyFile">
-                        <v-icon>
-                            mdi-trash-can
-                        </v-icon>
-                        영상 비우기
-                    </v-btn>
-                    <v-btn class="video__player__metabtn" color="error" elevation="0" block :disabled="!this.readToVideo" @click="onClearFile">
-                        <v-icon>
-                            mdi-close
-                        </v-icon>
-                        영상 삭제
-                    </v-btn>
-                </v-col>
-            </v-row>
-        </div>
-        <div class="video__translator">
-            <div class="video__translator__title">
-                <h1>자막</h1>   
-                <v-spacer />
-                <client-only>
-                    <v-select class="lang__select" v-model="req_lang" :items="languages" />
-                    <v-select class="lang__select" v-model="grant_lang" :items="languages" />
-                </client-only>
-                <v-spacer />
-                <div class="video__translator__btngroup">
-                    <v-btn 
-                        ref="download"
-                        v-show="false"
-                        :href="
-                            (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
-                            '/video/download/' +
-                            this.fileName + '.srt'"
-                    />
-                    <v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="bringTrack">자막 편집</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="createTrackVTT">원본 자막 적용 (.vtt)</v-btn>
-                    <v-btn class="video__translator__btn" color="#013183" depressed tile dark :disabled="!this.readToVideo" @click="createTrackTrans">번역 자막 적용</v-btn>
-                    <!--v-btn class="video__translator__btn" color="#2172FF" depressed tile dark :disabled="!this.readToVideo" @click="createTrackSRT">자막 다운로드 (.srt)</v-btn-->
-                </div>
+    <div class="wrapper">
+        <div class="video__box">
+            <input ref="upload" type="file" v-show="false" @change="onChange" accept=".mp4" />
+            <!--영상 선택 시-->
+            <div class="video__player" v-if="readToVideo === true">
+                <video ref="videoplayer" class="player" :src="videoURL" controls preload="auto" crossorigin="anonymous">
+                </video>
             </div>
-            <h4 v-if = "clickButton == false" >자막 편집 전 언어를 선택해 주세요</h4>
-            <v-virtual-scroll class="video__translator__content" bench="15" :items="videoTrack" height="600" item-height="112">
-                <template v-slot:default="{ item, index }">
-                    <track-component :start="item.start" :end="item.end" :text="item.text" :trans="transTrack[index]" :idx="index" />
-                </template>
-            </v-virtual-scroll>
+            <!--영상 미선택 시-->
+            <div class="video__player" v-else>
+                <v-dialog v-model="dialog" width="60vw" persistent>
+                    <template v-slot:activator="{ attrs }">
+                        <v-btn rounded v-bind="attrs" @click="uploadVideo">
+                            <v-icon>
+                                mdi-plus
+                            </v-icon>
+                            새로 만들기
+                        </v-btn>
+                    </template>
+
+                    <v-card>
+                        <div class="dialog__box">
+                            <div class="dialog__box__setting">
+                                <div class="setting__select__box" @click="dialog = !dialog">
+                                    <v-img class="img" src="https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo.png" />
+                                </div>
+                                <div class="setting__select__box" v-if="beforeSelect">
+                                    <div class="select__box">
+                                        <div >
+                                            <v-toolbar class="header__class" elevation="0">
+                                                <v-toolbar-title class="font-weight-bold">
+                                                    영상의 원본 언어
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <div class="overflow-y-auto list__wrapper">
+                                                <v-list>
+                                                    <v-list-item-group v-model="req" mandatory>
+                                                        <v-list-item v-for="(item, index) in languages" :key="index" active-class="list__select">
+                                                            <v-list-item-title>
+                                                                {{ item }}
+                                                            </v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list-item-group>
+                                                </v-list>
+                                            </div>
+                                        </div>
+                                        <v-icon>
+                                            mdi-arrow-right
+                                        </v-icon>
+                                        <div>
+                                            <v-toolbar class="header__class" elevation="0">
+                                                <v-toolbar-title class="font-weight-bold">
+                                                    번역하고 싶은 언어
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <div class="overflow-y-auto list__wrapper">
+                                                <v-list>
+                                                    <v-list-item-group v-model="grant" mandatory>
+                                                        <v-list-item v-for="(item, index) in languages" :key="index" active-class="list__select">
+                                                            <v-list-item-title>
+                                                                {{ item }}
+                                                            </v-list-item-title>
+                                                        </v-list-item>
+                                                    </v-list-item-group>
+                                                </v-list>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="action__box">
+                                        <v-btn block rounded color="#013183" dark @click="onTaskStart">
+                                            번역하기
+                                        </v-btn>
+                                    </div>
+                                </div>
+                                <div class="dialog__box__process" v-else>
+                                    <div class="process__stepper">
+                                        <div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="primary" :disabled="step != 1">
+                                                영상 업로드
+                                            </v-btn>
+                                        </div>
+                                        <transition v-if="step === 1">
+                                            <div class="arrow__wrapper" >
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                            </div>
+                                        </transition>
+                                        <div v-else class="arrow__wrapper">
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                        </div>
+                                        <div div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="warning" :disabled="step != 2">
+                                                영상 인식
+                                            </v-btn>
+                                        </div>
+                                        <transition v-if="step === 2">
+                                            <div class="arrow__wrapper">
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                                <div class="arrow">▼</div>
+                                            </div>
+                                        </transition>
+                                        <div v-else class="arrow__wrapper">
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                            <div>▼</div>
+                                        </div>
+                                        <div div class="stepper">
+                                            <v-btn class="stepper__btn" block rounded color="success" :disabled="step != 3">
+                                                자막 번역
+                                            </v-btn>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dialog__box__loading">
+                                <v-progress-linear v-model="loading" color="#013183" height="25px">
+                                    <template v-slot:default="{ value }">
+                                        <strong style="color: white">{{ Math.ceil(value) }}%</strong>
+                                    </template>
+                                </v-progress-linear>
+                            </div>
+                        </div>
+                    </v-card>
+                </v-dialog>
+            </div>
+            <!--영상 컨트롤러-->
+            <div class="video__action">
+                <v-btn class="video__action__btn" rounded color="#013183" :dark="readToVideo" @click.stop="newVideoDialog = !newVideoDialog" :disabled="!readToVideo">
+                    <v-icon>
+                        mdi-plus
+                    </v-icon>
+                    새 영상
+                </v-btn>
+                <v-btn class="video__action__btn" rounded color="#013183" :dark="readToVideo" @click.stop="downloadDialogOpen" :disabled="!readToVideo">
+                    <v-icon>
+                        mdi-download
+                    </v-icon>
+                    다운로드
+                </v-btn>
+            </div>
+            <v-dialog v-model="downloadDialog" width="600" persistent>
+                <v-card class="download__card">
+                    <v-card-title class="download__card__title" tag="div">
+                        다운로드 양식 선택
+                    </v-card-title>
+
+                    <div class="download__card__content">
+                        <div class="hr-sect">텍스트 정보</div>
+                        <div class="card__content__text pa-2">
+                            <div ref="textTab_1" class="card__content__btn pa-4" @click="firstTextTap">
+                                <div class="d-flex align-center justify-center" style="width: 100%; height: 50%;">
+                                    <v-icon class="text-h4" :dark="textTab === 1">
+                                        mdi-format-text-variant-outline
+                                    </v-icon>
+                                </div>
+                                원문
+                            </div>
+                            <div ref="textTab_2" class="card__content__btn pa-4" @click="secondTextTap">
+                                <div class="d-flex align-center justify-center" style="width: 100%; height: 50%;">
+                                    <v-icon class="text-h4" :dark="textTab === 2">
+                                        mdi-translate-variant
+                                    </v-icon>
+                                </div>
+                                번역
+                            </div>
+                        </div>
+
+                        <div class="hr-sect">파일 포맷</div>
+                        <div class="card__content__btngroup">
+                            <div ref="tab_1" class="card__content__btn pa-4" @click="firstTap">
+                                <div class="d-flex align-center justify-center" style="width: 100%; height: 80%;">
+                                    <v-icon class="text-h1" :dark="fileTab === 1">
+                                        mdi-file
+                                    </v-icon>
+                                </div>
+                                <v-btn class="non-flex readonly__btn font-weight-bold" :ripple="false" depressed rounded block style="width: 100%; height: 20%; font-size: 18px;">
+                                    .srt
+                                </v-btn>
+                            </div>
+                            <div ref="tab_2" class="card__content__btn pa-4" @click="secondTap">
+                                <div class="d-flex align-center justify-center" style="width: 100%; height: 80%;">
+                                    <v-icon class="text-h1" :dark="fileTab === 2">
+                                        mdi-file
+                                    </v-icon>
+                                </div>
+                                <v-btn class="non-flex readonly__btn font-weight-bold" :ripple="false" depressed rounded block style="width: 100%; height: 20%; font-size: 18px;">
+                                    .vtt
+                                </v-btn>
+                            </div>
+                        </div>
+                    </div>
+
+                    <v-card-actions class="card__action">
+                        
+                        <v-btn class="auto-flex" depressed color="success" @click.stop="downloadFile" :disabled="fileTab === 0 || textTab === 0">
+                            <v-icon>
+                                mdi-download
+                            </v-icon>
+                            다운로드
+                        </v-btn>
+                        <v-btn class="auto-flex" depressed color="error" @click.stop="downloadDialog = !downloadDialog">
+                            <v-icon>
+                                mdi-close
+                            </v-icon>
+                            닫기
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+            <!--파일 목록-->
+            <div class="video__list">
+                <v-expansion-panels class="video__list__group" tile dark>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header color="#013183">
+                            파일 목록
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content v-if="loginState" class="video__list__content">
+                            <div class="list__content__disabled">
+                                로그인 후<br /> 이용가능 합니다.
+                            </div>
+                        </v-expansion-panel-content>
+                        <v-expansion-panel-content v-else class="video__list__content">
+                            <v-virtual-scroll bench="10" :items="videoList" height="50vh" item-height="64">
+                                <template v-slot:default="{ item }">
+                                    <v-list-item>
+                                        <v-list-item-title class="content__list__title">
+                                            <v-btn class="content__list__btn" x-large depressed @click.stop="onSelectFile(sliceName(item.Key))">
+                                                <v-icon>
+                                                    mdi-file-video
+                                                </v-icon>
+                                                <div class="list__btn__label">
+                                                    {{ sliceName(item.Key) }}
+                                                </div>
+                                                <v-spacer />
+                                                <v-btn icon right @click.stop="deleteFile(item)">
+                                                    <v-icon>
+                                                        mdi-close
+                                                    </v-icon>
+                                                </v-btn>
+                                            </v-btn>
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </template>
+                            </v-virtual-scroll>
+
+                            <!--v-list v-for="(item, index) in videoList" :key="index">
+                                <v-list-item>
+                                    <v-list-item-title class="content__list__title">
+                                        <v-btn class="content__list__btn" x-large depressed @click="onSelectFile(sliceName(item.Key))">
+                                            <v-icon>
+                                                mdi-file-video
+                                            </v-icon>
+                                            <div class="list__btn__label">
+                                                {{ sliceName(item.Key) }}
+                                            </div>
+                                            <v-spacer />
+                                            <v-btn icon right @click.stop="deleteFile(index, item)">
+                                                <v-icon>
+                                                    mdi-close
+                                                </v-icon>
+                                            </v-btn>
+                                        </v-btn>
+                                    </v-list-item-title>
+                                </v-list-item>
+                            </v-list-->
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </div>
         </div>
-            
-        <v-dialog v-model="dialog" width="250">
+
+        <v-dialog v-model="deleteFileDialog" width="250">
+            <v-card>
+                <v-card-title>
+                    <h5>정말 <span style="font-weight: bold; color:red;">삭제</span>하시겠습니까?</h5>
+                </v-card-title>
+
+                <v-card-text>
+                    파일을 <span style="font-weight: bold">삭제</span>하는 경우, <br />
+                    삭제한 파일을 복구할 수 <span style="color:red">없습니다.</span>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer />
+                    <v-btn text @click="deleteFileOK">예</v-btn>
+                    <v-btn text @click="deleteFileNO">아니오</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="newVideoDialog" width="250">
             <v-card>
                 <v-card-title>
                     <h5>정말 가져오시겠습니까?</h5>
@@ -71,176 +306,595 @@
 
                 <v-card-actions>
                     <v-spacer />
-                    <v-btn text @click="getTrack">예</v-btn>
-                    <v-btn text @click="dialogFalse">아니오</v-btn>
+                    <v-btn text @click="uploadVideo">예</v-btn>
+                    <v-btn text @click="newVideoDialog = false">아니오</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
-        <snack-bar />
-        <loading-linear />
+
+        <div ref="trackBox" class="track__box">
+            <v-virtual-scroll ref="trackscroll" v-if="readyToTrack" class="track__box__scroll" bench="15" :items="fullTrack" :height="virtualHeight" item-height="160">
+                <template v-slot:default="{ item, index }">
+                    <div class="track__box__wrapper">
+                        <track-component :start="item.start" :end="item.end" :text="item.text" :trans="transTrack[index]" :idx="index" />
+                    </div>
+                </template>
+            </v-virtual-scroll>
+            <div v-else>
+                영상을 추가하면 자막을 편집하실 수 있습니다. <br />
+            </div>
+        </div>
+
+        <v-btn
+            ref="download"
+            v-show="false"
+            :href="
+                (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
+                '/video/download/' +
+                selectFilename + '.' + trackMode"
+        />
     </div>
 </template>
 
 <style scoped>
+.non-flex {
+    flex: 0 0 auto;
+}
+.auto-flex {
+    flex: 1 1 auto;
+}
+.readonly__btn {
+    opacity: 1 !important;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
 .video__box {
-    overflow-y: scroll;
-    height: calc(100% - 12px);
+    position: absolute;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid #8C867A;
 }
 .video__player {
-    width: auto;
-    height: 50%;
-    min-height: 625px;
-    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35%;
+    background: black;
 }
-.video__player__grid {
+.player {
+    width: 100%;
     height: 100%;
-    min-height: 625px;
 }
-.video__player__box {
+.video__action {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 5%;
+}
+.video__action__btn {
+    width: 45%;
+}
+.video__list {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+}
+.video__list__group {
+    position: absolute; 
+    bottom: 0;
+}
+.video__list__content {
+    height: 50vh;
+}
+.list__content__disabled {
+    display: flex;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    margin: 25px 15px;
+    text-align: center;
 }
-.video__player__meta {
+.content__list__title {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.content__list__btn {
+    flex: 1 1 0;
+    justify-content: flex-start !important;
+}
+.content__list__btn >>> span {
+    width: 100%;
+}
+.list__btn__label {
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.track__box {
+    display: flex;
+    position: absolute;
+    left: 25%;
     align-items: center;
     justify-content: center;
-    margin: 25px 15px;
+    width: 75%;
+    height: 100%;
 }
-.video__translator {
+.track__wrapper {
+    width: 100%;
+    height: 100%;
+}
+.track__box__scroll {
     display: flex;
     flex-direction: column;
-    min-height: calc(50% - 128px);
-    /* border: 1px solid red; */
 }
-.video__translator__title {
-    display: flex;
-    align-items: center;
-    margin: 15px;
-    padding: 0 15px;
-}
-.video__translator__btngroup {
-    display: flex;
-}
-.video__translator__btn {
-    margin: 5px;
-}
-.video__translator__content {
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px 15px 15px;
-}
-.video__translator__content::-webkit-scrollbar {
+.track__box__scroll::-webkit-scrollbar {
     display: block;
     width: 10px;
     height: 8px;
 }
-.video__translator__content::-webkit-scrollbar-track {
+.track__box__scroll::-webkit-scrollbar-track {
     background-color: transparent;
 }
-.video__translator__content::-webkit-scrollbar-thumb {
+.track__box__scroll::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background: #2172FF;
 }
-.video__uploadFile {
-    width: 100%;
-    padding: 0 50px;
+.track__box__wrapper {
+    width: 95%;
+    align-items: center;
+    justify-content: center;
 }
-.video {
+.track__box >>> .v-virtual-scroll__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dialog__card {
+    width: 75vw;
+}
+.dialog__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 50vh;
     padding: 25px;
 }
-.lang__select {
-    flex: 1;
+.dialog__box__setting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+}
+.setting__select__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+.img {
+    flex: 0 0 auto;
+}
+.dialog__box__process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.dialog__box__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+.download__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.download__card__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #013183;
+    color: white;
+}
+.download__card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 90%;
+    padding: 25px;
+}
+.card__content__btngroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 60%;
+}
+.card__content__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed grey;
+    border-radius: 10%;
+    width: 45%;
+    height: 100%;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+.card__content__btn:hover {
+    border: 15px solid #2172FF !important;
+    background-color: #2172FF !important;
+    opacity: 1 !important;
+    cursor: pointer;
+}
+.card__content__text {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 30%;
+}
+.card__action {
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+.select__box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 90%;
+    padding: 25px;
+}
+.action__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 10%;
+    padding: 25px;
+}
+.list__wrapper {
+    width: 100%;
+    height: 80%;
+}
+.header__class {
+    border-bottom: 3px solid green;
+}
+.list__select {
+  border: solid #013183 !important;
+  color: #013183 !important;
+}
+.process__stepper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.stepper {
+    width: 50%;
+    padding: 5%;
+}
+.stepper__btn {
+    border: 3px solid #013183;
+}
+.arrow__wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.arrow {
+    color: #2172FF;
+    animation: arrowAnimation 1.5s infinite ease;
+    animation-fill-mode: both;
+}
+.arrow:nth-child(1) {
+    animation-delay: 0.75s
+}
+.arrow:nth-child(2) {
+    animation-delay: 1s;
+}
+.arrow:nth-child(3) {
+    animation-delay: 1.25s;
+}
+.hr-sect {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 12px;
+    width: 100%;
+    height: 5%;
+}
+.hr-sect::before,
+.hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+}
+@keyframes arrowAnimation {
+    0% {
+        color: white;
+    }
+    100% {
+        color: #2172FF;
+    }
 }
 </style>
 
-<script>
-import VideoComponent from '../../components/VideoComponent.vue';
+<script lang="js">
+import draggable from 'vuedraggable'
 import TrackComponent from '../../components/TrackComponent.vue';
-import SnackBar from '../../components/SnackBar.vue';
-import LoadingLinear from '../../components/loadingLinear.vue'
 import axios from 'axios';
 
 export default {
-    layout: 'VideoLayout',
+    layout: 'ServiceLayout',
     components: {
-        VideoComponent,
+        draggable,
         TrackComponent,
-        SnackBar,
-        LoadingLinear,
+    },
+    created() {
+        if (typeof window !== 'undefined') {
+            window.addEventListener("resize", () => {
+                this.virtualHeight = this.$refs.trackBox.offsetHeight;
+            });
+        }
+        this.$nuxt.$on("onScrollTop", () => {
+            this.$refs.trackscroll.$el.scrollBy({
+                top: -(this.$refs.trackscroll.scrollTop),
+                behavior: 'smooth'
+            });
+        });
+        this.$nuxt.$on("addItem", async (index) => {
+            const branchTime = await this.fullTrack[index].end
+            this.fullTrack.splice(index + 1, 0, {
+                start: branchTime,
+                end: branchTime,
+                text: "새로운 자막"
+            });
+            this.transTrack.splice(index + 1, 0, "new Track");
+            this.cueTrack.addCue(new VTTCue(this.timeToSec(branchTime), this.timeToSec(branchTime), "새로운 자막"));
+            this.transCueTrack.addCue(new VTTCue(this.timeToSec(branchTime), this.timeToSec(branchTime), "new Track"));
+        });
+        this.$nuxt.$on("deleteItem", (index) => {
+            this.fullTrack.splice(index, 1);
+            this.transTrack.splice(index, 1);
+            this.cueTrack.removeCue(this.cueTrack.cues[index]);
+            this.transCueTrack.removeCue(this.transCueTrack.cues[index]);
+        });
     },
     data() {
         return {
             isDev: process.env.NODE_ENV.includes('dev'),
+            video: {},
+            videoTrack: [],
+            selectFilename: "",
+            // 컨트롤 변수
+            loginState: false,
+            virtualHeight: 0,
             readToVideo: false,
             readyToTrack: false,
-            videoTrack: [],
-            transTrack: [],
+            loading: 0,
+            preSignedUrlResponse: false,
+            uploadResponse: false,
+            trackCompleteResponse: false,
+            selectVideo: false,
+            // 다이얼로그 창 변수
             dialog: false,
-            clickButton : false,
-            req_lang: "한국어",
-            grant_lang: "중국어(간체)",
-            req_code: "ko",
-            grant_code: "zh-CN",
+            newVideoDialog: false,
+            downloadDialog: false,
+            deleteFileDialog: false,
+            fileTab: 0,
+            textTab: 0,
+            // 데이터 변수
+            file: {},
+            deleteItem: "",
+            fullTrack: [],
+            timeLine: [],
+            originalTrack: [],
+            transTrack: [],
+            cueTrack: [],
+            transCueTrack: [],
+            track: "",
+            trans: "",
+            dialog: false,
+            beforeSelect: true,
+            req: 0,
+            grant: 2,
+            step: 1,
         }
     },
-    created() {
-        this.$nuxt.$on('onVideoEvent', (filename) => {
-            this.readToVideo = true;
-            this.readyToTrack = false;
-            this.videoTrack = [];
-            this.transTrack = [];
-            this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
-        });
-        this.$nuxt.$on('onScrollTop', () => {
-            this.$refs.videobox.scrollBy({
-                top: -(this.$refs.videobox.scrollTop),
-                behavior: 'smooth'
-            });
-        });
+    mounted() {
+        this.$store.dispatch('videoes/getFiles');
+        this.virtualHeight = this.$refs.trackBox.offsetHeight;
+
+        // 이벤트 등록
         this.$nuxt.$on('timeChange', (time, index) => {
             if (time != undefined) {
-                this.videoTrack[index].start = time.substring(0, time.indexOf(' ')).trim();
-                this.videoTrack[index].end = time.substring(time.lastIndexOf(' ') + 1).trim();
-            }
-        });
-        this.$nuxt.$on('transChange', (transText, index) => {
-            if (transText != undefined) {
-                console.log(transText);
-                this.transTrack[index] = transText;
+                this.fullTrack[index].start = time.substring(0, time.indexOf(' ')).trim();
+                this.fullTrack[index].end = time.substring(time.lastIndexOf(' ') + 1).trim();
+                this.cueTrack.cues[index].startTime = this.timeToSec(time.substring(0, time.indexOf(' ')).trim());
+                this.cueTrack.cues[index].endTime = this.timeToSec(time.substring(time.lastIndexOf(' ') + 1).trim());
+                this.transCueTrack.cues[index].startTime = this.timeToSec(time.substring(0, time.indexOf(' ')).trim());
+                this.transCueTrack.cues[index].endTime = this.timeToSec(time.substring(time.lastIndexOf(' ') + 1).trim());
             }
         });
         this.$nuxt.$on('textChange', (text, index) => {
             if (text != undefined) {
-                this.videoTrack[index].text = text;
+                this.fullTrack[index].text = text;
+                this.cueTrack.cues[index].text = text;
             }
+        });
+        this.$nuxt.$on('transChange', (transText, index) => {
+            if (transText != undefined) {
+                this.transTrack[index] = transText;
+                this.transCueTrack.cues[index].text = transText;
+            }
+        });
+        this.$nuxt.$on('timeSet', (index) => {
+            this.video.currentTime = this.cueTrack.cues[index].startTime;
         });
     },
     computed: {
+        videoList() {
+            return this.$store.state.videoes.files;
+        },
+        videoURL() {
+            return this.$store.state.videoes.fileURL;
+        },
         language() {
             return this.$store.state.manager.language;
         },
         languages() {
             return this.$LANGUAGES_KO;
         },
-        fileURL() {
-            return this.$store.state.videoes.fileURL;
+        req_lang() {
+            return this.languages[this.req];
         },
-        fileName() {
-            return this.$store.state.videoes.fileName;
+        grant_lang() {
+            return this.languages[this.grant]
+        },
+        req_code() {
+            return this.$LANG_CODE[this.req];
+        },
+        grant_code() {
+            return this.$LANG_CODE[this.grant];
+        },
+        trackMode() {
+            switch(this.fileTab) {
+                case 1:
+                    return "srt"
+                    break;
+                case 2: 
+                    return "vtt"
+                    break;
+                case 0:
+                default:
+                    return "NotFoundMode";
+            }
         },
     },
     watch: {
-        req_lang(value) {
-            this.req_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
+        fileTab(value) {
+            if (value === 1) {
+                this.$refs.tab_1.style.border = "0";
+                this.$refs.tab_1.style.backgroundColor = "#2172FF";
+                this.$refs.tab_1.style.opacity = "1";
+                this.$refs.tab_2.style.border = "3px dashed grey";
+                this.$refs.tab_2.style.backgroundColor = "#FFFFFF";
+                this.$refs.tab_2.style.opacity = "0.6";
+            } else if (value === 2) {
+                this.$refs.tab_1.style.border = "3px dashed grey";
+                this.$refs.tab_1.style.backgroundColor = "#FFFFFF";
+                this.$refs.tab_1.style.opacity = "0.6";
+                this.$refs.tab_2.style.border = "0";
+                this.$refs.tab_2.style.backgroundColor = "#2172FF";
+                this.$refs.tab_2.style.opacity = "1";
+            } else {
+                this.$refs.tab_1.style.border = "3px dashed grey";
+                this.$refs.tab_1.style.backgroundColor = "#FFFFFF";
+                this.$refs.tab_1.style.opacity = "0.6";
+                this.$refs.tab_2.style.border = "3px dashed grey";
+                this.$refs.tab_2.style.backgroundColor = "#FFFFFF";
+                this.$refs.tab_2.style.opacity = "0.6";
+            }
         },
-        grant_lang(value) {
-            this.grant_code = this.language === '한국어' ? this.$LANG_CODE[this.$LANGUAGES_KO.indexOf(value)] : this.$LANG_CODE[this.$LANGUAGES_EN.indexOf(value)];
+        textTab(value) {
+            if (value === 1) {
+                this.$refs.textTab_1.style.border = "0";
+                this.$refs.textTab_1.style.backgroundColor = "#2172FF";
+                this.$refs.textTab_1.style.opacity = "1";
+                this.$refs.textTab_2.style.border = "3px dashed grey";
+                this.$refs.textTab_2.style.backgroundColor = "#FFFFFF";
+                this.$refs.textTab_2.style.opacity = "0.6";
+            } else if (value === 2) {
+                this.$refs.textTab_1.style.border = "3px dashed grey";
+                this.$refs.textTab_1.style.backgroundColor = "#FFFFFF";
+                this.$refs.textTab_1.style.opacity = "0.6";
+                this.$refs.textTab_2.style.border = "0";
+                this.$refs.textTab_2.style.backgroundColor = "#2172FF";
+                this.$refs.textTab_2.style.opacity = "1";
+            } else {
+                this.$refs.textTab_1.style.border = "3px dashed grey";
+                this.$refs.textTab_1.style.backgroundColor = "#FFFFFF";
+                this.$refs.textTab_1.style.opacity = "0.6";
+                this.$refs.textTab_2.style.border = "3px dashed grey";
+                this.$refs.textTab_2.style.backgroundColor = "#FFFFFF";
+                this.$refs.textTab_2.style.opacity = "0.6";
+            }
         }
     },
     methods: {
+        isEmpty(obj) {
+            if (obj.constructor === Object && Object.keys(obj).length === 0) return true;
+            else return false;
+        },
+        timeToSec(time) {
+            let result = 0.0;
+            if(/(((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d)/gm.test(time)) {
+                const arr = time.split(':').reverse();
+                if (arr.length === 3) {
+                    result += parseFloat(parseFloat(arr[0]).toFixed(2));
+                    result += parseInt(arr[1]) * 60;
+                    result += parseInt(arr[2]) * 3600;
+                } else if (arr.length === 2) {
+                    result += parseFloat(parseFloat(arr[0]).toFixed(2));
+                    result += parseInt(arr[1]) * 60;
+                }
+                return result;
+            } else {
+                return "time 형식 부정확";
+            }
+        },
+        uploadVideo() {
+            if (!this.selectVideo) {
+                this.newVideoDialog = false;
+                this.$refs.upload.click();
+            }
+            else {
+                this.newVideo();
+                const filename = this.selectFilename;
+                this.$store.commit('videoes/setFileName', filename.substring(0, filename.lastIndexOf('.')));
+                const ext = filename.substring(filename.lastIndexOf('.') + 1);
+                this.$store.commit('videoes/setFileExt', ext);
+                this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
+                this.step = 2;
+                this.newVideoDialog = false;
+                this.dialog = true;
+            }
+        },
         extToContentType(ext) {
             switch(ext) {
                 case 'mp4':
@@ -255,147 +909,318 @@ export default {
                     return 'application/oct-stream';
             }
         },
-        timeTransSRT(time) {
-            const srtTime = time.replace('.', ',');
-            return srtTime;
+        loadingLogic(step) {
+            switch(step) {
+                case 1:
+                    // 영상 Presigned URL 발급
+                    let firstStep = setInterval(() => {
+                        if (!this.preSignedUrlResponse) {
+                            if (this.loading < 15) this.loading++;
+                        } else {
+                            if (this.loading < 16) this.loading = 16;
+                            clearInterval(firstStep);
+                        }
+                    }, 1500);
+                    break;
+                case 2:
+                    // 영상 업로드
+                    let secondStep = setInterval(() => {
+                        if (!this.uploadResponse) {
+                            if (this.loading < 32) this.loading++;
+                        } else {
+                            if (this.loading < 33) this.loading = 33;
+                            this.step = 2;
+                            clearInterval(secondStep);
+                        }
+                    }, 1500);
+                    break;
+                case 3:
+                    // 영상 인식
+                    let thirdStep = setInterval(() => {
+                        if (!this.trackCompleteResponse) {
+                            if (this.loading < 65) this.loading++;
+                        } else {
+                            if (this.loading < 66) this.loading = 66;
+                            this.step = 3;
+                            clearInterval(thirdStep);
+                        }
+                    }, 2500);
+                    break;
+                case 4:
+                    // 자막 번역
+                    let fourthStep = setInterval(() => {
+                        if (this.transTrack.length === 0) {
+                            if (this.loading < 99) this.loading++;
+                        } else {
+                            if (this.loading < 100) this.loading = 100;
+                            this.dialog = false;
+                            clearInterval(fourthStep);
+                            this.loading = 0;
+                        }
+                    }, 2000);
+                    break;
+                default:
+                    // 종료 트리거를 받는다면
+                    console.log("step 종료");
+            }
         },
-        async getTrack() {
-            if (this.videoTrack != []) this.videoTrack = [];
-            this.dialog = !this.dialog;
-            this.readyToTrack = true;
+        async trackOn(lang) {
+            await this.$nextTick();
+            this.video = this.$refs.videoplayer;
+            this.cueTrack = this.video.addTextTrack("subtitles", this.req_lang, this.req_code);
+            this.transCueTrack = this.video.addTextTrack("subtitles", this.grant_lang, this.grant_code);
+            this.cueTrack.mode = "showing";
+            this.transCueTrack.mode = "showing";
+            for (let i = 0; i < this.fullTrack.length; i++)
+                this.cueTrack.addCue(new VTTCue(this.timeToSec(this.timeLine[i].start), this.timeToSec(this.timeLine[i].end), this.originalTrack[i]));
+            for (let i = 0; i < this.fullTrack.length; i++)
+                this.transCueTrack.addCue(new VTTCue(this.timeToSec(this.timeLine[i].start), this.timeToSec(this.timeLine[i].end), this.transTrack[i]));
+            // console.log(this.cueTrack.cues);
+        },
+        sliceName(str) {
+            return str.substring(str.lastIndexOf('/') + 1);
+        },
+        trackMerge() {
+            let result = [];
+            for (let i = 0; i < Math.max(this.timeLine.length, this.originalTrack.length); i++) {
+                result[i] = { ...this.timeLine[i], ...{ text : this.originalTrack[i] } };
+            }
+            this.fullTrack = result;
+        },
+        trackFormating(mode, track) {
+            if (mode === 'srt') {
+                let result = "";
+
+                for (let i = 0; i < Math.min(this.timeLine.length, track.length); i++) {
+                    result += `${i+1}\n${(this.timeLine[i].start).replace(".", ",")} --> ${(this.timeLine[i].end).replace(".", ",")}\n${track[i]}\n\n`;
+                }
+
+                return result;
+            } else {
+                let result = "WEBVTT\n\n";
+
+                for (let i = 0; i < Math.min(this.timeLine.length, track.length); i++) {
+                    result += `${this.timeLine[i].start} --> ${this.timeLine[i].end}\n${track[i]}\n\n`;
+                }
+
+                this.trans = result;
+            }
+        },
+        async onSelectFile(filename) {
+            this.selectVideo = true;
+            this.selectFilename = filename;
+            if (!this.readToVideo) {
+                await this.$store.commit('videoes/setFileName', filename.substring(0, filename.lastIndexOf('.')));
+                const ext = filename.substring(filename.lastIndexOf('.') + 1);
+                await this.$store.commit('videoes/setFileExt', ext);
+                await this.$store.commit('videoes/setFileURL', `https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/${encodeURI(filename)}`);
+                this.step = 2;
+                this.dialog = true;
+            } else {
+                this.newVideoDialog = true;
+            }
+        },
+        async onChange(event) {
+            try {
+                if (event != null && event.target.files.length != 0) {
+                    this.newVideo();
+                    this.file = event.target.files[0];
+                    this.dialog = true;
+                } else {
+                    console.log("e is null");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        },
+        async onTaskStart() {
+            this.beforeSelect = false;
+            this.originalTrack = "";
+            this.transTrack = "";
+            // 파일 전처리
+            // 파일 업로드인 경우
+            if (!this.selectVideo) {
+                const filename = this.file.name;
+                const fileFormData = new FormData();
+                const name = filename.substring(0, filename.lastIndexOf('.'));
+                const ext = filename.substring(filename.lastIndexOf('.') + 1);
+                this.$store.commit('videoes/setFileName', name);
+                this.$store.commit('videoes/setFileExt', ext);
+                fileFormData.append('fileKey', this.file);
+                try {
+                    // Signed URL 발급 : loading = 16
+                    this.loadingLogic(1);
+                    //console.time('SignedURL Time');
+                    const preSignedUrl = await this.$store.dispatch('videoes/signedURL', fileFormData);
+                    this.preSignedUrlResponse = true;
+                    //console.timeEnd('SignedURL Time');
+
+                    // Signed URL을 통한 업로드 : loading = 16
+                    this.loadingLogic(2);
+                    //console.time('Upload Time');
+                    const upload = await axios.put(preSignedUrl, this.file, {
+                        headers: {
+                            'Content-Type': this.extToContentType(ext),
+                        },
+                        onUploadProgress: (progressEvent) => {
+                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
+                            let percentageCompleted = Math.round(percentage);
+                            //console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
+                        }
+                    });
+                    //console.timeEnd('Upload Time');
+                    
+
+                    // 영상 인식 : loading = 33
+                    if (upload.status === 200) {
+                        this.loadingLogic(3);
+                        this.uploadResponse = true;
+                        await this.$store.commit('videoes/setFile', undefined);
+                        await this.$store.dispatch('videoes/setURL')
+                        //console.time("Recognition Time");
+                        const trackResponse = await this.$store.dispatch('videoes/postVideo');
+                        this.trackCompleteResponse = true;
+                        //console.timeEnd("Recognition Time");
+                        this.track = trackResponse.track;
+                        this.originalTrack = trackResponse.segment;
+                        this.timeLine = trackResponse.timeline;
+                        //console.log("Merge");
+                        this.trackMerge();
+                        this.$store.dispatch('videoes/getFiles');
+
+                        // 자막 번역 : loading = 33
+                        this.loadingLogic(4);
+                        //console.time("Translate Time");
+                        this.transTrack = await this.$store.dispatch('videoes/transTrack', {
+                            "from": this.req_code,
+                            "to": this.grant_code,
+                            "track": this.fullTrack
+                        });
+                        this.trackFormating('vtt', this.transTrack);
+                        //console.timeEnd("Translate Time");
+                        // this.$nuxt.$emit('transTracks', this.grant_lang);
+                        // this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
+
+                        this.readToVideo = true;
+                        this.readyToTrack = true;
+
+                        // 여기엔 영상에 자막을 ON 시키는 메소드
+                        this.trackOn(this.req_lang);
+                        this.selectFilename = this.$store.state.videoes.fileName;
+                        this.dialog = false;
+                    } else {
+                        this.$menage.showMessage({ 
+                            message: "영상 업로드에 실패했습니다.\n관리자에게 문의하세요.", 
+                            color: "error" 
+                        });
+                    }
+                } catch(err) {
+                    console.log(err);
+                }
+            } else {    // 파일 선택의 경우
+                try {
+                    // 영상 인식 : loading = 33
+                    this.loading = 33;
+                    this.loadingLogic(3);
+                    this.uploadResponse = true;
+                    await this.$store.dispatch('videoes/setURL');
+                    const trackResponse = await this.$store.dispatch('videoes/postVideo');
+                    this.trackCompleteResponse = true;
+                    this.track = trackResponse.track;
+                    this.originalTrack = trackResponse.segment;
+                    this.timeLine = trackResponse.timeline;
+                    this.trackMerge();
+
+                    // 자막 번역 : loading = 33
+                    this.loadingLogic(4);
+                    this.transTrack = await this.$store.dispatch('videoes/transTrack', {
+                        "from": this.req_code,
+                        "to": this.grant_code,
+                        "track": this.fullTrack
+                    });
+
+                    this.readToVideo = true;
+                    this.readyToTrack = true;
+
+                    this.trackOn(this.req_lang);
+                    this.dialog = false;
+                    this.selectVideo = false;
+                } catch(err) {
+                    console.log(err);
+                }
+            }
+        },
+        newVideo() {
+            this.newVideoDialog = false;
+            this.readToVideo = false;
+            this.readyToTrack = false;
+            this.file = {};
+            this.fullTrack = [];
+            this.timeLine = [];
+            this.originalTrack = [];
+            this.transTrack = [];
+            this.track = "";
+            this.trans = "";
+            this.loading = 0;
+            this.dialog = false;
+            this.beforeSelect = true;
+            this.step = 1;
+            this.preSignedUrlResponse = false;
+            this.uploadResponse = false;
+            this.trackCompleteResponse = false;
+        },
+        downloadDialogOpen() {
+            this.fileTab = 0;
+            this.textTab = 0;
+            this.downloadDialog = !this.downloadDialog
+        },
+        async downloadFile() {
+            const downloadTrack = await this.trackFormating(this.trackMode, (this.textTab === 1) ? this.originalTrack : this.transTrack);
+            await this.$store.dispatch('videoes/textToTrack', {
+                track: downloadTrack,
+                ext: this.trackMode
+            });
+            this.$refs.download.$el.click();
+            this.downloadDialogOpen();
+        },
+        firstTap() {
+            this.fileTab = 1;
+        },
+        secondTap() {
+            this.fileTab = 2;
+        },
+        firstTextTap() {
+            this.textTab = 1;
+        },
+        secondTextTap() {
+            this.textTab = 2;
+        },
+        deleteFile(item) {
+            const name = this.sliceName(item.Key);
+            //console.log('Name : ', name.substring(0, name.lastIndexOf('.')));
+            //console.log('EXT  : ', name.substring(name.lastIndexOf('.') + 1));
+            this.$store.commit('videoes/setFileName', name.substring(0, name.lastIndexOf('.')));
+            this.$store.commit('videoes/setFileExt', name.substring(name.lastIndexOf('.') + 1));
+            this.deleteFileDialog = true;
+        },
+        async deleteFileOK() {
             try {
                 this.$nuxt.$loading.start();
-                const loadStore = await this.$store.dispatch('videoes/loadTrack');
-                this.videoTrack = loadStore.segment;
-                const transTrackArray = await this.$store.dispatch('videoes/transTrack', {
-                    "from": this.req_code,
-                    "to": this.grant_code,
-                    "track": this.videoTrack
-                });
+                await this.$store.dispatch('videoes/deleteFile');
                 this.$nuxt.$loading.finish();
-                for (let i = 0; i < this.videoTrack.length; i++) {
-                    this.transTrack[i] = transTrackArray[i];
-                }
-                this.transTrack = this.transTrack.slice();
+                this.$store.commit('videoes/setFileName', '');
+                this.$store.commit('videoes/setFileExt', '');
+                this.deleteFileDialog = false;
             } catch (err) {
                 this.$nuxt.$loading.finish();
-                this.$manage.showMessage({
-                    message: "자막을 가져오는 중 오류가 발생했습니다.",
-                    color: "error",
-                });
+                this.deleteFileDialog = false;
+                console.log(err);
             }
         },
-        async createTrackVTT() {
-            if (this.videoTrack.length === 0) {
-                this.$manage.showMessage({
-                    message: "해당 비디오의 자막이 없습니다.",
-                    color: "warning",
-                });
-            } else {
-                let tracks = "WEBVTT\n\n";
-                try {
-                    for (let track of this.videoTrack) {
-                        tracks += `${track.start} --> ${track.end}\n${track.text}\n\n`;
-                    }
-                    this.$nuxt.$loading.start();
-                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
-                        track: tracks,
-                        ext: "vtt"
-                    });
-                    this.$nuxt.$loading.finish();
-                    this.$nuxt.$emit('newTracks', this.req_lang);
-                    this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
-                } catch (err) {
-                    this.$nuxt.$loading.finish();
-                    console.log(err);
-                }
-            }
-        },
-        async createTrackSRT() {
-            if (this.videoTrack.length === 0) {
-                this.$manage.showMessage({
-                    message: "해당 비디오의 자막이 없습니다.",
-                    color: "warning",
-                });
-            } else {
-                let tracks = "";
-                let count = 1;
-                try {
-                    for (let track of this.videoTrack) {
-                        tracks += `${count}\n${this.timeTransSRT(track.start)} --> ${this.timeTransSRT(track.end)}\n${track.text}\n\n`;
-                        count++;
-                    }
-                    this.$nuxt.$loading.start();
-                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
-                        track: tracks,
-                        ext: "srt"
-                    });
-                    this.$nuxt.$loading.finish();
-                    this.$refs.download.$el.click();
-                    this.$manage.showMessage({ message: "자막 다운로드", color: "success" });
-                } catch (err) {
-                    console.log(err);
-                }
-            }
-        },
-        async createTrackTrans() {
-            if (this.transTrack.length === 0) {
-                this.$manage.showMessage({
-                    message: "번역된 자막이 존재하지 않습니다.",
-                    color: "warning",
-                });
-            } else {
-                let tracks = "WEBVTT\n\n";
-                try {
-                    for (let i = 0; i < this.videoTrack.length; i++) {
-                        tracks += `${this.videoTrack[i].start} --> ${this.videoTrack[i].end}\n${this.transTrack[i]}\n\n`;
-                    }
-                    this.$nuxt.$loading.start();
-                    const textTrack = await this.$store.dispatch('videoes/textToTrack', {
-                        track: tracks,
-                        ext: "vtt"
-                    });
-                    this.$nuxt.$loading.finish();
-                    this.$nuxt.$emit('transTracks', this.grant_lang);
-                    this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
-                } catch (err) {
-                    this.$nuxt.$loading.finish();
-                    console.log(err);
-                }
-            }
-        },
-        goTransTrack() {
-
-        },
-        goTrack() {
-            this.$nuxt.$emit('trackRefresh');
-        },
-        bringTrack() {
-            this.clickButton = true;
-            this.dialog = !this.dialog;
-        },
-        onEmptyFile() {
-            this.readToVideo = false;
-            this.readyToTrack = false;
-            this.videoTrack = [];
-            this.transTrack = [];
-        },
-        async onClearFile() {
-            const message = await this.$store.dispatch('videoes/deleteFile');
-            if (message === "삭제 성공") {
-                this.$manage.showMessage({ message: "삭제 성공", color: "success" });
-            } else {
-                this.$manage.showMessage({ message: "삭제 실패", color: "error" });
-            }
-            this.$store.commit('videoes/setFileURL', '');
-            this.readToVideo = false;
-            this.readyToTrack = false;
-            this.videoTrack = [];
-            this.transTrack = [];
-        },
-        dialogFalse() {
-            this.dialog = !this.dialog;
-            this.readyToTrack = false;
+        deleteFileNO() {
+            this.$store.commit('videoes/setFileName', '');
+            this.$store.commit('videoes/setFileExt', '');
+            this.deleteFileDialog = false;
         }
     }
 }

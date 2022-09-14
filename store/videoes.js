@@ -173,7 +173,7 @@ export const actions = {
             // from, to, translation
             return transResponse.data?.translations;
         } catch(err) {
-
+            console.log(err);
         }
     }
 }

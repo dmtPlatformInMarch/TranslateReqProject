@@ -66,6 +66,7 @@
     height: 156px;
     display: flex;
     border: 1px solid grey;
+    border-radius: 25px;
     margin: 5px;
     padding: 0 10px;
     justify-content: center;
@@ -81,7 +82,7 @@
 .add__btn__style {
     display: flex;
     height: 100% !important;
-    background-color: white !important;
+    background-color: #E1E1E1 !important;
 }
 .track__wrapper {
     width: 100%;
@@ -162,7 +163,7 @@ export default {
         return {
             editTime: true,
             timeRule: [
-                value => (/(((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d) --> (((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d)/).test(value) || '형식이 맞지 않습니다.'
+                value => (/(((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d) --> (((\d\d:\d\d)|(\d\d)):\d\d.\d\d\d)/).test(value) || '형식이 맞지 않습니다.',
             ],
         }
     },

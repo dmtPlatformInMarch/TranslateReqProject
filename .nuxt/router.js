@@ -7,8 +7,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
 const _4eb97613 = () => interopDefault(import('..\\pages\\PdfTest.vue' /* webpackChunkName: "pages/PdfTest" */))
-const _7feb30e7 = () => interopDefault(import('..\\pages\\uitest.vue' /* webpackChunkName: "pages/uitest" */))
-const _7d92955b = () => interopDefault(import('..\\pages\\uitest2.vue' /* webpackChunkName: "pages/uitest2" */))
+const _d09a26da = () => interopDefault(import('..\\pages\\test.vue' /* webpackChunkName: "pages/test" */))
 const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
 const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
 const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
@@ -20,7 +19,6 @@ const _d947a838 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* w
 const _a4934016 = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
 const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
 const _05428213 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
-const _17c2f44a = () => interopDefault(import('..\\pages\\video\\service.vue' /* webpackChunkName: "pages/video/service" */))
 const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
 const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -48,13 +46,9 @@ export const routerOptions = {
     component: _4eb97613,
     name: "PdfTest"
   }, {
-    path: "/uitest",
-    component: _7feb30e7,
-    name: "uitest"
-  }, {
-    path: "/uitest2",
-    component: _7d92955b,
-    name: "uitest2"
+    path: "/test",
+    component: _d09a26da,
+    name: "test"
   }, {
     path: "/user",
     component: _d90d1094,
@@ -99,10 +93,6 @@ export const routerOptions = {
     path: "/video/realtrack",
     component: _05428213,
     name: "video-realtrack"
-  }, {
-    path: "/video/service",
-    component: _17c2f44a,
-    name: "video-service"
   }, {
     path: "/voice/info",
     component: _6be03fef,
