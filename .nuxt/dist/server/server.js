@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"pages/PdfTest","2":"pages/admin/index","3":"pages/admin/mgRequest","4":"pages/admin/mgUser","5":"pages/apitest","6":"pages/index","7":"pages/test","8":"pages/text/info","9":"pages/text/reqstate","10":"pages/text/request","11":"pages/text/textmain","12":"pages/user/index","13":"pages/user/signup","14":"pages/video/filetrack","15":"pages/video/info","16":"pages/video/realtrack","17":"pages/voice/info"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"pages/PdfTest","2":"pages/admin/index","3":"pages/admin/mgRequest","4":"pages/admin/mgUser","5":"pages/apitest","6":"pages/index","7":"pages/test","8":"pages/text/info","9":"pages/text/reqstate","10":"pages/text/request","11":"pages/text/textmain","12":"pages/user/index","13":"pages/user/signup","14":"pages/video/filetrack","15":"pages/video/info","16":"pages/video/realtrack","17":"pages/video/service","18":"pages/voice/info"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -1850,7 +1850,7 @@ var console = __webpack_require__(4);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(233);
+var VSpacer = __webpack_require__(232);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/SnackBar.vue?vue&type=template&id=63120747&scoped=true&class=snackbar__template&
 
@@ -12787,39 +12787,41 @@ function shouldScrollToTop(route) {
 
 
 
-const _c0bf7cb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/index */ 2).then(__webpack_require__.bind(null, 395)));
+const _c0bf7cb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/index */ 2).then(__webpack_require__.bind(null, 397)));
 
-const _5e4d8b3b = () => interopDefault(__webpack_require__.e(/* import() | pages/apitest */ 5).then(__webpack_require__.bind(null, 397)));
+const _5e4d8b3b = () => interopDefault(__webpack_require__.e(/* import() | pages/apitest */ 5).then(__webpack_require__.bind(null, 398)));
 
-const _4eb97613 = () => interopDefault(__webpack_require__.e(/* import() | pages/PdfTest */ 1).then(__webpack_require__.bind(null, 398)));
+const _4eb97613 = () => interopDefault(__webpack_require__.e(/* import() | pages/PdfTest */ 1).then(__webpack_require__.bind(null, 399)));
 
-const _d09a26da = () => interopDefault(__webpack_require__.e(/* import() | pages/test */ 7).then(__webpack_require__.bind(null, 399)));
+const _d09a26da = () => interopDefault(__webpack_require__.e(/* import() | pages/test */ 7).then(__webpack_require__.bind(null, 400)));
 
-const _d90d1094 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 12).then(__webpack_require__.bind(null, 400)));
+const _d90d1094 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/index */ 12).then(__webpack_require__.bind(null, 401)));
 
-const _96f4a432 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 3).then(__webpack_require__.bind(null, 401)));
+const _96f4a432 = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgRequest */ 3).then(__webpack_require__.bind(null, 402)));
 
-const _6d747eba = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 4).then(__webpack_require__.bind(null, 402)));
+const _6d747eba = () => interopDefault(__webpack_require__.e(/* import() | pages/admin/mgUser */ 4).then(__webpack_require__.bind(null, 403)));
 
-const _50ef2f48 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 8).then(__webpack_require__.bind(null, 403)));
+const _50ef2f48 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/info */ 8).then(__webpack_require__.bind(null, 404)));
 
-const _7aa43ce1 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/reqstate */ 9).then(__webpack_require__.bind(null, 392)));
+const _7aa43ce1 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/reqstate */ 9).then(__webpack_require__.bind(null, 394)));
 
-const _d26f245e = () => interopDefault(__webpack_require__.e(/* import() | pages/text/request */ 10).then(__webpack_require__.bind(null, 404)));
+const _d26f245e = () => interopDefault(__webpack_require__.e(/* import() | pages/text/request */ 10).then(__webpack_require__.bind(null, 405)));
 
-const _3a414dd8 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/textmain */ 11).then(__webpack_require__.bind(null, 393)));
+const _3a414dd8 = () => interopDefault(__webpack_require__.e(/* import() | pages/text/textmain */ 11).then(__webpack_require__.bind(null, 395)));
 
-const _d947a838 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 13).then(__webpack_require__.bind(null, 394)));
+const _d947a838 = () => interopDefault(__webpack_require__.e(/* import() | pages/user/signup */ 13).then(__webpack_require__.bind(null, 396)));
 
-const _a4934016 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/filetrack */ 14).then(__webpack_require__.bind(null, 396)));
+const _a4934016 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/filetrack */ 14).then(__webpack_require__.bind(null, 393)));
 
-const _5870abf8 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 15).then(__webpack_require__.bind(null, 405)));
+const _5870abf8 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/info */ 15).then(__webpack_require__.bind(null, 406)));
 
-const _05428213 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/realtrack */ 16).then(__webpack_require__.bind(null, 391)));
+const _05428213 = () => interopDefault(__webpack_require__.e(/* import() | pages/video/realtrack */ 16).then(__webpack_require__.bind(null, 392)));
 
-const _6be03fef = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 17).then(__webpack_require__.bind(null, 406)));
+const _17c2f44a = () => interopDefault(__webpack_require__.e(/* import() | pages/video/service */ 17).then(__webpack_require__.bind(null, 407)));
 
-const _77806121 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 6).then(__webpack_require__.bind(null, 407)));
+const _6be03fef = () => interopDefault(__webpack_require__.e(/* import() | pages/voice/info */ 18).then(__webpack_require__.bind(null, 408)));
+
+const _77806121 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 6).then(__webpack_require__.bind(null, 409)));
 
 const emptyFn = () => {};
 
@@ -12890,6 +12892,10 @@ const routerOptions = {
     path: "/video/realtrack",
     component: _05428213,
     name: "video-realtrack"
+  }, {
+    path: "/video/service",
+    component: _17c2f44a,
+    name: "video-service"
   }, {
     path: "/voice/info",
     component: _6be03fef,
@@ -13895,7 +13901,7 @@ const baseMixins = Object(mixins["a" /* default */])(applicationable('left', ['i
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(233);
+var VSpacer = __webpack_require__(232);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/VToolbar.js
 var VToolbar = __webpack_require__(15);
@@ -15481,7 +15487,7 @@ var VCard = __webpack_require__(76);
 var components_VCard = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js
-var VDialog = __webpack_require__(234);
+var VDialog = __webpack_require__(233);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./components/BottomComponent.vue?vue&type=template&id=99f1c6e8&scoped=true&
 
@@ -15763,7 +15769,7 @@ var TextLayoutvue_type_template_id_70d94a5c_scoped_true_class_main_staticRenderF
 // CONCATENATED MODULE: ./layouts/TextLayout.vue?vue&type=template&id=70d94a5c&scoped=true&class=main&
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
-var VForm = __webpack_require__(235);
+var VForm = __webpack_require__(234);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemAction.js
 var VListItemAction = __webpack_require__(74);
@@ -19321,21 +19327,15 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__[/* default *
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = require("vuedraggable");
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports) {
-
 module.exports = require("gsap");
 
 /***/ }),
+/* 227 */,
 /* 228 */,
 /* 229 */,
 /* 230 */,
 /* 231 */,
-/* 232 */,
-/* 233 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19347,7 +19347,7 @@ module.exports = require("gsap");
 /* harmony default export */ __webpack_exports__["a"] = (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__[/* createSimpleFunctional */ "i"])('spacer', 'div', 'v-spacer'));
 
 /***/ }),
-/* 234 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19675,7 +19675,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__[/* default *
 }));
 
 /***/ }),
-/* 235 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

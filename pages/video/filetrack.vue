@@ -4,7 +4,7 @@
             <input ref="upload" type="file" v-show="false" @change="onChange" accept=".mp4" />
             <!--영상 선택 시-->
             <div class="video__player" v-if="readToVideo === true">
-                <video ref="videoplayer" class="player" :src="videoURL" controls preload="auto" crossorigin="anonymous">
+                <video ref="videoplayer" class="player" :src="videoURL" controls preload="auto">
                 </video>
             </div>
             <!--영상 미선택 시-->
@@ -655,14 +655,12 @@
 </style>
 
 <script lang="js">
-import draggable from 'vuedraggable'
 import TrackComponent from '../../components/TrackComponent.vue';
 import axios from 'axios';
 
 export default {
     layout: 'ServiceLayout',
     components: {
-        draggable,
         TrackComponent,
     },
     created() {
@@ -707,10 +705,12 @@ export default {
             readToVideo: false,
             readyToTrack: false,
             loading: 0,
+            step: 1,
             preSignedUrlResponse: false,
             uploadResponse: false,
             trackCompleteResponse: false,
             selectVideo: false,
+            beforeSelect: true,
             // 다이얼로그 창 변수
             dialog: false,
             newVideoDialog: false,
@@ -729,11 +729,8 @@ export default {
             transCueTrack: [],
             track: "",
             trans: "",
-            dialog: false,
-            beforeSelect: true,
             req: 0,
             grant: 2,
-            step: 1,
         }
     },
     mounted() {

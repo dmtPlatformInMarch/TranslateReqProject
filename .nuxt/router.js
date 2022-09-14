@@ -19,6 +19,7 @@ const _d947a838 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* w
 const _a4934016 = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
 const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
 const _05428213 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
+const _17c2f44a = () => interopDefault(import('..\\pages\\video\\service.vue' /* webpackChunkName: "pages/video/service" */))
 const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
 const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -93,6 +94,10 @@ export const routerOptions = {
     path: "/video/realtrack",
     component: _05428213,
     name: "video-realtrack"
+  }, {
+    path: "/video/service",
+    component: _17c2f44a,
+    name: "video-service"
   }, {
     path: "/voice/info",
     component: _6be03fef,

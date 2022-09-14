@@ -17,6 +17,7 @@
     "pages/video/filetrack.js": "pages/video/filetrack.js",
     "pages/video/info.js": "pages/video/info.js",
     "pages/video/realtrack.js": "pages/video/realtrack.js",
+    "pages/video/service.js": "pages/video/service.js",
     "pages/voice/info.js": "pages/voice/info.js",
     "server.js": "server.js"
   },
@@ -37,6 +38,7 @@
     "pages/video/filetrack.js": "pages/video/filetrack.js.map",
     "pages/video/info.js": "pages/video/info.js.map",
     "pages/video/realtrack.js": "pages/video/realtrack.js.map",
+    "pages/video/service.js": "pages/video/service.js.map",
     "pages/voice/info.js": "pages/voice/info.js.map",
     "server.js": "server.js.map"
   }
