@@ -4,7 +4,7 @@
             <h1>Action Section</h1>
             <v-divider />
             <div class="section">
-                <video ref="player1" :src="videoURL" controls preload="auto" playsinline muted>
+                <video ref="originalplayer" :src="videoURL" controls preload="auto" muted crossorigin="anonymous">
                 </video>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <h1>Result Section</h1>
             <v-divider />
             <div class="section">
-                <video ref="player2" playsinline autoplay muted>
+                <video ref="resultplayer" autoplay muted>
                 </video>
             </div>
         </div>
@@ -73,16 +73,16 @@ export default {
         }
     },
     mounted() {
-        this.$refs.player1.addEventListener('canplay', () => {
+        this.$refs.originalplayer.addEventListener('canplay', () => {
             const fps = 0;
-            if (this.$refs.player1.captureStream) {
-                this.stream = this.$refs.player1.captureStream(fps);
-            } else if (this.$refs.player1.mozCaptureStream) {
-                this.stream = this.$refs.player1.mozCaptureStream(fps);
+            if (this.$refs.originalplayer.captureStream) {
+                this.stream = this.$refs.originalplayer.captureStream(fps);
+            } else if (this.$refs.originalplayer.mozCaptureStream) {
+                this.stream = this.$refs.originalplayer.mozCaptureStream(fps);
             } else {
                 console.error('Stream capture is not supported');
             }
-            this.$refs.player2 = this.stream;
+            this.$refs.resultplayer.srcObject = this.stream;
         });
     },
     methods: {

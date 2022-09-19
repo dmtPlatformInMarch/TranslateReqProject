@@ -959,10 +959,10 @@ export default {
             // console.log(this.cueTrack.cues);
         },
         sliceName(str, sep) {
-            return str.substring(str.lastIndexOf(sep) + 1);
+            return str.substring(str.lastIndexOf(sep) + 1) == "" ? str : str.substring(str.lastIndexOf(sep) + 1);
         },
         sliceFrontName(str, sep) {
-            return str.substring(0, str.lastIndexOf(sep));
+            return str.substring(0, str.lastIndexOf(sep)) == "" ? str : str.substring(0, str.lastIndexOf(sep));
         },
         trackMerge() {
             let result = [];
