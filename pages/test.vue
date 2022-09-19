@@ -4,7 +4,8 @@
             <h1>Action Section</h1>
             <v-divider />
             <div class="section">
-                이곳에서 액션을 수행
+                <video ref="player1" :src="videoURL" controls preload="auto" playsinline muted>
+                </video>
             </div>
         </div>
 
@@ -12,7 +13,8 @@
             <h1>Result Section</h1>
             <v-divider />
             <div class="section">
-                이곳에서 결과를 출력
+                <video ref="player2" playsinline autoplay muted>
+                </video>
             </div>
         </div>
     </div>    
@@ -55,19 +57,33 @@
 </style>
 
 <script>
+import axios from "axios";
+// MediaStream 기술을 통한 실시간 자막 번역 시스템 가능????
+// 첫째로, 음성 인식을 단위별로 처리하거나, 스트림으로 처리가 가능해야 함.
+// 둘째로, 만약 처리한다고 하더라도 이를 자막으로 입히기 위해선 시간 정보가 필요함.
 export default {
     layout: "TestLayout",
-    components: {
-        
-    },
     created() {
         
     },
     data() {
-        
+        return {
+            stream: null,
+            videoURL: "https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/videoes/360p_2%EB%B6%8416%EC%B4%88.mp4",
+        }
     },
     mounted() {
-        
+        this.$refs.player1.addEventListener('canplay', () => {
+            const fps = 0;
+            if (this.$refs.player1.captureStream) {
+                this.stream = this.$refs.player1.captureStream(fps);
+            } else if (this.$refs.player1.mozCaptureStream) {
+                this.stream = this.$refs.player1.mozCaptureStream(fps);
+            } else {
+                console.error('Stream capture is not supported');
+            }
+            this.$refs.player2 = this.stream;
+        });
     },
     methods: {
         

@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="setting__select__box" v-if="beforeSelect">
                                     <div class="select__box">
-                                        <div >
+                                        <div>
                                             <v-toolbar class="header__class" elevation="0">
                                                 <v-toolbar-title class="font-weight-bold">
                                                     영상의 원본 언어
@@ -229,12 +229,12 @@
                                 <template v-slot:default="{ item }">
                                     <v-list-item>
                                         <v-list-item-title class="content__list__title">
-                                            <v-btn class="content__list__btn" x-large depressed @click.stop="onSelectFile(sliceName(item.Key))">
+                                            <v-btn class="content__list__btn" x-large depressed @click.stop="onSelectFile(sliceName(item.Key, '/'))">
                                                 <v-icon>
                                                     mdi-file-video
                                                 </v-icon>
                                                 <div class="list__btn__label">
-                                                    {{ sliceName(item.Key) }}
+                                                    {{ sliceName(item.Key, '/') }}
                                                 </div>
                                                 <v-spacer />
                                                 <v-btn icon right @click.stop="deleteFile(item)">
@@ -247,27 +247,6 @@
                                     </v-list-item>
                                 </template>
                             </v-virtual-scroll>
-
-                            <!--v-list v-for="(item, index) in videoList" :key="index">
-                                <v-list-item>
-                                    <v-list-item-title class="content__list__title">
-                                        <v-btn class="content__list__btn" x-large depressed @click="onSelectFile(sliceName(item.Key))">
-                                            <v-icon>
-                                                mdi-file-video
-                                            </v-icon>
-                                            <div class="list__btn__label">
-                                                {{ sliceName(item.Key) }}
-                                            </div>
-                                            <v-spacer />
-                                            <v-btn icon right @click.stop="deleteFile(index, item)">
-                                                <v-icon>
-                                                    mdi-close
-                                                </v-icon>
-                                            </v-btn>
-                                        </v-btn>
-                                    </v-list-item-title>
-                                </v-list-item>
-                            </v-list-->
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -331,7 +310,7 @@
             :href="
                 (isDev ? 'http://localhost:3085' : 'https://api.dmtlabs.kr') +
                 '/video/download/' +
-                selectFilename + '.' + trackMode"
+                sliceFrontName(selectFilename, '.') + '.' + trackMode"
         />
     </div>
 </template>
@@ -682,12 +661,14 @@ export default {
                 end: branchTime,
                 text: "새로운 자막"
             });
+            this.originalTrack.splice(index + 1, 0, "새로운 자막");
             this.transTrack.splice(index + 1, 0, "new Track");
             this.cueTrack.addCue(new VTTCue(this.timeToSec(branchTime), this.timeToSec(branchTime), "새로운 자막"));
             this.transCueTrack.addCue(new VTTCue(this.timeToSec(branchTime), this.timeToSec(branchTime), "new Track"));
         });
         this.$nuxt.$on("deleteItem", (index) => {
             this.fullTrack.splice(index, 1);
+            this.originalTrack.splice(index, 1);
             this.transTrack.splice(index, 1);
             this.cueTrack.removeCue(this.cueTrack.cues[index]);
             this.transCueTrack.removeCue(this.transCueTrack.cues[index]);
@@ -711,7 +692,7 @@ export default {
             trackCompleteResponse: false,
             selectVideo: false,
             beforeSelect: true,
-            // 다이얼로그 창 변수
+            // 다이얼로그 제어 변수
             dialog: false,
             newVideoDialog: false,
             downloadDialog: false,
@@ -742,6 +723,8 @@ export default {
             if (time != undefined) {
                 this.fullTrack[index].start = time.substring(0, time.indexOf(' ')).trim();
                 this.fullTrack[index].end = time.substring(time.lastIndexOf(' ') + 1).trim();
+                this.timeLine[index].start = time.substring(0, time.indexOf(' ')).trim();
+                this.timeLine[index].end = time.substring(time.lastIndexOf(' ') + 1).trim();
                 this.cueTrack.cues[index].startTime = this.timeToSec(time.substring(0, time.indexOf(' ')).trim());
                 this.cueTrack.cues[index].endTime = this.timeToSec(time.substring(time.lastIndexOf(' ') + 1).trim());
                 this.transCueTrack.cues[index].startTime = this.timeToSec(time.substring(0, time.indexOf(' ')).trim());
@@ -751,6 +734,7 @@ export default {
         this.$nuxt.$on('textChange', (text, index) => {
             if (text != undefined) {
                 this.fullTrack[index].text = text;
+                this.originalTrack[index] = text;
                 this.cueTrack.cues[index].text = text;
             }
         });
@@ -974,8 +958,11 @@ export default {
                 this.transCueTrack.addCue(new VTTCue(this.timeToSec(this.timeLine[i].start), this.timeToSec(this.timeLine[i].end), this.transTrack[i]));
             // console.log(this.cueTrack.cues);
         },
-        sliceName(str) {
-            return str.substring(str.lastIndexOf('/') + 1);
+        sliceName(str, sep) {
+            return str.substring(str.lastIndexOf(sep) + 1);
+        },
+        sliceFrontName(str, sep) {
+            return str.substring(0, str.lastIndexOf(sep));
         },
         trackMerge() {
             let result = [];
@@ -988,19 +975,19 @@ export default {
             if (mode === 'srt') {
                 let result = "";
 
-                for (let i = 0; i < Math.min(this.timeLine.length, track.length); i++) {
-                    result += `${i+1}\n${(this.timeLine[i].start).replace(".", ",")} --> ${(this.timeLine[i].end).replace(".", ",")}\n${track[i]}\n\n`;
+                for (let i = 0; i < Math.min(this.fullTrack.length, track.length); i++) {
+                    result += `${i+1}\n${(this.fullTrack[i].start).replace(".", ",")} --> ${(this.fullTrack[i].end).replace(".", ",")}\n${track[i]}\n\n`;
                 }
 
                 return result;
             } else {
                 let result = "WEBVTT\n\n";
 
-                for (let i = 0; i < Math.min(this.timeLine.length, track.length); i++) {
-                    result += `${this.timeLine[i].start} --> ${this.timeLine[i].end}\n${track[i]}\n\n`;
+                for (let i = 0; i < Math.min(this.fullTrack.length, track.length); i++) {
+                    result += `${this.fullTrack[i].start} --> ${this.fullTrack[i].end}\n${track[i]}\n\n`;
                 }
 
-                this.trans = result;
+                return result;
             }
         },
         async onSelectFile(filename) {
@@ -1058,11 +1045,6 @@ export default {
                     const upload = await axios.put(preSignedUrl, this.file, {
                         headers: {
                             'Content-Type': this.extToContentType(ext),
-                        },
-                        onUploadProgress: (progressEvent) => {
-                            let percentage = (progressEvent.loaded * 100) / progressEvent.total;
-                            let percentageCompleted = Math.round(percentage);
-                            //console.log(progressEvent.loaded + " / " + progressEvent.total, percentage);
                         }
                     });
                     //console.timeEnd('Upload Time');
@@ -1093,7 +1075,7 @@ export default {
                             "to": this.grant_code,
                             "track": this.fullTrack
                         });
-                        this.trackFormating('vtt', this.transTrack);
+                        this.trans = this.trackFormating('vtt', this.transTrack);
                         //console.timeEnd("Translate Time");
                         // this.$nuxt.$emit('transTracks', this.grant_lang);
                         // this.$manage.showMessage({ message: "자막 업데이트", color: "success" });
@@ -1193,7 +1175,7 @@ export default {
             this.textTab = 2;
         },
         deleteFile(item) {
-            const name = this.sliceName(item.Key);
+            const name = this.sliceName(item.Key, '/');
             //console.log('Name : ', name.substring(0, name.lastIndexOf('.')));
             //console.log('EXT  : ', name.substring(name.lastIndexOf('.') + 1));
             this.$store.commit('videoes/setFileName', name.substring(0, name.lastIndexOf('.')));

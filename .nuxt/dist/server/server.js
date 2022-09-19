@@ -646,7 +646,7 @@ var VListGroup = __webpack_require__(148);
 var VIcon = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
-var VListItem = __webpack_require__(44);
+var VListItem = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItemIcon.js
 var VListItemIcon = __webpack_require__(40);
@@ -4673,10 +4673,16 @@ const VExpandXTransition = createJavascriptTransition('expand-x-transition', exp
 /* 43 */
 /***/ (function(module, exports) {
 
-module.exports = require("vuex");
+module.exports = require("axios");
 
 /***/ }),
 /* 44 */
+/***/ (function(module, exports) {
+
+module.exports = require("vuex");
+
+/***/ }),
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4855,12 +4861,6 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__[/* default *
   }
 
 }));
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
 
 /***/ }),
 /* 46 */
@@ -12691,7 +12691,7 @@ async function serverPrefetch() {
 
 });
 // EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(43);
+var external_vuex_ = __webpack_require__(44);
 var external_vuex_default = /*#__PURE__*/__webpack_require__.n(external_vuex_);
 
 // EXTERNAL MODULE: external "vue-meta"
@@ -13362,7 +13362,7 @@ var VIcon = __webpack_require__(73);
 var VList = __webpack_require__(72);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/VListItem.js
-var VListItem = __webpack_require__(44);
+var VListItem = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VList/index.js + 2 modules
 var components_VList = __webpack_require__(2);
@@ -16559,7 +16559,7 @@ external_vue_default.a.use(framework["a" /* default */], {});
   ctx.$vuetify = vuetify.framework;
 });
 // EXTERNAL MODULE: external "axios"
-var external_axios_ = __webpack_require__(45);
+var external_axios_ = __webpack_require__(43);
 var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
 
 // EXTERNAL MODULE: external "defu"
