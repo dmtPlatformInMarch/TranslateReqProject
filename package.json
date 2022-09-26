@@ -1,6 +1,6 @@
 {
   "name": "dmt",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "DMTlabs Translate Web",
   "main": "index.js",
   "scripts": {

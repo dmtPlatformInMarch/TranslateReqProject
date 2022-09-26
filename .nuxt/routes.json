@@ -14,13 +14,6 @@
     "_name": "_5e4d8b3b"
   },
   {
-    "name": "PdfTest",
-    "path": "/PdfTest",
-    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\PdfTest.vue",
-    "chunkName": "pages/PdfTest",
-    "_name": "_4eb97613"
-  },
-  {
     "name": "test",
     "path": "/test",
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\test.vue",
@@ -103,13 +96,6 @@
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\realtrack.vue",
     "chunkName": "pages/video/realtrack",
     "_name": "_05428213"
-  },
-  {
-    "name": "video-service",
-    "path": "/video/service",
-    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\video\\\\service.vue",
-    "chunkName": "pages/video/service",
-    "_name": "_17c2f44a"
   },
   {
     "name": "voice-info",

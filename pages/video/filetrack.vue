@@ -648,12 +648,12 @@ export default {
                 this.virtualHeight = this.$refs.trackBox.offsetHeight;
             });
         }
-        this.$nuxt.$on("onScrollTop", () => {
+        /*this.$nuxt.$on("onScrollTop", () => {
             this.$refs.trackscroll.$el.scrollBy({
                 top: -(this.$refs.trackscroll.scrollTop),
                 behavior: 'smooth'
             });
-        });
+        });*/
         this.$nuxt.$on("addItem", async (index) => {
             const branchTime = await this.fullTrack[index].end
             this.fullTrack.splice(index + 1, 0, {
@@ -1057,7 +1057,10 @@ export default {
                         await this.$store.commit('videoes/setFile', undefined);
                         await this.$store.dispatch('videoes/setURL')
                         //console.time("Recognition Time");
-                        const trackResponse = await this.$store.dispatch('videoes/postVideo');
+                        const trackResponse = await this.$store.dispatch('videoes/postVideo', {
+                            req_code: this.req_code,
+                            mode: 'vtt'
+                        });
                         this.trackCompleteResponse = true;
                         //console.timeEnd("Recognition Time");
                         this.track = trackResponse.track;
@@ -1103,7 +1106,10 @@ export default {
                     this.loadingLogic(3);
                     this.uploadResponse = true;
                     await this.$store.dispatch('videoes/setURL');
-                    const trackResponse = await this.$store.dispatch('videoes/postVideo');
+                    const trackResponse = await this.$store.dispatch('videoes/postVideo', {
+                        req_code: this.req_code,
+                        mode: 'vtt'
+                    });
                     this.trackCompleteResponse = true;
                     this.track = trackResponse.track;
                     this.originalTrack = trackResponse.segment;

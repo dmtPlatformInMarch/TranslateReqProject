@@ -51,5 +51,27 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
-    }
+    },
+    async googleTest({ commit }) {
+        try {
+            const googleResponse = await this.$axios.post(`/test/googleTest`);
+            if (googleResponse.status === 200) {
+                return googleResponse.data;
+            } else {
+                console.log("error");
+                return null;
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    async blobSending({ commit }, payload) {
+        const fd = new FormData();
+        fd.append('fileKey', payload);
+        const response = await this.$axios.post('/test/blobSending', fd);
+        if (response.status === 200) {
+            return response.data.text;
+        }
+        else return "";
+    },
 }

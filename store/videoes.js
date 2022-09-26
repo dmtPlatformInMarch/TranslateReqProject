@@ -116,7 +116,8 @@ export const actions = {
             const recognition = await this.$axios.post('/video/recognition', {
                 "fileName": state.fileName,
                 "fileURL": state.fileURL,
-                "ext": payload ? payload.mode : 'vtt'
+                "ext": payload ? payload.mode : 'vtt',
+                "req_code": payload ? payload.req_code : null
             });
 
             if (recognition.status === 200) {
@@ -175,6 +176,13 @@ export const actions = {
         } catch(err) {
             console.log(err);
         }
+    },
+    realTrackMerge({}, payload) {
+        let text = "";
+        for (let i = 0; i < payload.time.length; i++) {
+            text += `${payload.time[i].start} --> ${payload.time[i].end}\n\n${payload.track[i]}\n\n${payload.trans[i]}\n\n`;
+        }
+        return text;
     }
 }
 
