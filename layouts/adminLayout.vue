@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-toolbar elevation="0" style="flex: initial; width: 100%">
+    <v-app-bar class="main__toolbar" elevation="0" color="transparent" width="100vw">
       <v-toolbar-title>
-        <nuxt-link to="/admin">
+        <nuxt-link to="/admin/main">
           <v-avatar height="80px" width="200px" tile>
             <img :src="logo" />
           </v-avatar>
@@ -12,7 +12,7 @@
       <!--v-toolbar-items>
         <v-btn text @click="goSite">의뢰사이트로 이동</v-btn>
       </v-toolbar-items-->
-    </v-toolbar>
+    </v-app-bar>
 
     <div style="display: flex; flex-direction: row; height: 100%;">
       <v-navigation-drawer permanent expand-on-hover color="#013183" dark>
@@ -22,7 +22,7 @@
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-if="loginState != null" class="text-h6">{{ loginState.nickname }} 님</v-list-item-title>
+              <v-list-item-title v-if="loginState != null" class="nav__title">{{ loginState.nickname }} 님</v-list-item-title>
               <v-list-item-subtitle>[관리자 계정] 접속중</v-list-item-subtitle>
               <v-btn depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
             </v-list-item-content>
@@ -41,6 +41,12 @@
             </v-list-item-icon>
             <v-list-item-title>의뢰 목록 확인</v-list-item-title>
           </v-list-item>
+          <v-list-item link to="/admin/mgToken">
+            <v-list-item-icon>
+              <v-icon>mdi-hand-coin</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>기업 토큰 관리</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
 
@@ -52,6 +58,14 @@
 </template>
 
 <style scoped>
+.main__toolbar {
+  display: flex;
+  align-items: center;
+  height: 5vh !important;
+}
+.nav__title {
+  font-size: 1rem;
+}
 </style>
 
 <script lang="js">
@@ -72,14 +86,14 @@ export default {
     },
   },
   beforeCreate() {
-    const check = this.$store.state.users.loginState;
+    /*const check = this.$store.state.users.loginState;
     if(check === null) {
       this.$router.push('/');
     } else {
       if(check.permission != 'admin') {
         this.$router.push('/');
       }
-    }
+    }*/
   },
   methods: {
       onLogout() {

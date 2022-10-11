@@ -6,9 +6,12 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
-const _d09a26da = () => interopDefault(import('..\\pages\\test.vue' /* webpackChunkName: "pages/test" */))
+const _3182ef5e = () => interopDefault(import('..\\pages\\dev\\index.vue' /* webpackChunkName: "pages/dev/index" */))
 const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
+const _717d4557 = () => interopDefault(import('..\\pages\\admin\\main.vue' /* webpackChunkName: "pages/admin/main" */))
+const _90b8d81c = () => interopDefault(import('..\\pages\\admin\\mgAPI.vue' /* webpackChunkName: "pages/admin/mgAPI" */))
 const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
+const _5644c051 = () => interopDefault(import('..\\pages\\admin\\mgToken.vue' /* webpackChunkName: "pages/admin/mgToken" */))
 const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
 const _50ef2f48 = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
 const _7aa43ce1 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
@@ -41,17 +44,29 @@ export const routerOptions = {
     component: _5e4d8b3b,
     name: "apitest"
   }, {
-    path: "/test",
-    component: _d09a26da,
-    name: "test"
+    path: "/dev",
+    component: _3182ef5e,
+    name: "dev"
   }, {
     path: "/user",
     component: _d90d1094,
     name: "user"
   }, {
+    path: "/admin/main",
+    component: _717d4557,
+    name: "admin-main"
+  }, {
+    path: "/admin/mgAPI",
+    component: _90b8d81c,
+    name: "admin-mgAPI"
+  }, {
     path: "/admin/mgRequest",
     component: _96f4a432,
     name: "admin-mgRequest"
+  }, {
+    path: "/admin/mgToken",
+    component: _5644c051,
+    name: "admin-mgToken"
   }, {
     path: "/admin/mgUser",
     component: _6d747eba,

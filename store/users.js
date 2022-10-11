@@ -32,6 +32,7 @@ export const actions = {
                 email: payload.email,
                 password: payload.password,
                 nickname: payload.nickname,
+                organization: payload.organization,
             }, {
                 // 쿠키를 서로 저장
                 withCredentials: true,

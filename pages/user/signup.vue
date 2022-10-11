@@ -4,10 +4,11 @@
       <v-card>
         <v-container>
           <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
-            <v-text-field v-model="nickname" label="이름" type="text" :rules="nicknameRules" />
-            <v-text-field v-model="email" label="이메일" type="email" :rules="emailRules" />
-            <v-text-field v-model="password" label="사용할 비밀번호" type="password" :rules="passwordRules" />
-            <v-text-field v-model="passwordCheck" label="비밀번호 확인" type="password" :rules="passwordCheckRules" />
+            <v-text-field v-model="nickname" label="이름*" type="text" :rules="nicknameRules" />
+            <v-text-field v-model="email" label="이메일(아이디)*" type="email" :rules="emailRules" />
+            <v-text-field v-model="password" label="비밀번호*" type="password" :rules="passwordRules" />
+            <v-text-field v-model="passwordCheck" label="비밀번호 확인*" type="password" :rules="passwordCheckRules" />
+            <v-text-field v-model="organization" label="소속(기업)" type="text" />
             <v-checkbox 
               v-model="terms" 
               required
@@ -35,7 +36,7 @@
               </v-card>
             </v-dialog>
 
-            <v-btn type="submit" color="success">가입하기</v-btn>
+            <v-btn type="submit" color="success" :disabled="!valid">가입하기</v-btn>
             <v-dialog v-model="dialog" persistent max-width="300">
               <v-card>
                 <v-card-title class="text-h5">회원가입 오류</v-card-title>
@@ -59,6 +60,7 @@
             <v-text-field v-model="email" label="E-mail" type="email" :rules="e_emailRules" />
             <v-text-field v-model="password" label="Password" type="password" :rules="e_passwordRules" />
             <v-text-field v-model="passwordCheck" label="Password Check" type="password" :rules="e_passwordCheckRules" />
+            <v-text-field v-model="organization" label="organization(Company)" type="text" />
             <v-checkbox
               v-model="terms"
               required
@@ -156,6 +158,7 @@ export default {
       email: "",
       password: "",
       passwordCheck: "",
+      organization: "",
       terms: false,
       emailRules: [
         (v) => !!v || "이메일을 입력해주세요.",
@@ -184,6 +187,7 @@ export default {
             email: this.email,
             password: this.password,
             nickname: this.nickname,
+            organization: this.organization
           });
           if (onResponse.status === 201) {
             this.$router.push({ path: "/text/textmain" });

@@ -1,13 +1,13 @@
-exports.ids = [12];
+exports.ids = [15];
 exports.modules = {
 
-/***/ 226:
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(228);
+var content = __webpack_require__(238);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -15,7 +15,7 @@ __webpack_require__(6).default("b9f570ac", content, true)
 
 /***/ }),
 
-/***/ 227:
+/***/ 237:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80,7 +80,7 @@ function VGrid(name) {
 
 /***/ }),
 
-/***/ 228:
+/***/ 238:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -94,16 +94,16 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 234:
+/***/ 244:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(104);
+/* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(110);
 /* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(226);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(236);
 /* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(227);
-/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
+/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(237);
+/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
 
 
 
@@ -171,31 +171,31 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 291:
+/***/ 302:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(348);
+var content = __webpack_require__(363);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("7f50de46", content, true, context)
+  add("02575620", content, true, context)
 };
 
 /***/ }),
 
-/***/ 343:
+/***/ 358:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(344);
+var content = __webpack_require__(359);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -203,7 +203,7 @@ __webpack_require__(6).default("12a190a6", content, true)
 
 /***/ }),
 
-/***/ 344:
+/***/ 359:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -217,13 +217,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 345:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(346);
+var content = __webpack_require__(361);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -231,7 +231,7 @@ __webpack_require__(6).default("2e2bc7da", content, true)
 
 /***/ }),
 
-/***/ 346:
+/***/ 361:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -245,33 +245,33 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 347:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_00ec9f43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(291);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_00ec9f43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_00ec9f43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_00ec9f43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_00ec9f43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_1eaaec68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(302);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_1eaaec68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_1eaaec68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_1eaaec68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_signup_vue_vue_type_style_index_0_id_1eaaec68_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 348:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".card[data-v-00ec9f43]{width:100%;height:80vh}.card__title[data-v-00ec9f43]{background:#013183;padding:25px;font-size:1.25rem;color:#fff}.card__subtitle[data-v-00ec9f43]{padding:10px;border-top:1px solid #013183;border-bottom:1px solid #013183}.text__box[data-v-00ec9f43]{width:100%;height:100%}.text__policy[data-v-00ec9f43]{width:100%;max-height:calc(50% - 44px);padding:20px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".card[data-v-1eaaec68]{width:100%;height:80vh}.card__title[data-v-1eaaec68]{background:#013183;padding:25px;font-size:1.25rem;color:#fff}.card__subtitle[data-v-1eaaec68]{padding:10px;border-top:1px solid #013183;border-bottom:1px solid #013183}.text__box[data-v-1eaaec68]{width:100%;height:100%}.text__policy[data-v-1eaaec68]{width:100%;max-height:calc(50% - 44px);padding:20px}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
 
-/***/ 370:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -279,19 +279,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(215);
+var VBtn = __webpack_require__(226);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(75);
+var VCard = __webpack_require__(77);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/index.js
 var components_VCard = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCheckbox/VCheckbox.sass
-var VCheckbox = __webpack_require__(343);
+var VCheckbox = __webpack_require__(358);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/styles/components/_selection-controls.sass
-var _selection_controls = __webpack_require__(345);
+var _selection_controls = __webpack_require__(360);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(21);
@@ -339,7 +339,7 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
   }
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/comparable/index.js
-var comparable = __webpack_require__(83);
+var comparable = __webpack_require__(85);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(2);
@@ -618,23 +618,21 @@ function prevent(e) {
   }
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js
-var VContainer = __webpack_require__(234);
+var VContainer = __webpack_require__(244);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js
-var VDialog = __webpack_require__(224);
+var VDialog = __webpack_require__(234);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
-var VForm = __webpack_require__(225);
+var VForm = __webpack_require__(235);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(223);
+var VSpacer = __webpack_require__(233);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
-var VTextField = __webpack_require__(210);
+var VTextField = __webpack_require__(221);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=template&id=00ec9f43&scoped=true&
-
-
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=template&id=1eaaec68&scoped=true&
 
 
 
@@ -645,19 +643,23 @@ var VTextField = __webpack_require__(210);
 
 
 
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"label":"이름","type":"text","rules":_vm.nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"이메일","type":"email","rules":_vm.emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"사용할 비밀번호","type":"password","rules":_vm.passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"비밀번호 확인","type":"password","rules":_vm.passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c(VCheckbox_VCheckbox,{attrs:{"required":"","readonly":"","label":"가입 약관","rules":[function (v) { return !!v || '약관 동의는 필수입니다.'; }]},on:{"click":_vm.onPolicy},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"max-width":"80%"},model:{value:(_vm.policy),callback:function ($$v) {_vm.policy=$$v},expression:"policy"}},[_c(VCard["a" /* default */],{staticClass:"card d-flex flex-column"},[_c('div',{staticClass:"card__title"},[_vm._v("\n                가입 약관\n              ")]),_vm._v(" "),_c('div',{staticClass:"text__box overflow-auto"},[_c('div',{staticClass:"card__subtitle"},[_vm._v("이용약관")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Term')],1),_vm._v(" "),_c('div',{staticClass:"card__subtitle"},[_vm._v("개인정보처리방침")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Policy')],1)]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success"},on:{"click":_vm.agree}},[_vm._v("동의합니다")])],1)],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"type":"submit","color":"success"}},[_vm._v("가입하기")]),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("회원가입 오류")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("닫기")])],1)],1)],1)],1)],1)],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"label":"Name","type":"text","rules":_vm.e_nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"E-mail","type":"email","rules":_vm.e_emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"Password","type":"password","rules":_vm.e_passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"Password Check","type":"password","rules":_vm.e_passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c(VCheckbox_VCheckbox,{attrs:{"required":"","readonly":"","label":"Signup Terms","rules":[function (v) { return !!v || 'It is essential to agree to the terms and conditions.'; }]},on:{"click":_vm.onPolicy},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"max-width":"80%"},model:{value:(_vm.policy),callback:function ($$v) {_vm.policy=$$v},expression:"policy"}},[_c(VCard["a" /* default */],{staticClass:"card d-flex flex-column"},[_c('div',{staticClass:"card__title"},[_vm._v("\n                Signup Terms\n              ")]),_vm._v(" "),_c('div',{staticClass:"text__box overflow-auto"},[_c('div',{staticClass:"card__subtitle"},[_vm._v("Terms")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Term')],1),_vm._v(" "),_c('div',{staticClass:"card__subtitle"},[_vm._v("Privacy Policy")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Policy')],1)]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success"},on:{"click":_vm.agree}},[_vm._v("Agree")])],1)],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"type":"submit","color":"success"}},[_vm._v("SignUp")]),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("SignUp Error")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("Close")])],1)],1)],1)],1)],1)],1)],1):_vm._e()],1)}
+
+
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"label":"이름*","type":"text","rules":_vm.nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"이메일(아이디)*","type":"email","rules":_vm.emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"비밀번호*","type":"password","rules":_vm.passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"비밀번호 확인*","type":"password","rules":_vm.passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"소속(기업)","type":"text"},model:{value:(_vm.organization),callback:function ($$v) {_vm.organization=$$v},expression:"organization"}}),_vm._v(" "),_c(VCheckbox_VCheckbox,{attrs:{"required":"","readonly":"","label":"가입 약관","rules":[function (v) { return !!v || '약관 동의는 필수입니다.'; }]},on:{"click":_vm.onPolicy},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"max-width":"80%"},model:{value:(_vm.policy),callback:function ($$v) {_vm.policy=$$v},expression:"policy"}},[_c(VCard["a" /* default */],{staticClass:"card d-flex flex-column"},[_c('div',{staticClass:"card__title"},[_vm._v("\n                가입 약관\n              ")]),_vm._v(" "),_c('div',{staticClass:"text__box overflow-auto"},[_c('div',{staticClass:"card__subtitle"},[_vm._v("이용약관")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Term')],1),_vm._v(" "),_c('div',{staticClass:"card__subtitle"},[_vm._v("개인정보처리방침")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Policy')],1)]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success"},on:{"click":_vm.agree}},[_vm._v("동의합니다")])],1)],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"type":"submit","color":"success","disabled":!_vm.valid}},[_vm._v("가입하기")]),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("회원가입 오류")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("닫기")])],1)],1)],1)],1)],1)],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],{ref:"form",on:{"submit":function($event){$event.preventDefault();return _vm.onSubmitForm.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"label":"Name","type":"text","rules":_vm.e_nicknameRules},model:{value:(_vm.nickname),callback:function ($$v) {_vm.nickname=$$v},expression:"nickname"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"E-mail","type":"email","rules":_vm.e_emailRules},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"Password","type":"password","rules":_vm.e_passwordRules},model:{value:(_vm.password),callback:function ($$v) {_vm.password=$$v},expression:"password"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"Password Check","type":"password","rules":_vm.e_passwordCheckRules},model:{value:(_vm.passwordCheck),callback:function ($$v) {_vm.passwordCheck=$$v},expression:"passwordCheck"}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"label":"organization(Company)","type":"text"},model:{value:(_vm.organization),callback:function ($$v) {_vm.organization=$$v},expression:"organization"}}),_vm._v(" "),_c(VCheckbox_VCheckbox,{attrs:{"required":"","readonly":"","label":"Signup Terms","rules":[function (v) { return !!v || 'It is essential to agree to the terms and conditions.'; }]},on:{"click":_vm.onPolicy},model:{value:(_vm.terms),callback:function ($$v) {_vm.terms=$$v},expression:"terms"}}),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"max-width":"80%"},model:{value:(_vm.policy),callback:function ($$v) {_vm.policy=$$v},expression:"policy"}},[_c(VCard["a" /* default */],{staticClass:"card d-flex flex-column"},[_c('div',{staticClass:"card__title"},[_vm._v("\n                Signup Terms\n              ")]),_vm._v(" "),_c('div',{staticClass:"text__box overflow-auto"},[_c('div',{staticClass:"card__subtitle"},[_vm._v("Terms")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Term')],1),_vm._v(" "),_c('div',{staticClass:"card__subtitle"},[_vm._v("Privacy Policy")]),_vm._v(" "),_c('div',{staticClass:"text__policy overflow-y-auto"},[_c('Policy')],1)]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success"},on:{"click":_vm.agree}},[_vm._v("Agree")])],1)],1),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"type":"submit","color":"success"}},[_vm._v("SignUp")]),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"persistent":"","max-width":"300"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"text-h5"},[_vm._v("SignUp Error")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_vm._v(_vm._s(_vm.errorMessage))]),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"text":""},on:{"click":function($event){_vm.dialog = false}}},[_vm._v("Close")])],1)],1)],1)],1)],1)],1)],1):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/user/signup.vue?vue&type=template&id=00ec9f43&scoped=true&
+// CONCATENATED MODULE: ./pages/user/signup.vue?vue&type=template&id=1eaaec68&scoped=true&
 
 // EXTERNAL MODULE: ./components/Term.vue + 2 modules
-var Term = __webpack_require__(98);
+var Term = __webpack_require__(103);
 
 // EXTERNAL MODULE: ./components/Policy.vue + 2 modules
-var Policy = __webpack_require__(99);
+var Policy = __webpack_require__(104);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/signup.vue?vue&type=script&lang=js&
+//
+//
 //
 //
 //
@@ -816,6 +818,7 @@ var Policy = __webpack_require__(99);
       email: "",
       password: "",
       passwordCheck: "",
+      organization: "",
       terms: false,
       emailRules: [v => !!v || "이메일을 입력해주세요.", v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || "이메일이 유효하지 않습니다."],
       nicknameRules: [v => !!v || "이름을 입력해주세요."],
@@ -842,7 +845,8 @@ var Policy = __webpack_require__(99);
           const onResponse = await this.$store.dispatch("users/signUp", {
             email: this.email,
             password: this.password,
-            nickname: this.nickname
+            nickname: this.nickname,
+            organization: this.organization
           });
 
           if (onResponse.status === 201) {
@@ -873,7 +877,7 @@ var Policy = __webpack_require__(99);
 // CONCATENATED MODULE: ./pages/user/signup.vue?vue&type=script&lang=js&
  /* harmony default export */ var user_signupvue_type_script_lang_js_ = (signupvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(9);
+var componentNormalizer = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./pages/user/signup.vue
 
@@ -881,7 +885,7 @@ var componentNormalizer = __webpack_require__(9);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(347)
+  var style0 = __webpack_require__(362)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -894,7 +898,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "00ec9f43",
+  "1eaaec68",
   "ed59a142"
   
 )

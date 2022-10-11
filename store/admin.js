@@ -72,5 +72,27 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
+    },
+    async registToken({}, payload) {
+        try {
+            const tokenResponse = await this.$axios.post('/admin/regist/token', {
+                organization: payload.organization,
+                token: payload.token
+            });
+            
+            if (tokenResponse.data === '토큰 등록') {
+                return {
+                    code: true,
+                    message: tokenResponse.data
+                };
+            } else {
+                return {
+                    code: false,
+                    message: tokenResponse.data
+                };
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
 }

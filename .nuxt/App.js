@@ -9,12 +9,14 @@ import '..\\assets\\scss\\common.scss'
 
 import _98f1ccfa from '..\\layouts\\AdminLayout.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
+import _35081f6e from '..\\layouts\\DevLayout.vue'
+import _2d27502e from '..\\layouts\\none.vue'
 import _013155e9 from '..\\layouts\\ServiceLayout.vue'
 import _7e53c578 from '..\\layouts\\SignupLayout.vue'
 import _14693a1c from '..\\layouts\\TestLayout.vue'
 import _059d7966 from '..\\layouts\\TextLayout.vue'
 
-const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_ServiceLayout": sanitizeComponent(_013155e9),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966) }
+const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_DevLayout": sanitizeComponent(_35081f6e),"_none": sanitizeComponent(_2d27502e),"_ServiceLayout": sanitizeComponent(_013155e9),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966) }
 
 export default {
   render (h, props) {

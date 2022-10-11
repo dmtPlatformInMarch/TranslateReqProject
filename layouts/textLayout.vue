@@ -65,8 +65,8 @@
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <div class="nav__title" v-if="language === '한국어'">{{ loginState.nickname }} 님</div>
-              <div class="nav__title" v-else-if="language === '영어'">Hello, {{ loginState.nickname }}</div>
+              <div class="nav__title" v-if="language === '한국어'"><nuxt-link to="/user">{{ loginState.nickname }}</nuxt-link> 님</div>
+              <div class="nav__title" v-else-if="language === '영어'">Hello, <nuxt-link to="/user">{{ loginState.nickname }}</nuxt-link></div>
               <div class="nav__subtitle" v-if="language === '한국어'">번역 의뢰 : N건</div>
               <div class="nav__subtitle" v-else-if="language === '영어'">Your Request : N cases</div>
               <v-btn class="nav__btn full-width" v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
@@ -100,6 +100,7 @@
         </v-list>
       </v-navigation-drawer>
 
+      <!--모바일 네비게이션-->
       <v-navigation-drawer v-model="slideNav" fixed temporary color="#013183">
         <v-list class="nav__info" rounded dense dark>
           <v-list-item v-if="!loginState">
@@ -114,8 +115,8 @@
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <div class="nav__title" v-if="language === '한국어'">{{ loginState.nickname }} 님</div>
-              <div class="nav__title" v-else-if="language === '영어'">Hello, {{ loginState.nickname }}</div>
+              <div class="nav__title" v-if="language === '한국어'"><nuxt-link to="/user">{{ loginState.nickname }}</nuxt-link> 님</div>
+              <div class="nav__title" v-else-if="language === '영어'">Hello, <nuxt-link to="/user">{{ loginState.nickname }}</nuxt-link></div>
               <div class="nav__subtitle" v-if="language === '한국어'">번역 의뢰 : N건</div>
               <div class="nav__subtitle" v-else-if="language === '영어'">Your Request : N cases</div>
               <v-btn class="nav__btn full-width" v-if="language === '한국어'" depressed color="#06d183" @click="onLogout">로그아웃</v-btn>
@@ -159,11 +160,10 @@
 .main__toolbar {
   display: flex;
   align-items: center;
-  height: 5% !important;
+  height: 5vh !important;
 }
 .main__toolbar >>> .v-toolbar__content {
   width: 100% !important;
-  height: 100% !important;
   padding: 0 20px !important;
   justify-content: space-between;
 }

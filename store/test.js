@@ -70,8 +70,11 @@ export const actions = {
         fd.append('fileKey', payload);
         const response = await this.$axios.post('/test/blobSending', fd);
         if (response.status === 200) {
-            return response.data.text;
+            return response.data;
         }
         else return "";
     },
+    async utube({}, payload) {
+        return await this.$axios.get(`/test/download?youtubeURL=${payload}`);
+    }
 }

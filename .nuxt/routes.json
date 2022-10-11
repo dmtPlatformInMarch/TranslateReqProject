@@ -14,11 +14,11 @@
     "_name": "_5e4d8b3b"
   },
   {
-    "name": "test",
-    "path": "/test",
-    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\test.vue",
-    "chunkName": "pages/test",
-    "_name": "_d09a26da"
+    "name": "dev",
+    "path": "/dev",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\dev\\\\index.vue",
+    "chunkName": "pages/dev/index",
+    "_name": "_3182ef5e"
   },
   {
     "name": "user",
@@ -28,11 +28,32 @@
     "_name": "_d90d1094"
   },
   {
+    "name": "admin-main",
+    "path": "/admin/main",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\main.vue",
+    "chunkName": "pages/admin/main",
+    "_name": "_717d4557"
+  },
+  {
+    "name": "admin-mgAPI",
+    "path": "/admin/mgAPI",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgAPI.vue",
+    "chunkName": "pages/admin/mgAPI",
+    "_name": "_90b8d81c"
+  },
+  {
     "name": "admin-mgRequest",
     "path": "/admin/mgRequest",
     "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgRequest.vue",
     "chunkName": "pages/admin/mgRequest",
     "_name": "_96f4a432"
+  },
+  {
+    "name": "admin-mgToken",
+    "path": "/admin/mgToken",
+    "component": "C:\\\\Users\\\\yunji\\\\Desktop\\\\git\\\\DMT_TraslateRequestWeb\\\\pages\\\\admin\\\\mgToken.vue",
+    "chunkName": "pages/admin/mgToken",
+    "_name": "_5644c051"
   },
   {
     "name": "admin-mgUser",

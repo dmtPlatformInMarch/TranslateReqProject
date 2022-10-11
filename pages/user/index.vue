@@ -10,7 +10,7 @@
           <v-form>
             <v-text-field rounded readonly outlined label="이름" :value="loginState.nickname" />
             <v-text-field rounded readonly outlined label="E-mail" :value="loginState.email" />
-            <v-text-field rounded readonly outlined label="소속" value="소속 없음" />
+            <v-text-field rounded readonly outlined label="소속" :value="loginState.organization" />
           </v-form>
         </v-container>
       </v-card>
