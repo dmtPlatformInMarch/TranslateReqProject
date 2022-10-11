@@ -12158,7 +12158,7 @@ const actions = {
       const res = await this.$axios.get('/user', {
         withCredentials: true
       });
-      commit('setUser', res.data);
+      if (res.data.code === 401) console.log('로그인 필요');else commit('setUser', res.data);
     } catch (err) {
       console.log('로그인 필요');
     }
