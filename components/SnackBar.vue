@@ -3,7 +3,7 @@
     {{ message }}
     <v-spacer />
     <template #action="{ attrs }">
-      <v-btn text v-bind="attrs" @click="act = false">닫기</v-btn>
+      <v-btn class="snack__btn" text v-bind="attrs" @click="act = false">닫기</v-btn>
     </template>
   </v-snackbar>
 </template>
@@ -11,6 +11,9 @@
 <style scoped>
 .snackbar__template {
   z-index: 99;
+}
+.snack__btn {
+  margin: 0 15px;
 }
 </style>
 

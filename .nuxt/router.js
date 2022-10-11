@@ -22,6 +22,12 @@ const _a4934016 = () => interopDefault(import('..\\pages\\video\\filetrack.vue' 
 const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
 const _05428213 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
 const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
+const _47726972 = () => interopDefault(import('..\\pages\\dev\\api\\translate-text.vue' /* webpackChunkName: "pages/dev/api/translate-text" */))
+const _36aa7dd0 = () => interopDefault(import('..\\pages\\dev\\enterprise\\about.vue' /* webpackChunkName: "pages/dev/enterprise/about" */))
+const _c6585160 = () => interopDefault(import('..\\pages\\dev\\enterprise\\token-issue.vue' /* webpackChunkName: "pages/dev/enterprise/token-issue" */))
+const _0d1fb5a7 = () => interopDefault(import('..\\pages\\dev\\enterprise\\usage-check.vue' /* webpackChunkName: "pages/dev/enterprise/usage-check" */))
+const _deab8c74 = () => interopDefault(import('..\\pages\\dev\\platform\\about.vue' /* webpackChunkName: "pages/dev/platform/about" */))
+const _8aef6130 = () => interopDefault(import('..\\pages\\dev\\platform\\text-translation.vue' /* webpackChunkName: "pages/dev/platform/text-translation" */))
 const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -107,6 +113,30 @@ export const routerOptions = {
     path: "/voice/info",
     component: _6be03fef,
     name: "voice-info"
+  }, {
+    path: "/dev/api/translate-text",
+    component: _47726972,
+    name: "dev-api-translate-text"
+  }, {
+    path: "/dev/enterprise/about",
+    component: _36aa7dd0,
+    name: "dev-enterprise-about"
+  }, {
+    path: "/dev/enterprise/token-issue",
+    component: _c6585160,
+    name: "dev-enterprise-token-issue"
+  }, {
+    path: "/dev/enterprise/usage-check",
+    component: _0d1fb5a7,
+    name: "dev-enterprise-usage-check"
+  }, {
+    path: "/dev/platform/about",
+    component: _deab8c74,
+    name: "dev-platform-about"
+  }, {
+    path: "/dev/platform/text-translation",
+    component: _8aef6130,
+    name: "dev-platform-text-translation"
   }, {
     path: "/",
     component: _77806121,

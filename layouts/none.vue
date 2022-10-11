@@ -1,5 +1,8 @@
 <template>
-    <nuxt class="none__wrapper" />
+<div>
+    <nuxt class="none__wrapper" light />
+    <snack-bar />
+</div>
 </template>
 
 <style scoped>
@@ -9,3 +12,18 @@
     height: 100%;
 }
 </style>
+
+<script>
+import SnackBar from '../components/SnackBar.vue'
+
+export default {
+    components: {
+        SnackBar
+    },
+    data() {
+        return {
+
+        }
+    },
+}
+</script>

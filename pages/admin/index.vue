@@ -24,6 +24,13 @@
                 </v-form>
             </div>
         </div>
+
+        <v-btn class="back__site" dark text to="/">
+            기존 사이트로 돌아가기
+            <v-icon>
+                mdi-arrow-u-left-top
+            </v-icon>
+        </v-btn>
     </div>
 </template>
 
@@ -69,6 +76,14 @@
     justify-content: space-around;
     width: 100%;
     height: 30vh;
+}
+.back__site {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.back__site:hover::before {
+    opacity: 0;
 }
 
 @media screen and (max-width: 640px) {

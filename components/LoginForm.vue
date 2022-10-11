@@ -71,9 +71,9 @@ export default {
             password: this.password,
           });
           if (this.$store.state.users.loginState.permission === "admin") {
-            this.$router.push("/admin");
+            this.$router.push("/admin/main");
           } else {
-            this.$router.go();
+            this.$router.push("/text/textmain");
           }
         } catch (err) {
           // 사용자 관점 처리 => store - login 에서 처리
