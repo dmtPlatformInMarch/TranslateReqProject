@@ -12151,8 +12151,7 @@ const mutations = {
 const actions = {
   // 유저 정보 불러오기
   async loadUser({
-    commit,
-    state
+    commit
   }) {
     try {
       //console.log('Start Load User');
@@ -12203,6 +12202,11 @@ const actions = {
           message: `${err.response.data}`,
           color: 'red'
         });
+      } else if (err.response.data.code === 401) {
+        this.$manage.showMessage({
+          message: `${err.response.data.error}`,
+          color: 'red'
+        });
       } else {
         console.log('로그인 스토어 에러\n', err.response);
       }
@@ -12214,7 +12218,7 @@ const actions = {
     commit
   }) {
     try {
-      const res = await this.$axios.post('/user/logout', {}, {
+      await this.$axios.post('/user/logout', {}, {
         withCredentials: true
       });
       commit('setUser', null);
