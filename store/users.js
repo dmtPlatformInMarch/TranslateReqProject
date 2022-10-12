@@ -20,8 +20,7 @@ export const actions = {
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
-            if (res.data.code === 401) console.log('로그인 필요');
-            else commit('setUser', res.data);
+            commit('setUser', res.data);
         } catch (err) {
             console.log('로그인 필요');
         }
@@ -57,8 +56,8 @@ export const actions = {
         } catch (err) {
             if (err.response.data === '존재하지 않는 사용자입니다.') {
                 this.$manage.showMessage({ message: `${err.response.data}`, color: 'red' });
-            } else if (err.response.data.code === 401) {
-                this.$manage.showMessage({ message: `${err.response.data.error}`, color: 'red' });
+            } else if (err.response.data === '로그인한 사용자는 사용할 수 없습니다.') {
+                this.$manage.showMessage({ message: `${err.response.data}`, color: 'red' });
             } else {
                 console.log('로그인 스토어 에러\n', err.response);
             }
