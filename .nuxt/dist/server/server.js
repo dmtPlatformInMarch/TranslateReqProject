@@ -12157,7 +12157,8 @@ const actions = {
     try {
       //console.log('Start Load User');
       const res = await this.$axios.get('/user', {
-        withCredentials: true
+        withCredentials: true,
+        credentials: 'include'
       });
       console.log("getUserInfo : ", res.data);
       commit('setUser', res.data);
