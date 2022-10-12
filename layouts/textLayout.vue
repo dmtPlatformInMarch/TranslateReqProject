@@ -304,6 +304,7 @@ export default {
     slideNav: false,
   }),
   mounted() {
+    this.$store.dispatch('users/loadUser');
     const box = this.$refs.navs;
     box.addEventListener('touchstart', this.swipeStart, false);
     box.addEventListener('touchend', this.swipeEnd, false);

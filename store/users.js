@@ -17,11 +17,15 @@ export const actions = {
     async loadUser({ commit, state }) {
         try {
             //console.log('Start Load User');
-            const res = await this.$axios.get('/user', {
-                withCredentials: true,
-                credentials: 'include'
-            });
-            commit('setUser', res.data);
+            if (state.loginState === null) {
+                const res = await this.$axios.get('/user', {
+                    withCredentials: true,
+                    credentials: 'include'
+                });
+                commit('setUser', res.data);
+            } else {
+                
+            }
         } catch (err) {
             if (err.response.status != 410) console.log(err);
         }
@@ -52,7 +56,6 @@ export const actions = {
             }, {
                 withCredentials: true,
             });
-            console.log("로그인 정보 : ", JSON.stringify(loginState.data));
             commit('setUser', loginState.data);
         } catch (err) {
             if (err.response.data === '존재하지 않는 사용자입니다.') {
