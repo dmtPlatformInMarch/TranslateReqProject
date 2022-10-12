@@ -11460,9 +11460,14 @@ const actions = {
     req
   }) {
     try {
-      await dispatch('users/loadUser');
+      const res = await this.$axios.get('/user', {
+        withCredentials: true,
+        credentials: 'include'
+      });
+      console.log("getUserInfo : ", res.data);
+      await commit('users/setUser', res.data); //await dispatch('users/loadUser');
     } catch (err) {
-      console.log("server side render : ", err);
+      if (err.response.status != 410) console.log("SSR : ", err);
     }
   }
 
@@ -16964,20 +16969,8 @@ const createAxiosInstance = axiosOptions => {
     };
   }); // Setup interceptors
 
-  setupCredentialsInterceptor(axios);
   setupProgress(axios);
   return axios;
-};
-
-const setupCredentialsInterceptor = axios => {
-  // Send credentials only to relative and API Backend requests
-  axios.onRequest(config => {
-    if (config.withCredentials === undefined) {
-      if (!/^https?:\/\//i.test(config.url) || config.url.indexOf(config.baseURL) === 0) {
-        config.withCredentials = true;
-      }
-    }
-  });
 };
 
 const setupProgress = axios => {

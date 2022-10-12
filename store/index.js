@@ -8,9 +8,15 @@ export const actions = {
     // 서버로부터 사용자 데이터를 가져옴.
     async nuxtServerInit({ commit, dispatch, state }, { req }) {
         try {
-            await dispatch('users/loadUser');
+            const res = await this.$axios.get('/user', {
+                withCredentials: true,
+                credentials: 'include'
+            });
+            console.log("getUserInfo : ", res.data);
+            await commit('users/setUser', res.data);
+            //await dispatch('users/loadUser');
         } catch (err) {
-            console.log("server side render : ", err);
+            if (err.response.status != 410) console.log("SSR : ", err);
         }
     },
 };
