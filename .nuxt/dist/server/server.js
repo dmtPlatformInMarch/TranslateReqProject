@@ -11460,12 +11460,7 @@ const actions = {
     req
   }) {
     try {
-      const res = await this.$axios.get('/user', {
-        withCredentials: true,
-        credentials: 'include'
-      });
-      console.log("getUserInfo : ", res.data);
-      await commit('users/setUser', res.data); //await dispatch('users/loadUser');
+      await dispatch('users/loadUser');
     } catch (err) {
       if (err.response.status != 410) console.log("SSR : ", err);
     }
@@ -12165,10 +12160,9 @@ const actions = {
         withCredentials: true,
         credentials: 'include'
       });
-      console.log("getUserInfo : ", res.data);
       commit('setUser', res.data);
     } catch (err) {
-      console.log('로그인 필요');
+      if (err.response.status != 410) console.log(err);
     }
   },
 

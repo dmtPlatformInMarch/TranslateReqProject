@@ -355,6 +355,9 @@ export default {
           file_text: '',
       }
   },
+  async fetch() {
+    await this.$store.dispatch('users/loadUser');
+  },
   created() {
     this.from_lang = this.language === '한국어' ? '한국어' : 'Korean';
     this.to_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
