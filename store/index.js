@@ -10,7 +10,7 @@ export const actions = {
         try {
             await dispatch('users/loadUser');
         } catch (err) {
-            console.log(err);
+            console.log("server side render : ", err);
         }
     },
 };

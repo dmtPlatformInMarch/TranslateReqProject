@@ -14,19 +14,20 @@ export const mutations = {
 // 비동기 작업 or 복잡한 작업 수행
 export const actions = {
     // 유저 정보 불러오기
-    async loadUser({ commit }) {
+    async loadUser({ commit, state }) {
         try {
             //console.log('Start Load User');
             const res = await this.$axios.get('/user', {
                 withCredentials: true,
             });
+            console.log("getUserInfo : ", res.data);
             commit('setUser', res.data);
         } catch (err) {
             console.log('로그인 필요');
         }
     },
     // 회원가입
-    async signUp({ commit }, payload) {
+    async signUp({}, payload) {
         try {
             const signupResponse = await this.$axios.post('/user/signup', {
                 email: payload.email,
@@ -51,7 +52,7 @@ export const actions = {
             }, {
                 withCredentials: true,
             });
-
+            console.log("로그인 정보 : ", JSON.stringify(loginState.data));
             commit('setUser', loginState.data);
         } catch (err) {
             if (err.response.data === '존재하지 않는 사용자입니다.') {
