@@ -5,7 +5,6 @@
                 <h1>기업 토큰 관리</h1>
             </v-toolbar-title>
             <v-spacer />
-            <v-btn rounded color="success" @click="update">조회하기</v-btn>
         </v-toolbar>
 
         <v-card>
@@ -147,9 +146,6 @@ export default {
         }
     },
     methods: {
-        update() {
-
-        },
         copy() {
             this.copied = true;
             navigator.clipboard.writeText(this.token);

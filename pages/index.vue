@@ -333,7 +333,6 @@
 </template>
 
 <style scoped>
-
 .main__template {
   overflow: hidden;
   height: 100%;
@@ -894,6 +893,42 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener("keydown", (event) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      let handleed = false;
+
+      switch (event.key) {
+        case "Down": // IE/Edge specific value
+        case "ArrowDown":
+          // Do something for "down arrow" key press.
+          handleed = true;
+          break;
+        case "Up": // IE/Edge specific value
+        case "ArrowUp":
+          // Do something for "up arrow" key press.
+          handleed = true;
+          break;
+        case "Left": // IE/Edge specific value
+        case "ArrowLeft":
+          // Do something for "left arrow" key press.
+          handleed = true;
+          break;
+        case "Right": // IE/Edge specific value
+        case "ArrowRight":
+          // Do something for "right arrow" key press.
+          handleed = true;
+          break;
+        default:
+          return;
+      }
+      if (handleed) {
+        event.preventDefault();
+      }
+    }, true);
+
     const box = this.$refs.box;
     box.style.transform = 'translateY(0)';
     box.addEventListener('wheel', this.handleScroll);

@@ -484,31 +484,31 @@ const cache = new Map();
 
 /***/ }),
 
-/***/ 301:
+/***/ 302:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(346);
+var content = __webpack_require__(349);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("6d407de2", content, true, context)
+  add("b8cc2fd6", content, true, context)
 };
 
 /***/ }),
 
-/***/ 343:
+/***/ 346:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(344);
+var content = __webpack_require__(347);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -516,7 +516,7 @@ __webpack_require__(6).default("dc0628f2", content, true)
 
 /***/ }),
 
-/***/ 344:
+/***/ 347:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -530,33 +530,33 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 345:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_532dcaa5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(301);
-/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_532dcaa5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_532dcaa5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_532dcaa5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_532dcaa5_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_5518e410_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(302);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_5518e410_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_5518e410_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_5518e410_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_mgToken_vue_vue_type_style_index_0_id_5518e410_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 346:
+/***/ 349:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".titleStyle[data-v-532dcaa5]{color:#f0f8ff;background:#013183}.token__create__section[data-v-532dcaa5]{width:100%;flex-direction:column}.token__create__clipboard[data-v-532dcaa5],.token__create__section[data-v-532dcaa5]{height:100%;display:flex;align-items:center;justify-content:center}.token__create__clipboard[data-v-532dcaa5]{margin:0!important;width:auto;border-radius:0}.token__register__section[data-v-532dcaa5]{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.token__register__company[data-v-532dcaa5]{width:80%;text-align:center}.centered_input[data-v-532dcaa5] input{text-align:center}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".titleStyle[data-v-5518e410]{color:#f0f8ff;background:#013183}.token__create__section[data-v-5518e410]{width:100%;flex-direction:column}.token__create__clipboard[data-v-5518e410],.token__create__section[data-v-5518e410]{height:100%;display:flex;align-items:center;justify-content:center}.token__create__clipboard[data-v-5518e410]{margin:0!important;width:auto;border-radius:0}.token__register__section[data-v-5518e410]{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.token__register__company[data-v-5518e410]{width:80%;text-align:center}.centered_input[data-v-5518e410] input{text-align:center}", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
 
-/***/ 426:
+/***/ 429:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -600,7 +600,7 @@ var VToolbar = __webpack_require__(15);
 var components_VToolbar = __webpack_require__(18);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VTooltip/VTooltip.sass
-var VTooltip = __webpack_require__(343);
+var VTooltip = __webpack_require__(346);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/activatable/index.js
 var activatable = __webpack_require__(32);
@@ -841,7 +841,7 @@ var mixins = __webpack_require__(3);
   }
 
 }));
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgToken.vue?vue&type=template&id=532dcaa5&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgToken.vue?vue&type=template&id=5518e410&scoped=true&
 
 
 
@@ -858,16 +858,15 @@ var mixins = __webpack_require__(3);
 
 
 
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_c('h1',[_vm._v("기업 토큰 관리")])]),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"rounded":"","color":"success"},on:{"click":_vm.update}},[_vm._v("조회하기")])],1),_vm._v(" "),_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"titleStyle"},[_vm._v("토큰 생성")]),_vm._v(" "),_c(VCard["a" /* default */],{staticClass:"overflow-y-auto",staticStyle:{"height":"20vh"},attrs:{"elevation":"10"}},[_c('div',{staticClass:"token__create__section"},[_c(VTextField["a" /* default */],{staticStyle:{"flex":"0","width":"60%"},attrs:{"rounded":"","outlined":"","readonly":"","value":"asdf1234"},scopedSlots:_vm._u([{key:"append",fn:function(){return [_c(VTooltip_VTooltip,{attrs:{"top":"","disabled":!_vm.copied},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],[_c('h1',[_vm._v("기업 토큰 관리")])]),_vm._v(" "),_c(VSpacer["a" /* default */])],1),_vm._v(" "),_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"titleStyle"},[_vm._v("토큰 생성")]),_vm._v(" "),_c(VCard["a" /* default */],{staticClass:"overflow-y-auto",staticStyle:{"height":"20vh"},attrs:{"elevation":"10"}},[_c('div',{staticClass:"token__create__section"},[_c(VTextField["a" /* default */],{staticStyle:{"flex":"0","width":"60%"},attrs:{"rounded":"","outlined":"","readonly":"","value":"asdf1234"},scopedSlots:_vm._u([{key:"append",fn:function(){return [_c(VTooltip_VTooltip,{attrs:{"top":"","disabled":!_vm.copied},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
 var attrs = ref.attrs;
 return [_c(VBtn["a" /* default */],_vm._b({staticClass:"token__create__clipboard",attrs:{"icon":""},on:{"click":function($event){$event.stopPropagation();return _vm.copy.apply(null, arguments)}}},'v-btn',attrs,false),[(!_vm.copied)?_c(VIcon["a" /* default */],[_vm._v("\n                                            mdi-clipboard-text\n                                        ")]):_c(VIcon["a" /* default */],[_vm._v("\n                                            mdi-clipboard-check\n                                        ")])],1)]}}]),model:{value:(_vm.copied),callback:function ($$v) {_vm.copied=$$v},expression:"copied"}},[_vm._v(" "),_c('span',[_vm._v("Copied!")])])]},proxy:true}]),model:{value:(_vm.token),callback:function ($$v) {_vm.token=$$v},expression:"token"}}),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"depressed":"","outlined":"","rounded":"","color":"primary"},on:{"click":_vm.tokenCreate}},[_vm._v("\n                        생성하기\n                    ")])],1)])],1),_vm._v(" "),_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"titleStyle"},[_vm._v("토큰 등록")]),_vm._v(" "),_c(VCard["a" /* default */],{staticClass:"overflow-y-auto",staticStyle:{"height":"50vh"},attrs:{"elevation":"10"}},[_c('div',{staticClass:"token__register__section"},[_c(VSpacer["a" /* default */]),_vm._v(" "),_c('div',{staticClass:"token__register__company"},[_c('h1',[_vm._v("등록 기업(회사, 소속)")]),_vm._v(" "),_c(VTextField["a" /* default */],{staticClass:"centered_input",attrs:{"outlined":"","block":"","hide-details":""},model:{value:(_vm.registCompany),callback:function ($$v) {_vm.registCompany=$$v},expression:"registCompany"}})],1),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c('div',{staticClass:"token__register__company"},[_c('h1',[_vm._v("등록 토큰")]),_vm._v(" "),_c(VTextField["a" /* default */],{staticClass:"centered_input",attrs:{"outlined":"","block":"","hide-details":""},model:{value:(_vm.registToken),callback:function ($$v) {_vm.registToken=$$v},expression:"registToken"}})],1),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-column",staticStyle:{"width":"60%","height":"10%"}},[_c(VBtn["a" /* default */],{attrs:{"rounded":"","block":"","color":"primary","disabled":_vm.registCompany === '' || _vm.registToken === ''},on:{"click":function($event){_vm.dialog = !_vm.dialog}}},[_vm._v("\n                            등록하기\n                        ")])],1),_vm._v(" "),_c(VSpacer["a" /* default */])],1)])],1)],1),_vm._v(" "),_c(VDialog["a" /* default */],{attrs:{"width":"600"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c(VCard["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],{staticClass:"titleStyle"},[_vm._v("\n                정보 확인\n            ")]),_vm._v(" "),_c(components_VCard["c" /* VCardText */],[_c(VContainer["a" /* default */],[_c(VRow["a" /* default */],{attrs:{"justify":"center"}},[_c(VCol["a" /* default */],[_c('h2',[_vm._v("등록 기업 : ")]),_c('br'),_vm._v(" "),_c('h2',[_vm._v("등록 토큰 : ")])]),_vm._v(" "),_c(VCol["a" /* default */],[_c('h2',[_vm._v(_vm._s(_vm.registCompany)+" ")]),_c('br'),_vm._v(" "),_c('h2',[_vm._v(_vm._s(_vm.registToken))])])],1)],1)],1),_vm._v(" "),_c(components_VCard["a" /* VCardActions */],[_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"success"},on:{"click":_vm.tokenRegist}},[_vm._v("\n                    등록\n                ")]),_vm._v(" "),_c(VBtn["a" /* default */],{attrs:{"color":"error"},on:{"click":function($event){_vm.dialog = !_vm.dialog}}},[_vm._v("\n                    취소\n                ")])],1)],1)],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/admin/mgToken.vue?vue&type=template&id=532dcaa5&scoped=true&
+// CONCATENATED MODULE: ./pages/admin/mgToken.vue?vue&type=template&id=5518e410&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgToken.vue?vue&type=script&lang=js&
-//
 //
 //
 //
@@ -1017,8 +1016,6 @@ var staticRenderFns = []
   },
 
   methods: {
-    update() {},
-
     copy() {
       this.copied = true;
       navigator.clipboard.writeText(this.token);
@@ -1068,7 +1065,7 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(345)
+  var style0 = __webpack_require__(348)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -1081,7 +1078,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "532dcaa5",
+  "5518e410",
   "18e67608"
   
 )

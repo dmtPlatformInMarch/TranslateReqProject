@@ -113,5 +113,22 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
+    },
+    // 토큰 유효성 검사
+    async tokenCheck({}, payload) {
+        try {
+            const tokenEff = await this.$axios.get(`/api/check-token?organization=${payload.organization}`, {
+                headers: {
+                    token: payload.token
+                }
+            });
+            if (tokenEff.data.code === 200) {
+                this.$manage.showMessage({ message: tokenEff.data.message , color: 'success'});
+            } else {
+                this.$manage.showMessage({ message: tokenEff.data.message , color: 'error'});
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 }

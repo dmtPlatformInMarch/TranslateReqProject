@@ -1,16 +1,31 @@
 <template>
   <v-container>
     <v-container v-if="language === '한국어'">
-      <v-toolbar elevation="0">
-        <v-toolbar-title class="text-h4 font-weight-bold"> 유저 정보 </v-toolbar-title>
-      </v-toolbar>
-
       <v-card v-if="loginState">
         <v-container>
-          <v-form>
-            <v-text-field rounded readonly outlined label="이름" :value="loginState.nickname" />
-            <v-text-field rounded readonly outlined label="E-mail" :value="loginState.email" />
-            <v-text-field rounded readonly outlined label="소속" :value="loginState.organization" />
+          <v-card-title>
+            내 정보
+          </v-card-title>
+          <v-text-field rounded readonly outlined label="이름" :value="loginState.nickname" />
+          <v-text-field rounded readonly outlined label="E-mail" :value="loginState.email" />
+          <v-text-field rounded readonly outlined label="소속(기업)" :value="loginState.organization" />
+        </v-container>
+
+        <v-container v-if="loginState.organization">
+          <v-card-title>
+            발급 토큰 확인
+          </v-card-title>
+          <v-form ref="tokenForm" v-model="valid" @submit.prevent="checkToken">
+            <v-text-field v-model="inputToken" :rules="tokenRule" rounded outlined label="토큰" placeholder="발급받은 토큰을 입력하세요.">
+              <template class="append__btn" v-slot:append>
+                <v-btn rounded depressed type="submit" @click.stop>
+                  <v-icon>
+                    mdi-check
+                  </v-icon>
+                  확인
+                </v-btn>
+              </template>
+            </v-text-field>
           </v-form>
         </v-container>
       </v-card>
@@ -21,9 +36,20 @@
     </v-container>
 
     <v-container v-else-if="language === '영어'">
-      <v-toolbar elevation="0">
-        <v-toolbar-title class="text-h4 font-weight-bold"> User Info </v-toolbar-title>
-      </v-toolbar>
+      <v-card v-if="loginState">
+        <v-container>
+          <v-card-title>
+            My Page
+          </v-card-title>
+          <v-text-field rounded readonly outlined label="Name" :value="loginState.nickname" />
+          <v-text-field rounded readonly outlined label="E-mail" :value="loginState.email" />
+          <v-text-field rounded readonly outlined label="Organization(Company)" :value="loginState.organization" />
+        </v-container>
+      </v-card>
+
+      <v-card v-else>
+        <v-card-text>Please, Need to Login</v-card-text>
+      </v-card>
     </v-container>
 
     <v-container v-else>
@@ -43,6 +69,14 @@
 </template>
 
 <style scoped>
+div >>> .v-input__append-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto !important;
+  width: auto;
+  height: 100%;
+}
 </style>
 
 <script>
@@ -54,7 +88,14 @@ export default {
     SnackBar,
   },
   data() {
-    return {};
+    return {
+      valid: false,
+      inputToken: "",
+      tokenRule: [
+        (v) => !!v || "토큰을 입력해주세요.", 
+        (v) => !(v && v.length < 32) || "토큰이 유효하지 않습니다."
+      ],
+    }
   },
   computed: {
     language() {
@@ -64,5 +105,19 @@ export default {
       return this.$store.state.users.loginState;
     },
   },
+  methods: {
+    checkToken() {
+      if (this.loginState.organization === "") {
+        this.$manage.showMessage({ message: "소속(기업) 등록 후 이용하실 수 있습니다.", color: "orange" }); 
+        return;
+      }
+      if (this.$refs.tokenForm.validate()) {
+        this.$store.dispatch('manager/tokenCheck', {
+          organization: this.loginState?.organization,
+          token: this.inputToken
+        });
+      }
+    }
+  }
 };
 </script>

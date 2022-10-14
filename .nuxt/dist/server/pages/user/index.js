@@ -171,12 +171,59 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 430:
+/***/ 295:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(337);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add CSS to SSR context
+var add = __webpack_require__(6).default
+module.exports.__inject__ = function (context) {
+  add("598c22c7", content, true, context)
+};
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6060166f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(295);
+/* harmony import */ var _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6060166f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6060166f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6060166f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vuetify_loader_lib_loader_js_ref_4_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_6060166f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ 337:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(5);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "div[data-v-6060166f] .v-input__append-inner{display:flex;align-items:center;justify-content:center;margin:auto!important;width:auto;height:100%}", ""]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 433:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
+var VBtn = __webpack_require__(227);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
 var VCard = __webpack_require__(78);
@@ -190,6 +237,9 @@ var VContainer = __webpack_require__(241);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VForm/VForm.js
 var VForm = __webpack_require__(237);
 
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
+var VIcon = __webpack_require__(72);
+
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
 var VTextField = __webpack_require__(222);
 
@@ -199,7 +249,7 @@ var VToolbar = __webpack_require__(15);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/index.js
 var components_VToolbar = __webpack_require__(18);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/index.vue?vue&type=template&id=46aa3e98&scoped=true&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/index.vue?vue&type=template&id=6060166f&scoped=true&
 
 
 
@@ -209,16 +259,52 @@ var components_VToolbar = __webpack_require__(18);
 
 
 
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VContainer["a" /* default */],[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" 유저 정보 ")])],1),_vm._v(" "),(_vm.loginState)?_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(VForm["a" /* default */],[_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"이름","value":_vm.loginState.nickname}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"E-mail","value":_vm.loginState.email}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"소속","value":_vm.loginState.organization}})],1)],1)],1):_c(VCard["a" /* default */],[_c(components_VCard["c" /* VCardText */],[_vm._v("로그인이 필요합니다.")])],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" User Info ")])],1)],1):_c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[(_vm.language === '한국어')?_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" 언어 설정 오류 ")]):(_vm.language === '영어')?_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" Language setting error ")]):_vm._e()],1),_vm._v(" "),_c(VCard["a" /* default */],[(_vm.language === '한국어')?_c(components_VCard["d" /* VCardTitle */],[_vm._v("\n        The page could not be loaded because an error occurred during the language setting process!\n      ")]):(_vm.language === '영어')?_c(components_VCard["d" /* VCardTitle */]):_vm._e()],1)],1),_vm._v(" "),_c('snack-bar')],1)}
+
+
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VContainer["a" /* default */],[(_vm.language === '한국어')?_c(VContainer["a" /* default */],[(_vm.loginState)?_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],[_vm._v("\n          내 정보\n        ")]),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"이름","value":_vm.loginState.nickname}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"E-mail","value":_vm.loginState.email}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"소속(기업)","value":_vm.loginState.organization}})],1),_vm._v(" "),(_vm.loginState.organization)?_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],[_vm._v("\n          발급 토큰 확인\n        ")]),_vm._v(" "),_c(VForm["a" /* default */],{ref:"tokenForm",on:{"submit":function($event){$event.preventDefault();return _vm.checkToken.apply(null, arguments)}},model:{value:(_vm.valid),callback:function ($$v) {_vm.valid=$$v},expression:"valid"}},[_c(VTextField["a" /* default */],{attrs:{"rules":_vm.tokenRule,"rounded":"","outlined":"","label":"토큰","placeholder":"발급받은 토큰을 입력하세요."},scopedSlots:_vm._u([{key:"append",fn:function(){return [_c(VBtn["a" /* default */],{attrs:{"rounded":"","depressed":"","type":"submit"},on:{"click":function($event){$event.stopPropagation();}}},[_c(VIcon["a" /* default */],[_vm._v("\n                  mdi-check\n                ")]),_vm._v("\n                확인\n              ")],1)]},proxy:true}],null,false,3809058321),model:{value:(_vm.inputToken),callback:function ($$v) {_vm.inputToken=$$v},expression:"inputToken"}})],1)],1):_vm._e()],1):_c(VCard["a" /* default */],[_c(components_VCard["c" /* VCardText */],[_vm._v("로그인이 필요합니다.")])],1)],1):(_vm.language === '영어')?_c(VContainer["a" /* default */],[(_vm.loginState)?_c(VCard["a" /* default */],[_c(VContainer["a" /* default */],[_c(components_VCard["d" /* VCardTitle */],[_vm._v("\n          My Page\n        ")]),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"Name","value":_vm.loginState.nickname}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"E-mail","value":_vm.loginState.email}}),_vm._v(" "),_c(VTextField["a" /* default */],{attrs:{"rounded":"","readonly":"","outlined":"","label":"Organization(Company)","value":_vm.loginState.organization}})],1)],1):_c(VCard["a" /* default */],[_c(components_VCard["c" /* VCardText */],[_vm._v("Please, Need to Login")])],1)],1):_c(VContainer["a" /* default */],[_c(VToolbar["a" /* default */],{attrs:{"elevation":"0"}},[(_vm.language === '한국어')?_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" 언어 설정 오류 ")]):(_vm.language === '영어')?_c(components_VToolbar["b" /* VToolbarTitle */],{staticClass:"text-h4 font-weight-bold"},[_vm._v(" Language setting error ")]):_vm._e()],1),_vm._v(" "),_c(VCard["a" /* default */],[(_vm.language === '한국어')?_c(components_VCard["d" /* VCardTitle */],[_vm._v("\n        The page could not be loaded because an error occurred during the language setting process!\n      ")]):(_vm.language === '영어')?_c(components_VCard["d" /* VCardTitle */]):_vm._e()],1)],1),_vm._v(" "),_c('snack-bar')],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/user/index.vue?vue&type=template&id=46aa3e98&scoped=true&
+// CONCATENATED MODULE: ./pages/user/index.vue?vue&type=template&id=6060166f&scoped=true&
 
 // EXTERNAL MODULE: ./components/SnackBar.vue + 5 modules
 var SnackBar = __webpack_require__(11);
 
 // CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/user/index.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -274,7 +360,11 @@ var SnackBar = __webpack_require__(11);
   },
 
   data() {
-    return {};
+    return {
+      valid: false,
+      inputToken: "",
+      tokenRule: [v => !!v || "토큰을 입력해주세요.", v => !(v && v.length < 32) || "토큰이 유효하지 않습니다."]
+    };
   },
 
   computed: {
@@ -284,6 +374,27 @@ var SnackBar = __webpack_require__(11);
 
     loginState() {
       return this.$store.state.users.loginState;
+    }
+
+  },
+  methods: {
+    checkToken() {
+      if (this.loginState.organization === "") {
+        this.$manage.showMessage({
+          message: "소속(기업) 등록 후 이용하실 수 있습니다.",
+          color: "orange"
+        });
+        return;
+      }
+
+      if (this.$refs.tokenForm.validate()) {
+        var _this$loginState;
+
+        this.$store.dispatch('manager/tokenCheck', {
+          organization: (_this$loginState = this.loginState) === null || _this$loginState === void 0 ? void 0 : _this$loginState.organization,
+          token: this.inputToken
+        });
+      }
     }
 
   }
@@ -299,7 +410,9 @@ var componentNormalizer = __webpack_require__(8);
 
 function injectStyles (context) {
   
-  
+  var style0 = __webpack_require__(336)
+if (style0.__inject__) style0.__inject__(context)
+
 }
 
 /* normalize component */
@@ -310,7 +423,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "46aa3e98",
+  "6060166f",
   "d9b2ce4a"
   
 )

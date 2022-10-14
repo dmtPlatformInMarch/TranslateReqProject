@@ -86,14 +86,14 @@ export default {
     },
   },
   beforeCreate() {
-    /*const check = this.$store.state.users.loginState;
+    const check = this.$store.state.users.loginState;
     if(check === null) {
-      this.$router.push('/');
+      this.$router.push('/admin');
     } else {
       if(check.permission != 'admin') {
         this.$router.push('/');
       }
-    }*/
+    }
   },
   methods: {
       onLogout() {
