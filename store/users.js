@@ -59,7 +59,7 @@ export const actions = {
         } catch (err) {
             if (err.response.data.message === '존재하지 않는 사용자입니다.') {
                 this.$manage.showMessage({ message: `${err.response.data.message}`, color: 'red' });
-            } else if (err.response.data.message === '로그인한 사용자는 사용할 수 없습니다.') {
+            } else if (err.response.data.message === '잘못된 비밀번호입니다.') {
                 this.$manage.showMessage({ message: `${err.response.data.message}`, color: 'red' });
             } else {
                 console.log('로그인 스토어 에러\n', err.response);
@@ -69,7 +69,10 @@ export const actions = {
     // 로그아웃
     async logout({ commit }) {
         try {
-            await this.$axios.post('/user/logout');
+            const logoutToken = this.$cookies.get('token');
+            const logoutResponse = await this.$axios.post('/user/logout', {
+                token: logoutToken
+            });
             commit('setUser', null);
             this.$cookies.remove('token');
             location.reload();

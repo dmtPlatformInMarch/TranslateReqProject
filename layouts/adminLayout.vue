@@ -96,9 +96,9 @@ export default {
     }
   },
   methods: {
-      onLogout() {
+      async onLogout() {
           this.loginMenu = false;
-          this.$store.dispatch('users/logout');
+          await this.$store.dispatch('users/logout');
       },
       update(data) {
         this.loginMenu = data;
