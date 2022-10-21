@@ -28,6 +28,15 @@
             </v-text-field>
           </v-form>
         </v-container>
+
+        <v-container>
+          <v-card-title>
+            사용량 조회
+          </v-card-title>
+          <v-card>
+            
+          </v-card>
+        </v-container>
       </v-card>
 
       <v-card v-else>
@@ -45,11 +54,31 @@
           <v-text-field rounded readonly outlined label="E-mail" :value="loginState.email" />
           <v-text-field rounded readonly outlined label="Organization(Company)" :value="loginState.organization" />
         </v-container>
+
+        <v-container v-if="loginState.organization">
+          <v-card-title>
+            Check Issuance Token
+          </v-card-title>
+          <v-form ref="tokenForm" v-model="valid" @submit.prevent="checkToken">
+            <v-text-field v-model="inputToken" :rules="tokenRule" rounded outlined label="Token" placeholder="Please enter the Issued Token.">
+              <template class="append__btn" v-slot:append>
+                <v-btn rounded depressed type="submit" @click.stop>
+                  <v-icon>
+                    mdi-check
+                  </v-icon>
+                  Check
+                </v-btn>
+              </template>
+            </v-text-field>
+          </v-form>
+        </v-container>
       </v-card>
 
       <v-card v-else>
         <v-card-text>Please, Need to Login</v-card-text>
       </v-card>
+
+      
     </v-container>
 
     <v-container v-else>
@@ -64,6 +93,7 @@
         <v-card-title v-else-if="language === '영어'"> </v-card-title>
       </v-card>
     </v-container>
+
     <snack-bar />
   </v-container>
 </template>

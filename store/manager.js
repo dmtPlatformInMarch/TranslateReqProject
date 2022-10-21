@@ -117,9 +117,12 @@ export const actions = {
     // 토큰 유효성 검사
     async tokenCheck({}, payload) {
         try {
-            const tokenEff = await this.$axios.get(`/api/check-token`, {
+            const tokenEff = await this.$axios.post(`/api/check-token`, 
+            {
+                organization: payload.organization
+            },
+            {
                 headers: {
-                    organization: payload.organization,
                     token: payload.token
                 }
             });

@@ -16,18 +16,15 @@ export const actions = {
     // 유저 정보 불러오기
     async loadUser({ commit, state }) {
         try {
-            //console.log('Start Load User');
-            if (state.loginState === null) {
-                const res = await this.$axios.get('/user', {
-                    withCredentials: true,
-                    credentials: 'include'
-                });
-                commit('setUser', res.data);
-            } else {
-                
+            const loginToken = this.$cookies.get('token');
+            if (loginToken != null) {
+                const base64Payload = loginToken.split('.')[1];
+                const payload = Buffer.from(base64Payload, 'base64');
+                commit('setUser', JSON.parse(payload.toString()));
             }
         } catch (err) {
-            if (err.response.status != 410) console.log(err);
+            if (err.response?.status != 410) console.log(err);
+            else { console.log(err); }
         }
     },
     // 회원가입
@@ -38,9 +35,6 @@ export const actions = {
                 password: payload.password,
                 nickname: payload.nickname,
                 organization: payload.organization,
-            }, {
-                // 쿠키를 서로 저장
-                withCredentials: true,
             });
             return signupResponse;
         } catch (err) {
@@ -48,20 +42,25 @@ export const actions = {
         }
     },
     // 로그인
-    async login({ commit }, payload) {
+    async login({ state, commit }, payload) {
         try {
-            const loginState = await this.$axios.post('/user/login', {
+            const loginResponse = await this.$axios.post('/user/login', {
                 email: payload.email,
                 password: payload.password,
-            }, {
-                withCredentials: true,
             });
-            commit('setUser', loginState.data);
+            if (loginResponse.status === 200) {
+                this.$cookies.set('token', loginResponse.data.token);
+                const loginToken = loginResponse.data.token;
+                const base64Payload = loginToken.split('.')[1];
+                const payload = Buffer.from(base64Payload, 'base64');
+                commit('setUser', JSON.parse(payload.toString()));
+            }
+            if (state.loginState.permission != 'admin') location.reload();
         } catch (err) {
-            if (err.response.data === '존재하지 않는 사용자입니다.') {
-                this.$manage.showMessage({ message: `${err.response.data}`, color: 'red' });
-            } else if (err.response.data === '로그인한 사용자는 사용할 수 없습니다.') {
-                this.$manage.showMessage({ message: `${err.response.data}`, color: 'red' });
+            if (err.response.data.message === '존재하지 않는 사용자입니다.') {
+                this.$manage.showMessage({ message: `${err.response.data.message}`, color: 'red' });
+            } else if (err.response.data.message === '로그인한 사용자는 사용할 수 없습니다.') {
+                this.$manage.showMessage({ message: `${err.response.data.message}`, color: 'red' });
             } else {
                 console.log('로그인 스토어 에러\n', err.response);
             }
@@ -70,11 +69,9 @@ export const actions = {
     // 로그아웃
     async logout({ commit }) {
         try {
-            await this.$axios.post('/user/logout', {}, {
-                withCredentials: true,
-            });
+            await this.$axios.post('/user/logout');
             commit('setUser', null);
-            localStorage.removeItem('vuex');
+            this.$cookies.remove('token');
             location.reload();
         } catch (err) {
             console.log(err);

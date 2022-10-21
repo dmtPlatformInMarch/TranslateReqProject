@@ -85,7 +85,7 @@ export default {
         return this.$store.state.users.loginState;
     },
   },
-  beforeCreate() {
+  beforeMount() {
     const check = this.$store.state.users.loginState;
     if(check === null) {
       this.$router.push('/admin');

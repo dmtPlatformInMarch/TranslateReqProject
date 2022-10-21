@@ -54,6 +54,7 @@ module.exports = {
     modules: [
         '@nuxtjs/axios',
         '@nuxtjs/style-resources',
+        'cookie-universal-nuxt'
     ],
     moduleContext: {
         './node_modules/pdfmake/build/vfs_fonts.js': 'window',

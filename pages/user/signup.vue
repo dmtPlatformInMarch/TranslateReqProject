@@ -191,6 +191,7 @@ export default {
           });
           if (onResponse.status === 201) {
             this.$router.push({ path: "/text/textmain" });
+            this.$manage.showMessage({ message: '회원가입에 성공했습니다. 로그인을 해주세요.', color: 'success'});
           } else if (onResponse.status === 202) {
             this.dialog = true;
             this.errorMessage = onResponse.data.message;

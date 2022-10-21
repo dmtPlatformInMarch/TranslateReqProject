@@ -10,7 +10,7 @@ export const actions = {
         try {
             await dispatch('users/loadUser');
         } catch (err) {
-            if (err.response.status != 410) console.log("SSR : ", err);
+            if (err.response?.status != 410) console.log("SSR : ", err);
         }
     },
 };
