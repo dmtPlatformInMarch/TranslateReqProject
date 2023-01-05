@@ -1,8 +1,9 @@
 <template>
-    <v-app>
+    <v-app app>
         <client-only>
             <default-toolbar />
         </client-only>
+        
         <div class="main">
             <nuxt />
         </div>

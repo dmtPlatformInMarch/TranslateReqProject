@@ -24,7 +24,7 @@ h1 {
     width: 60vw;
     height: 50vh;
     background-image:   linear-gradient(rgba(255, 255, 255, 0.95),rgba(255, 255, 255, 0.95)),
-                        url("../../assets/logo.png");
+                        url("../../assets/logo/logo.png");
     background-position: center;
 
 }

@@ -1,6 +1,7 @@
 <template class="main__page">
   <v-app app>
-    <default-toolbar></default-toolbar>
+    <default-toolbar />
+
     <!--모바일 메뉴 버튼-->
     <v-speed-dial class="fab__btn" v-model="fab" transition="slide-y-reverse-transition">
       <template v-slot:activator>
@@ -117,7 +118,7 @@ export default {
     };
   },
   mounted() {
-    this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
+    //this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
   },
   computed: {
     language: {

@@ -3,7 +3,7 @@
         <v-app-bar class="main__toolbar" elevation="0" color="transparent" width="100vw">
             <v-toolbar-title class="main__toolbar__title d-flex align-center" @click="home">
                 <v-avatar height="5vh" width="6vw" tile>
-                    <img src="../assets/logo4_transparent.png" />
+                    <img src="../assets/logo/logo4_transparent.png" />
                 </v-avatar>
                 <div>API DOCUMENTATION</div>
             </v-toolbar-title>

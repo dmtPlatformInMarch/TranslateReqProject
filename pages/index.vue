@@ -35,7 +35,7 @@
               <transition appear name="slide-fade" @before-enter="beforeEnter" @enter="enter" :css="false">
                 <div class="scroll__item__title">
                   <div v-show="language === '한국어'">
-                    <img class="DMT-logo" :src="require('@/assets/logo3.png')">
+                    <img class="DMT-logo" :src="require('@/assets/logo/logo3.png')">
                     <div class="slider">
                       <div class="image-box">
                         <div><img class="ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>
@@ -60,7 +60,7 @@
                   </div>
 
                   <div v-show="language === '영어'">
-                    <img class="DMT-logo" :src="require('@/assets/logo3.png')">
+                    <img class="DMT-logo" :src="require('@/assets/logo/logo3.png')">
                     <div class="slider">
                       <div class="image-box">
                         <div><img class="ETRI-logo" :src="require('@/assets/ETRI-logo.png')"></div>

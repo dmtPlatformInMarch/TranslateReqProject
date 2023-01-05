@@ -6,6 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
+const _6b3c44de = () => interopDefault(import('..\\pages\\designtest.vue' /* webpackChunkName: "pages/designtest" */))
 const _3182ef5e = () => interopDefault(import('..\\pages\\dev\\index.vue' /* webpackChunkName: "pages/dev/index" */))
 const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
 const _717d4557 = () => interopDefault(import('..\\pages\\admin\\main.vue' /* webpackChunkName: "pages/admin/main" */))
@@ -13,6 +14,7 @@ const _90b8d81c = () => interopDefault(import('..\\pages\\admin\\mgAPI.vue' /* w
 const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
 const _5644c051 = () => interopDefault(import('..\\pages\\admin\\mgToken.vue' /* webpackChunkName: "pages/admin/mgToken" */))
 const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
+const _0a2b0da5 = () => interopDefault(import('..\\pages\\text\\doctran.vue' /* webpackChunkName: "pages/text/doctran" */))
 const _50ef2f48 = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
 const _7aa43ce1 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
 const _d26f245e = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
@@ -50,6 +52,10 @@ export const routerOptions = {
     component: _5e4d8b3b,
     name: "apitest"
   }, {
+    path: "/designtest",
+    component: _6b3c44de,
+    name: "designtest"
+  }, {
     path: "/dev",
     component: _3182ef5e,
     name: "dev"
@@ -77,6 +83,10 @@ export const routerOptions = {
     path: "/admin/mgUser",
     component: _6d747eba,
     name: "admin-mgUser"
+  }, {
+    path: "/text/doctran",
+    component: _0a2b0da5,
+    name: "text-doctran"
   }, {
     path: "/text/info",
     component: _50ef2f48,

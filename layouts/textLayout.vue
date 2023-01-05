@@ -1,5 +1,5 @@
 <template class="main">
-  <v-app>
+  <v-app app>
     <v-app-bar class="main__toolbar" elevation="0" color="transparent" width="100vw">
       <nuxt-link to="/text/textmain" class="main__toolbar__logo">
         <v-avatar width="100%" height="100%" tile>

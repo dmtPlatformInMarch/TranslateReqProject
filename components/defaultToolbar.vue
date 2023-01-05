@@ -1,13 +1,9 @@
 <template>
     <v-app-bar app class="main__toolbar" elevation="0" color="transparent" width="100vw">
       <!--로고-->
-      <div>
-        <nuxt-link to="/">
-          <v-avatar class="logo" height="80px" width="200px" tile>
-            <img :src="logo" />
-          </v-avatar>
-        </nuxt-link>
-      </div>
+        <!--v-avatar class="logo" tile-->
+        <img class="logo" :src="logo" @click="go('/')" />
+        <!--/v-avatar-->
 
       <!--툴바 목록-->
       <div v-if="language === '한국어'" class="menu__selector">
@@ -128,13 +124,14 @@
         </v-menu>
       </div>
 
-      <!--페이지 언어 선택-->
       <div class="lang__selector">
-        <v-btn rounded dark href="https://jobs.dmtlabs.kr" color="transparent" depressed>
+        <!--DMTCLOUD 사이트 이동-->
+        <v-btn rounded dark href="https://dmtcloud.kr" color="transparent" depressed>
           <img src="../static/dmtcloud.png" alt="" />
           <div style = "color : black">DMTCLOUD</div>
         </v-btn>
 
+        <!--페이지 언어 선택-->
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on" dark>
@@ -152,12 +149,29 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
+
+        <!--로그인 메뉴-->
+        <v-menu v-if="!loginState" v-model="loginMenu" offset-y :close-on-content-click="false" :nudge-width="200">
+          <template #activator="{ on, attrs }">
+            <v-btn v-if="language === '한국어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">
+              로그인
+            </v-btn>
+            <v-btn v-else-if="language === '영어'" text class="text-center main__toolbar__btn" v-bind="attrs" v-on="on">
+              Login
+            </v-btn>
+          </template>
+          <login-form @update="update" />
+        </v-menu>
       </div>
     </v-app-bar>
 </template>
 
-
 <style scoped>
+.logo {
+  width: 128px;
+  object-fit: cover;
+}
+
 .main__toolbar {
   display: flex;
   align-items: center;
@@ -167,7 +181,7 @@
 }
 
 .main__toolbar >>> .v-toolbar__content {
-  width: 100%;
+  flex: 1 0 auto;
   justify-content: space-around;
 }
 
@@ -182,7 +196,6 @@
 .lang__selector {
   display: flex !important;
   align-items: center;
-  width: 200px;
 }
 .fab__btn {
   display: none;
@@ -203,7 +216,16 @@
   color : black;
 }
 
+@media screen and (min-width: 1919px) {
+  .logo {
+    width: 5% !important;
+  }
+}
+
 @media screen and (max-width: 900px){
+  .logo {
+    width: 128px !important;
+  }
   .menu__selector >>> .v-btn.v-size--default {
     font-size: 1rem !important;
   }
@@ -211,10 +233,11 @@
 
 @media screen and (max-width: 500px){
   .logo {
-    width: 150px !important;
+    width: 96px !important;
   }
-  .menu__selector >>> .v-btn.v-size--default {
+  .menu__selector {
     display: none !important;
+    justify-content: space-between !important;
   }
   .fab__btn {
     display: block;
@@ -224,20 +247,25 @@
 
 <script>
 import SnackBar from "~/components/SnackBar";
+import LoginForm from '~/components/LoginForm'
 
 export default {
   name: "Default",
-  components: { SnackBar },
+  components: { SnackBar, LoginForm },
   data() {
     return {
-      logo:     'https://dmtlabs-files.s3.ap-northeast-2.amazonaws.com/images/logo3.png',
+      loginMenu: false,
+      logo: require('@/assets/logo/logo5_Non_padding.png'),
       fab: false,
     };
   },
   mounted() {
-    this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
+    //this.$manage.showMessage({ message: '현재 개발 중인 사이트입니다. 사용에 불편하시더라도 양해부탁드립니다.',color: 'primary' });
   },
   computed: {
+    loginState() {
+        return this.$store.state.users.loginState;
+    },
     language: {
       get() {
         return this.$store.state.manager.language;
@@ -250,6 +278,9 @@ export default {
   methods: {
     go(url) {
       this.$router.push({ path: `${url}` });
+    },
+    update(data) {
+      this.loginMenu = data;
     },
   },
 };
