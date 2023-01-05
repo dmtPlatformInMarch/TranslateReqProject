@@ -8,31 +8,22 @@ exports.modules = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgAPI.vue?vue&type=template&id=10942f52&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[])}
-var staticRenderFns = []
-
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgAPI.vue?vue&type=template&id=10942f52&scoped=true&
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', []);
+};
+var staticRenderFns = [];
 
 // CONCATENATED MODULE: ./pages/admin/mgAPI.vue?vue&type=template&id=10942f52&scoped=true&
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgAPI.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/admin/mgAPI.vue?vue&type=script&lang=js&
 /* harmony default export */ var mgAPIvue_type_script_lang_js_ = ({
   layout: 'AdminLayout',
-
   date() {
     return {};
   }
-
 });
 // CONCATENATED MODULE: ./pages/admin/mgAPI.vue?vue&type=script&lang=js&
  /* harmony default export */ var admin_mgAPIvue_type_script_lang_js_ = (mgAPIvue_type_script_lang_js_); 
@@ -57,7 +48,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "10942f52",
-  "8055692e"
+  "5e7fa802"
   
 )
 

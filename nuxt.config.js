@@ -37,6 +37,7 @@ module.exports = {
         },*/]
     },
     buildModules: [
+        '@nuxt/postcss8',
         '@nuxtjs/vuetify',
         '@nuxtjs/moment',
     ],
