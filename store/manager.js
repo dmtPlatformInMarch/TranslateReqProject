@@ -83,13 +83,17 @@ export const actions = {
     },
     // 파일 분석
     async textExtract({ commit, state }, payload) {
-        const ext = payload.file.name.substring(payload.file.name.lastIndexOf('.') + 1, payload.file.name.length).toLowerCase();
+        const filename = payload.file[0].name;
+        const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
         let fileExtract = '';
-        // console.log("확장자 : " + ext);
+        console.log("확장자 : " + ext);
         try {
             if (ext === 'docx') {
                 const formdata = new FormData();
-                formdata.append('extFile', payload.file);
+                formdata.append('extFile', payload.file[0]);
+                // console.log(formdata.getAll('extFile'));
+                console.log("check");
+                console.log(payload.data);
                 const docxres = await this.$axios.post('/extract/docx', formdata, {
                     headers: {
                         "Content-Type": "multipart/form-data"

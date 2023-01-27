@@ -150,6 +150,7 @@
       </div>
     </v-layout>
 
+
     <!--번역자 레이아웃-->
     <v-layout class="translator__layout">
       <v-carousel interval="3000" hide-delimiter-background hide-delimiters :show-arrows="false" height="100%">
@@ -334,7 +335,7 @@
 import _ from 'lodash';
 
 export default {
-  layout: 'TextLayout',
+  layout: 'textLayout',
   data() {
       return {
           colors: ['indigo lighten-4', 'amber lighten-2', 'pink lighten-4', 'red lighten-3', 'deep-purple lighten-3'],

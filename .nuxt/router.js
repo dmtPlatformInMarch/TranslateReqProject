@@ -4,33 +4,33 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _c0bf7cb8 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
-const _5e4d8b3b = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
-const _6b3c44de = () => interopDefault(import('..\\pages\\designtest.vue' /* webpackChunkName: "pages/designtest" */))
-const _3182ef5e = () => interopDefault(import('..\\pages\\dev\\index.vue' /* webpackChunkName: "pages/dev/index" */))
-const _d90d1094 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
-const _717d4557 = () => interopDefault(import('..\\pages\\admin\\main.vue' /* webpackChunkName: "pages/admin/main" */))
-const _90b8d81c = () => interopDefault(import('..\\pages\\admin\\mgAPI.vue' /* webpackChunkName: "pages/admin/mgAPI" */))
-const _96f4a432 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
-const _5644c051 = () => interopDefault(import('..\\pages\\admin\\mgToken.vue' /* webpackChunkName: "pages/admin/mgToken" */))
-const _6d747eba = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
-const _0a2b0da5 = () => interopDefault(import('..\\pages\\text\\doctran.vue' /* webpackChunkName: "pages/text/doctran" */))
-const _50ef2f48 = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
-const _7aa43ce1 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
-const _d26f245e = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
-const _3a414dd8 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
-const _d947a838 = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
-const _a4934016 = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
-const _5870abf8 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
-const _05428213 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
-const _6be03fef = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
-const _47726972 = () => interopDefault(import('..\\pages\\dev\\api\\translate-text.vue' /* webpackChunkName: "pages/dev/api/translate-text" */))
-const _36aa7dd0 = () => interopDefault(import('..\\pages\\dev\\enterprise\\about.vue' /* webpackChunkName: "pages/dev/enterprise/about" */))
-const _c6585160 = () => interopDefault(import('..\\pages\\dev\\enterprise\\token-issue.vue' /* webpackChunkName: "pages/dev/enterprise/token-issue" */))
-const _0d1fb5a7 = () => interopDefault(import('..\\pages\\dev\\enterprise\\usage-check.vue' /* webpackChunkName: "pages/dev/enterprise/usage-check" */))
-const _deab8c74 = () => interopDefault(import('..\\pages\\dev\\platform\\about.vue' /* webpackChunkName: "pages/dev/platform/about" */))
-const _8aef6130 = () => interopDefault(import('..\\pages\\dev\\platform\\text-translation.vue' /* webpackChunkName: "pages/dev/platform/text-translation" */))
-const _77806121 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _d23a8f4e = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages/admin/index" */))
+const _286ef766 = () => interopDefault(import('..\\pages\\apitest.vue' /* webpackChunkName: "pages/apitest" */))
+const _1c6704f4 = () => interopDefault(import('..\\pages\\designtest.vue' /* webpackChunkName: "pages/designtest" */))
+const _58ed8f53 = () => interopDefault(import('..\\pages\\dev\\index.vue' /* webpackChunkName: "pages/dev/index" */))
+const _5962d661 = () => interopDefault(import('..\\pages\\user\\index.vue' /* webpackChunkName: "pages/user/index" */))
+const _3766a402 = () => interopDefault(import('..\\pages\\admin\\main.vue' /* webpackChunkName: "pages/admin/main" */))
+const _a233eab2 = () => interopDefault(import('..\\pages\\admin\\mgAPI.vue' /* webpackChunkName: "pages/admin/mgAPI" */))
+const _78d87bc8 = () => interopDefault(import('..\\pages\\admin\\mgRequest.vue' /* webpackChunkName: "pages/admin/mgRequest" */))
+const _f2774474 = () => interopDefault(import('..\\pages\\admin\\mgToken.vue' /* webpackChunkName: "pages/admin/mgToken" */))
+const _8b5bbee4 = () => interopDefault(import('..\\pages\\admin\\mgUser.vue' /* webpackChunkName: "pages/admin/mgUser" */))
+const _099124e0 = () => interopDefault(import('..\\pages\\text\\doctran.vue' /* webpackChunkName: "pages/text/doctran" */))
+const _0219ef5e = () => interopDefault(import('..\\pages\\text\\info.vue' /* webpackChunkName: "pages/text/info" */))
+const _a9b84b54 = () => interopDefault(import('..\\pages\\text\\reqstate.vue' /* webpackChunkName: "pages/text/reqstate" */))
+const _f0566488 = () => interopDefault(import('..\\pages\\text\\request.vue' /* webpackChunkName: "pages/text/request" */))
+const _135ef689 = () => interopDefault(import('..\\pages\\text\\textmain.vue' /* webpackChunkName: "pages/text/textmain" */))
+const _eac2bace = () => interopDefault(import('..\\pages\\user\\signup.vue' /* webpackChunkName: "pages/user/signup" */))
+const _867717ac = () => interopDefault(import('..\\pages\\video\\filetrack.vue' /* webpackChunkName: "pages/video/filetrack" */))
+const _1e5a0aa3 = () => interopDefault(import('..\\pages\\video\\info.vue' /* webpackChunkName: "pages/video/info" */))
+const _14509648 = () => interopDefault(import('..\\pages\\video\\realtrack.vue' /* webpackChunkName: "pages/video/realtrack" */))
+const _31c99e9a = () => interopDefault(import('..\\pages\\voice\\info.vue' /* webpackChunkName: "pages/voice/info" */))
+const _735778a7 = () => interopDefault(import('..\\pages\\dev\\api\\translate-text.vue' /* webpackChunkName: "pages/dev/api/translate-text" */))
+const _3cf7cce6 = () => interopDefault(import('..\\pages\\dev\\enterprise\\about.vue' /* webpackChunkName: "pages/dev/enterprise/about" */))
+const _24844405 = () => interopDefault(import('..\\pages\\dev\\enterprise\\token-issue.vue' /* webpackChunkName: "pages/dev/enterprise/token-issue" */))
+const _d65fbb48 = () => interopDefault(import('..\\pages\\dev\\enterprise\\usage-check.vue' /* webpackChunkName: "pages/dev/enterprise/usage-check" */))
+const _f50da90a = () => interopDefault(import('..\\pages\\dev\\platform\\about.vue' /* webpackChunkName: "pages/dev/platform/about" */))
+const _0642aa93 = () => interopDefault(import('..\\pages\\dev\\platform\\text-translation.vue' /* webpackChunkName: "pages/dev/platform/text-translation" */))
+const _44d4dc0c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -45,111 +45,111 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _c0bf7cb8,
+    component: _d23a8f4e,
     name: "admin"
   }, {
     path: "/apitest",
-    component: _5e4d8b3b,
+    component: _286ef766,
     name: "apitest"
   }, {
     path: "/designtest",
-    component: _6b3c44de,
+    component: _1c6704f4,
     name: "designtest"
   }, {
     path: "/dev",
-    component: _3182ef5e,
+    component: _58ed8f53,
     name: "dev"
   }, {
     path: "/user",
-    component: _d90d1094,
+    component: _5962d661,
     name: "user"
   }, {
     path: "/admin/main",
-    component: _717d4557,
+    component: _3766a402,
     name: "admin-main"
   }, {
     path: "/admin/mgAPI",
-    component: _90b8d81c,
+    component: _a233eab2,
     name: "admin-mgAPI"
   }, {
     path: "/admin/mgRequest",
-    component: _96f4a432,
+    component: _78d87bc8,
     name: "admin-mgRequest"
   }, {
     path: "/admin/mgToken",
-    component: _5644c051,
+    component: _f2774474,
     name: "admin-mgToken"
   }, {
     path: "/admin/mgUser",
-    component: _6d747eba,
+    component: _8b5bbee4,
     name: "admin-mgUser"
   }, {
     path: "/text/doctran",
-    component: _0a2b0da5,
+    component: _099124e0,
     name: "text-doctran"
   }, {
     path: "/text/info",
-    component: _50ef2f48,
+    component: _0219ef5e,
     name: "text-info"
   }, {
     path: "/text/reqstate",
-    component: _7aa43ce1,
+    component: _a9b84b54,
     name: "text-reqstate"
   }, {
     path: "/text/request",
-    component: _d26f245e,
+    component: _f0566488,
     name: "text-request"
   }, {
     path: "/text/textmain",
-    component: _3a414dd8,
+    component: _135ef689,
     name: "text-textmain"
   }, {
     path: "/user/signup",
-    component: _d947a838,
+    component: _eac2bace,
     name: "user-signup"
   }, {
     path: "/video/filetrack",
-    component: _a4934016,
+    component: _867717ac,
     name: "video-filetrack"
   }, {
     path: "/video/info",
-    component: _5870abf8,
+    component: _1e5a0aa3,
     name: "video-info"
   }, {
     path: "/video/realtrack",
-    component: _05428213,
+    component: _14509648,
     name: "video-realtrack"
   }, {
     path: "/voice/info",
-    component: _6be03fef,
+    component: _31c99e9a,
     name: "voice-info"
   }, {
     path: "/dev/api/translate-text",
-    component: _47726972,
+    component: _735778a7,
     name: "dev-api-translate-text"
   }, {
     path: "/dev/enterprise/about",
-    component: _36aa7dd0,
+    component: _3cf7cce6,
     name: "dev-enterprise-about"
   }, {
     path: "/dev/enterprise/token-issue",
-    component: _c6585160,
+    component: _24844405,
     name: "dev-enterprise-token-issue"
   }, {
     path: "/dev/enterprise/usage-check",
-    component: _0d1fb5a7,
+    component: _d65fbb48,
     name: "dev-enterprise-usage-check"
   }, {
     path: "/dev/platform/about",
-    component: _deab8c74,
+    component: _f50da90a,
     name: "dev-platform-about"
   }, {
     path: "/dev/platform/text-translation",
-    component: _8aef6130,
+    component: _0642aa93,
     name: "dev-platform-text-translation"
   }, {
     path: "/",
-    component: _77806121,
+    component: _44d4dc0c,
     name: "index"
   }],
 

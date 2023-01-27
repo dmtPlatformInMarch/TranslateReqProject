@@ -4,20 +4,23 @@ import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL } fr
 import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
 import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from '~/components/loading.vue'
+import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
 import '..\\assets\\scss\\common.scss'
 
-import _98f1ccfa from '..\\layouts\\AdminLayout.vue'
+import '..\\node_modules\\vuetify\\dist\\vuetify.css'
+
+import _501d71a3 from '..\\layouts\\adminLayout.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
 import _f84b72a0 from '..\\layouts\\DesigntestLayout.vue'
 import _35081f6e from '..\\layouts\\DevLayout.vue'
 import _2d27502e from '..\\layouts\\none.vue'
 import _013155e9 from '..\\layouts\\ServiceLayout.vue'
-import _7e53c578 from '..\\layouts\\SignupLayout.vue'
+import _74887158 from '..\\layouts\\signupLayout.vue'
 import _14693a1c from '..\\layouts\\TestLayout.vue'
-import _059d7966 from '..\\layouts\\TextLayout.vue'
+import _f34131a6 from '..\\layouts\\textLayout.vue'
 
-const layouts = { "_AdminLayout": sanitizeComponent(_98f1ccfa),"_default": sanitizeComponent(_6f6c098b),"_DesigntestLayout": sanitizeComponent(_f84b72a0),"_DevLayout": sanitizeComponent(_35081f6e),"_none": sanitizeComponent(_2d27502e),"_ServiceLayout": sanitizeComponent(_013155e9),"_SignupLayout": sanitizeComponent(_7e53c578),"_TestLayout": sanitizeComponent(_14693a1c),"_TextLayout": sanitizeComponent(_059d7966) }
+const layouts = { "_adminLayout": sanitizeComponent(_501d71a3),"_default": sanitizeComponent(_6f6c098b),"_DesigntestLayout": sanitizeComponent(_f84b72a0),"_DevLayout": sanitizeComponent(_35081f6e),"_none": sanitizeComponent(_2d27502e),"_ServiceLayout": sanitizeComponent(_013155e9),"_signupLayout": sanitizeComponent(_74887158),"_TestLayout": sanitizeComponent(_14693a1c),"_textLayout": sanitizeComponent(_f34131a6) }
 
 export default {
   render (h, props) {
@@ -52,7 +55,7 @@ export default {
       }
     }, [
       loadingEl,
-
+      h(NuxtBuildIndicator),
       transitionEl
     ])
   },
@@ -188,6 +191,10 @@ export default {
     },
 
     setLayout (layout) {
+      if(layout && typeof layout !== 'string') {
+        throw new Error('[nuxt] Avoid using non-string value as layout property.')
+      }
+
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

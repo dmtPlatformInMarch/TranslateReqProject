@@ -17,7 +17,7 @@
                 <v-list-item-title> 소개 </v-list-item-title>
               </v-list-item>
               <v-spacer />
-              <v-list-item @click="go('/text/textmain')">
+              <v-list-item @click="go('/text/doctran')">
                 <v-list-item-title> 텍스트 번역 </v-list-item-title>
               </v-list-item>
               <v-spacer />
