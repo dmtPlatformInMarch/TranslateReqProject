@@ -576,10 +576,6 @@ export default {
             this.file_upload = !this.file_upload;
             this.file_download = !this.file_download;
             const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
-            
-            // console.log(ext);
-            // console.log(this.test_file)
-            // console.log(this.test_file[0].name)
 
             switch (ext) {
                 case 'txt':
@@ -613,7 +609,6 @@ export default {
                     
                     this.trans_docx_file = docxResponse;
                     console.log(this.trans_docx_file);
-                    console.log(this.trans_docx_file.data);
 
                     break;
                 case 'pdf':

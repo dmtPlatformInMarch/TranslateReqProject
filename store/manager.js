@@ -96,8 +96,6 @@ export const actions = {
                 formdata.append('toCode', payload.to);
                 formdata.append('name', payload.name);
 
-                //formdata.append('xmlFile', payload.xmlfile);
-
                 const docxres = await this.$axios.post('/extract/docx', formdata, {
                     headers: {
                         "Content-Type": "multipart/form-data"
@@ -146,11 +144,4 @@ export const actions = {
         }
     },
 
-    async download({}, payload) {
-        const fileObject = await this.$axios.post('/extract/download', {
-            name: payload.name,
-        });
-        console.log(payload.name);
-        return fileObject;
-    }
 }
