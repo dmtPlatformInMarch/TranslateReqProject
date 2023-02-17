@@ -3,7 +3,7 @@
         <v-container class="display_desktop">
             <v-row justify="center" no-gutters>
                 <v-col cols="12" md="5" sm="5">
-                    <v-card v-if="!file_upload" class="col1__border" height="600px" flat>
+                    <v-card v-if="file_uploadx" class="col1__border" height="600px" flat>
                         <label class="fileupload__btn" for="chooseFile">파일 업로드</label>
                         <v-file-input v-if="language === '한국어'" id="chooseFile" class="file__upload"
                             :accept="acceptFiles" outlined rounded multiple @change="uploadFile" />
@@ -35,12 +35,21 @@
                             번역하기
                         </v-btn>
                     </v-card>
-
+                    <v-card v-if="file_download" class="col1__border" height="600px" flat>
+                        <div class="col2__box">
+                            번역전..
+                        </div>
+                    </v-card>
                 </v-col>
                 <v-col cols="12" md="5" sm="5">
-                    <v-card class="col2__border" height="600px" flat>
+                    <v-card v-if="!file_download" class="col2__border" height="600px" flat>
                         <div class="col2__box">
                             더 정확한 번역을 원하신다면<br> 번역 의뢰를 요청하세요.
+                        </div>
+                    </v-card>
+                    <v-card v-if="file_download" class="col2__border" height="600px" flat>
+                        <div class="col2__box">
+                            번역후..
                         </div>
                     </v-card>
                 </v-col>
@@ -69,11 +78,19 @@
                             >
                             </v-select>
                         </div>
-                        <div class="down__req__box">
-                            <v-btn class="down__req__btn" color="#BBB8B8" height="40px" outlined depressed block>
+                        <div v-if="!file_download" class="down__req__box">
+                            <v-btn class="down__req__btn" color="#BBB8B8" height="40px" outlined depressed block >
                                 다운로드
                             </v-btn>
                             <v-btn class="down__req__btn" color="#BBB8B8" height="40px" outlined depressed block>
+                                번역 의뢰
+                            </v-btn>
+                        </div>
+                        <div v-if="file_download" class="down__req__box">
+                            <v-btn class="down__req__btn" color="#383981" height="40px" outlined depressed block :href="'http://localhost:3085' + '/extract/download/'+this.transfile_name" download>
+                                다운로드
+                            </v-btn>
+                            <v-btn class="down__req__btn" color="#383981" height="40px" outlined depressed block>
                                 번역 의뢰
                             </v-btn>
                         </div>
@@ -147,14 +164,14 @@
                             width: 60%;
                             border: 2px solid #383981;
                             text-align: center;
-                            background-color: #F6F8FC;
+                            background-color: #F6F8FC
                             ">
                                 <v-icon class="text-h4" style="padding-top: 20px;">mdi-file-upload</v-icon>
                                 <div style="font-size: 12;">
-                                    {{ this.file_naem }}
+                                    {{ this.file_name }}
                                 </div>
                                 <div style="font-size: 10;padding-bottom: 20px;">
-                                    {{ this.file_naem }}
+                                    {{ this.file_name }}
                                 </div>
                             </div>
                             <v-btn>
@@ -400,7 +417,6 @@
 // 스타일 제작 순서 - 레이아웃 -> 페이지 -> 컴포넌트
 // figma 사이트 이용해서 디자인 시안 올려요 -> 나한테 보고해라 카톡으로
 import _ from 'lodash';
-import JSZip from 'jszip';
 
 export default {
     layout: "TestLayout",
@@ -415,24 +431,28 @@ export default {
             from_lang: '',
             from_code: 'ko',
             to_lang: '',
-            to_code: 'zh-chs',
+            to_code: 'en',
             from_text: '',
-            acceptFiles: '.txt,.pdf,.docx',
+            acceptFiles: '.txt,.pdf,.docx, .xml',
             test_file: '',
             from_file_lang: '',
             to_file_lang: '',
             from_file_code: '',
             to_file_code: '',
             file_text: '',
-            file_naem: 'dkahffk',
+            file_name: '',
+            transfile_name: '',
+            file_uploadx: true,
             file_upload: false,
+            file_download: false,
+            trans_docx_file: '',
         }
     },
     created() {
         this.from_lang = this.language === '한국어' ? '한국어' : 'Korean';
         this.to_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
         this.from_file_lang = this.language === '한국어' ? '한국어' : 'Korean';
-        this.to_file_lang = this.language === '한국어' ? '중국어(간체)' : 'Chinese(Simplified)';
+        this.to_file_lang = this.language === '한국어' ? '영어' : 'English';
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
@@ -533,52 +553,11 @@ export default {
                 } else {
                     this.test_file = file;
                     this.file_upload = !this.file_upload;
-                    // const filename = '' + this.test_file[0].name;
-                    // console.log(filename)
-                    // this.file_upload = !this.file_upload;
-                    // const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
-                    // this.file_len = file;
-                    // console.log(ext);
-                    // console.log(this.test_file)
-                    // console.log(this.test_file[0].name)
-
-                    // switch (ext) {
-                    //     case 'txt':
-                    //         // 텍스트 파일
-                    //         this.$nuxt.$loading.start();
-                    //         let txt_text = await this.test_file[0].text();
-                    //         const txtResponse = await this.$store.dispatch('manager/Test', {
-                    //             from: this.from_file_code,
-                    //             to: this.to_file_code,
-                    //             text: txt_text,
-                    //             returnValue: true,
-                    //         });
-                    //         this.$nuxt.$loading.finish();
-                    //         this.file_text = txtResponse;
-                    //         break;
-                    //     case 'docx':
-                    //         // 워드 파일
-                    //         const docxResponse = await this.$store.dispatch('manager/textExtract', { 
-                    //           file: this.test_file, 
-                    //           to: this.to_file_code,
-                    //         });
-                    //         console.log(docxResponse);
-                    //         break;
-                    //     case 'pdf':
-                    //         // pdf 파일
-                    //         this.$nuxt.$loading.start();
-                    //         const pdfResponse = await this.$store.dispatch('manager/textExtract', {
-                    //             from: this.from_file_code,
-                    //             to: this.to_file_code,
-                    //             file: this.test_file,
-                    //         });
-                    //         this.$nuxt.$loading.finish();
-                    //         //console.log(pdfResponse);
-                    //         this.file_text = pdfResponse;
-                    //         break;
-                    //     default:
-                    //         break;
-                    // }
+                    this.file_uploadx = !this.file_uploadx;
+                    this.file_name = this.test_file[0].name;
+                    console.log(this.test_file);
+                    console.log(this.test_file.data);
+                    
                 }
             } else {
                 this.file_text = '';
@@ -589,16 +568,18 @@ export default {
             this.file_text = '';
             this.test_file = '';
             this.file_upload = !this.file_upload;
+            this.file_uploadx = !this.file_uploadx;
         },
         async translateFile() {
             const filename = '' + this.test_file[0].name;
             console.log(filename)
             this.file_upload = !this.file_upload;
+            this.file_download = !this.file_download;
             const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
             
-            console.log(ext);
-            console.log(this.test_file)
-            console.log(this.test_file[0].name)
+            // console.log(ext);
+            // console.log(this.test_file)
+            // console.log(this.test_file[0].name)
 
             switch (ext) {
                 case 'txt':
@@ -618,43 +599,22 @@ export default {
                     break;
                 case 'docx':
                     // 워드 파일
-                    const fileReader = new FileReader();
-                    const jsZip = new JSZip();
-                    fileReader.readAsBinaryString(this.test_file[0]);
-                    //fileReader.readAsText(this.test_file[0]);
-                    const xmlFile = '';
-                    const xmldata = [];
-                    fileReader.onload = function(e) {
-                        try {
-                            //const xmlData = JSZip.loadAsync(e.target.result).then((zip) =>{ console.log(zip); const data = zip.file('word/document.xml').async("string"); console.log(data)});
-                            JSZip.loadAsync(e.target.result).then((zip) =>{ 
-                                console.log(zip);
-                                zip.file('word/document.xml').async("base64").then(
-                                    function(stringText) {
-                                        // console.log(stringText);
-                                        xmldata.push(stringText);
-                                        // data[1] = data[0];
-                                        // console.log("test\n"+data[1]);
+                    const originFileName = this.file_name.substring(0, this.file_name.length-5);
+                    this.transfile_name = originFileName + "(" + this.to_file_code + ").docx";
 
-                                        // xmlFile = new File(data, "hello.xml", {type: 'text/plain'});
-                                        // console.log(xmlFile);
-                                    }
-                                )
-                            });
-                        } catch (err) {
-                            console.error(err);
-                        }                       
-                    }
-                    
-
-                    // const data = await zip.file('word/document.xml').async("string");
-                    // console.log(data);
-                    const docxResponse = await this.$store.dispatch('manager/textExtract', { 
+                    this.$nuxt.$loading.start();
+                    let docxResponse = await this.$store.dispatch('manager/textExtract', { 
                         file: this.test_file, 
+                        from: this.from_file_code,
                         to: this.to_file_code,
-                        data: xmldata,
+                        name: this.test_file[0].name,
                     });
-                    console.log(docxResponse);
+                    this.$nuxt.$loading.finish();
+                    
+                    this.trans_docx_file = docxResponse;
+                    console.log(this.trans_docx_file);
+                    console.log(this.trans_docx_file.data);
+
                     break;
                 case 'pdf':
                     // pdf 파일
@@ -671,7 +631,7 @@ export default {
                 default:
                     break;
             }
-        },
+        }, 
     }
 }
 </script>

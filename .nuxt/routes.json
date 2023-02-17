@@ -3,162 +3,189 @@
     "name": "admin",
     "path": "/admin",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index"
+    "chunkName": "pages/admin/index",
+    "_name": "_d23a8f4e"
   },
   {
     "name": "apitest",
     "path": "/apitest",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\apitest.vue",
-    "chunkName": "pages/apitest"
+    "chunkName": "pages/apitest",
+    "_name": "_286ef766"
   },
   {
     "name": "designtest",
     "path": "/designtest",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\designtest.vue",
-    "chunkName": "pages/designtest"
+    "chunkName": "pages/designtest",
+    "_name": "_1c6704f4"
   },
   {
     "name": "dev",
     "path": "/dev",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\index.vue",
-    "chunkName": "pages/dev/index"
+    "chunkName": "pages/dev/index",
+    "_name": "_58ed8f53"
   },
   {
     "name": "user",
     "path": "/user",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\user\\\\index.vue",
-    "chunkName": "pages/user/index"
+    "chunkName": "pages/user/index",
+    "_name": "_5962d661"
   },
   {
     "name": "admin-main",
     "path": "/admin/main",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\main.vue",
-    "chunkName": "pages/admin/main"
+    "chunkName": "pages/admin/main",
+    "_name": "_3766a402"
   },
   {
     "name": "admin-mgAPI",
     "path": "/admin/mgAPI",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\mgAPI.vue",
-    "chunkName": "pages/admin/mgAPI"
+    "chunkName": "pages/admin/mgAPI",
+    "_name": "_a233eab2"
   },
   {
     "name": "admin-mgRequest",
     "path": "/admin/mgRequest",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\mgRequest.vue",
-    "chunkName": "pages/admin/mgRequest"
+    "chunkName": "pages/admin/mgRequest",
+    "_name": "_78d87bc8"
   },
   {
     "name": "admin-mgToken",
     "path": "/admin/mgToken",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\mgToken.vue",
-    "chunkName": "pages/admin/mgToken"
+    "chunkName": "pages/admin/mgToken",
+    "_name": "_f2774474"
   },
   {
     "name": "admin-mgUser",
     "path": "/admin/mgUser",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\admin\\\\mgUser.vue",
-    "chunkName": "pages/admin/mgUser"
+    "chunkName": "pages/admin/mgUser",
+    "_name": "_8b5bbee4"
   },
   {
     "name": "text-doctran",
     "path": "/text/doctran",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\text\\\\doctran.vue",
-    "chunkName": "pages/text/doctran"
+    "chunkName": "pages/text/doctran",
+    "_name": "_099124e0"
   },
   {
     "name": "text-info",
     "path": "/text/info",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\text\\\\info.vue",
-    "chunkName": "pages/text/info"
+    "chunkName": "pages/text/info",
+    "_name": "_0219ef5e"
   },
   {
     "name": "text-reqstate",
     "path": "/text/reqstate",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\text\\\\reqstate.vue",
-    "chunkName": "pages/text/reqstate"
+    "chunkName": "pages/text/reqstate",
+    "_name": "_a9b84b54"
   },
   {
     "name": "text-request",
     "path": "/text/request",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\text\\\\request.vue",
-    "chunkName": "pages/text/request"
+    "chunkName": "pages/text/request",
+    "_name": "_f0566488"
   },
   {
     "name": "text-textmain",
     "path": "/text/textmain",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\text\\\\textmain.vue",
-    "chunkName": "pages/text/textmain"
+    "chunkName": "pages/text/textmain",
+    "_name": "_135ef689"
   },
   {
     "name": "user-signup",
     "path": "/user/signup",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\user\\\\signup.vue",
-    "chunkName": "pages/user/signup"
+    "chunkName": "pages/user/signup",
+    "_name": "_eac2bace"
   },
   {
     "name": "video-filetrack",
     "path": "/video/filetrack",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\video\\\\filetrack.vue",
-    "chunkName": "pages/video/filetrack"
+    "chunkName": "pages/video/filetrack",
+    "_name": "_867717ac"
   },
   {
     "name": "video-info",
     "path": "/video/info",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\video\\\\info.vue",
-    "chunkName": "pages/video/info"
+    "chunkName": "pages/video/info",
+    "_name": "_1e5a0aa3"
   },
   {
     "name": "video-realtrack",
     "path": "/video/realtrack",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\video\\\\realtrack.vue",
-    "chunkName": "pages/video/realtrack"
+    "chunkName": "pages/video/realtrack",
+    "_name": "_14509648"
   },
   {
     "name": "voice-info",
     "path": "/voice/info",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\voice\\\\info.vue",
-    "chunkName": "pages/voice/info"
+    "chunkName": "pages/voice/info",
+    "_name": "_31c99e9a"
   },
   {
     "name": "dev-api-translate-text",
     "path": "/dev/api/translate-text",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\api\\\\translate-text.vue",
-    "chunkName": "pages/dev/api/translate-text"
+    "chunkName": "pages/dev/api/translate-text",
+    "_name": "_735778a7"
   },
   {
     "name": "dev-enterprise-about",
     "path": "/dev/enterprise/about",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\enterprise\\\\about.vue",
-    "chunkName": "pages/dev/enterprise/about"
+    "chunkName": "pages/dev/enterprise/about",
+    "_name": "_3cf7cce6"
   },
   {
     "name": "dev-enterprise-token-issue",
     "path": "/dev/enterprise/token-issue",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\enterprise\\\\token-issue.vue",
-    "chunkName": "pages/dev/enterprise/token-issue"
+    "chunkName": "pages/dev/enterprise/token-issue",
+    "_name": "_24844405"
   },
   {
     "name": "dev-enterprise-usage-check",
     "path": "/dev/enterprise/usage-check",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\enterprise\\\\usage-check.vue",
-    "chunkName": "pages/dev/enterprise/usage-check"
+    "chunkName": "pages/dev/enterprise/usage-check",
+    "_name": "_d65fbb48"
   },
   {
     "name": "dev-platform-about",
     "path": "/dev/platform/about",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\platform\\\\about.vue",
-    "chunkName": "pages/dev/platform/about"
+    "chunkName": "pages/dev/platform/about",
+    "_name": "_f50da90a"
   },
   {
     "name": "dev-platform-text-translation",
     "path": "/dev/platform/text-translation",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\dev\\\\platform\\\\text-translation.vue",
-    "chunkName": "pages/dev/platform/text-translation"
+    "chunkName": "pages/dev/platform/text-translation",
+    "_name": "_0642aa93"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\hee99\\\\Desktop\\\\git\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_44d4dc0c"
   }
 ]

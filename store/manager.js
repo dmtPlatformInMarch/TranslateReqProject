@@ -87,21 +87,27 @@ export const actions = {
         const ext = filename.substring(filename.lastIndexOf('.') + 1, filename.length).toLowerCase();
         let fileExtract = '';
         console.log("확장자 : " + ext);
+        
         try {
             if (ext === 'docx') {
                 const formdata = new FormData();
                 formdata.append('extFile', payload.file[0]);
-                // console.log(formdata.getAll('extFile'));
-                console.log("check");
-                console.log(payload.data);
+                formdata.append('fromCode', payload.from);
+                formdata.append('toCode', payload.to);
+                formdata.append('name', payload.name);
+
+                //formdata.append('xmlFile', payload.xmlfile);
+
                 const docxres = await this.$axios.post('/extract/docx', formdata, {
                     headers: {
                         "Content-Type": "multipart/form-data"
                     },
                 });
-                return docxres.data;
+                console.log(docxres);
+                return docxres;
             } else if (ext === 'pdf') {
                 const formdata = new FormData();
+                
                 formdata.append('extFile', payload.file);
                 const pdfres = await this.$axios.post('/extract/pdf', formdata, { progress: false });
                 if (pdfres.status === 400) {
@@ -138,5 +144,13 @@ export const actions = {
         } catch (err) {
             console.log(err);
         }
+    },
+
+    async download({}, payload) {
+        const fileObject = await this.$axios.post('/extract/download', {
+            name: payload.name,
+        });
+        console.log(payload.name);
+        return fileObject;
     }
 }
